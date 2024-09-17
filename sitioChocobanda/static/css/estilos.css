@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+    font-family: 'Jokerman';
+    src: url('../fonts/JokermanStd.otf') format('opentype');
+  }
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color: #f1e7c8;
+}
+footer{
+    color: #f1e7c8;
+    padding: 15px;
+    background-color: #8c4a2f;
+    border-radius: 12% 12% 0px 0px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+footer a{
+    color: #f1e7c8;
+}
+ul li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
