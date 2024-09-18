@@ -1,13 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @font-face {
-    font-family: 'Jokerman';
     src: url('../fonts/JokermanStd.otf') format('opentype');
+    font-family: 'Jokerman';
   }
 *{
     margin: 0;
     padding:0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', serif;
+}
+.titulo{
+    font-family: 'Jokerman', serif;
+    color: #f1e7c8;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #8c4a2f;
+}
+.nav-list{
+    display: flex;
+    gap: 1rem;
+}
+.nav-list li a{
+    text-decoration: none;
+    color: #f1e7c8;
+}
+.abrir-menu,
+.cerrar-menu{
+    display: none;
+}
+@media screen and (max-width: 650px) {
+    .abrir-menu,
+    .cerrar-menu{
+        display: block;
+        border: 0;
+        background-color: transparent;
+        color: #f1e7c8;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    .cerrar-menu{
+        margin-right: 2rem;
+    }
+
+    .nav{
+        opacity: 0;
+        width: 9.375rem;
+        visibility: hidden;
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        align-items: end;
+        gap: 2rem;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #8c4a2f;
+        padding: 2rem 0 0 2rem;
+        box-shadow: 0 0 0 100vmax rgba(140, 74, 47, .3);
+    }
+    .nav ul li a{
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        
+    }
+    .nav.visible{
+        opacity: 1;
+        visibility: visible;
+        margin: 0;
+    }
+    .nav-list{
+        flex-direction: column;
+        align-items: end; 
+    }
+    /*.nav.visible ul li a{
+        display: block;
+    }*/
+    .nav.visible ul li a:hover{
+        background-color: #f1e7c8;
+        color: #8c4a2f;
+        padding: 0 0.5rem 0 0.5rem;
+       border-radius: 10px 0 0 10px;
+       transform: scale(1.1);
+       
+    }
+
 }
 
 body{
@@ -30,4 +111,7 @@ ul li{
 }
 a{
     text-decoration: none;
+}
+nav{
+    display: inline;
 }
