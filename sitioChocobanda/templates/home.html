@@ -19,24 +19,42 @@
         <div class="descripcion">
             <p>Acercándonos a los niños y sus familias a través del arte, creando lazos afectivos y apoyando a quienes mas lo necesitan</p>
         </div>
-        <div class="titulo-bloques">
+        <section class="agenda-section">
             <h1>Agenda</h1>
-            <div class="funcion">
-                {%block funciones%}
-                <div>blcok</div>
-                {%endblock%} <!-- Falta poner las funciones con django -->
+            <div class="proxima-funcion">
+                <h2 class="dia-funcion">{% block dia_funcion %}22{% endblock %}</h2>
+                <h2 class="mes-funcion">{% block mes_funcion %}Octubre{% endblock %}</h2>
+                <h3 class="nombre-funcion">{% block nombre_funcion %}Funcion de Gala{% endblock %}</h3>
+                <h3 class="hora-funcion">{% block hora_funcion %}20:00{% endblock %}</h3>
+                <h3 class="lugar-funcion">{% block lugar_funcion %}Teatro Colon{% endblock %}</h3>
             </div>
-        </div>
-        <div class="titulo-bloques">
+
+            <div class="funciones">
+                <h2 class="dia-funcion2">{% block dia_funcion2 %}22{% endblock %}</h2>
+                <h2 class="mes-funcion2">{% block mes_funcion2 %}Octubre{% endblock %}</h2>
+                <h3 class="nombre-funcion2">{% block nombre_funcion2 %}Funcion de Gala{% endblock %}</h3>
+                <h3 class="hora-funcion2">{% block hora_funcion2 %}20:00{% endblock %}</h3>
+                <h3 class="lugar-funcion2">{% block lugar_funcion2 %}Teatro Colon{% endblock %}</h3>    
+            </div>
+            <div class="funciones">
+                <h2 class="dia-funcion3">{% block dia_funcion3 %}22{% endblock %}</h2>
+                <h2 class="mes-funcion3">{% block mes_funcion3 %}Octubre{% endblock %}</h2>
+                <h3 class="nombre-funcion3">{% block nombre_funcion3 %}Funcion de Gala{% endblock %}</h3>
+                <h3 class="hora-funcion3">{% block hora_funcion3 %}20:00{% endblock %}</h3>
+                <h3 class="lugar-funcion3">{% block lugar_funcion3 %}Teatro Colon{% endblock %}</h3>    
+            </div>
+        </section>
+        <section class="novedades-section">
             <h1>Novedades</h1>
             <div class="novedad">
-                {%block novedades%} {%endblock%} <!-- Falta poner las novedades con django -->
+             <!-- Falta poner las novedades con django -->
             </div>
-        </div>
+            <p>Ver todas las novedades</p>
+        </section>
         <div class="redes">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.instagram.com/chocobandamdq/"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/@chocobandamdq3701"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/chocobanda.mdq/?locale=eo_EO&_rdr"><i class="bi bi-facebook"></i></a>
         </div>
         {%endblock%}
     </body>
