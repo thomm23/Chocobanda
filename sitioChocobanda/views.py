@@ -7,4 +7,4 @@ class PaginaPrincipal(View):
         context={
 
         }
-        return render(request,'base.html',context)
+        return render(request,'home.html',context)

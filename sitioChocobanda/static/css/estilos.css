@@ -32,7 +32,7 @@ header{
 .cerrar-menu{
     display: none;
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 768px) {
     .abrir-menu,
     .cerrar-menu{
         display: block;
@@ -114,4 +114,31 @@ a{
 }
 nav{
     display: inline;
+}
+
+.foto-principal img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px 0px 10% 10%;
+    box-shadow: 0 10px 10px -10px rgba(139, 69, 19, 0.9);
+    /*box-shadow mejorable*/
+
+}
+
+.descripcion p{
+    font-size: 32px;
+    text-align: center;
+    margin: 1rem;
+    margin-top: 1.5rem;
+}
+
+.titulo-bloques h1
+{
+    color: #8c4a2f;
+    margin: 1rem;
+}
+
+.redes a{
+    color: #4c6a2a;
+    font-size: 3rem;
 }

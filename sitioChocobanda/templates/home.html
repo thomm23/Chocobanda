@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css'%}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <title>{% block title %} Chocobanda - INICIO {% endblock %}</title>
+     </head>
+    <body>
+        {% block nombre_seccion %} Chocobanda {% endblock %}
+        {%block body%} 
+        <div class="foto-principal">
+            <img src="{% static 'img/foto-principal.jpg'%}" alt="Foto principal">
+        </div>
+        <div class="descripcion">
+            <p>Acercándonos a los niños y sus familias a través del arte, creando lazos afectivos y apoyando a quienes mas lo necesitan</p>
+        </div>
+        <div class="titulo-bloques">
+            <h1>Agenda</h1>
+            <div class="funcion">
+                {%block funciones%}
+                <div>blcok</div>
+                {%endblock%} <!-- Falta poner las funciones con django -->
+            </div>
+        </div>
+        <div class="titulo-bloques">
+            <h1>Novedades</h1>
+            <div class="novedad">
+                {%block novedades%} {%endblock%} <!-- Falta poner las novedades con django -->
+            </div>
+        </div>
+        <div class="redes">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+        </div>
+        {%endblock%}
+    </body>
+</html>

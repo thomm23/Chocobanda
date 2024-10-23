@@ -5,5 +5,5 @@ from sitioChocobanda.views import PaginaPrincipal
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', PaginaPrincipal.as_view(), name="Home")
+    path('', PaginaPrincipal.as_view(), name="home")
 ]
