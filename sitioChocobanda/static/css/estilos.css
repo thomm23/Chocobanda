@@ -1,25 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @font-face {
-    font-family: 'Jokerman';
     src: url('../fonts/JokermanStd.otf') format('opentype');
+    font-family: 'Jokerman';
   }
-*{
+  html, body {
     margin: 0;
-    padding:0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Montserrat', serif;
+    background-color: #f1e7c8;
+    display: flex;
+    flex-direction: column;
 }
 
-body{
-    background-color: #f1e7c8;
+::-webkit-scrollbar {
+    width: 8px;
 }
-footer{
+
+::-webkit-scrollbar-track {
+    background: #f1e7c8;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #8c4a2f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #e69151;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    flex: 1; 
+}
+
+.titulo{
+    font-family: 'Jokerman', serif;
+    color: #f1e7c8;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background-color: #8c4a2f;
+}
+
+.nav-list{
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-list li a{
+    text-decoration: none;
+    color: #f1e7c8;
+}
+
+.abrir-menu,
+.cerrar-menu{
+    display: none;
+}
+
+footer {
     color: #f1e7c8;
     padding: 15px;
     background-color: #8c4a2f;
-    border-radius: 12% 12% 0px 0px;
-    position: fixed;
-    bottom: 0;
+    border-radius: 12% 12% 0 0;
+    position: relative;
     width: 100%;
 }
 footer a{
@@ -30,4 +86,386 @@ ul li{
 }
 a{
     text-decoration: none;
+}
+nav{
+    display: inline;
+}
+
+.foto-principal img {
+    width: 100%;
+    height: 75vh;
+    border-radius: 0px 0px 10% 10%;
+    box-shadow: 0 10px 10px -10px rgba(139, 69, 19, 0.9);
+    object-position: bottom;
+    object-fit: cover;
+}
+
+.descripcion p {
+    font-size: 22px;
+    text-align: center;
+    margin: 2rem 1rem 1.5rem;
+    color: #8c4a2f;
+    font-weight: bold;
+}
+    
+.proxima-funcion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    padding: 2rem;
+    padding-right: 45%;
+    border-radius: 30px 0px 0 30px;
+    background-color: #8c4a2f;
+    flex-direction: row;
+}
+
+.proxima-funcion h2 {
+    color: #f1e7c8;
+    margin-right: 1rem;
+}
+
+.proxima-funcion h3 {
+    color: #f1e7c8;
+    text-align: center;
+    width: 100%;
+}
+
+.funciones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #f1e7c8;
+    flex-direction: row;
+    border-radius: 30px 0px 0 30px;
+    border: 2px solid green;
+    padding-right: 30%;
+}
+
+.funciones h2 {
+    color: #4c6a2a;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+}
+
+.funciones h3 {
+    color: #8c4a2f;
+    text-align: center;
+    width: 100%;
+}
+
+.agenda-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: -5%;
+}
+
+.agenda-section h1 {
+    color: #8c4a2f;
+    margin: 1rem;
+    align-self: flex-start;
+}
+
+.novedades-section h1{
+    color: #8c4a2f;
+    margin: 1rem;
+}
+
+.novedades-section p {
+    color: #4c6a2a;
+    margin: 1rem;
+    text-align: right;
+    font-weight: bold;
+}
+
+.redes a {
+    color: #4c6a2a;
+    font-size: 3rem;
+    margin: 0 1rem;
+}
+    
+.redes {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem;
+    padding-top: 8rem;
+}
+
+.nav ul li a:hover{
+    color: #8c4a2f;
+    padding: 0.2rem;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #f1e7c8;
+}
+
+.tabla-agenda-section {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-agenda-section td, .tabla-agenda-section th {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    padding-right: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+
+
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem;
+        background-color: #8c4a2f;
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+
+    .abrir-menu,
+    .cerrar-menu{
+        display: block;
+        border: 0;
+        background-color: transparent;
+        color: #f1e7c8;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    .cerrar-menu{
+        margin-right: 2rem;
+    }
+
+    .nav{
+        opacity: 0;
+        width: 70%;
+        visibility: hidden;
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        align-items: end;
+        gap: 2rem;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #8c4a2f;
+        padding: 2rem 0 0 2rem;
+        box-shadow: 0 0 0 100vmax rgba(140, 74, 47, .3);
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .nav ul li a{
+        font-size: 3rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .nav.visible{
+        opacity: 1;
+        visibility: visible;
+        margin: 0;
+    }
+
+    .nav-list{
+        padding-left: 20%;
+        flex-direction: column;
+        align-items: end; 
+        background-color: #8c4a2f;
+        width: 50%;
+        height: 100%;
+    }
+
+    .nav.visible ul li a:hover{
+        color: #8c4a2f;
+        padding: 0 0.5rem;
+        border-radius: 10px 0 0 10px;
+        transform: scale(1.1);
+        background-color: #f1e7c8;
+    }
+
+    body{
+        background-color: #f1e7c8;
+    }
+        
+    footer{
+        color: #f1e7c8;
+        padding: 15px;
+        background-color: #8c4a2f;
+        border-radius: 12% 12% 0 0;
+        width: 100%;
+        font-size: 13px;
+    }
+
+    footer a{
+        color: #f1e7c8;
+    }
+
+    ul li{
+        list-style: none;
+            
+    }
+    
+    a{
+        text-decoration: none;
+    }
+    
+    nav{
+        display: inline;
+    }
+
+    .foto-principal {
+        display: flex;
+    }
+
+    .foto-principal img {
+        width: 100%;
+        height: 50vh;
+        border-radius: 0px 0px 10% 10%;
+        box-shadow: 0 10px 10px -10px rgba(139, 69, 19, 0.9);
+    }
+
+    .descripcion p {
+        font-size: 22px;
+        text-align: center;
+        margin: 2rem 1rem 1.5rem;
+        color: #8c4a2f;
+        font-weight: bold;
+    }
+    
+    .tabla-agenda-section {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .tabla-agenda-section td, .tabla-agenda-section th {
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        padding-right: 3rem;
+    }
+
+    .proxima-funcion {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem;
+        padding: 2rem;
+        padding-right: 30%;
+        border-radius: 30px 0px 0 30px;
+        background-color: #8c4a2f;
+        flex-direction: row;
+    }
+
+    .proxima-funcion h2 {
+        color: #f1e7c8;
+        margin-right: 1rem;
+    }
+
+    .proxima-funcion h3 {
+        color: #f1e7c8;
+        text-align: center;
+        width: 100%;
+    }
+
+    .funciones {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem;
+        padding: 2rem;
+        border-radius: 10px;
+        padding-right: 15%;
+        background-color: #f1e7c8;
+        flex-direction: row;
+        border-radius: 30px 0px 0 30px;
+        border: 2px solid green;
+    }
+
+    .funciones h2 {
+        color: #4c6a2a;
+        display: flex;
+        flex-direction: column;
+        margin-right: 1rem;
+    }
+
+    .funciones h3 {
+        color: #8c4a2f;
+        text-align: center;
+        width: 100%;
+    }
+
+    .agenda-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-right: -5%;
+    }
+
+    .agenda-section h1 {
+        color: #8c4a2f;
+        margin: 1rem;
+        align-self: flex-start;
+    }
+
+    .novedades-section h1{
+        color: #8c4a2f;
+        margin: 1rem;
+    }
+
+    .novedades-section p {
+        color: #4c6a2a;
+        margin: 1rem;
+        text-align: right;
+        font-weight: bold;
+    }
+
+    .redes a {
+        color: #4c6a2a;
+        font-size: 3rem;
+        margin: 0 1rem;
+    }
+        
+    .redes {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem;
+        padding-top: 8rem;
+    }
+
+    .tabla-novedades img {
+        height: 20rem;
+        width: 25rem;
+        padding: 0;
+    }
+    
+    .tabla-novedades td {
+        background-color: #8c4a2f;
+        color: #d2b48c;
+        text-align: left;
+        margin: 0;
+    }
+    
+    .tabla-novedades {
+        border-radius: 10px;
+        margin-left: 10%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        border-spacing: 0;
+        border: 0px;
+    }
+
+
+
 }
