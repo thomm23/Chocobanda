@@ -71,12 +71,14 @@ header{
 }
 
 footer {
+
     color: #f1e7c8;
     padding: 15px;
     background-color: #8c4a2f;
     border-radius: 12% 12% 0 0;
     position: relative;
     width: 100%;
+
 }
 footer a{
     color: #f1e7c8;
@@ -90,6 +92,12 @@ a{
 nav{
     display: inline;
 }
+
+/* estilos galeria */
+
+
+
+/* fin estilos galeria */
 
 .foto-principal img {
     width: 100%;
@@ -247,6 +255,12 @@ nav{
     .cerrar-menu{
         margin-right: 2rem;
     }
+
+    /* estilos galeria */
+
+    
+
+    /* fin estilos galeria */
 
     .nav{
         opacity: 0;

@@ -8,3 +8,8 @@ class PaginaPrincipal(View):
 
         }
         return render(request,'home.html',context)
+    
+class Galeria(View):
+    def get(self, request):
+        context = {}
+        return render(request, 'galeria.html', context)
