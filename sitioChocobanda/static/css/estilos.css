@@ -76,7 +76,7 @@ footer {
     padding: 15px;
     background-color: #8c4a2f;
     border-radius: 12% 12% 0 0;
-    position: relative;
+    margin-top: auto;
     width: 100%;
 
 }
