@@ -4,7 +4,7 @@
  <html lang="es">
  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos-galeria.css'%}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -14,8 +14,8 @@
  <body>
   {% block nombre_seccion %} Galería {% endblock %}
   {%block body%} 
-  
-<div class="galeria-dropdown-obras">
+
+<div>
     <select class="galeria-obras">
         <option>Todas las obras</option>
         <option>Obra 1</option>
@@ -23,7 +23,8 @@
         <option>Obra 3</option>
     </select>
 </div>
-<div class="galeria-dropdown-fechas">
+
+<div>
     <select class="galeria-fechas">
         <option>Todas las fechas</option>
         <option>Fecha 1</option>
@@ -32,6 +33,6 @@
     </select>
 </div>
   
-  {%endblock%}
+ {%endblock%}
   </body>
 </html>
