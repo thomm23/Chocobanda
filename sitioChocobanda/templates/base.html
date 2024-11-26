@@ -1,4 +1,3 @@
-
 {% load static %}
  <!DOCTYPE html>
  <html lang="es">
@@ -7,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css'%}">
+    {% block estilos %} {% endblock %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-  
+
     <title>{% block title %} Chocobanda {% endblock %}</title>
  </head>
  <body>
@@ -58,37 +58,7 @@
         nav.classList.remove("visible");
       })
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script>
-        new Swiper('.card-wrapper', {
-            // Optional parameters
-            loop: true,
-            spaceBetween: 30,
-
-            // If we need pagination
-            pagination: {
-            el: '.swiper-pagination',
-            clickable :true,
-            dynamicBullets: true
-            },
-        
-            // Navigation arrows
-            navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-            },
-            breakpoints : {
-                0: {
-                    slidesPerView: 1
-                },
-                768: {
-                    slidesPerView: 2
-                },
-                1024: {
-                    slidesPerView: 3
-                }
-            }
-  });
-    </script>
+    {% block script %} 
+    {% endblock %}
   </body>
 </html>
