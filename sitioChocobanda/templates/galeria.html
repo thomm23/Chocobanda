@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block estilos %} <link rel="stylesheet" type="text/css" href="{% static 'css/estilos-galeria.css'%}"> {% endblock %}
+{% block title %} Chocobanda - GALERIA {% endblock %}
+{% block nombre_seccion %} Galería {% endblock %}
+{% block content %} 
+
+<div class="selector">
+    <select class="galeria-obras">
+        <option>Todas las obras</option>
+        <option>Obra 1</option>
+        <option>Obra 2</option>
+        <option>Obra 3</option>
+    </select>
+</div>
+
+<div class="selector">
+    <select class="galeria-fechas">
+        <option>Todas las fechas</option>
+        <option>Fecha 1</option>
+        <option>Fecha 2</option>
+        <option>Fecha 3</option>
+    </select>
+</div>
+
+{% endblock %}

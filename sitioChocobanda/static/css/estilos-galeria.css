@@ -1,0 +1,28 @@
+.selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.galeria-obras, .galeria-fechas {
+    font-size: 16px;
+    color: #3b6021; /*Color verde del texto */
+    background-color: #f1e7c8;
+    border: 2px solid #3b6021; /* Borde verde */
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    /*appearance: none; /* Elimina estilos por defecto */
+    outline: none;
+    width: 200px;
+    transition: border-color 0.3s ease;
+}
+
+.galeria-obras, .galeria-fechas:hover {
+    border-color: #5a8231; /* Cambia el color del borde al pasar el mouse */
+}
+
+.galeria-obras, .galeria-fechas:focus {
+    border-color: #2f501a; /* Cambia el color del borde al seleccionar */
+}
+
