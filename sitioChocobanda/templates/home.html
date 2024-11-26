@@ -1,125 +1,115 @@
 {% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css'%}">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-        <title>{% block title %} Chocobanda - INICIO {% endblock %}</title>
-     </head>
-    <body>
-        {% block nombre_seccion %} Chocobanda {% endblock %}
-        {%block body%} 
-        <div class="foto-principal">
-            <img src="{% static 'img/foto-principal.jpg'%}" alt="Foto principal">
-        </div>
-        <div class="descripcion">
-            <p>Acercándonos a los niños y sus familias a través del arte, creando lazos afectivos y apoyando a quienes mas lo necesitan</p>
-        </div>
-        <section class="agenda-section">
-            <h1>Agenda</h1>
-            <div class="proxima-funcion">
-            <table class="tabla-agenda-section">
-                <tr>
-                <td>
-                    <h2 class="dia-funcion">{% block dia_funcion %}22{% endblock %}</h2>
-                    <h2 class="mes-funcion">{% block mes_funcion %}Octubre{% endblock %}</h2>
-                </td>
-                <td>
-                    <h3 class="nombre-funcion">{% block nombre_funcion %}Funcion de Gala{% endblock %}</h3>
-                    <h3 class="hora-funcion">{% block hora_funcion %}20:00{% endblock %}</h3>
-                    <h3 class="lugar-funcion">{% block lugar_funcion %}Teatro Colon{% endblock %}</h3>
-                </td>
-                </tr>
-            </table>
-            </div>
+{% block title %} Chocobanda - INICIO {% endblock %}
 
-            <div class="funciones">
-            <table class="tabla-agenda-section">
-                <tr>
-                <td>
-                    <h2 class="dia-funcion2">{% block dia_funcion2 %}22{% endblock %}</h2>
-                    <h2 class="mes-funcion2">{% block mes_funcion2 %}Octubre{% endblock %}</h2>
-                </td>
-                <td>
-                    <h3 class="nombre-funcion2">{% block nombre_funcion2 %}Funcion de Gala{% endblock %}</h3>
-                    <h3 class="hora-funcion2">{% block hora_funcion2 %}20:00{% endblock %}</h3>
-                    <h3 class="lugar-funcion2">{% block lugar_funcion2 %}Teatro Colon{% endblock %}</h3>
-                </td>
-                </tr>
-            </table>
-            </div>
+{%block content%}
 
-            <div class="funciones">
-            <table class="tabla-agenda-section">
-                <tr>
-                <td>
-                    <h2 class="dia-funcion3">{% block dia_funcion3 %}22{% endblock %}</h2>
-                    <h2 class="mes-funcion3">{% block mes_funcion3 %}Octubre{% endblock %}</h2>
-                </td>
-                <td>
-                    <h3 class="nombre-funcion3">{% block nombre_funcion3 %}Funcion de Gala{% endblock %}</h3>
-                    <h3 class="hora-funcion3">{% block hora_funcion3 %}20:00{% endblock %}</h3>
-                    <h3 class="lugar-funcion3">{% block lugar_funcion3 %}Teatro Colon{% endblock %}</h3>
-                </td>
-                </tr>
-            </table>
-            </div>
-        </section>
-        <section class="novedades-section">
-            <h1>Novedades</h1>
-            <div class="novedad">
-                <table class="tabla-novedades">
-                    <tr>
-                        <td>
-                            <img src="{% static 'img/novedad.jpg' %}" alt="Novedad Imagen">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h4 class="fecha-novedad">Título de la Novedad</h4>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h2 class="titulo-novedad">Subtítulo de la Novedad</h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h3 class="detalle-novedad">Fecha de la Novedad</h3>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+<div class="foto-principal">
+    <img src="{% static 'img/foto-principal.jpg'%}" alt="Foto principal">
+</div>
+<div class="descripcion">
+    <p>Acercándonos a los niños y sus familias a través del arte, creando lazos afectivos y apoyando a quienes mas lo necesitan</p>
+</div>
 
-            <!-- Carrousel Novedades-->
-             <div class="container">
-                <div class="card-wrapper">
-                    <ul class="card-list">
-                        <li class="card-item">
-                            <img src="" alt="" class="card-img">
-                            <div class="card-text">
-                                <p class="date">
-                                    FECHA
-                                </p>
-                                <h3 class="card-title">TITULO</h3>
-                                <p class="card-desc">DESCRIPCION</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-             </div>
-            <p>Ver todas las novedades</p>
-        </section>
-        <div class="redes">
-            <a href="https://www.instagram.com/chocobandamdq/"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.youtube.com/@chocobandamdq3701"><i class="bi bi-youtube"></i></a>
-            <a href="https://www.facebook.com/chocobanda.mdq/?locale=eo_EO&_rdr"><i class="bi bi-facebook"></i></a>
+<section class="agenda-section">
+    <h1>Agenda</h1>
+    <div class="proxima-funcion">
+    <table class="tabla-agenda-section">
+        <tr>
+        <td>
+            <h2 class="dia-funcion">{% block dia_funcion %}22{% endblock %}</h2>
+            <h2 class="mes-funcion">{% block mes_funcion %}Octubre{% endblock %}</h2>
+        </td>
+        <td>
+            <h3 class="nombre-funcion">{% block nombre_funcion %}Funcion de Gala{% endblock %}</h3>
+            <h3 class="hora-funcion">{% block hora_funcion %}20:00{% endblock %}</h3>
+            <h3 class="lugar-funcion">{% block lugar_funcion %}Teatro Colon{% endblock %}</h3>
+        </td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="funciones">
+    <table class="tabla-agenda-section">
+        <tr>
+        <td>
+            <h2 class="dia-funcion2">{% block dia_funcion2 %}22{% endblock %}</h2>
+            <h2 class="mes-funcion2">{% block mes_funcion2 %}Octubre{% endblock %}</h2>
+        </td>
+        <td>
+            <h3 class="nombre-funcion2">{% block nombre_funcion2 %}Funcion de Gala{% endblock %}</h3>
+            <h3 class="hora-funcion2">{% block hora_funcion2 %}20:00{% endblock %}</h3>
+            <h3 class="lugar-funcion2">{% block lugar_funcion2 %}Teatro Colon{% endblock %}</h3>
+        </td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="funciones">
+    <table class="tabla-agenda-section">
+        <tr>
+        <td>
+            <h2 class="dia-funcion3">{% block dia_funcion3 %}22{% endblock %}</h2>
+            <h2 class="mes-funcion3">{% block mes_funcion3 %}Octubre{% endblock %}</h2>
+        </td>
+        <td>
+            <h3 class="nombre-funcion3">{% block nombre_funcion3 %}Funcion de Gala{% endblock %}</h3>
+            <h3 class="hora-funcion3">{% block hora_funcion3 %}20:00{% endblock %}</h3>
+            <h3 class="lugar-funcion3">{% block lugar_funcion3 %}Teatro Colon{% endblock %}</h3>
+        </td>
+        </tr>
+    </table>
+    </div>
+</section>
+    <div class="container-novedades swiper">
+        <div class="card-wrapper">
+            <ul class="card-list swiper-wrapper">
+                <li class="card-item swiper-slide">
+                    <a href="#" class="card-link">
+                        <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                        <div class="card-text">
+                            <p class="date">fecha</p>
+                            <h3 class="card-title">titulo</h3>
+                            <p class="card-decription">description</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="card-item swiper-slide">
+                    <a href="#" class="card-link">
+                        <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                        <div class="card-text">
+                            <p class="date">fecha</p>
+                            <h3 class="card-title">titulo</h3>
+                            <p class="card-decription">description</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="card-item swiper-slide">
+                    <a href="#" class="card-link">
+                        <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                        <div class="card-text">
+                            <p class="date">fecha</p>
+                            <h3 class="card-title">titulo</h3>
+                            <p class="card-decription">description</p>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-slide-button swiper-button-prev"></div>
+            <div class="swiper-slide-button swiper-button-next"></div>
         </div>
-        {%endblock%}
-    </body>
-</html>
+    </div> 
+
+    <div class="novedades-redirrecion">
+        <p><a href="">Ver todas las novedades</a></p>
+    </div>
+
+<div class="redes">
+    <a href="https://www.instagram.com/chocobandamdq/"><i class="bi bi-instagram"></i></a>
+    <a href="https://www.youtube.com/@chocobandamdq3701"><i class="bi bi-youtube"></i></a>
+    <a href="https://www.facebook.com/chocobanda.mdq/?locale=eo_EO&_rdr"><i class="bi bi-facebook"></i></a>
+</div>
+
+{% endblock %} 
