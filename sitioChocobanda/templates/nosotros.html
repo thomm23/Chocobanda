@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css'%}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <title>{% block title %} Nosotros {% endblock %}</title>
+     </head>
+    <body>
+        {% block body %}
+        {%block nombre_seccion%}<a class="titulo-distinto" href="#"> Nosotros </a>{%endblock%}
+        <section class="nosotros-section">
+            <h1>La historia de la Chocobanda</h1>
+            <p>{% lorem 3 b random %}</p>
+            <a href="#"><h4>Leer más</h4></a>
+        </section>
+
+        <section class="integrantes-section">
+            <h1>Integrantes</h1>
+        </section>
+
+        <section class="nuestras-obras-section">
+            <h1>Nuestras Obras</h1>
+            <div class="funciones">
+                <table class="tabla-agenda-section">
+                    <tr>
+                    <td>
+                        <h2 class="dia-funcion2">{% block dia_funcion2 %}22{% endblock %}</h2>
+                        <h2 class="mes-funcion2">{% block mes_funcion2 %}Octubre{% endblock %}</h2>
+                    </td>
+                    <td>
+                        <h3 class="nombre-funcion2">{% block nombre_funcion2 %}Funcion de Gala{% endblock %}</h3>
+                        <h3 class="hora-funcion2">{% block hora_funcion2 %}20:00{% endblock %}</h3>
+                        <h3 class="lugar-funcion2">{% block lugar_funcion2 %}Teatro Colon{% endblock %}</h3>
+                    </td>
+                    </tr>
+                </table>
+                </div>
+    
+                <div class="funciones">
+                <table class="tabla-agenda-section">
+                    <tr>
+                    <td>
+                        <h2 class="dia-funcion3">{% block dia_funcion3 %}22{% endblock %}</h2>
+                        <h2 class="mes-funcion3">{% block mes_funcion3 %}Octubre{% endblock %}</h2>
+                    </td>
+                    <td>
+                        <h3 class="nombre-funcion3">{% block nombre_funcion3 %}Funcion de Gala{% endblock %}</h3>
+                        <h3 class="hora-funcion3">{% block hora_funcion3 %}20:00{% endblock %}</h3>
+                        <h3 class="lugar-funcion3">{% block lugar_funcion3 %}Teatro Colon{% endblock %}</h3>
+                    </td>
+                    </tr>
+                </table>
+                </div>
+        </section>
+        {%endblock%}
+    </body>
+</html>
