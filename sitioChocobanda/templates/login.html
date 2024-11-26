@@ -1,40 +1,31 @@
 {% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {%block estilos %}
-            <link rel="stylesheet" type="text/css" href=" {% static 'css/login.css'%}">
-        {%endblock%}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-        <title>{% block title %} Inicio Sesión {% endblock %}</title>
-    </head>
-    <body>
-        {% block body %}
-        {% block nombre_seccion %}<a class="titulo-distinto" href="#"> Chocobanda </a>{% endblock %}
+{%block estilos %}
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/login.css'%}">
+{%endblock%}
+        
+{% block title %} Inicio Sesión {% endblock %}
+
+{% block body %}
+{% block nombre_seccion %}<a class="titulo-distinto" href="#"> Chocobanda </a>{% endblock %}
         
                
-        <form method="post" action="{% url 'login' %}">
-            <p>Ingresa a la parte administrativa de la página</p>
-            {% csrf_token %}
-            <div>
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" placeholder="ejemplo@gmail.com" required>
-            </div>
-            <div>
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" placeholder="************" required>
-            </div>
-            <div>
+    <form method="post" action="{% url 'login' %}">
+        <p>Ingresa a la parte administrativa de la página</p>
+        {% csrf_token %}
+        <div>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" placeholder="ejemplo@gmail.com" required>
+        </div>
+        <div>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="************" required>
+        </div>
+        <div>
                 
-                <a href="#">Recuperar contraseña</a>
-            </div>
-            <button class="boton-form" type="submit">Iniciar Sesión</button>
-        </form>
+            <a href="#">Recuperar contraseña</a>
+        </div>
+        <button class="boton-form" type="submit">Iniciar Sesión</button>
+    </form>
         
-        {% endblock %}
-    </body>
-</html>
-                
+{% endblock %}     
