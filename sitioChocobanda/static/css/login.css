@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@font-face {
+    src: url('../fonts/JokermanStd.otf') format('opentype');
+    font-family: 'Jokerman';
+  }
 form{
     max-width: 400px;
     margin: auto;

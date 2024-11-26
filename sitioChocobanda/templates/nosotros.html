@@ -1,17 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css'%}">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-        <title>{% block title %} Nosotros {% endblock %}</title>
-     </head>
-    <body>
-        {% block body %}
-        {%block nombre_seccion%}<a class="titulo-distinto" href="#"> Nosotros </a>{%endblock%}
+{% block title %} Nosotros {% endblock %}
+
+{% block content %}
+{%block nombre_seccion%} Nosotros {%endblock%}
         <section class="nosotros-section">
             <h1>La historia de la Chocobanda</h1>
             <p>{% lorem 3 b random %}</p>
@@ -56,6 +48,4 @@
                 </table>
                 </div>
         </section>
-        {%endblock%}
-    </body>
-</html>
+{%endblock%}
