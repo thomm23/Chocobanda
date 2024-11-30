@@ -51,6 +51,20 @@ form input::placeholder {
     background-color: #8c4a2f;
 
 }
+h2{
+    color: #8c4a2f;
+    font-size: 150%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.subtitulo {
+    color: #8c4a2f;
+    font-weight: normal;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
 @media screen and (max-width: 768px) {
     form p{
         padding-top: 25%;
@@ -59,5 +73,11 @@ form input::placeholder {
         text-align: center;
         font-weight: bold;
         color: #8c4a2f;
+    }
+
+    .recuperarContraseña{
+        padding-top: 25%;
+
+
     }
 }

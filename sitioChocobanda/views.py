@@ -29,3 +29,10 @@ class Login(View):
 
         }
         return render(request,'login.html',context)
+    
+class ContraseñaOlvidada(View):
+    def get(self,request):
+        context={
+
+        }
+        return render(request,'recuperarContraseña.html',context)
