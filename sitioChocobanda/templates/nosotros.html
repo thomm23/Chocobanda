@@ -8,18 +8,80 @@
 {% endblock %}
 
 {% block content %}
-{%block nombre_seccion%} Nosotros {%endblock%}
         <section class="nosotros-section">
             <h1>La historia de la Chocobanda</h1>
-            <p>{% lorem 3 b random %}</p>
+            <p>{% lorem 2 b random %}</p>
             <a href="#"><h4>Leer más</h4></a>
         </section>
 
         <section class="integrantes-section">
-            <h1>Integrantes</h1>
+            <div class="container-integrantes swiper">
+                <div class="card-wrapper">
+                    <ul class="card-list swiper-wrapper">
+                        <li class="card-item swiper-slide">
+                            <a href="#" class="card-link">
+                                <div class="card-actor">
+                                    <img src="{% static 'img/foto-principal.jpg'%}" alt="">
+                                </div>
+                                <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                                <div class="card-text">
+                                    <p class="date">fecha</p>
+                                    <h3 class="card-title">titulo</h3>
+                                    <p class="card-decription">description</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="card-item swiper-slide">
+                            <a href="#" class="card-link">
+                                <div class="card-actor">
+                                    <img src="{% static 'img/foto-principal.jpg'%}" alt="">
+                                </div>
+                                <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                                <div class="card-text">
+                                    <p class="date">fecha</p>
+                                    <h3 class="card-title">titulo</h3>
+                                    <p class="card-decription">description</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="card-item swiper-slide">
+                            <a href="#" class="card-link">
+                                <div class="card-actor">
+                                    <img src="{% static 'img/foto-principal.jpg'%}" alt="">
+                                </div>
+                                <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                                <div class="card-text">
+                                    <p class="date">fecha</p>
+                                    <h3 class="card-title">titulo</h3>
+                                    <p class="card-decription">description</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="card-item swiper-slide">
+                            <a href="#" class="card-link">
+                                <div class="card-actor">
+                                    <img src="{% static 'img/foto-principal.jpg'%}" alt="">
+                                </div>
+                                <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                                <div class="card-text">
+                                    <p class="date">fecha</p>
+                                    <h3 class="card-title">titulo</h3>
+                                    <p class="card-decription">description</p>
+                                </div>
+                            </a>
+                        </li>     
+                    </ul>   
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div> 
+        
+            <div class="novedades-redirrecion">
+                <p><a href="">Ver todas las novedades</a></p>
+            </div>
+        
         </section>
 
-        <section class="nuestras-obras-section">
+        <section class="agenda-section">
             <h1>Nuestras Obras</h1>
             <div class="funciones">
                 <table class="tabla-agenda-section">
@@ -51,7 +113,7 @@
                     </td>
                     </tr>
                 </table>
-                </div>
+            </div>
         </section>
 {%endblock%}
 {% block script %} 

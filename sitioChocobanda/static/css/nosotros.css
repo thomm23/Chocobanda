@@ -1,0 +1,56 @@
+.container-integrantes{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+
+}
+.card-actor {
+    display: flex;
+    position: absolute;
+    bottom: 15%;
+    right: 1vh;
+    width: 13vh;
+    height: 13vh;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.card-actor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: black 2px solid;
+}
+
+.card-item {
+    position: relative;
+}
+.nosotros-section h4
+{
+    justify-content: right !important;
+}
+.nosotros-section h1{
+    text-align: center;
+}
+.nosotros-section
+{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    margin: 1vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    color: #8c4a2f;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .nosotros-section
+    {
+        padding-top: 7vh;
+    }
+    
+
+}

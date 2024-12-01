@@ -218,8 +218,6 @@ nav{
 
 @media screen and (max-width: 768px) {
 
-
-
     ::-webkit-scrollbar {
         display: none;
     }
@@ -346,7 +344,6 @@ nav{
     }
     
     .tabla-agenda-section {
-        width: 100%;
         border-collapse: collapse;
     }
 
@@ -354,7 +351,6 @@ nav{
         text-align: center;
         font-size: 1.2rem;
         padding: 0.5rem;
-        padding-right: 3rem;
     }
 
     .proxima-funcion {
@@ -363,7 +359,6 @@ nav{
         justify-content: center;
         margin: 1rem;
         padding: 2rem;
-        padding-right: 30%;
         border-radius: 30px 0px 0 30px;
         background-color: #8c4a2f;
         flex-direction: row;
@@ -376,7 +371,10 @@ nav{
 
     .proxima-funcion h3 {
         color: #f1e7c8;
-        text-align: center;
+        text-align: left;
+        width: 100%;
+    }
+    .nombre-funcion{
         width: 100%;
     }
 
@@ -391,7 +389,7 @@ nav{
         background-color: #f1e7c8;
         flex-direction: row;
         border-radius: 30px 0px 0 30px;
-        border: 2px solid green;
+        border: 2px solid #4c6a2a;
     }
 
     .funciones h2 {
@@ -411,7 +409,6 @@ nav{
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        margin-right: -5%;
     }
 
     .agenda-section h1 {
@@ -443,7 +440,6 @@ nav{
         justify-content: center;
         gap: 1rem;
         margin: 1rem;
-        padding-top: 8rem;
     }
 
     .tabla-novedades img {
@@ -486,15 +482,12 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center; 
-    /* min-height: 100vh; */
-    /* position: relative; */
-
 }
 .card-wrapper{
     max-width: 1100px;
-    margin:0 60px 35px;
     padding: 20px 10px;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 .card-list .card-item {
     list-style: none;
@@ -537,5 +530,5 @@ nav{
     width: 13px;
     opacity: 0.5;
     background: #4c6a2a;
-  }
+}
   
