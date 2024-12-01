@@ -2,7 +2,6 @@
 .contenedor-selector {
     display: flex;
     justify-content: space-between; /* Alinea los selectores horizontalmente */
-    gap: 10px;
     flex-wrap: wrap; 
 }
 
@@ -11,6 +10,7 @@
     flex-direction: row;
     gap: 10px;
     width: 48%;
+    margin-top: 20px;
 }
 
 .galeria-obras, .galeria-fechas {
@@ -21,8 +21,9 @@
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-    width: 200px;
+    width: 100%;
     transition: border-color 0.3s ease;
+    margin: 20px;
 }
 
 .galeria-obras, .galeria-fechas:hover {
@@ -66,12 +67,13 @@
 .tab.active {
     background-color:#3b6021; /* Verde intermedio para la pestaña activa */
     color: #f1e7c8;
+    text-decoration: underline;
 }
 
 /* Estilo para la cuadrícula */
 .galeria-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     background-color: #3b6021;
     border-radius: 5px;
     padding: 5px;
@@ -111,7 +113,7 @@
     margin: 5px;
 }
 
-/* Reglas de media query para pantallas pequeñas */
+
 @media (max-width: 768px) {
 
     .contenedor-selector {
@@ -123,8 +125,7 @@
         flex-direction: column;
         width: 100%; /* Ocupa todo el ancho del contenedor */
         margin: 0 auto; /* Centra el contenido horizontalmente */
-        margin-top: 100px;
-        margin-bottom: 15px; /* Añade espacio inferior */
+        margin-top: 120px;
     }
 
     .selector2 {
@@ -132,11 +133,14 @@
         flex-direction: column;
         width: 100%; /* Ocupa todo el ancho del contenedor */
         margin: 0 auto; /* Centra el contenido horizontalmente */
-        margin-bottom: 15px; /* Añade espacio inferior */
+    }
+
+    .galeria-grid{
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .galeria-obras, .galeria-fechas {
-        width: 100%; /* Elimina la restricción del ancho fijo */
+        width: 90%; /* Elimina la restricción del ancho fijo */
         max-width: 100%; /* Previene que se encojan en contenedores pequeños */
         font-size: 18px; /* Ajusta el tamaño del texto */
         padding: 10px; /* Mejora la usabilidad */
@@ -146,5 +150,12 @@
     .galeria-item {
         min-width: 80px; /* Ajusta el tamaño para pantallas pequeñas */
         min-height: 80px;
+    }
+}
+
+@media (max-width: 349px) {
+
+    .galeria-grid{
+        grid-template-columns: repeat(2, 1fr);
     }
 }
