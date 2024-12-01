@@ -30,6 +30,12 @@
       {% block content %} 
       {% endblock %}
     </main>
+    {%block footer %}
+    <div class="redes">
+      <a href="https://www.instagram.com/chocobandamdq/"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.youtube.com/@chocobandamdq3701"><i class="bi bi-youtube"></i></a>
+      <a href="https://www.facebook.com/chocobanda.mdq/?locale=eo_EO&_rdr"><i class="bi bi-facebook"></i></a>
+  </div>
     <footer>
       <ul>
         <li class="footer-item">
@@ -46,7 +52,7 @@
         </li>
       </ul>
     </footer>
-
+    {%endblock%}
     <script>
       const nav = document.querySelector("#nav");
       const abrir = document.querySelector("#abrir");
