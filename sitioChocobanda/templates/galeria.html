@@ -5,22 +5,105 @@
 {% block nombre_seccion %} Galería {% endblock %}
 {% block content %} 
 
-<div class="selector">
-    <select class="galeria-obras">
-        <option>Todas las obras</option>
-        <option>Obra 1</option>
-        <option>Obra 2</option>
-        <option>Obra 3</option>
-    </select>
+<div class="contenedor-selector">
+    <div class="selector">
+        <select class="galeria-obras">
+            <option>Todas las obras</option>
+            <option>Obra 1</option>
+            <option>Obra 2</option>
+            <option>Obra 3</option>
+        </select>
+    </div>
+
+    <div class="selector2">
+        <select class="galeria-fechas">
+            <option>Todas las fechas</option>
+            <option>Fecha 1</option>
+            <option>Fecha 2</option>
+            <option>Fecha 3</option>
+        </select>
+    </div>
 </div>
 
-<div class="selector">
-    <select class="galeria-fechas">
-        <option>Todas las fechas</option>
-        <option>Fecha 1</option>
-        <option>Fecha 2</option>
-        <option>Fecha 3</option>
-    </select>
+<!-- Galería -->
+<div class="galeria">
+    <div class="galeria-header">
+        <button class="tab active" data-tab="fotos">Fotos</button>
+        <button class="tab" data-tab="videos">Videos</button>
+        <button class="tab" data-tab="canciones">Canciones</button>
+    </div>
+
+    <div class="galeria-content">
+        <div class="tab-content fotos active">
+            <div class="galeria-grid">
+                <!-- Contenido de Fotos -->
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+            </div>
+        </div>
+        
+        <div class="tab-content videos">
+            <div class="galeria-grid">
+                <!-- Contenido de Videos -->
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+            </div>
+        </div>
+
+        <div class="tab-content canciones">
+            <div class="galeria-grid">
+                <!-- Contenido de Canciones -->
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+                <div class="galeria-item"></div>
+            </div>
+        </div>
+    </div>
 </div>
 
+{% endblock %}
+
+{% block script %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+    
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabTarget = tab.getAttribute('data-tab');
+    
+                // Eliminar la clase 'active' de todas las pestañas y contenidos
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+    
+                // Agregar la clase 'active' a la pestaña y el contenido correspondientes
+                tab.classList.add('active');
+                document.querySelector(`.tab-content.${tabTarget}`).classList.add('active');
+            });
+        });
+    });
+</script>
+    
 {% endblock %}
