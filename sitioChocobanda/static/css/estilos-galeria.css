@@ -1,19 +1,26 @@
-.selector {
+/* Estilos generales para el contenedor y selectores */
+.contenedor-selector {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between; /* Alinea los selectores horizontalmente */
     gap: 10px;
+    flex-wrap: wrap; 
+}
+
+.selector, .selector2 {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 48%;
 }
 
 .galeria-obras, .galeria-fechas {
     font-size: 16px;
-    color: #3b6021; /*Color verde del texto */
+    color: #3b6021; /* Color verde del texto */
     background-color: #f1e7c8;
     border: 2px solid #3b6021; /* Borde verde */
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-    /*appearance: none; /* Elimina estilos por defecto */
-    outline: none;
     width: 200px;
     transition: border-color 0.3s ease;
 }
@@ -26,3 +33,123 @@
     border-color: #2f501a; /* Cambia el color del borde al seleccionar */
 }
 
+/* Estilos para la galería */
+.galeria {
+    margin-top: 20px;
+    background-color: #f1e7c8; /* Fondo claro */
+    
+}
+
+/* Estilo para las pestañas */
+.galeria-header {
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    margin-bottom: 0px;
+}
+
+.tab {
+    background-color: #f1e7c8;
+    color: #8c4a2f; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+    transition: background-color 0.3s ease;
+}
+
+.tab:hover {
+    background-color: #2f501a; /* Verde más oscuro al pasar el mouse */
+}
+
+.tab.active {
+    background-color:#3b6021; /* Verde intermedio para la pestaña activa */
+    color: #f1e7c8;
+}
+
+/* Estilo para la cuadrícula */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #3b6021;
+    border-radius: 5px;
+    padding: 5px;
+    justify-items: center; /* Centra los items horizontalmente */
+    align-items: center; 
+}
+
+.galeria-item {
+    background-color: #c1a378; /* Fondo de cada ítem */
+    border: 2px solid #3b6021; /* Borde verde */
+    aspect-ratio: 1; /* Mantiene los cuadros cuadrados */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    min-height: 120px;
+}
+
+.galeria-item::before {
+    content: "🖼️"; /* Icono de imagen */
+    font-size: 24px;
+    color: #3b6021; /* Color verde */
+}
+
+/* Estilo general de las pestañas */
+.galeria-content {
+    /*display: none;*/
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.galeria-item {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+    margin: 5px;
+}
+
+/* Reglas de media query para pantallas pequeñas */
+@media (max-width: 768px) {
+
+    .contenedor-selector {
+        flex-direction: column;
+    }
+
+    .selector {
+        display: flex;
+        flex-direction: column;
+        width: 100%; /* Ocupa todo el ancho del contenedor */
+        margin: 0 auto; /* Centra el contenido horizontalmente */
+        margin-top: 100px;
+        margin-bottom: 15px; /* Añade espacio inferior */
+    }
+
+    .selector2 {
+        display: flex;
+        flex-direction: column;
+        width: 100%; /* Ocupa todo el ancho del contenedor */
+        margin: 0 auto; /* Centra el contenido horizontalmente */
+        margin-bottom: 15px; /* Añade espacio inferior */
+    }
+
+    .galeria-obras, .galeria-fechas {
+        width: 100%; /* Elimina la restricción del ancho fijo */
+        max-width: 100%; /* Previene que se encojan en contenedores pequeños */
+        font-size: 18px; /* Ajusta el tamaño del texto */
+        padding: 10px; /* Mejora la usabilidad */
+        box-sizing: border-box; /* Incluye el padding en el ancho */
+    }
+
+    .galeria-item {
+        min-width: 80px; /* Ajusta el tamaño para pantallas pequeñas */
+        min-height: 80px;
+    }
+}
