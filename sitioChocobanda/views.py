@@ -73,3 +73,18 @@ class novedad(View):
 
         }
         return render(request,'novedad.html',context)
+    
+class impactoSocialInsti(View):
+    def get(self,request):
+        context={
+
+        }
+        return render(request,'impactoSocial-Insti.html',context)
+
+
+class impactoSocialGaleria(View):
+    def get(self,request):
+        context={
+
+        }
+        return render(request,'impactoSocial-Galeria.html',context)

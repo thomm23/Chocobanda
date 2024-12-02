@@ -13,21 +13,25 @@
 
     <div class="instituciones-list">
 
+        <a href="{% url 'impactoSocialInsti'%}" style="text-decoration: none; color: inherit;">
+            <div class="institucion-item">
 
-        <div class="institucion-item">
+                <img src="{% static 'img/Imagen-noImage.png'%}" alt="Imagen de la Institución">
 
-            <img src="{% static 'img/Imagen-noImage.png'%}" alt="Imagen de la Institución">
+                <div class="institucion-info">
+                    <h2 class="institucion-name">Nombre de la institución 1</h2>
+                    <p class="institucion-description">Breve descripción de la obra de no más de 3 líneas y utilizar al
+                        final 3 puntos</p>
+                </div>
 
-            <div class="institucion-info">
-                <h2 class="institucion-name">Nombre de la institucion 1</h2>
-                <p class="institucion-description">Breve descripción de la obra de no más de 3 líneas y utilizar al
-                    final 3 puntos</p>
             </div>
+        </a>
 
 
+    </div>
+    <div class="instituciones-list">
 
-        </div>
-        <div class="instituciones-list">
+        <a href="{% url 'impactoSocialInsti'%}" style="text-decoration: none; color: inherit;">
             <div class="institucion-item">
 
                 <img src="{% static 'img/Imagen-noImage.png'%}" alt="Imagen de la Institución">
@@ -38,7 +42,11 @@
                         final 3 puntos</p>
                 </div>
             </div>
-            <div class="instituciones-list">
+        </a>
+        <div class="instituciones-list">
+
+            <a href="{% url 'impactoSocialInsti'%}" style="text-decoration: none; color: inherit;">
+
                 <div class="institucion-item">
 
                     <img src="{% static 'img/Imagen-noImage.png'%}" alt="Imagen de la Institución">
@@ -50,8 +58,12 @@
                             final 3 puntos</p>
                     </div>
                 </div>
+            </a>
 
-                <div class="instituciones-list">
+            <div class="instituciones-list">
+
+
+                <a href="{% url 'impactoSocialInsti'%}" style="text-decoration: none; color: inherit;">
                     <div class="institucion-item">
 
                         <img src="{% static 'img/Imagen-noImage.png'%}" alt="Imagen de la Institución">
@@ -63,9 +75,10 @@
                                 final 3 puntos</p>
                         </div>
                     </div>
+                </a>
 
-
-                    <div class="instituciones-list">
+                <div class="instituciones-list">
+                    <a href="{% url 'impactoSocialInsti'%}" style="text-decoration: none; color: inherit;">
                         <div class="institucion-item">
 
                             <img src="{% static 'img/Imagen-noImage.png'%}" alt="Imagen de la Institución">
@@ -77,10 +90,10 @@
                                     final 3 puntos</p>
                             </div>
                         </div>
-
-                    </div>
-
+                    </a>
                 </div>
+
             </div>
-       
-            {% endblock %}
+        </div>
+
+        {% endblock %}

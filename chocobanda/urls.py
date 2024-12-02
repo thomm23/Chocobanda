@@ -14,6 +14,8 @@ urlpatterns = [
     path('contacto/', contacto.as_view(), name="contacto"),
     path ('impactoSocial/',impactosocial.as_view(),name='impactoSocial'),
     path('novedades/', novedades.as_view(), name="novedades"),
-    path('novedad/', novedad.as_view(), name="novedad")
+    path('novedad/', novedad.as_view(), name="novedad"),
+    path('impactoSocialInsti', impactoSocialInsti.as_view(),name="impactoSocialInsti"),
+    path('impactoSocialGaleria', impactoSocialGaleria.as_view(),name="impactoSocialGaleria"),
 
 ]
