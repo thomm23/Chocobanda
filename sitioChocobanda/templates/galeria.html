@@ -36,49 +36,81 @@
     <div class="galeria-content">
         <div class="tab-content fotos active">
             <div class="galeria-grid">
-                <!-- Contenido de Fotos -->
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
+                <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
+                <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
+                <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
+                <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
+                <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
+                <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
+
             </div>
         </div>
         
         <div class="tab-content videos">
             <div class="galeria-grid">
-                <!-- Contenido de Videos -->
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
+                <div class="galeria-item" data-type="video" data-src="{% static 'img/video1.jpg' %}"></div>
+                <div class="galeria-item" data-type="video" data-src="{% static 'img/video1.jpg' %}"></div>
+                <div class="galeria-item" data-type="video" data-src="{% static 'img/video1.jpg' %}"></div>
+                <div class="galeria-item" data-type="video" data-src="{% static 'img/video1.jpg' %}"></div>
+                <div class="galeria-item" data-type="video" data-src="{% static 'img/video1.jpg' %}"></div>
+                <div class="galeria-item" data-type="video" data-src="{% static 'img/video1.jpg' %}"></div>
             </div>
         </div>
 
         <div class="tab-content canciones">
-            <div class="galeria-grid">
-                <!-- Contenido de Canciones -->
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
-                <div class="galeria-item"></div>
+            <!-- Buscador -->
+            <div class="buscador">
+                <input type="text" placeholder="Nombre de la canción">
+                <button type="submit" aria-label="Buscar">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#3b6021" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-lupa">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+        
+            <!-- Lista de canciones -->
+            <div class="galeria-grid-canciones">
+                <div class="galeria-item-canciones">
+                    <div class="cancion-info">
+                        <div class="cancion-play">▶</div>
+                        <div class="cancion-texto">
+                            <div class="titulo-cancion">Nombre de la Canción</div>
+                            <div class="subtitulo">Nombre de la Obra</div>
+                        </div>
+                    </div>
+                    <div class="duracion">00:00</div>
+                </div>
+                <div class="galeria-item-canciones">
+                    <div class="cancion-info">
+                        <div class="cancion-play">▶</div>
+                        <div class="cancion-texto">
+                            <div class="titulo-cancion">Nombre de la Canción</div>
+                            <div class="subtitulo">Nombre de la Obra</div>
+                        </div>
+                    </div>
+                    <div class="duracion">00:00</div>
+                </div>
+                <div class="galeria-item-canciones">
+                    <div class="cancion-info">
+                        <div class="cancion-play">▶</div>
+                        <div class="cancion-texto">
+                            <div class="titulo-cancion">Nombre de la Canción</div>
+                            <div class="subtitulo">Nombre de la Obra</div>
+                        </div>
+                    </div>
+                    <div class="duracion">00:00</div>
+                </div>
             </div>
         </div>
+        
     </div>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <div id="modal-content" class="modal-content"></div>
 </div>
 
 {% endblock %}
@@ -89,21 +121,63 @@
     document.addEventListener("DOMContentLoaded", function() {
         const tabs = document.querySelectorAll('.tab');
         const tabContents = document.querySelectorAll('.tab-content');
-    
+        
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 const tabTarget = tab.getAttribute('data-tab');
-    
+        
                 // Eliminar la clase 'active' de todas las pestañas y contenidos
                 tabs.forEach(t => t.classList.remove('active'));
                 tabContents.forEach(content => content.classList.remove('active'));
-    
+        
                 // Agregar la clase 'active' a la pestaña y el contenido correspondientes
                 tab.classList.add('active');
                 document.querySelector(`.tab-content.${tabTarget}`).classList.add('active');
             });
         });
+    
+        // Lógica para abrir el modal
+        const items = document.querySelectorAll('.galeria-item');
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modal-content');
+        const closeModal = document.querySelector('.close');
+    
+        items.forEach(item => {
+            item.addEventListener('click', function() {
+                const type = item.getAttribute('data-type');
+                const src = item.getAttribute('data-src');
+    
+                // Limpiar el contenido del modal
+                modalContent.innerHTML = '';
+    
+                if (type === 'foto') {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = 'Foto';
+                    modalContent.appendChild(img);
+                } else if (type === 'video') {
+                    const video = document.createElement('video');
+                    video.src = src;
+                    video.controls = true;
+                    modalContent.appendChild(video);
+                }
+    
+                modal.style.display = 'block'; // Mostrar el modal
+            });
+        });
+    
+        // Cerrar el modal al hacer clic en la cruz
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    
+        // Cerrar el modal si el usuario hace clic fuera del contenido
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     });
-</script>
+    </script>
     
 {% endblock %}

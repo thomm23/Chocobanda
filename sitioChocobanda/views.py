@@ -37,9 +37,9 @@ class ContraseñaOlvidada(View):
         }
         return render(request,'recuperarContraseña.html',context)
 
-class Novedades(View):
+class contacto(View):
     def get(self,request):
         context={
 
         }
-        return render(request,'novedades.html',context)
+        return render(request,'contacto.html',context)
