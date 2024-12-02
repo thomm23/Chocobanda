@@ -50,3 +50,17 @@ class contacto(View):
 
         }
         return render(request,'contacto.html',context)
+
+class novedades(View):
+    def get(self,request):
+        context={
+
+        }
+        return render(request,'novedades.html',context)
+
+class novedad(View):
+    def get(self,request):
+        context={
+
+        }
+        return render(request,'novedad.html',context)
