@@ -1,19 +1,30 @@
-/* Estilos generales para el contenedor y selectores */
+/* Estilos principales (Mobile First) */
 .contenedor-selector {
     display: flex;
-    justify-content: space-between; /* Alinea los selectores horizontalmente */
-    flex-wrap: wrap; 
+    flex-direction: column;
 }
 
-.selector, .selector2 {
+.selector {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-    width: 48%;
-    margin-top: 20px;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 120px;
+}
+
+.selector2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    margin: 0 auto; 
 }
 
 .galeria-obras, .galeria-fechas {
+    width: 90%; /* Elimina la restricción del ancho fijo */
+    max-width: 100%; /* Previene que se encojan en contenedores pequeños */
+    font-size: 18px; /* Ajusta el tamaño del texto */
+    padding: 10px; /* Mejora la usabilidad */
+    box-sizing: border-box; /* Incluye el padding en el ancho */
     font-size: 16px;
     color: #3b6021; /* Color verde del texto */
     background-color: #f1e7c8;
@@ -21,27 +32,23 @@
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-    width: 100%;
-    transition: border-color 0.3s ease;
     margin: 20px;
+    transition: border-color 0.3s ease;
 }
 
-.galeria-obras, .galeria-fechas:hover {
+.galeria-obras:hover, .galeria-fechas:hover {
     border-color: #5a8231; /* Cambia el color del borde al pasar el mouse */
 }
 
-.galeria-obras, .galeria-fechas:focus {
+.galeria-obras:focus, .galeria-fechas:focus {
     border-color: #2f501a; /* Cambia el color del borde al seleccionar */
 }
 
-/* Estilos para la galería */
 .galeria {
     margin-top: 20px;
     background-color: #f1e7c8; /* Fondo claro */
-    
 }
 
-/* Estilo para las pestañas */
 .galeria-header {
     display: flex;
     gap: 10px;
@@ -52,11 +59,11 @@
 .tab {
     background-color: #f1e7c8;
     color: #8c4a2f; 
+    font-size: 18px;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
     border-radius: 5px 5px 0 0;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
@@ -65,15 +72,14 @@
 }
 
 .tab.active {
-    background-color:#3b6021; /* Verde intermedio para la pestaña activa */
+    background-color: #3b6021; /* Verde intermedio para la pestaña activa */
     color: #f1e7c8;
     text-decoration: underline;
 }
 
-/* Estilo para la cuadrícula */
 .galeria-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     background-color: #3b6021;
     border-radius: 5px;
     padding: 5px;
@@ -88,8 +94,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 120px;
-    min-height: 120px;
+    min-width: 80px; /* Ajusta el tamaño para pantallas pequeñas */
+    min-height: 80px;
 }
 
 .galeria-item::before {
@@ -105,57 +111,248 @@
 .tab-content.active {
     display: block;
 }
-
-.galeria-item {
-    width: 100px;
-    height: 100px;
-    background-color: #ddd;
-    margin: 5px;
+.canciones {
+    background-color: #3b6021;
+    padding: 15px;
 }
 
+.buscador {
+    display: flex;
+    align-items: center;
+    background-color: #f1e7c8;
+    border-radius: 20px;
+    padding: 5px 15px;
+    width: 100%;
+    margin-bottom: 20px;
+}
 
-@media (max-width: 768px) {
+.buscador input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 16px;
+    flex-grow: 1;
+    color: #f1e7c8;
+    padding: 5px 10px;
+}
 
-    .contenedor-selector {
-        flex-direction: column;
-    }
+.buscador input::placeholder {
+    color:#3b6021;
+}
 
-    .selector {
-        display: flex;
-        flex-direction: column;
-        width: 100%; /* Ocupa todo el ancho del contenedor */
-        margin: 0 auto; /* Centra el contenido horizontalmente */
-        margin-top: 120px;
-    }
+.buscador button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
 
-    .selector2 {
-        display: flex;
-        flex-direction: column;
-        width: 100%; /* Ocupa todo el ancho del contenedor */
-        margin: 0 auto; /* Centra el contenido horizontalmente */
-    }
+.icon-lupa {
+    width: 20px; /* Tamaño de la lupa */
+    height: 20px;
+    stroke: #3b6021; /* Color verde oscuro */
+}
 
-    .galeria-grid{
+.buscador button:hover .icon-lupa {
+    stroke: #2f501a; /* Color más oscuro al pasar el mouse */
+}
+
+/* Lista de canciones */
+.galeria-grid-canciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.galeria-item-canciones {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    background-color: #3b6021;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: #f1e7c8;
+}
+
+.galeria-item-canciones:hover {
+    background-color: #2f501a;
+}
+
+.cancion-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.cancion-play {
+    background-color: #f1e7c8;
+    color: #3b6021;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cancion-play:hover {
+    background-color: #e0d6b8;
+}
+
+.cancion-texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.cancion-texto .titulo {
+    color: #f1e7c8;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.cancion-texto .subtitulo {
+    font-size: 12px;
+    color: #e0d6b8;
+}
+
+/* Estilo para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 9999; /* Enfrente del contenido */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(101, 67, 33, 0.8);
+    padding-top: 60px;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.modal img {
+    width: 100%;
+    height: auto;
+}
+
+.modal video {
+    width: 100%;
+    height: auto;
+}
+
+.close {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    width: 18px; /* Ancho de la cruz */
+    height: 18px; /* Alto de la cruz */
+    border-left: 3px solid #f1e7c8; /* Línea vertical de la cruz */
+    border-top: 3px solid #f1e7c8; /* Línea horizontal de la cruz */
+    transform: rotate(45deg); /* Rotar la cruz 45 grados para crear la forma de "X" */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.close:hover,
+.close:focus {
+    color: #f1e7c8; /* El color de la cruz no cambia al hacer hover ya que está el mismo */
+    transform: scale(1.2) rotate(45deg); /* Aumentar el tamaño y mantener la rotación */
+}
+/* Estilos para pantallas medianas (Tablet) */
+@media (min-width: 350px) and (max-width: 768px) {
+    .galeria-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .galeria-obras, .galeria-fechas {
-        width: 90%; /* Elimina la restricción del ancho fijo */
-        max-width: 100%; /* Previene que se encojan en contenedores pequeños */
-        font-size: 18px; /* Ajusta el tamaño del texto */
-        padding: 10px; /* Mejora la usabilidad */
-        box-sizing: border-box; /* Incluye el padding en el ancho */
+    .galeria-item {
+        min-width: 100px;
+        min-height: 100px;
+    }
+
+    .galeria-grid-canciones {
+        gap: 15px;
+    }
+
+    .galeria-item-canciones {
+        flex-direction: row; /* Cambia a disposición horizontal */
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .cancion-info {
+        gap: 15px;
+    }
+
+}
+
+
+
+/* Estilos para pantallas grandes (Desktop) */
+@media (min-width: 769px) {
+    .contenedor-selector {
+        flex-direction: row;
+        justify-content: space-between; /* Alinea los selectores horizontalmente */
+        flex-wrap: wrap;
+    }
+
+    .selector, .selector2 {
+        flex-direction: row;
+        gap: 10px;
+        width: 48%;
+        margin-top: 20px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 
     .galeria-item {
-        min-width: 80px; /* Ajusta el tamaño para pantallas pequeñas */
-        min-height: 80px;
+        min-width: 120px;
+        min-height: 120px;
+    }
+
+    .buscador {
+        max-width: 400px;
+    }
+
+    .galeria-grid-canciones {
+        gap: 20px;
+    }
+
+    .galeria-item-canciones {
+        padding: 15px 20px;
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .cancion-texto .titulo-cancion {
+        font-size: 16px;
+    }
+
+    .cancion-texto .subtitulo {
+        font-size: 14px;
+    }
+
+    .duracion {
+        align-self: flex-end;
+        margin-top: 10px; /* Ajusta la separación con el contenido superior */
+    }
+    
+    .modal img {
+        transform: rotate(-90deg); /* Gira la imagen 90 grados hacia la izquierda */
     }
 }
 
-@media (max-width: 349px) {
-
-    .galeria-grid{
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
