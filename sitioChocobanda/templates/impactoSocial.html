@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block estilos %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/impacto-social.css'%}">
+{% endblock %}
+{% block title %} Chocobanda - Impacto Social {% endblock %}
+{% block nombre_seccion %} Impacto social {% endblock %}
+{% block content %}
+
+<!-- Contenedor Principal -->
+<div class="impacto-container">
+    <h1 class="section-title">Instituciones beneficiadas</h1>
+
+    <div class="instituciones-list">
+
+
+        <div class="institucion-item">
+
+            <img src="{% static 'img/Imagen-noImage.png'%}" alt="Imagen de la Institución">
+
+            <div class="institucion-info">
+                <h2 class="institucion-name">Nombre de la institucion 1</h2>
+                <p class="institucion-description">Breve descripción de la obra de no más de 3 líneas y utilizar al
+                    final 3 puntos</p>
+            </div>
+
+
+
+        </div>
+        <div class="instituciones-list">
+            <div class="institucion-item">
+
+                <img src="{% static 'img/Imagen-noImage.png'%}" alt="Imagen de la Institución">
+
+                <div class="institucion-info">
+                    <h2 class="institucion-name">Nombre de la institucion 2</h2>
+                    <p class="institucion-description">Breve descripción de la obra de no más de 3 líneas y utilizar al
+                        final 3 puntos</p>
+                </div>
+            </div>
+            <div class="instituciones-list">
+                <div class="institucion-item">
+
+                    <img src="{% static 'img/Imagen-noImage.png'%}" alt="Imagen de la Institución">
+
+                    <div class="institucion-info">
+                        <h2 class="institucion-name">Nombre de la institucion 3</h2>
+                        <p class="institucion-description">Breve descripción de la obra de no más de 3 líneas y utilizar
+                            al
+                            final 3 puntos</p>
+                    </div>
+                </div>
+
+                <div class="instituciones-list">
+                    <div class="institucion-item">
+
+                        <img src="{% static 'img/Imagen-noImage.png'%}" alt="Imagen de la Institución">
+
+                        <div class="institucion-info">
+                            <h2 class="institucion-name">Nombre de la institucion 4</h2>
+                            <p class="institucion-description">Breve descripción de la obra de no más de 3 líneas y
+                                utilizar al
+                                final 3 puntos</p>
+                        </div>
+                    </div>
+
+
+                    <div class="instituciones-list">
+                        <div class="institucion-item">
+
+                            <img src="{% static 'img/Imagen-noImage.png'%}" alt="Imagen de la Institución">
+
+                            <div class="institucion-info">
+                                <h2 class="institucion-name">Nombre de la institucion 5</h2>
+                                <p class="institucion-description">Breve descripción de la obra de no más de 3 líneas y
+                                    utilizar al
+                                    final 3 puntos</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+       
+            {% endblock %}
