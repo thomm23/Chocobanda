@@ -10,6 +10,7 @@ urlpatterns = [
     path('nuestraHistoria/', NuestraHistoria.as_view(), name="nuestraHistoria"),
     path('galeria/', Galeria.as_view(), name="galeria"),
     path('login/', Login.as_view(), name="login"),
-    path('contraseñaOlvidada/', ContraseñaOlvidada.as_view(), name="contraseñaOlvidada"),
+    path('contraseñaOlvidada/', ContraseñaOlvidada.as_view(), name="contraseñaOlvidada"),  
+    path('contacto/', contacto.as_view(), name="contacto"),
 
 ]
