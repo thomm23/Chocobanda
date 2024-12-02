@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import View
 
+
 class PaginaPrincipal(View):
     def get(self,request):
         context={
@@ -43,6 +44,7 @@ class ContraseñaOlvidada(View):
 
         }
         return render(request,'recuperarContraseña.html',context)
+    
 
 class contacto(View):
     def get(self,request):
@@ -51,6 +53,13 @@ class contacto(View):
         }
         return render(request,'contacto.html',context)
 
+
+class impactosocial(View):
+    def get(self,request):
+        context={
+            
+        }   
+        return render(request,'impactoSocial.html',context)
 class novedades(View):
     def get(self,request):
         context={
