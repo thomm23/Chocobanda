@@ -10,10 +10,15 @@
 {% block content %}
         <section class="nosotros-section">
             <h1>La historia de la Chocobanda</h1>
-            <p>{% lorem 2 b random %}</p>
-            <div class="novedades-redirrecion">
-                <p><a href="#">Leer más</a></p>
-            </div>
+            <p class="nosotros-redireccion">{% lorem 1 b random %}</p>
+            {%comment%}
+                {% if nosotros %} Si existe el objeto nuestraHistoria. // No estoy seguro de si es así
+                    <p>{%nosotros.textPresentation%}</p>
+                {% else %}
+                    <p>Proximamente...</p>
+                {% endif %}
+            {%endcomment%}
+            <p class="nosotros-redireccion"><a href="/nuestraHistoria">Leer más</a></p>
         </section>
 
         <section class="integrantes-section">
@@ -72,54 +77,70 @@
                                     <p class="card-decription">description</p>
                                 </div>
                             </a>
-                        </li>     
-                    </ul>   
+                        </li>
+                    </ul>
                     <div class="swiper-pagination"></div>
                 </div>
-            </div> 
-        
-            <div class="novedades-redirrecion">
-                <p><a href="">Ver todos los usuarios</a></p>
             </div>
-        
+
+            <div class="nosotros-integrantes-redireccion">
+                <p class="nosotros-redireccion"><a href="">Ver todos los integrantes</a></p>
+            </div>
+
         </section>
 
         <section class="agenda-section">
             <h1>Nuestras Obras</h1>
-            <div class="funciones">
-                <table class="tabla-agenda-section">
-                    <tr>
-                    <td>
-                        <h2 class="dia-funcion2">{% block dia_funcion2 %}22{% endblock %}</h2>
-                        <h2 class="mes-funcion2">{% block mes_funcion2 %}Octubre{% endblock %}</h2>
-                    </td>
-                    <td>
-                        <h3 class="nombre-funcion2">{% block nombre_funcion2 %}Funcion de Gala{% endblock %}</h3>
-                        <h3 class="hora-funcion2">{% block hora_funcion2 %}20:00{% endblock %}</h3>
-                        <h3 class="lugar-funcion2">{% block lugar_funcion2 %}Teatro Colon{% endblock %}</h3>
-                    </td>
-                    </tr>
-                </table>
+            {% comment %}
+                {% if nuestras_obras %}
+                    {% for obra in nuestras_obras %}
+                        <div class="obras">
+                            <a href="{% url 'sitioChocobanda:obras_detail' obra.id %}">{{ obra }}</a>
+                        </div>
+                        <div class="obras">
+                            <img class="obras-img" src="{% static 'obra.getPathImg()'%}" alt="foto de una obra">
+                            <div class="obras-info">
+                                <h3 class="obras-info-title">{{obra.getTitle()}}</h3>
+                                <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="nosotros-redireccion">No hay obras por el momento.</p>
+                {% endif %}
+            {% endcomment %}
+            <div class="obras">
+                <img class="obras-img" src="{% static 'img/Imagen-noImage.png'%}" alt="sin foto">
+                <div class="obras-info">
+                    <h3 class="obras-info-title">Nombre de la obra</h3>
+                    <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos</p>
                 </div>
-    
-                <div class="funciones">
-                <table class="tabla-agenda-section">
-                    <tr>
-                    <td>
-                        <h2 class="dia-funcion3">{% block dia_funcion3 %}22{% endblock %}</h2>
-                        <h2 class="mes-funcion3">{% block mes_funcion3 %}Octubre{% endblock %}</h2>
-                    </td>
-                    <td>
-                        <h3 class="nombre-funcion3">{% block nombre_funcion3 %}Funcion de Gala{% endblock %}</h3>
-                        <h3 class="hora-funcion3">{% block hora_funcion3 %}20:00{% endblock %}</h3>
-                        <h3 class="lugar-funcion3">{% block lugar_funcion3 %}Teatro Colon{% endblock %}</h3>
-                    </td>
-                    </tr>
-                </table>
+            </div>
+            <div class="obras">
+                <img class="obras-img" src="{% static 'img/Imagen-noImage.png'%}" alt="sin foto">
+                <div class="obras-info">
+                    <h3 class="obras-info-title">Nombre de la obra</h3>
+                    <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos</p>
+                </div>
+            </div>
+            <div class="obras">
+                <img class="obras-img" src="{% static 'img/Imagen-noImage.png'%}" alt="sin foto">
+                <div class="obras-info">
+                    <h3 class="obras-info-title">Nombre de la obra</h3>
+                    <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos</p>
+                </div>
+            </div>
+
+            <div class="obras">
+                <img class="obras-img" src="{% static 'img/Imagen-noImage.png'%}" alt="sin foto">
+                <div class="obras-info">
+                    <h3 class="obras-info-title">Nombre de la obra</h3>
+                    <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos</p>
+                </div>
             </div>
         </section>
 {%endblock%}
-{% block script %} 
+{% block script %}
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
     new Swiper('.card-wrapper', {
@@ -133,7 +154,7 @@
         clickable :true,
         dynamicBullets: true
         },
-    
+
         // Navigation arrows
         navigation: {
         nextEl: '.swiper-button-next',

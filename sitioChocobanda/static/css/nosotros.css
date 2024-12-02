@@ -1,7 +1,7 @@
 .container-integrantes{
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
 
 }
 .card-actor {
@@ -46,11 +46,56 @@
 }
 
 @media screen and (max-width: 768px) {
-
-    .nosotros-section
-    {
+    .nosotros-section{
         padding-top: 7vh;
     }
+    .nosotros-redireccion{
+        display: flex;
+        justify-content: end;
+        font-weight: 800;
+        color: #8c4a2f;
+        font-size: 17px;
+        margin-top: 1vh;
+        color: #8c4a2f;
+        font-weight: 500;
+    }
+    a{
+        font-weight: bold;
+    }
+    .obras {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 1rem;
+        overflow: hidden;
+        margin-top: 2vh;
+        /*
+        padding: 2rem;
+        border-radius: 10px;
+        padding-right: 15%;
+        background-color: #f1e7c8;
+        flex-direction: row;
+        */
+        border-radius: 30px 0px 0 30px;
+        border: 2px solid #4c6a2a;
+    }
+    .obras-info{
+        margin: 5px;
+    }
+    .obras-info-desc{
+        font-size: 14px;
+        padding-right: 10px;
+    }
 
+    .obras-info-title{
+        font-size: 16px;
+        color: #8c4a2f;
+        text-align: left;
+        width: 100%;
+        margin-bottom: 5px;
+    }
 
+    .nosotros-integrantes-redireccion{
+        margin-right: 2vh;
+    }
 }
