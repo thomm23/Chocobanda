@@ -60,3 +60,16 @@ class impactosocial(View):
             
         }   
         return render(request,'impactoSocial.html',context)
+class novedades(View):
+    def get(self,request):
+        context={
+
+        }
+        return render(request,'novedades.html',context)
+
+class novedad(View):
+    def get(self,request):
+        context={
+
+        }
+        return render(request,'novedad.html',context)
