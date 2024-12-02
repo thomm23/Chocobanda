@@ -11,5 +11,7 @@ urlpatterns = [
     path('login/', Login.as_view(), name="login"),
     path('contraseñaOlvidada/', ContraseñaOlvidada.as_view(), name="contraseñaOlvidada"),  
     path('contacto/', contacto.as_view(), name="contacto"),
+    path('novedades/', novedades.as_view(), name="novedades"),
+    path('novedad/', novedad.as_view(), name="novedad")
 
 ]
