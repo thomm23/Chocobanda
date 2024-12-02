@@ -36,3 +36,10 @@ class ContraseñaOlvidada(View):
 
         }
         return render(request,'recuperarContraseña.html',context)
+
+class Novedades(View):
+    def get(self,request):
+        context={
+
+        }
+        return render(request,'novedades.html',context)

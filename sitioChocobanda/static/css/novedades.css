@@ -1,0 +1,37 @@
+.novedades-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.novedades-section .desplegable-novedades{
+    margin-right: 5vh;
+    display: flex;
+    flex-direction: row;
+}
+.novedades-section .desplegable-novedades .selector{
+    font-size: 16px;
+    color: #3b6021; 
+    background-color: #f1e7c8;
+     border: 2px solid ; /* 3b6021 */
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: border-color 0.3s ease;
+    margin: 20px;
+    font-weight: 700;
+}
+.novedades-section .desplegable-novedades .selector option{
+    font-weight: 700;
+}
+@media screen and (max-width: 768px) {
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    .novedades-section{
+        margin-top: 15vh;
+    }
+
+}

@@ -10,5 +10,6 @@ urlpatterns = [
     path('galeria/', Galeria.as_view(), name="galeria"),
     path('login/', Login.as_view(), name="login"),
     path('contraseñaOlvidada/', ContraseñaOlvidada.as_view(), name="contraseñaOlvidada"),  
+    path('novedades/', Novedades.as_view(), name="novedades"),  
 
 ]
