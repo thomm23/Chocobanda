@@ -99,14 +99,14 @@
 }
 
 .galeria-item::before {
-    content: "🖼️"; /* Icono de imagen */
+    content: "🖼️"; 
     font-size: 24px;
-    color: #3b6021; /* Color verde */
+    color: #3b6021; 
 }
 
-.tab-content {
+/*.tab-content {
     display: none;
-}
+}*/
 
 .tab-content.active {
     display: block;
