@@ -104,9 +104,9 @@
     color: #3b6021; 
 }
 
-/*.tab-content {
+.tab-content {
     display: none;
-}*/
+}
 
 .tab-content.active {
     display: block;

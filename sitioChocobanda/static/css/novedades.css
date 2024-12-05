@@ -11,9 +11,9 @@
 }
 .novedades-section .desplegable-novedades .selector{
     font-size: 16px;
-    color: #3b6021; 
+    color: #4c6a2a; 
     background-color: #f1e7c8;
-     border: 2px solid ; /* 3b6021 */
+    border: 2px solid ;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
