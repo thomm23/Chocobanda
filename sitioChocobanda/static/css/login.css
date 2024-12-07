@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+    src: url('../fonts/JokermanStd.otf') format('opentype');
+    font-family: 'Jokerman';
+  }
+form{
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-color: #f1e7c8;
+    background-color: #f1e7c8;
+    
+}
+label{
+    color: #8c4a2f;
+    font-size: 150%;
+    padding-bottom: 10%;
+}
+form p{
+    padding-bottom: 10%;
+    font-size: x-large;
+    text-align: center;
+    font-weight: bold;
+    color: #8c4a2f;
+}
+form input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    background-color: #f1e7c8;
+    border: 2px solid #4c6a2a;
+    border-radius: 10px;
+}
+form input::placeholder {
+    color: #4c6a2a;
+    font-size: 150%;
+    text-align: left;
+}
+.boton-form{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    background-color: #4c6a2a;
+    color: #f1e7c8;
+    font-size: 150%;
+    border-radius: 10px;
+}
+.boton-form:hover{
+    background-color: #8c4a2f;
+
+}
+h2{
+    color: #8c4a2f;
+    font-size: 150%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.subtitulo {
+    color: #8c4a2f;
+    font-weight: normal;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    form p{
+        padding-top: 25%;
+        padding-bottom: 10%;
+        font-size: x-large;
+        text-align: center;
+        font-weight: bold;
+        color: #8c4a2f;
+    }
+
+    .recuperarContraseña{
+        padding-top: 25%;
+
+
+    }
+}

@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+{% load static %} 
+{% block estilos %} <link rel="stylesheet" type="text/css" href="{% static 'css/novedades.css'%}"> {% endblock %}
+{% block title %} Chocobanda - NOVEDADES {% endblock %}
+{% block nombre_seccion %} Novedades {% endblock %}
+{%block content%}
+<section class ="section-novedad"> 
+    <div class = "container-fecha-novedad"> 
+        <span> 00 mes 2024</span>
+    </div> 
+    <div class = "content-novedad"> 
+        <div class = "titulo-novedad"> 
+            <h1> Titulo de la noticia</h1>  {% comment %} Esto dbeeria ser una variable {% endcomment %}
+        </div> 
+        <div class = "detalles-novedad"> 
+            <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+            <p> {% lorem 2 b random %}</p>
+
+        </div> 
+    </div> 
+</section> 
+{%endblock%}

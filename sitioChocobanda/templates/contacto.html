@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Contacto - Chocobanda{% endblock %}
+{% block estilos %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/contacto.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+{% endblock %}
+
+{% block content%}
+<form id="contact-form" class="contact-form">
+    <label for="name">Nombre <span class="rojo">*</span></label>
+    <input type="text" class="name" name="name" placeholder="Nombre" required>
+    
+    <label for="email">Correo <span class="rojo">*</span></label>
+    <input type="email" class="email" name="email" placeholder="Ejemplo@gmail.com" required>
+    
+    <label for="message">Consulta <span class="rojo">*</span></label>
+    <textarea class="message" name="message" placeholder="Consulta" required></textarea>
+    
+    <button type="submit">Enviar</button>
+</form>
+
+<div class="info-contacto">
+    <p><strong><i class="bi bi-whatsapp verde"></i> Teléfono:</strong> +54 000 000 0000</p>
+    <p><strong><i class="bi bi-envelope verde"></i> Email:</strong> ejemplo@gmail.com</p>
+</div>
+{% endblock %}
+
+{%block script%}
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contact-form");
+
+        if (form) {
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                // Simular el envío del formulario
+                const isSuccess = true;
+
+                if (isSuccess) {
+                    const successMessage = document.createElement('div');
+                    successMessage.classList.add('success-message');
+                    successMessage.innerHTML = `
+                    <div class="success-message" style="text-align: center;">    
+                        <div class="icon verde">
+                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                        </div>
+                        <p style="color: green;">Su mensaje ha sido enviado con éxito, en breve recibirá una respuesta a su correo electrónico.</p>
+                        <div class="info-contacto">
+                            <p><strong><i class="bi bi-whatsapp verde"></i> Teléfono:</strong> +54 000 000 0000</p>
+                            <p><strong><i class="bi bi-envelope verde"></i> Email:</strong> ejemplo@gmail.com</p>
+                        </div>
+                    </div>
+                    `;
+                    const mainContent = document.querySelector("main");
+                    mainContent.innerHTML = '';
+                    mainContent.appendChild(successMessage);
+                    form.reset();
+                } else {
+                    alert('Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.');
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}

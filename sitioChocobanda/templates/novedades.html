@@ -1,18 +1,23 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %} Chocobanda - INICIO {% endblock %}
-
-{%block content%}
-
-<div class="foto-principal">
-    <img src="{% static 'img/foto-principal.jpg'%}" alt="Foto principal">
-</div>
-<div class="descripcion">
-    <p>Acercándonos a los niños y sus familias a través del arte, creando lazos afectivos y apoyando a quienes mas lo necesitan</p>
-</div>
+ {% extends "base.html" %}
+ {% load static %}
+ {% block estilos %} <link rel="stylesheet" type="text/css" href="{% static 'css/novedades.css'%}"> {% endblock %}
+ {% block title %} Chocobanda - NOVEDADES {% endblock %}
+ {% block nombre_seccion %} Novedades {% endblock %}
+ {%block content%}
+ <section class="novedades-section">
+    <div class="title">
+        <h1>Agenda</h1>
+    </div>
+    <div class="desplegable-novedades">
+        <select class="selector" name="opciones"> 
+            <option value="opcion1"><p>2024</p></option> 
+            <option value="opcion2">2024</option> 
+            <option value="opcion3">2024</option> 
+        </select>
+    </div>
+</section>
 
 <section class="agenda-section">
-    <h1>Agenda</h1>
     <div class="proxima-funcion">
     <table class="tabla-agenda-section">
         <tr>
@@ -60,11 +65,10 @@
         </tr>
     </table>
     </div>
-</section>
-<div class="container-novedades swiper">
-    <div class="card-wrapper">
-        <ul class="card-list swiper-wrapper">
-            <li class="card-item swiper-slide">
+
+    <div class = "card-novedades">
+        <ul class="card-list">
+            <li class="card-item">
                 <a href="#" class="card-link">
                     <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
                     <div class="card-text">
@@ -74,7 +78,7 @@
                     </div>
                 </a>
             </li>
-            <li class="card-item swiper-slide">
+            <li class="card-item">
                 <a href="#" class="card-link">
                     <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
                     <div class="card-text">
@@ -84,7 +88,7 @@
                     </div>
                 </a>
             </li>
-            <li class="card-item swiper-slide">
+            <li class="card-item">
                 <a href="#" class="card-link">
                     <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
                     <div class="card-text">
@@ -96,47 +100,6 @@
             </li>
 
         </ul>
-        <div class="swiper-pagination"></div>
     </div>
-</div> 
-
-<div class="novedades-redirrecion">
-    <p><a href="">Ver todas las novedades</a></p>
-</div>
-{% endblock %} 
-
-{% block script %} 
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script>
-    new Swiper('.card-wrapper', {
-        // Optional parameters
-        loop: true,
-        spaceBetween: 30,
-
-        // If we need pagination
-        pagination: {
-        el: '.swiper-pagination',
-        clickable :true,
-        dynamicBullets: true
-        },
-    
-        // Navigation arrows
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        },
-        breakpoints : {
-            0: {
-                slidesPerView: 1
-            },
-            768: {
-                slidesPerView: 2
-            },
-            1024: {
-                slidesPerView: 3
-            }
-        }
-  });
-</script>
-
-{% endblock %}
+</section>
+ {% endblock %}
