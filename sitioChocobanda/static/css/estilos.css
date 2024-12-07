@@ -71,16 +71,13 @@ header{
 }
 
 footer {
-
     color: #f1e7c8;
     padding: 15px;
     background-color: #8c4a2f;
-    border-radius: 12% 12% 0 0;
+    border-radius: 5px 5px 0 0;
     position: relative;
     width: 100%;
-    margin-top: auto;
 }
-
 footer a{
     color: #f1e7c8;
 }
@@ -93,12 +90,6 @@ a{
 nav{
     display: inline;
 }
-
-/* estilos galeria */
-
-
-
-/* fin estilos galeria */
 
 .foto-principal img {
     width: 100%;
@@ -254,12 +245,6 @@ nav{
     .cerrar-menu{
         margin-right: 2rem;
     }
-
-    /* estilos galeria */
-
-    
-
-    /* fin estilos galeria */
 
     .nav{
         opacity: 0;
@@ -477,6 +462,72 @@ nav{
         border: 0px;
     }
 
+}
 
+/* Novedades-Carrousel-home.html */
+.title-novedades{
+    color: #8c4a2f;
+    margin: 1rem 0 1rem 1rem;
 
 }
+.novedades-redirrecion{
+    display: flex;
+    font-weight: 800;
+    color: #8c4a2f;
+    justify-content: end;
+    margin-right: 1rem;
+}
+.container-novedades{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.card-wrapper{
+    max-width: 1100px;
+    padding: 20px 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.card-list .card-item {
+    list-style: none;
+}
+.card-list .card-item .card-link:active{
+    cursor: grabbing;
+}
+.card-list .card-item .card-link{
+    user-select: none;
+    display: block;
+    background: #8c4a2f;
+    color: #f1e7c8;
+    /* border-radius: 12px; */
+    text-decoration: none;
+    /* border: 2px solid transparent; */
+    box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
+    transition: 0.2 ease;
+    border-radius: 10px;
+    
+}
+.card-list .card-item .card-text{
+    margin: 10px 0 0 10px;
+    padding-bottom: 10px;
+}
+.card-list .card-item .card-link:hover{
+    border-color: blue;
+}
+.card-list .card-link .card-img{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+.swiper-slide-button{
+    color: #4c6a2a;
+}
+.card-wrapper .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background: #4c6a2a;
+}
+  

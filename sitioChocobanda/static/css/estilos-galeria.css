@@ -1,29 +1,3 @@
-/* Estilos para los selectores */
-.galeria-obras, .galeria-fechas {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #8F9D70; /* Color de fondo similar al de la imagen */
-    color: #3F5B2C; /* Color de texto similar al de la imagen */
-    font-size: 16px;
-    appearance: none; /* Elimina el estilo predeterminado de la flecha */
-    -webkit-appearance: none; /* Compatibilidad con Safari */
-    -moz-appearance: none; /* Compatibilidad con Firefox */
-    text-align: left;
-    cursor: pointer;
-    width: 100%;
-    max-width: 250px; /* Ajusta según el ancho deseado */
-    margin-bottom: 10px;
-}
-
-/* Agregar un ícono de flecha personalizado */
-.galeria-obras::after, .galeria-fechas::after {
-    content: '▼';
-    position: absolute;
-    right: 10px;
-    pointer-events: none;
-    color: #3F5B2C; /* Color de la flecha */
 /* Estilos principales (Mobile First) */
 .contenedor-selector {
     display: flex;
@@ -463,6 +437,5 @@
     .modal img {
         transform: rotate(-90deg); /* Gira la imagen 90 grados hacia la izquierda */
     }
-}
 }
 
