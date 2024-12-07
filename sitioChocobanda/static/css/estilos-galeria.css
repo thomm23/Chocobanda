@@ -1,4 +1,8 @@
 /* Estilos principales (Mobile First) */
+.hidden {
+    display:none;
+}
+
 .contenedor-selector {
     display: flex;
     flex-direction: column;

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-{% block estilos %} <link rel="stylesheet" type="text/css" href="{% static 'css/estilos-galeria.css'%}"> {% endblock %}
+{% block estilos %} <link rel="stylesheet" type="text/css" href="{% static 'css/estilos-galeria.css'%}">
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> 
+{% endblock %}
 {% block title %} Chocobanda - GALERIA {% endblock %}
 {% block nombre_seccion %} Galería {% endblock %}
 {% block content %} 
@@ -91,6 +93,7 @@
                     </div>
                     <span id="total-time" class="time">00:00</span>
                 </div>
+
             </div>
         
             <!-- Lista de canciones -->
@@ -109,8 +112,8 @@
                     <div class="cancion-info">
                         <div class="cancion-play">▶</div>
                         <div class="cancion-texto">
-                            <div class="titulo-cancion">Nombre de la Canción 1</div>
-                            <div class="subtitulo">Nombre de la Obra 1</div>
+                            <div class="titulo-cancion">Nombre de la Canción 2</div>
+                            <div class="subtitulo">Nombre de la Obra 2</div>
                         </div>
                     </div>
                     <div class="duracion">00:00</div>
@@ -119,8 +122,8 @@
                     <div class="cancion-info">
                         <div class="cancion-play">▶</div>
                         <div class="cancion-texto">
-                            <div class="titulo-cancion">Nombre de la Canción 1</div>
-                            <div class="subtitulo">Nombre de la Obra 1</div>
+                            <div class="titulo-cancion">Nombre de la Canción 3</div>
+                            <div class="subtitulo">Nombre de la Obra 3</div>
                         </div>
                     </div>
                     <div class="duracion">00:00</div>
@@ -136,6 +139,9 @@
     <span class="close">&times;</span>
     <div id="modal-content" class="modal-content"></div>
 </div>
+
+<!-- Audio -->
+<audio id="audio-player"></audio>
 
 {% endblock %}
 
@@ -237,8 +243,23 @@
                 currentAudio = audioPlayer;
             
                 playerBar.classList.remove("hidden");
+
+                audioPlayer.onended = () => {
+                    resetPlayIcons();
+                }
+            }
+
+            // Función para resetear todos los botones a play
+            function resetPlayIcons() {
+                const allButtons = document.querySelectorAll(".cancion-play");
+                allButtons.forEach(btn => btn.textContent = "▶");
             }
             
+            // Función para ocultar la barra de reproducción
+            function hidePlayerBar() {
+                playerBar.classList.add("hidden");
+            }
+
             // Actualizar la barra de progreso
             audioPlayer.addEventListener("timeupdate", () => {
                 if (audioPlayer.duration) {
@@ -259,15 +280,17 @@
             }
             
             // Play/Pause
-            playPauseButton.addEventListener("click", () => {
-                if (currentAudio.paused) {
-                    currentAudio.play();
-                    playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
-                } else {
-                    currentAudio.pause();
-                    playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
-                }
-            });
+    playPauseButton.addEventListener("click", () => {
+    if (currentAudio.paused) {
+        currentAudio.play();
+        playPauseButton.innerHTML = '<i class="fas fa-pause"></i>'; // Cambiar el ícono en el playPauseButton
+        document.querySelector('.cancion-play').innerHTML = '❚❚'; // Cambiar el ícono en el div .cancion-play
+    } else {
+        currentAudio.pause();
+        playPauseButton.innerHTML = '<i class="fas fa-play"></i>'; // Cambiar el ícono en el playPauseButton
+        document.querySelector('.cancion-play').innerHTML = '▶'; // Cambiar el ícono en el div .cancion-play
+    }
+    });
             
             // Stop
             stopButton.addEventListener("click", () => {
@@ -278,17 +301,29 @@
             
             // Interacción con las canciones
             const canciones = document.querySelectorAll(".galeria-item-canciones");
-            canciones.forEach(cancion => {
-                cancion.addEventListener("click", () => {
-                    const audioSrc = cancion.getAttribute("data-audio-src");
-                    const imgSrc = cancion.getAttribute("data-img-src");
-                    const title = cancion.getAttribute("data-title");
-                    const subtitle = cancion.getAttribute("data-subtitle");
-            
-                    loadSong(audioSrc, imgSrc, title, subtitle);
+                canciones.forEach(cancion => {
+                cancion.addEventListener("click", (event) => {
+                    // Verificar si el clic fue en el botón con la clase "cancion-play"
+                    if (event.target.classList.contains("cancion-play")) {
+                        const audioSrc = cancion.getAttribute("data-audio-src");
+                        const imgSrc = cancion.getAttribute("data-img-src");
+                        const title = cancion.getAttribute("data-title");
+                        const subtitle = cancion.getAttribute("data-subtitle");
+
+                        loadSong(audioSrc, imgSrc, title, subtitle);
+                        togglePlayPauseIcon(event.target);
+                    }
                 });
             });
+            // Función para alternar el icono de play/pause
+            function togglePlayPauseIcon(button) {
+                // Resetear todos los botones a play
+                const allButtons = document.querySelectorAll(".cancion-play");
+                allButtons.forEach(btn => btn.textContent = "▶");
             
+                // Cambiar el botón actual a pausa
+                button.textContent = "⏸";
+            }
             // Interacción con la barra de progreso
             progressBar.addEventListener("click", (e) => {
                 const barWidth = progressBar.clientWidth;
