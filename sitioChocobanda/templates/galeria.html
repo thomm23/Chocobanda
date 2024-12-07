@@ -211,129 +211,135 @@
         });
 
         // Lógica para reproducir el audio
-            const playerBar = document.getElementById("player-bar");
-            const audioPlayer = document.getElementById("audio-player");
-            const playerImg = document.getElementById("player-img");
-            const playerTitle = document.getElementById("player-title");
-            const playerSubtitle = document.getElementById("player-subtitle");
-            const playPauseButton = document.getElementById("play-pause-button");
-            const stopButton = document.getElementById("stop-button");
-            const progressBar = document.querySelector(".progress-bar");
-            const progress = document.getElementById("progress");
-            const currentTimeEl = document.getElementById("current-time");
-            const totalTimeEl = document.getElementById("total-time");
+        const playerBar = document.getElementById("player-bar");
+        const audioPlayer = document.getElementById("audio-player");
+        const playerImg = document.getElementById("player-img");
+        const playerTitle = document.getElementById("player-title");
+        const playerSubtitle = document.getElementById("player-subtitle");
+        const playPauseButton = document.getElementById("play-pause-button");
+        const stopButton = document.getElementById("stop-button");
+        const progressBar = document.querySelector(".progress-bar");
+        const progress = document.getElementById("progress");
+        const currentTimeEl = document.getElementById("current-time");
+        const totalTimeEl = document.getElementById("total-time");
             
-            let currentAudio = null;
-            
+        let currentAudio = null;
+        
+        console.log(playerBar);  // Verifica si se obtiene el elemento correctamente BORRAR DESPUES
+        playerBar.classList.add("hidden");//BORRAR DESPUES
+
         // Función para cargar una canción
         function loadSong(audioSrc, imgSrc, title, subtitle) {
-                if (currentAudio) {
-                    currentAudio.pause();
-                    currentAudio.currentTime = 0;
-                }
-            
-                audioPlayer.src = audioSrc;
-                playerImg.src = imgSrc;
-                playerTitle.textContent = title;
-                playerSubtitle.textContent = subtitle;
-            
-                audioPlayer.load();
-                audioPlayer.play();
-                playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
-                currentAudio = audioPlayer;
-            
-                playerBar.classList.remove("hidden");
-
-                audioPlayer.onended = () => {
-                    resetPlayIcons();
-                }
-            }
-
-            // Función para resetear todos los botones a play
-            function resetPlayIcons() {
-                const allButtons = document.querySelectorAll(".cancion-play");
-                allButtons.forEach(btn => btn.textContent = "▶");
-            }
-            
-            // Función para ocultar la barra de reproducción
-            function hidePlayerBar() {
-                playerBar.classList.add("hidden");
-            }
-
-            // Actualizar la barra de progreso
-            audioPlayer.addEventListener("timeupdate", () => {
-                if (audioPlayer.duration) {
-                    const progressRatio = audioPlayer.currentTime / audioPlayer.duration;
-                    progress.style.width = `${progressRatio * 100}%`;
-            
-                    // Actualizar tiempo actual y total
-                    currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
-                    totalTimeEl.textContent = formatTime(audioPlayer.duration);
-                }
-            });
-            
-            // Formato de tiempo
-            function formatTime(time) {
-                const minutes = Math.floor(time / 60);
-                const seconds = Math.floor(time % 60);
-                return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-            }
-            
-            // Play/Pause
-    playPauseButton.addEventListener("click", () => {
-    if (currentAudio.paused) {
-        currentAudio.play();
-        playPauseButton.innerHTML = '<i class="fas fa-pause"></i>'; // Cambiar el ícono en el playPauseButton
-        document.querySelector('.cancion-play').innerHTML = '❚❚'; // Cambiar el ícono en el div .cancion-play
-    } else {
-        currentAudio.pause();
-        playPauseButton.innerHTML = '<i class="fas fa-play"></i>'; // Cambiar el ícono en el playPauseButton
-        document.querySelector('.cancion-play').innerHTML = '▶'; // Cambiar el ícono en el div .cancion-play
-    }
-    });
-            
-            // Stop
-            stopButton.addEventListener("click", () => {
+            if (currentAudio) {
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
-                playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
-            });
-            
-            // Interacción con las canciones
-            const canciones = document.querySelectorAll(".galeria-item-canciones");
-                canciones.forEach(cancion => {
-                cancion.addEventListener("click", (event) => {
-                    // Verificar si el clic fue en el botón con la clase "cancion-play"
-                    if (event.target.classList.contains("cancion-play")) {
-                        const audioSrc = cancion.getAttribute("data-audio-src");
-                        const imgSrc = cancion.getAttribute("data-img-src");
-                        const title = cancion.getAttribute("data-title");
-                        const subtitle = cancion.getAttribute("data-subtitle");
-
-                        loadSong(audioSrc, imgSrc, title, subtitle);
-                        togglePlayPauseIcon(event.target);
-                    }
-                });
-            });
-            // Función para alternar el icono de play/pause
-            function togglePlayPauseIcon(button) {
-                // Resetear todos los botones a play
-                const allButtons = document.querySelectorAll(".cancion-play");
-                allButtons.forEach(btn => btn.textContent = "▶");
-            
-                // Cambiar el botón actual a pausa
-                button.textContent = "⏸";
             }
-            // Interacción con la barra de progreso
-            progressBar.addEventListener("click", (e) => {
-                const barWidth = progressBar.clientWidth;
-                const clickPosition = e.offsetX;
-                const clickRatio = clickPosition / barWidth;
             
-                if (currentAudio) {
-                    currentAudio.currentTime = currentAudio.duration * clickRatio;
+            audioPlayer.src = audioSrc;
+            playerImg.src = imgSrc;
+            playerTitle.textContent = title;
+            playerSubtitle.textContent = subtitle;
+            
+            audioPlayer.load();
+            audioPlayer.play();
+            playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+            currentAudio = audioPlayer;
+            
+            playerBar.classList.remove("hidden");
+
+            audioPlayer.onended = () => {
+                console.log("La canción ha terminado");//BORRAR DESPUES
+                resetPlayIcons();
+                hidePlayerBar();
+            }
+        }
+
+        // Función para resetear todos los botones a play
+        function resetPlayIcons() {
+            const allButtons = document.querySelectorAll(".cancion-play");
+            allButtons.forEach(btn => btn.textContent = "▶");
+        }
+            
+        // Función para ocultar la barra de reproducción
+        function hidePlayerBar() {
+            console.log("Ocultando la barra de reproducción");//BORRAR DESPUES
+            playerBar.classList.add("hidden");
+        }
+
+        // Actualizar la barra de progreso
+        audioPlayer.addEventListener("timeupdate", () => {
+            if (audioPlayer.duration) {
+                const progressRatio = audioPlayer.currentTime / audioPlayer.duration;
+                progress.style.width = `${progressRatio * 100}%`;
+            
+                // Actualizar tiempo actual y total
+                currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+                totalTimeEl.textContent = formatTime(audioPlayer.duration);
+            }
+        });
+            
+        // Formato de tiempo
+        function formatTime(time) {
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60);
+            return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+        }
+            
+        // Play/Pause
+        playPauseButton.addEventListener("click", () => {
+        if (currentAudio.paused) {
+            currentAudio.play();
+            playPauseButton.innerHTML = '<i class="fas fa-pause"></i>'; // Cambiar el ícono en el playPauseButton
+            document.querySelector('.cancion-play').innerHTML = '❚❚'; // Cambiar el ícono en el div .cancion-play
+        } else {
+            currentAudio.pause();
+            playPauseButton.innerHTML = '<i class="fas fa-play"></i>'; // Cambiar el ícono en el playPauseButton
+            document.querySelector('.cancion-play').innerHTML = '▶'; // Cambiar el ícono en el div .cancion-play
+        }
+        });
+                    
+        // Stop
+        stopButton.addEventListener("click", () => {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+            playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
+        });
+            
+        // Interacción con las canciones
+        const canciones = document.querySelectorAll(".galeria-item-canciones");
+            canciones.forEach(cancion => {
+            cancion.addEventListener("click", (event) => {
+                // Verificar si el clic fue en el botón con la clase "cancion-play"
+                if (event.target.classList.contains("cancion-play")) {
+                    const audioSrc = cancion.getAttribute("data-audio-src");
+                    const imgSrc = cancion.getAttribute("data-img-src");
+                    const title = cancion.getAttribute("data-title");
+                    const subtitle = cancion.getAttribute("data-subtitle");
+
+                    loadSong(audioSrc, imgSrc, title, subtitle);
+                    togglePlayPauseIcon(event.target);
                 }
             });
+        });
+        // Función para alternar el icono de play/pause
+        function togglePlayPauseIcon(button) {
+            // Resetear todos los botones a play
+            const allButtons = document.querySelectorAll(".cancion-play");
+            allButtons.forEach(btn => btn.textContent = "▶");
+        
+            // Cambiar el botón actual a pausa
+            button.textContent = "⏸";
+        }
+        // Interacción con la barra de progreso
+        progressBar.addEventListener("click", (e) => {
+            const barWidth = progressBar.clientWidth;
+            const clickPosition = e.offsetX;
+            const clickRatio = clickPosition / barWidth;
+            
+            if (currentAudio) {
+                currentAudio.currentTime = currentAudio.duration * clickRatio;
+            }
+        });
     });
 </script>
             
