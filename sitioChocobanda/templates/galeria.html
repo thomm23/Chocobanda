@@ -98,7 +98,7 @@
         
             <!-- Lista de canciones -->
             <div class="galeria-grid-canciones">
-                <div class="galeria-item-canciones" data-audio-src="{% static 'audio/cancion.mp3' %}" data-img-src="{% static 'img/foto1.jpg' %}" data-title="Nombre de la Canción 1" data-subtitle="Nombre de la Obra 1">
+                <div class="galeria-item-canciones" data-audio-src="{% static 'audio/cancion.mp3' %}" data-img-src="{% static 'img\Imagen-NoImage.png' %}" data-title="Nombre de la Canción 1" data-subtitle="Nombre de la Obra 1">
                     <div class="cancion-info">
                         <div class="cancion-play">▶</div>
                         <div class="cancion-texto">
@@ -108,7 +108,7 @@
                     </div>
                     <div class="duracion">00:00</div>
                 </div>
-                <div class="galeria-item-canciones" data-audio-src="{% static 'audio/cancion.mp3' %}" data-img-src="{% static 'img/foto1.jpg' %}" data-title="Nombre de la Canción 1" data-subtitle="Nombre de la Obra 1">
+                <div class="galeria-item-canciones" data-audio-src="{% static 'audio/cancion.mp3' %}" data-img-src="{% static 'img\Imagen-NoImage.png' %}" data-title="Nombre de la Canción 1" data-subtitle="Nombre de la Obra 1">
                     <div class="cancion-info">
                         <div class="cancion-play">▶</div>
                         <div class="cancion-texto">
@@ -118,7 +118,7 @@
                     </div>
                     <div class="duracion">00:00</div>
                 </div>
-                <div class="galeria-item-canciones" data-audio-src="{% static 'audio/cancion.mp3' %}" data-img-src="{% static 'img/foto1.jpg' %}" data-title="Nombre de la Canción 1" data-subtitle="Nombre de la Obra 1">
+                <div class="galeria-item-canciones" data-audio-src="{% static 'audio/cancion.mp3' %}" data-img-src="{% static 'img\Imagen-NoImage.png' %}" data-title="Nombre de la Canción 1" data-subtitle="Nombre de la Obra 1">
                     <div class="cancion-info">
                         <div class="cancion-play">▶</div>
                         <div class="cancion-texto">
@@ -225,9 +225,6 @@
             
         let currentAudio = null;
         
-        console.log(playerBar);  // Verifica si se obtiene el elemento correctamente BORRAR DESPUES
-        playerBar.classList.add("hidden");//BORRAR DESPUES
-
         // Función para cargar una canción
         function loadSong(audioSrc, imgSrc, title, subtitle) {
             if (currentAudio) {
@@ -248,7 +245,6 @@
             playerBar.classList.remove("hidden");
 
             audioPlayer.onended = () => {
-                console.log("La canción ha terminado");//BORRAR DESPUES
                 resetPlayIcons();
                 hidePlayerBar();
             }
@@ -262,7 +258,6 @@
             
         // Función para ocultar la barra de reproducción
         function hidePlayerBar() {
-            console.log("Ocultando la barra de reproducción");//BORRAR DESPUES
             playerBar.classList.add("hidden");
         }
 
@@ -291,10 +286,15 @@
             currentAudio.play();
             playPauseButton.innerHTML = '<i class="fas fa-pause"></i>'; // Cambiar el ícono en el playPauseButton
             document.querySelector('.cancion-play').innerHTML = '❚❚'; // Cambiar el ícono en el div .cancion-play
+        
+            /*document.querySelector('.cancion-play').classList.add('reproduciendo');REVISAR*/
+            
         } else {
             currentAudio.pause();
             playPauseButton.innerHTML = '<i class="fas fa-play"></i>'; // Cambiar el ícono en el playPauseButton
             document.querySelector('.cancion-play').innerHTML = '▶'; // Cambiar el ícono en el div .cancion-play
+            
+            /*document.querySelector('.cancion-play').classList.remove('reproduciendo');REVISAR*/            
         }
         });
                     
@@ -318,6 +318,9 @@
 
                     loadSong(audioSrc, imgSrc, title, subtitle);
                     togglePlayPauseIcon(event.target);
+                    
+                    /*event.target.classList.add('reproduciendo');
+                    console.log('Clase "reproduciendo" añadida'); REVISAR*/
                 }
             });
         });
@@ -328,7 +331,7 @@
             allButtons.forEach(btn => btn.textContent = "▶");
         
             // Cambiar el botón actual a pausa
-            button.textContent = "⏸";
+            button.textContent = "⏸";//REVISAR
         }
         // Interacción con la barra de progreso
         progressBar.addEventListener("click", (e) => {
