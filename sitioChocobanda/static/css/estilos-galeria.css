@@ -1,7 +1,7 @@
-/* Estilos principales (Mobile First)
+/* Estilos principales (Mobile First)*/
 .player-bar.hidden {
     display: none;
-}*/
+}
 
 .contenedor-selector {
     display: flex;

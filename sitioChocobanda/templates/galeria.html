@@ -287,14 +287,14 @@
             playPauseButton.innerHTML = '<i class="fas fa-pause"></i>'; // Cambiar el ícono en el playPauseButton
             document.querySelector('.cancion-play').innerHTML = '❚❚'; // Cambiar el ícono en el div .cancion-play
         
-            /*document.querySelector('.cancion-play').classList.add('reproduciendo');REVISAR*/
+            document.querySelector('.cancion-play').classList.add('reproduciendo');
             
         } else {
             currentAudio.pause();
             playPauseButton.innerHTML = '<i class="fas fa-play"></i>'; // Cambiar el ícono en el playPauseButton
             document.querySelector('.cancion-play').innerHTML = '▶'; // Cambiar el ícono en el div .cancion-play
             
-            /*document.querySelector('.cancion-play').classList.remove('reproduciendo');REVISAR*/            
+            document.querySelector('.cancion-play').classList.remove('reproduciendo');
         }
         });
                     
@@ -319,8 +319,8 @@
                     loadSong(audioSrc, imgSrc, title, subtitle);
                     togglePlayPauseIcon(event.target);
                     
-                    /*event.target.classList.add('reproduciendo');
-                    console.log('Clase "reproduciendo" añadida'); REVISAR*/
+                    event.target.classList.add('reproduciendo');
+                    /*console.log('Clase "reproduciendo" añadida'); REVISAR*/
                 }
             });
         });
@@ -331,7 +331,7 @@
             allButtons.forEach(btn => btn.textContent = "▶");
         
             // Cambiar el botón actual a pausa
-            button.textContent = "⏸";//REVISAR
+            button.textContent = '❚❚';
         }
         // Interacción con la barra de progreso
         progressBar.addEventListener("click", (e) => {
