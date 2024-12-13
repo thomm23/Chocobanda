@@ -21,15 +21,15 @@
     <div class="proxima-funcion">
     <table class="tabla-agenda-section">
         <tr>
-        <td>
-            <h2 class="dia-funcion">{% block dia_funcion %}22{% endblock %}</h2>
-            <h2 class="mes-funcion">{% block mes_funcion %}Octubre{% endblock %}</h2>
-        </td>
-        <td>
-            <h3 class="nombre-funcion">{% block nombre_funcion %}Proxima función{% endblock %}</h3>
-            <h3 class="hora-funcion">{% block hora_funcion %}20:00{% endblock %}</h3>
-            <h3 class="lugar-funcion">{% block lugar_funcion %}Teatro Colon{% endblock %}</h3>
-        </td>
+            <td>
+                <h2 class="dia-funcion">{% block dia_funcion %}22{% endblock %}</h2>
+                <h2 class="mes-funcion">{% block mes_funcion %}Octubre{% endblock %}</h2>
+            </td>
+            <td>
+                <h3 class="nombre-funcion">{% block nombre_funcion %}Proxima función{% endblock %}</h3>
+                <h3 class="hora-funcion">{% block hora_funcion %}20:00{% endblock %}</h3>
+                <h3 class="lugar-funcion">{% block lugar_funcion %}Teatro Colon{% endblock %}</h3>
+            </td>
         </tr>
     </table>
     </div>
@@ -37,35 +37,62 @@
     <div class="funciones">
     <table class="tabla-agenda-section">
         <tr>
-        <td>
-            <h2 class="dia-funcion2">{% block dia_funcion2 %}22{% endblock %}</h2>
-            <h2 class="mes-funcion2">{% block mes_funcion2 %}Octubre{% endblock %}</h2>
-        </td>
-        <td>
-            <h3 class="nombre-funcion2">{% block nombre_funcion2 %}Funcion de Gala{% endblock %}</h3>
-            <h3 class="hora-funcion2">{% block hora_funcion2 %}20:00{% endblock %}</h3>
-            <h3 class="lugar-funcion2">{% block lugar_funcion2 %}Teatro Colon{% endblock %}</h3>
-        </td>
+            <td>
+                <h2 class="dia-funcion2">{% block dia_funcion2 %}22{% endblock %}</h2>
+                <h2 class="mes-funcion2">{% block mes_funcion2 %}Octubre{% endblock %}</h2>
+            </td>
+            <td>
+                <h3 class="nombre-funcion2">{% block nombre_funcion2 %}Funcion de Gala{% endblock %}</h3>
+                <h3 class="hora-funcion2">{% block hora_funcion2 %}20:00{% endblock %}</h3>
+                <h3 class="lugar-funcion2">{% block lugar_funcion2 %}Teatro Colon{% endblock %}</h3>
+            </td>
         </tr>
     </table>
     </div>
 
     <div class="funciones">
-    <table class="tabla-agenda-section">
-        <tr>
-        <td>
-            <h2 class="dia-funcion3">{% block dia_funcion3 %}22{% endblock %}</h2>
-            <h2 class="mes-funcion3">{% block mes_funcion3 %}Octubre{% endblock %}</h2>
-        </td>
-        <td>
-            <h3 class="nombre-funcion3">{% block nombre_funcion3 %}Funcion de Gala{% endblock %}</h3>
-            <h3 class="hora-funcion3">{% block hora_funcion3 %}20:00{% endblock %}</h3>
-            <h3 class="lugar-funcion3">{% block lugar_funcion3 %}Teatro Colon{% endblock %}</h3>
-        </td>
-        </tr>
-    </table>
+        <table class="tabla-agenda-section">
+            <tr>
+                <td>
+                    <h2 class="dia-funcion3">{% block dia_funcion3 %}22{% endblock %}</h2>
+                    <h2 class="mes-funcion3">{% block mes_funcion3 %}Octubre{% endblock %}</h2>
+                </td>
+                <td>
+                    <h3 class="nombre-funcion3">{% block nombre_funcion3 %}Funcion de Gala{% endblock %}</h3>
+                    <h3 class="hora-funcion3">{% block hora_funcion3 %}20:00{% endblock %}</h3>
+                    <h3 class="lugar-funcion3">{% block lugar_funcion3 %}Teatro Colon{% endblock %}</h3>
+                </td>
+            </tr>
+        </table>
     </div>
 
+    {% comment %} El siguiente contenido es solo para desktop {% endcomment %}
+    <div class="noticia-desk-section">
+         <div class="noticia-desk-item"> 
+            <div class="noticia-desk-text"> 
+                <span>00 del mes de 2024</span> 
+                <h2>Título de noticia</h2> 
+                <p class = "noticia-desk-description">Breve descripción de la noticia no más de dos líneas. Lorem ipsum dolor sit amet consectetur.</p> 
+                <p class="noticia-desk-detail">{% lorem 2 b random %}</p> 
+            </div> 
+            <div class="noticia-desk-image card-img"> 
+                <img src="{% static 'img/foto-principal.jpg'%}" alt="Imagen de noticia"> 
+            </div> 
+        </div> 
+        <div class="noticia-desk-item"> 
+            <div class="noticia-desk-text"> 
+                <span>00 del mes de 2024</span> 
+                <h2>Título de novedad</h2> 
+                <p>Breve descripción de la novedad no más de dos líneas...</p> 
+                <p class="noticia-desk-detail">{% lorem 2 b random %}</p> 
+            </div> 
+            <div class="noticia-desk-image"> 
+                <img src="{% static 'img/foto-principal.jpg'%}" alt="Imagen de novedad"> 
+            </div> 
+        </div> 
+    </div>
+
+    {% comment %} Este es para mobile {% endcomment %}
     <div class = "card-novedades">
         <ul class="card-list">
             <li class="card-item">
