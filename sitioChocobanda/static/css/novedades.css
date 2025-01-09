@@ -6,6 +6,7 @@
 }
 .novedades-section .desplegable-novedades{
     margin-right: 5vh;
+    width: 250px;
     display: flex;
     flex-direction: row;
 }
@@ -38,18 +39,25 @@
 .section-novedad{
     margin-top: 7rem;  /* para que no te coma el banner*/
 }
+.content-novedad{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .section-novedad .container-fecha-novedad {
     color: #8c4a2f;
     font-weight: 700;
     display: flex;
     justify-content: end;
-    margin-right: 1rem;
+    margin-right: 10rem;
     margin-top: 8rem;
 }
+
 .content-novedad .card-img{
     width: 100%;
     height: 100%;
     margin-bottom: 2rem;
+    /* border-radius: 30px; */
 }
 .content-novedad h1{
     color: #8c4a2f;
@@ -57,19 +65,103 @@
     margin-top: 1rem;
 }
 .detalles-novedad{
+    width: 80%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 1rem;
+    margin: 5rem;
 }
 .detalles-novedad p{
     text-align: left;
     color: #8c4a2f;
     font-weight: 500;
 }
+.novedad-descp{
+    margin-bottom: 2rem;
+}
 
 
+/* desktop */
+@media screen and (min-width: 769px){
+    .agenda-section{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .tabla-agenda-section td{
+       padding-left: 2rem;
+       padding-right: 2rem;
+    }
+    .agenda-section h3{
+        font-weight: 400;
+    }
+    .proxima-funcion, .funciones{
+        height: 16rem;
+        width: 20rem;
+        border-radius: 30px;
+        padding: 2rem;
+    }
+    .agenda-section td{
+        display: block;
+        text-align: center;
+        justify-content: center;
+    }
 
+    .card-novedades{
+        display: none;
+    }
+    .noticia-desk-section{
+        margin: 2rem;
+    }
+    .noticia-desk-text h2, p, span{
+        color: #8c4a2f;
+    }
+    .noticia-desk-item{
+        display: flex;
+        margin-bottom: 3rem;
+        justify-content: space-between;
+
+    }
+    .noticia-desk-image{
+        width: 40%;
+        height: 70%;
+        margin-right: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .noticia-desk-image img{
+        width: 100%;
+        height: 80%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+    .noticia-desk-text{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    .noticia-desk-text h2{
+        margin-top: 1rem;
+    }
+    .noticia-desk-text span{
+        font-weight: 700;
+    }
+    .noticia-desk-description{
+        font-weight: 600;
+        margin-top: 1rem;
+    }
+    .noticia-desk-detail{ 
+        margin-top: 1rem;
+        font-weight: 500;
+    }
+    .detalles-novedad .card-img{
+        border-radius: 30px;
+    }
+    
+}
+/* mobile */
 @media screen and (max-width: 768px) {
 
     ::-webkit-scrollbar {
@@ -78,5 +170,29 @@
     .novedades-section{
         margin-top: 15vh;
     }
+    .noticia-desk-section{
+        display: none;
+    }
+    .section-novedad .container-fecha-novedad {
+   
+        justify-content: end;
+        margin-right: 2rem;
+    
+    }
+    
 
+}
+/* tablets */
+ @media (min-width: 768px) and (max-width: 1024px) {
+    .noticia-desk-item{
+        flex-direction: column;
+        margin-right: 3rem;
+    }
+    .noticia-desk-text {
+        width: 100%;
+    }
+    .noticia-desk-image {
+        margin-top: 1rem;
+        width: 100%;
+    }
 }

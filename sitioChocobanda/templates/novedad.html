@@ -10,10 +10,13 @@
     </div> 
     <div class = "content-novedad"> 
         <div class = "titulo-novedad"> 
-            <h1> Titulo de la noticia</h1>  {% comment %} Esto dbeeria ser una variable {% endcomment %}
+            <h1> Titulo de la noticia</h1>  
         </div> 
         <div class = "detalles-novedad"> 
-            <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+            <p class ="novedad-descp">{% lorem 1 b random %}</p>
+            <div class = "container-img">
+                <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+            </div>
             <p> {% lorem 2 b random %}</p>
 
         </div> 

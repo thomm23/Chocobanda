@@ -1,4 +1,8 @@
-/* Estilos principales (Mobile First) */
+/* Estilos principales (Mobile First)*/
+.player-bar.hidden {
+    display: none;
+}
+
 .contenedor-selector {
     display: flex;
     flex-direction: column;
@@ -9,70 +13,70 @@
     flex-direction: column;
     width: 100%;
     margin: 0 auto;
-    margin-top: 120px;
+    margin-top: 14vh;
 }
 
 .selector2 {
     display: flex;
     flex-direction: column;
-    width: 100%; /* Ocupa todo el ancho del contenedor */
+    width: 100%;
     margin: 0 auto; 
 }
 
 .galeria-obras, .galeria-fechas {
-    width: 90%; /* Elimina la restricción del ancho fijo */
-    max-width: 100%; /* Previene que se encojan en contenedores pequeños */
-    font-size: 18px; /* Ajusta el tamaño del texto */
-    padding: 10px; /* Mejora la usabilidad */
-    box-sizing: border-box; /* Incluye el padding en el ancho */
-    font-size: 16px;
-    color: #3b6021; /* Color verde del texto */
+    width: 90%;
+    max-width: 100%;
+    font-size: 2vh;
+    padding: 1vh;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: #3b6021;
     background-color: #f1e7c8;
-    border: 2px solid #3b6021; /* Borde verde */
-    border-radius: 5px;
-    padding: 5px 10px;
+    border: 0.22vh solid #3b6021;
+    border-radius: 0.56vh;
+    padding: 0.56vh 1.11vh;
     cursor: pointer;
-    margin: 20px;
+    margin: 2.22vh;
     transition: border-color 0.3s ease;
 }
 
 .galeria-obras:hover, .galeria-fechas:hover {
-    border-color: #5a8231; /* Cambia el color del borde al pasar el mouse */
+    border-color: #5a8231;
 }
 
 .galeria-obras:focus, .galeria-fechas:focus {
-    border-color: #2f501a; /* Cambia el color del borde al seleccionar */
+    border-color: #2f501a;
 }
 
 .galeria {
-    margin-top: 20px;
-    background-color: #f1e7c8; /* Fondo claro */
+    margin-top: 2.22vh;
+    background-color: #f1e7c8;
 }
 
 .galeria-header {
     display: flex;
-    gap: 10px;
+    gap: 1.11vh;
     justify-content: space-around;
-    margin-bottom: 0px;
+    margin-bottom: 0vh;
 }
 
 .tab {
     background-color: #f1e7c8;
-    color: #8c4a2f; 
-    font-size: 18px;
+    color: #8c4a2f;
+    font-size: 2vh;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px 5px 0 0;
+    padding: 1.11vh 2.22vh;
+    border-radius: 0.56vh 0.56vh 0 0;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .tab:hover {
-    background-color: #2f501a; /* Verde más oscuro al pasar el mouse */
+    background-color: #2f501a;
 }
 
 .tab.active {
-    background-color: #3b6021; /* Verde intermedio para la pestaña activa */
+    background-color: #3b6021;
     color: #f1e7c8;
     text-decoration: underline;
 }
@@ -81,27 +85,27 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     background-color: #3b6021;
-    border-radius: 5px;
-    padding: 5px;
-    justify-items: center; /* Centra los items horizontalmente */
-    align-items: center; 
+    border-radius: 0.56vh;
+    padding: 0.56vh;
+    justify-items: center;
+    align-items: center;
 }
 
 .galeria-item {
-    background-color: #c1a378; /* Fondo de cada ítem */
-    border: 2px solid #3b6021; /* Borde verde */
-    aspect-ratio: 1; /* Mantiene los cuadros cuadrados */
+    background-color: #c1a378;
+    border: 0.22vh solid #3b6021;
+    aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 80px; /* Ajusta el tamaño para pantallas pequeñas */
-    min-height: 80px;
+    min-width: 8.89vh;
+    min-height: 8.89vh;
 }
 
 .galeria-item::before {
     content: "🖼️"; 
-    font-size: 24px;
-    color: #3b6021; 
+    font-size: 2.67vh;
+    color: #3b6021;
 }
 
 .tab-content {
@@ -111,29 +115,30 @@
 .tab-content.active {
     display: block;
 }
+
 .canciones {
     background-color: #3b6021;
-    padding: 15px;
+    padding: 1.67vh;
 }
 
 .buscador {
     display: flex;
     align-items: center;
     background-color: #f1e7c8;
-    border-radius: 20px;
-    padding: 5px 15px;
+    border-radius: 2.22vh;
+    padding: 0.56vh 1.67vh;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 2.22vh;
 }
 
 .buscador input {
     border: none;
     background-color: transparent;
     outline: none;
-    font-size: 16px;
+    font-size: 1.78vh;
     flex-grow: 1;
     color: #f1e7c8;
-    padding: 5px 10px;
+    padding: 0.56vh 1.11vh;
 }
 
 .buscador input::placeholder {
@@ -151,30 +156,30 @@
 }
 
 .icon-lupa {
-    width: 20px; /* Tamaño de la lupa */
-    height: 20px;
-    stroke: #3b6021; /* Color verde oscuro */
+    width: 2.22vh;
+    height: 2.22vh;
+    stroke: #3b6021;
 }
 
 .buscador button:hover .icon-lupa {
-    stroke: #2f501a; /* Color más oscuro al pasar el mouse */
+    stroke: #2f501a;
 }
 
 /* Lista de canciones */
 .galeria-grid-canciones {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 1.11vh;
+    margin-top: 1.11vh;
 }
 
 .galeria-item-canciones {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: flex-start;
     background-color: #3b6021;
-    padding: 10px 15px;
-    border-radius: 10px;
+    padding: 1.11vh 1.67vh;
+    border-radius: 1.11vh;
     color: #f1e7c8;
 }
 
@@ -185,20 +190,24 @@
 .cancion-info {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1.11vh;
     width: 100%;
 }
 
 .cancion-play {
     background-color: #f1e7c8;
     color: #3b6021;
-    width: 40px;
-    height: 40px;
+    width: 4.44vh;
+    height: 4.44vh;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.cancion-play.reproduciendo {/*REVISAR*/
+    background-color: #E87722;
 }
 
 .cancion-play:hover {
@@ -213,33 +222,33 @@
 .cancion-texto .titulo {
     color: #f1e7c8;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 1.56vh;
 }
 
 .cancion-texto .subtitulo {
-    font-size: 12px;
+    font-size: 1.33vh;
     color: #e0d6b8;
 }
 
 /* Estilo para el modal */
 .modal {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: fixed;
-    z-index: 9999; /* Enfrente del contenido */
+    z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgba(101, 67, 33, 0.8);
-    padding-top: 60px;
+    padding-top: 6.67vh;
 }
 
 .modal-content {
     margin: auto;
     display: block;
     width: 80%;
-    max-width: 700px;
+    max-width: 77.78vh;
 }
 
 .modal img {
@@ -252,17 +261,17 @@
     height: auto;
 }
 
-.close {
+.close {/*REVISAR*/
     position: absolute;
-    top: 35px;
-    right: 35px;
-    width: 18px; /* Ancho de la cruz */
-    height: 18px; /* Alto de la cruz */
-    border-left: 3px solid #f1e7c8; /* Línea vertical de la cruz */
-    border-top: 3px solid #f1e7c8; /* Línea horizontal de la cruz */
-    transform: rotate(45deg); /* Rotar la cruz 45 grados para crear la forma de "X" */
+    top: 3.89vh;
+    right: 3.89vh;
+    width: 2vh;
+    height: 2vh;
+    border-left: 0.33vh solid #f1e7c8;
+    border-top: 0.33vh solid #f1e7c8;
+    transform: rotate(45deg);
     cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease; /* Transición suave */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .close:hover,
@@ -270,6 +279,104 @@
     color: #f1e7c8; /* El color de la cruz no cambia al hacer hover ya que está el mismo */
     transform: scale(1.2) rotate(45deg); /* Aumentar el tamaño y mantener la rotación */
 }
+
+
+/* Contenedor general de canciones */
+.galeria-grid-canciones {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 1.11vh;
+}
+
+/* Barra de reproducción */
+.player-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.11vh;
+    background-color: #3b6021;
+    color: #f1e7c8;
+    border: 0.11vh solid #3b6021;
+    border-radius: 0.56vh;
+    width: 75%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 1.11vh;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+.player-img {
+    width: 30%;
+    height: auto;
+    border-radius: 0.56vh;
+    flex-shrink: 0;
+}
+
+.player-text {
+    font-size: 1.56vh;
+    flex-grow: 1;
+    width: 70%;
+    text-align: left; 
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.11vh;
+    width: 100%;
+    margin-top: 1.11vh;
+}
+
+.control-button {
+    background: none;
+    border: none;
+    font-size: 2vh;
+    cursor: pointer;
+}
+
+.control-button i {
+    color: #f1e7c8;
+}
+
+.player-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.56vh;
+    width: 100%;
+    margin-top: 1.11vh;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    background-color: #E87722;
+    border-radius: 0.56vh;
+    height: 0.56vh;
+    position: relative;
+}
+
+.progress {
+    background-color: #f1e7c8;
+    height: 100%;
+    width: 0;
+    border-radius: 0.56vh;
+    transition: width 0.3s ease;
+}
+
+.time {
+    font-size: 1.33vh;
+    color: #f1e7c8;
+}
+
+
 /* Estilos para pantallas medianas (Tablet) */
 @media (min-width: 350px) and (max-width: 768px) {
     .galeria-grid {
@@ -277,14 +384,14 @@
     }
 
     .galeria-item {
-        min-width: 100px;
-        min-height: 100px;
+        min-width: 11.11vh;
+        min-height: 11.11vh;
     }
-
+    
     .galeria-grid-canciones {
-        gap: 15px;
+        gap: 1.67vh;
     }
-
+    
     .galeria-item-canciones {
         flex-direction: row; /* Cambia a disposición horizontal */
         align-items: center;
@@ -292,12 +399,10 @@
     }
 
     .cancion-info {
-        gap: 15px;
+        gap: 1.67vh;
     }
 
 }
-
-
 
 /* Estilos para pantallas grandes (Desktop) */
 @media (min-width: 769px) {
@@ -309,49 +414,49 @@
 
     .selector, .selector2 {
         flex-direction: row;
-        gap: 10px;
+        gap: 1.11vh;
         width: 48%;
-        margin-top: 20px;
+        margin-top: 2.22vh;
     }
-
+    
     .galeria-grid {
         grid-template-columns: repeat(4, 1fr);
     }
 
     .galeria-item {
-        min-width: 120px;
-        min-height: 120px;
+        min-width: 13.33vh;
+        min-height: 13.33vh;
     }
-
+    
     .buscador {
-        max-width: 400px;
+        max-width: 44.44vh;
     }
-
+    
     .galeria-grid-canciones {
-        gap: 20px;
+        gap: 2.22vh;
     }
-
+    
     .galeria-item-canciones {
-        padding: 15px 20px;
+        padding: 1.67vh 2.22vh;
         position: relative;
         flex-direction: row;
         align-items: center;
     }
-
+    
     .cancion-texto .titulo-cancion {
-        font-size: 16px;
-    }
-
-    .cancion-texto .subtitulo {
-        font-size: 14px;
-    }
-
-    .duracion {
-        align-self: flex-end;
-        margin-top: 10px; /* Ajusta la separación con el contenido superior */
+        font-size: 1.78vh;
     }
     
-    .modal img {
+    .cancion-texto .subtitulo {
+        font-size: 1.56vh;
+    }
+    
+    .duracion {
+        align-self: flex-end;
+        margin-top: 1.11vh;
+    }
+     
+    .modal img {/*REVISAR*/
         transform: rotate(-90deg); /* Gira la imagen 90 grados hacia la izquierda */
     }
 }

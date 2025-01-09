@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-{% block estilos %} <link rel="stylesheet" type="text/css" href="{% static 'css/estilos-galeria.css'%}"> {% endblock %}
+{% block estilos %} <link rel="stylesheet" type="text/css" href="{% static 'css/estilos-galeria.css'%}">
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> 
+{% endblock %}
 {% block title %} Chocobanda - GALERIA {% endblock %}
 {% block nombre_seccion %} Galería {% endblock %}
 {% block content %} 
@@ -42,7 +44,6 @@
                 <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
                 <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
                 <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
-
             </div>
         </div>
         
@@ -58,8 +59,9 @@
         </div>
 
         <div class="tab-content canciones">
-            <!-- Buscador -->
-            <div class="buscador">
+            
+             <!-- Buscador -->
+             <div class="buscador">
                 <input type="text" placeholder="Nombre de la canción">
                 <button type="submit" aria-label="Buscar">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#3b6021" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-lupa">
@@ -68,35 +70,60 @@
                     </svg>
                 </button>
             </div>
+
+            <!-- Barra de reproducción -->
+            <div id="player-bar" class="player-bar hidden">
+                <div class="player-info">
+                    <img id="player-img" src="" alt="Album cover" class="player-img">
+                    <div class="player-text">
+                        <div id="player-title" class="player-title">Nombre de la Canción</div>
+                        <div id="player-subtitle" class="player-subtitle">Nombre de la Obra</div>
+                    </div>
+                </div>
+                <div class="player-controls">
+                    <button id="prev-button" class="control-button"><i class="fas fa-backward"></i></button>
+                    <button id="play-pause-button" class="control-button"><i class="fas fa-play"></i></button>
+                    <button id="stop-button" class="control-button"><i class="fas fa-stop"></i></button>
+                    <button id="next-button" class="control-button"><i class="fas fa-forward"></i></button>
+                </div>
+                <div class="player-progress">
+                    <span id="current-time" class="time">00:00</span>
+                    <div class="progress-bar">
+                        <div id="progress" class="progress"></div>
+                    </div>
+                    <span id="total-time" class="time">00:00</span>
+                </div>
+
+            </div>
         
             <!-- Lista de canciones -->
             <div class="galeria-grid-canciones">
-                <div class="galeria-item-canciones">
+                <div class="galeria-item-canciones" data-audio-src="{% static 'audio/cancion.mp3' %}" data-img-src="{% static 'img\Imagen-NoImage.png' %}" data-title="Nombre de la Canción 1" data-subtitle="Nombre de la Obra 1">
                     <div class="cancion-info">
                         <div class="cancion-play">▶</div>
                         <div class="cancion-texto">
-                            <div class="titulo-cancion">Nombre de la Canción</div>
-                            <div class="subtitulo">Nombre de la Obra</div>
+                            <div class="titulo-cancion">Nombre de la Canción 1</div>
+                            <div class="subtitulo">Nombre de la Obra 1</div>
                         </div>
                     </div>
                     <div class="duracion">00:00</div>
                 </div>
-                <div class="galeria-item-canciones">
+                <div class="galeria-item-canciones" data-audio-src="{% static 'audio/cancion.mp3' %}" data-img-src="{% static 'img\Imagen-NoImage.png' %}" data-title="Nombre de la Canción 1" data-subtitle="Nombre de la Obra 1">
                     <div class="cancion-info">
                         <div class="cancion-play">▶</div>
                         <div class="cancion-texto">
-                            <div class="titulo-cancion">Nombre de la Canción</div>
-                            <div class="subtitulo">Nombre de la Obra</div>
+                            <div class="titulo-cancion">Nombre de la Canción 2</div>
+                            <div class="subtitulo">Nombre de la Obra 2</div>
                         </div>
                     </div>
                     <div class="duracion">00:00</div>
                 </div>
-                <div class="galeria-item-canciones">
+                <div class="galeria-item-canciones" data-audio-src="{% static 'audio/cancion.mp3' %}" data-img-src="{% static 'img\Imagen-NoImage.png' %}" data-title="Nombre de la Canción 1" data-subtitle="Nombre de la Obra 1">
                     <div class="cancion-info">
                         <div class="cancion-play">▶</div>
                         <div class="cancion-texto">
-                            <div class="titulo-cancion">Nombre de la Canción</div>
-                            <div class="subtitulo">Nombre de la Obra</div>
+                            <div class="titulo-cancion">Nombre de la Canción 3</div>
+                            <div class="subtitulo">Nombre de la Obra 3</div>
                         </div>
                     </div>
                     <div class="duracion">00:00</div>
@@ -113,12 +140,17 @@
     <div id="modal-content" class="modal-content"></div>
 </div>
 
+<!-- Audio -->
+<audio id="audio-player"></audio>
+
 {% endblock %}
 
 {% block script %}
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        
+        //logica para las pestanias
         const tabs = document.querySelectorAll('.tab');
         const tabContents = document.querySelectorAll('.tab-content');
         
@@ -177,7 +209,142 @@
                 modal.style.display = 'none';
             }
         });
+
+        // Lógica para reproducir el audio
+        const playerBar = document.getElementById("player-bar");
+        const audioPlayer = document.getElementById("audio-player");
+        const playerImg = document.getElementById("player-img");
+        const playerTitle = document.getElementById("player-title");
+        const playerSubtitle = document.getElementById("player-subtitle");
+        const playPauseButton = document.getElementById("play-pause-button");
+        const stopButton = document.getElementById("stop-button");
+        const progressBar = document.querySelector(".progress-bar");
+        const progress = document.getElementById("progress");
+        const currentTimeEl = document.getElementById("current-time");
+        const totalTimeEl = document.getElementById("total-time");
+            
+        let currentAudio = null;
+        
+        // Función para cargar una canción
+        function loadSong(audioSrc, imgSrc, title, subtitle) {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            
+            audioPlayer.src = audioSrc;
+            playerImg.src = imgSrc;
+            playerTitle.textContent = title;
+            playerSubtitle.textContent = subtitle;
+            
+            audioPlayer.load();
+            audioPlayer.play();
+            playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+            currentAudio = audioPlayer;
+            
+            playerBar.classList.remove("hidden");
+
+            audioPlayer.onended = () => {
+                resetPlayIcons();
+                hidePlayerBar();
+            }
+        }
+
+        // Función para resetear todos los botones a play
+        function resetPlayIcons() {
+            const allButtons = document.querySelectorAll(".cancion-play");
+            allButtons.forEach(btn => btn.textContent = "▶");
+        }
+            
+        // Función para ocultar la barra de reproducción
+        function hidePlayerBar() {
+            playerBar.classList.add("hidden");
+        }
+
+        // Actualizar la barra de progreso
+        audioPlayer.addEventListener("timeupdate", () => {
+            if (audioPlayer.duration) {
+                const progressRatio = audioPlayer.currentTime / audioPlayer.duration;
+                progress.style.width = `${progressRatio * 100}%`;
+            
+                // Actualizar tiempo actual y total
+                currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+                totalTimeEl.textContent = formatTime(audioPlayer.duration);
+            }
+        });
+            
+        // Formato de tiempo
+        function formatTime(time) {
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60);
+            return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+        }
+            
+        // Play/Pause
+        playPauseButton.addEventListener("click", () => {
+        if (currentAudio.paused) {
+            currentAudio.play();
+            playPauseButton.innerHTML = '<i class="fas fa-pause"></i>'; // Cambiar el ícono en el playPauseButton
+            document.querySelector('.cancion-play').innerHTML = '❚❚'; // Cambiar el ícono en el div .cancion-play
+        
+            document.querySelector('.cancion-play').classList.add('reproduciendo');
+            
+        } else {
+            currentAudio.pause();
+            playPauseButton.innerHTML = '<i class="fas fa-play"></i>'; // Cambiar el ícono en el playPauseButton
+            document.querySelector('.cancion-play').innerHTML = '▶'; // Cambiar el ícono en el div .cancion-play
+            
+            document.querySelector('.cancion-play').classList.remove('reproduciendo');
+        }
+        });
+                    
+        // Stop
+        stopButton.addEventListener("click", () => {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+            playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
+        });
+            
+        // Interacción con las canciones
+        const canciones = document.querySelectorAll(".galeria-item-canciones");
+            canciones.forEach(cancion => {
+            cancion.addEventListener("click", (event) => {
+                // Verificar si el clic fue en el botón con la clase "cancion-play"
+                if (event.target.classList.contains("cancion-play")) {
+                    const audioSrc = cancion.getAttribute("data-audio-src");
+                    const imgSrc = cancion.getAttribute("data-img-src");
+                    const title = cancion.getAttribute("data-title");
+                    const subtitle = cancion.getAttribute("data-subtitle");
+
+                    loadSong(audioSrc, imgSrc, title, subtitle);
+                    togglePlayPauseIcon(event.target);
+                    
+                    event.target.classList.add('reproduciendo');
+                    /*console.log('Clase "reproduciendo" añadida'); REVISAR*/
+                }
+            });
+        });
+        // Función para alternar el icono de play/pause
+        function togglePlayPauseIcon(button) {
+            // Resetear todos los botones a play
+            const allButtons = document.querySelectorAll(".cancion-play");
+            allButtons.forEach(btn => btn.textContent = "▶");
+        
+            // Cambiar el botón actual a pausa
+            button.textContent = '❚❚';
+        }
+        // Interacción con la barra de progreso
+        progressBar.addEventListener("click", (e) => {
+            const barWidth = progressBar.clientWidth;
+            const clickPosition = e.offsetX;
+            const clickRatio = clickPosition / barWidth;
+            
+            if (currentAudio) {
+                currentAudio.currentTime = currentAudio.duration * clickRatio;
+            }
+        });
     });
-    </script>
-    
+</script>
+            
+
 {% endblock %}
