@@ -3,22 +3,21 @@
 {% block title %} Nosotros {% endblock %}
 {% block estilos %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="{% static 'css/estilos.css'%}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/nosotros.css'%}">
 {% endblock %}
 
 {% block content %}
     <section class="nosotros-section">
-        <h1>La historia de la Chocobanda</h1>
-        <p class="nosotros-redireccion">{% lorem 3 b random %}</p>
+        <h2 class="nosotros-titulo">La historia de la</h2>
+        <h1 class="nosotros-chocobanda">Chocobanda</h1>
+        <p class="nosotros-descripcion">{% lorem 1 b random %}</p>
         {%comment%}
-
-            {% if nosotros %} Si existe el objeto nosotros. // No estoy seguro de si es así
-                <p>{%nosotros.nuestraHistoriaText%}</p>
+            {% if nosotros %} Si existe el objeto nuestraHistoria. // No estoy seguro de si es así
+                <p>{%nosotros.textPresentation%}</p>
             {% else %}
                 <p>Proximamente...</p>
             {% endif %}
-
         {%endcomment%}
         <p class="nosotros-redireccion"><a href="/nosotros">Leer menos</a></p>
     </section>

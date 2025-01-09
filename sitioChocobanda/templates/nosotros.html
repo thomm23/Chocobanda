@@ -3,14 +3,15 @@
 {% block title %} Nosotros {% endblock %}
 {% block estilos %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" type="text/css" href="{% static "css/estilos.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/nosotros.css'%}">
 {% endblock %}
 
 {% block content %}
         <section class="nosotros-section">
-            <h1>La historia de la Chocobanda</h1>
-            <p class="nosotros-redireccion">{% lorem 1 b random %}</p>
+            <h2 class="nosotros-titulo">La historia de la</h2>
+            <h1 class="nosotros-chocobanda">Chocobanda</h1>
+            <p class="nosotros-descripcion">{% lorem 1 b random %}</p>
             {%comment%}
                 {% if nosotros %} Si existe el objeto nuestraHistoria. // No estoy seguro de si es así
                     <p>{%nosotros.textPresentation%}</p>
@@ -84,7 +85,7 @@
             </div>
 
             <div class="nosotros-integrantes-redireccion">
-                <p class="nosotros-redireccion"><a href="">Ver todos los integrantes</a></p>
+                <p class="nosotros-redireccion"><a href="/">Ver todos los integrantes</a></p>
             </div>
 
         </section>
@@ -113,21 +114,21 @@
                 <img class="obras-img" src="{% static 'img/Imagen-noImage.png'%}" alt="sin foto">
                 <div class="obras-info">
                     <h3 class="obras-info-title">Nombre de la obra</h3>
-                    <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos</p>
+                    <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos {% lorem 1 b random %}</p>
                 </div>
             </div>
             <div class="obras">
                 <img class="obras-img" src="{% static 'img/Imagen-noImage.png'%}" alt="sin foto">
                 <div class="obras-info">
                     <h3 class="obras-info-title">Nombre de la obra</h3>
-                    <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos</p>
+                    <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos {% lorem 1 b random %}</p>
                 </div>
             </div>
             <div class="obras">
                 <img class="obras-img" src="{% static 'img/Imagen-noImage.png'%}" alt="sin foto">
                 <div class="obras-info">
                     <h3 class="obras-info-title">Nombre de la obra</h3>
-                    <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos</p>
+                    <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos {% lorem 1 b random %}</p>
                 </div>
             </div>
 
@@ -135,7 +136,7 @@
                 <img class="obras-img" src="{% static 'img/Imagen-noImage.png'%}" alt="sin foto">
                 <div class="obras-info">
                     <h3 class="obras-info-title">Nombre de la obra</h3>
-                    <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos</p>
+                    <p class="obras-info-desc">Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos {% lorem 1 b random %}</p>
                 </div>
             </div>
         </section>
