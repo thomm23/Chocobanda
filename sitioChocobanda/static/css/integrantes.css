@@ -1,0 +1,42 @@
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    border-radius: 2.22vh;
+    padding: 0.56vh 1.67vh;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 14vh;
+}
+
+.icon-lupa {
+    width: 2.22vh;
+    height: 2.22vh;
+    stroke: #3b6021;
+}
+
+button, .tab-button {
+    background: none;
+    border: none;
+    border-radius: 2.22vh;
+    padding: 0.56vh 1.67vh;
+    font: inherit;
+    color: #3b6021;
+    cursor: pointer;
+    background-color: #f1e7c8;
+}
+
+.search-bar input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 1.78vh;
+    flex-grow: 1;
+    color: #3b6021;
+    padding: 0.56vh 1.11vh;
+}
+
+.search-bar input::placeholder {
+    color:#3b6021;
+}
+
+
