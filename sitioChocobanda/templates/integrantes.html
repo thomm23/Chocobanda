@@ -5,72 +5,124 @@
 {% block title %} Chocobanda - INTEGRANTES {% endblock %}
 {% block nombre_seccion %} Integrantes {% endblock %}
 {% block content %}
-<div class="tabs-container">
-    <!-- Barra de búsqueda -->
-    <div class="search-bar">
+<div class="buscador-container">
+<!-- Barra de búsqueda -->
+  <div class="search-bar">
       <input type="text" id="search-input" placeholder="Nombre del profesional/personaje">
       <button id="search-button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#3b6021" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-lupa">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#3b6021" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-lupa">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
       </button>
-    </div>
-  
-    <!-- Pestañas de categorías -->
-    <div class="tabs">
-      <button class="tab-button active" data-tab="actuales">Actuales</button>
-      <button class="tab-button" data-tab="invitados">Invitados</button>
-      <button class="tab-button" data-tab="memorables">Memorables</button>
-    </div>
-  
-    <!-- Contenido de las pestañas -->
-    <div class="tab-content" id="actuales">
-      <div class="card">Nombre del personaje - Profesional 1</div>
-      <div class="card">Nombre del personaje - Profesional 2</div>
-      <div class="card">Nombre del personaje - Profesional 3</div>
-    </div>
-    <div class="tab-content" id="invitados" style="display: none;">
-      <div class="card">Nombre del personaje - Invitado 1</div>
-      <div class="card">Nombre del personaje - Invitado 2</div>
-    </div>
-    <div class="tab-content" id="memorables" style="display: none;">
-      <div class="card">Nombre del personaje - Memorable 1</div>
-    </div>
+  </div>
+</div>
+
+<div class="tabs-container">
+  <!-- Pestañas de categorías -->
+  <div class="tabs">
+      <p data-target="#actuales" class="active">Actuales</p>
+      <p data-target="#invitados">Invitados</p>
+      <p data-target="#memorables">Memorables</p>
+  </div>
+
+  <!-- Contenido de las pestañas -->
+  <div class="content">
+      <div data-content id="actuales" class="active">
+          <div class="container-integrantes">
+              <div class="card-item">
+                  <a href="#" class="card-link">
+                      <div class="card-actor">
+                          <img src="{% static 'img/foto-principal.jpg'%}" alt="">
+                      </div>
+                      <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                      <div class="card-text">
+                          <h3 class="card-title">Profesional 1</h3>
+                          <p class="card-decription">Descripción 1</p>
+                      </div>
+                  </a>
+              </div>
+              <div class="card-item">
+                  <a href="#" class="card-link">
+                      <div class="card-actor">
+                          <img src="{% static 'img/foto-principal.jpg'%}" alt="">
+                      </div>
+                      <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                      <div class="card-text">
+                          <h3 class="card-title">Profesional 2</h3>
+                          <p class="card-decription">Descripción 2</p>
+                      </div>
+                  </a>
+              </div>
+          </div>
+      </div>
+      <div data-content id="invitados">
+          <div class="container-integrantes">
+              <div class="card-item">
+                  <a href="#" class="card-link">
+                      <div class="card-actor">
+                          <img src="{% static 'img/foto-principal.jpg'%}" alt="">
+                      </div>
+                      <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                      <div class="card-text">
+                          <h3 class="card-title">Invitado 1</h3>
+                          <p class="card-decription">Descripción 1</p>
+                      </div>
+                  </a>
+              </div>
+          </div>
+      </div>
+      <div data-content id="memorables">
+          <div class="container-integrantes">
+              <div class="card-item">
+                  <a href="#" class="card-link">
+                      <div class="card-actor">
+                          <img src="{% static 'img/foto-principal.jpg'%}" alt="">
+                      </div>
+                      <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                      <div class="card-text">
+                          <h3 class="card-title">Memorable 1</h3>
+                          <p class="card-decription">Descripción 1</p>
+                      </div>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
 {% endblock %}
+
 {% block script %}
 <script>
     // Funcionalidad de las pestañas
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
-  
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Quitar la clase 'active' de todas las pestañas
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        // Agregar la clase 'active' a la pestaña seleccionada
-        button.classList.add('active');
-  
-        // Mostrar el contenido correspondiente
-        const tabId = button.getAttribute('data-tab');
-        tabContents.forEach(content => {
-          content.style.display = content.id === tabId ? 'block' : 'none';
+    const targets = document.querySelectorAll('[data-target]');
+    const contents = document.querySelectorAll('[data-content]');
+
+    targets.forEach(target => {
+        target.addEventListener('click', () => {
+            // Quitar la clase 'active' de todas las pestañas y contenidos
+            targets.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Activar la pestaña y el contenido correspondiente
+            target.classList.add('active');
+            const content = document.querySelector(target.dataset.target);
+            content.classList.add('active');
         });
-      });
     });
-  
+
     // Funcionalidad de búsqueda
     const searchInput = document.getElementById('search-input');
     searchInput.addEventListener('input', () => {
-      const filter = searchInput.value.toLowerCase();
-      tabContents.forEach(content => {
-        const cards = content.querySelectorAll('.card');
-        cards.forEach(card => {
-          const text = card.textContent.toLowerCase();
-          card.style.display = text.includes(filter) ? 'block' : 'none';
+        const filter = searchInput.value.toLowerCase();
+        contents.forEach(content => {
+            const cards = content.querySelectorAll('.card-item');
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(filter) ? 'block' : 'none';
+            });
         });
-      });
     });
 </script>
 {% endblock %}
+
