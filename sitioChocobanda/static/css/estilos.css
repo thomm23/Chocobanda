@@ -107,30 +107,21 @@ nav{
     color: #8c4a2f;
     font-weight: bold;
 }
-.proxima-funcion , .funciones{
+.funciones{
     width: 20rem;
     height: 15rem;
     padding: 5rem;;
     border-radius: 30px;
 } 
-.proxima-funcion tr td, .funciones tr td{
+.funciones tr td{
     display: block;
-}     
-/* .proxima-funcion {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem;
-    background-color: #8c4a2f;
-    flex-direction: row;
-} */
+}  
+
 .funciones {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 1rem;
-    /* padding: 2rem;
-    padding-right: 30%; */
     background-color: #f1e7c8;
     border: 2px solid #4c6a2a;
 }
@@ -139,7 +130,6 @@ nav{
     color: #4c6a2a;
     display: flex;
     flex-direction: column;
-    margin-right: 1rem;
 }
 
 .funciones h3 {
@@ -154,13 +144,10 @@ nav{
 }
 .proxima-funcion h2 {
     color: #f1e7c8;
-    margin-right: 1rem;
 }
 
 .proxima-funcion h3 {
     color: #f1e7c8;
-    text-align: center;
-    width: 100%;
 }
 
 
@@ -170,9 +157,7 @@ nav{
     flex-direction: row;
     justify-content: center;
 }
-
-
-.agenda-section h1 {
+.home-title {
     color: #8c4a2f;
     margin: 1rem;
     align-self: flex-start;
@@ -217,9 +202,18 @@ nav{
 
 .tabla-agenda-section td, .tabla-agenda-section th {
     text-align: center;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    padding-right: 3rem;
+    max-width: 100%;
+}
+.material-symbols-outlined { 
+    margin-right: 4px; 
+}
+.lugar-funcion{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.home-td-fecha{
+    margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -445,10 +439,7 @@ nav{
     }
     .icon-contenedor { 
         display: flex; 
-        align-items: center; 
-    } 
-    .material-symbols-outlined { 
-        margin-right: 8px; 
+        align-items: center;
     }
     .novedades-section p {
         color: #4c6a2a;
@@ -499,12 +490,15 @@ nav{
     margin: 1rem 0 1rem 1rem;
 
 }
-.novedades-redirrecion{
+.home-redirrecion p{
     display: flex;
     font-weight: 800;
-    color: #8c4a2f;
+    color: #4c6a2a;
     justify-content: end;
     margin-right: 1rem;
+}
+.home-redirrecion a:visited{
+    color: #4c6a2a;
 }
 .container-novedades{
     display: flex;
@@ -528,9 +522,7 @@ nav{
     display: block;
     background: #8c4a2f;
     color: #f1e7c8;
-    /* border-radius: 12px; */
     text-decoration: none;
-    /* border: 2px solid transparent; */
     box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
     transition: 0.2 ease;
     border-radius: 10px;
@@ -559,4 +551,3 @@ nav{
     opacity: 0.5;
     background: #4c6a2a;
 }
-  

@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %} Chocobanda - INICIO {% endblock %}
 {% block estilos%}
-%} <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 {%  endblock %}
 {%block content%}
 
@@ -14,8 +14,9 @@
 </div>
 
 <section class="agenda-section">
-    <h1>Agenda</h1>
+    <h2 class= "home-title">Agenda</h2>
     <div class = "home-funciones-wrapper">
+        
         <div class="funciones proxima-funcion">
             <table class="tabla-agenda-section">
                 <tr>
@@ -24,14 +25,14 @@
                         <h2 class="mes-funcion">{% block mes_funcion %}Octubre{% endblock %}</h2>
                     </td>
                     <td class ="home-td-content">
-                        <h3 class="nombre-funcion">{% block nombre_funcion %}Proxima función{% endblock %}</h3>
-                        {% comment %} <p class="material-symbols-outlined icon-reloj">schedule</p>  {% endcomment %}
-                        <h3 class="hora-funcion"> <p class="material-symbols-outlined icon-reloj">schedule</p>  {% block hora_funcion %}20:00{% endblock %}</h3>
+                        <h3 class="nombre-funcion">{% block nombre_funcion %}Funcion de Gala{% endblock %}</h3>
+                        <h3 class="hora-funcion"> 
+                            <p class="material-symbols-outlined">schedule</p>  
+                            {% block hora_funcion %}20:00{% endblock %}
+                        </h3>
                         <h3 class="lugar-funcion">
-                            <span class="icon-contenedor">
-                                <span class="material-symbols-outlined icon-ubicacion">location_on</span>
-                                {% block lugar_funcion %}Teatro Colon{% endblock %}
-                            </span>
+                            <p class="material-symbols-outlined">location_on</p>
+                            {% block lugar_funcion %}Teatro Colon{% endblock %}
                         </h3>
                     </td>
                 </tr>
@@ -41,15 +42,21 @@
         <div class="funciones">
             <table class="tabla-agenda-section">
                 <tr>
-                <td>
-                    <h2 class="dia-funcion2">{% block dia_funcion2 %}22{% endblock %}</h2>
-                    <h2 class="mes-funcion2">{% block mes_funcion2 %}Octubre{% endblock %}</h2>
-                </td>
-                <td>
-                    <h3 class="nombre-funcion2">{% block nombre_funcion2 %}Funcion de Gala{% endblock %}</h3>
-                    <h3 class="hora-funcion2">{% block hora_funcion2 %}20:00{% endblock %}</h3>
-                    <h3 class="lugar-funcion2">{% block lugar_funcion2 %}Teatro Colon{% endblock %}</h3>
-                </td>
+                    <td class ="home-td-fecha">
+                        <h2 class="dia-funcion2">{% block dia_funcion2 %}22{% endblock %}</h2>
+                        <h2 class="mes-funcion2">{% block mes_funcion2 %}Octubre{% endblock %}</h2>
+                    </td>
+                    <td class ="home-td-content">
+                        <h3 class="nombre-funcion2">{% block nombre_funcion2 %}Funcion de Gala{% endblock %}</h3>
+                        <h3 class="hora-funcion2"> 
+                            <p class="material-symbols-outlined">schedule</p>  
+                            {% block hora_funcion2 %}20:00{% endblock %}
+                        </h3>
+                        <h3 class="lugar-funcion">
+                            <p class="material-symbols-outlined">location_on</p>
+                            {% block lugar_funcion2 %}Teatro Colon{% endblock %}
+                        </h3>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -57,21 +64,75 @@
         <div class="funciones">
             <table class="tabla-agenda-section">
                 <tr>
-                <td>
-                    <h2 class="dia-funcion3">{% block dia_funcion3 %}22{% endblock %}</h2>
-                    <h2 class="mes-funcion3">{% block mes_funcion3 %}Octubre{% endblock %}</h2>
-                </td>
-                <td>
-                    <h3 class="nombre-funcion3">{% block nombre_funcion3 %}Funcion de Gala{% endblock %}</h3>
-                    <h3 class="hora-funcion3">{% block hora_funcion3 %}20:00{% endblock %}</h3>
-                    <h3 class="lugar-funcion3">{% block lugar_funcion3 %}Teatro Colon{% endblock %}</h3>
-                </td>
+                    <td class ="home-td-fecha">
+                        <h2 class="dia-funcion3">{% block dia_funcion3 %}22{% endblock %}</h2>
+                        <h2 class="mes-funcion3">{% block mes_funcion3 %}Octubre{% endblock %}</h2>
+                    </td>
+                    <td class ="home-td-content">
+                        <h3 class="nombre-funcion3">{% block nombre_funcion3 %}Funcion de Gala{% endblock %}</h3>
+                        <h3 class="hora-funcion3"> 
+                            <p class="material-symbols-outlined">schedule</p>  
+                            {% block hora_funcion3 %}20:00{% endblock %}
+                        </h3>
+                        <h3 class="lugar-funcion">
+                            <p class="material-symbols-outlined">location_on</p>
+                            {% block lugar_funcion3 %}Teatro Colon{% endblock %}
+                        </h3>
+                    </td>
                 </tr>
             </table>
         </div>
 
+       {% comment %} <div class="funciones">
+            <table class="tabla-agenda-section">
+                <tr>
+                    <td class ="home-td-fecha">
+                        <h2 class="dia-funcion4">{% block dia_funcion4 %}22{% endblock %}</h2>
+                        <h2 class="mes-funcion4">{% block mes_funcion4 %}Octubre{% endblock %}</h2>
+                    </td>
+                    <td class ="home-td-content">
+                        <h3 class="nombre-funcion4">{% block nombre_funcion4 %}Funcion de Gala{% endblock %}</h3>
+                        <h3 class="hora-funcion4"> 
+                            <p class="material-symbols-outlined">schedule</p>  
+                            {% block hora_funcion4 %}20:00{% endblock %}
+                        </h3>
+                        <h3 class="lugar-funcion">
+                            <p class="material-symbols-outlined">location_on</p>
+                            {% block lugar_funcion4 %}Teatro Colon{% endblock %}
+                        </h3>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+         <div class="funciones">
+            <table class="tabla-agenda-section">
+                <tr>
+                    <td class ="home-td-fecha">
+                        <h2 class="dia-funcion5">{% block dia_funcion5 %}22{% endblock %}</h2>
+                        <h2 class="mes-funcion5">{% block mes_funcion5 %}Octubre{% endblock %}</h2>
+                    </td>
+                    <td class ="home-td-content">
+                        <h3 class="nombre-funcion5">{% block nombre_funcion5 %}Funcion de Gala{% endblock %}</h3>
+                        <h3 class="hora-funcion5"> 
+                            <p class="material-symbols-outlined">schedule</p>  
+                            {% block hora_funcion5 %}20:00{% endblock %}
+                        </h3>
+                        <h3 class="lugar-funcion">
+                            <p class="material-symbols-outlined">location_on</p>
+                            {% block lugar_funcion5 %}Teatro Colon{% endblock %}
+                        </h3>
+                    </td>
+                </tr>
+            </table>
+        </div> {% endcomment %}
+
+    </div>
+    <div class="home-redirrecion">
+        <p><a href="">Ver todo los eventos</a></p>
     </div>
 </section>
+<h2 class= "home-title">Novedades</h2>
 <div class="container-novedades swiper">
     <div class="card-wrapper">
         <ul class="card-list swiper-wrapper">
@@ -111,7 +172,7 @@
     </div>
 </div> 
 
-<div class="novedades-redirrecion">
+<div class="home-redirrecion">
     <p><a href="">Ver todas las novedades</a></p>
 </div>
 {% endblock %} 
