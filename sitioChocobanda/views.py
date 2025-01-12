@@ -88,3 +88,11 @@ class impactoSocialGaleria(View):
 
         }
         return render(request,'impactoSocial-Galeria.html',context)
+    
+
+class Obra(View):
+    def get(self,request):
+        context={
+
+        }
+        return render(request,'obra.html',context)
