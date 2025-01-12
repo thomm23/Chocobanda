@@ -1,0 +1,157 @@
+@media (max-width: 576px) {
+
+    /* Contenedor de la imagen y el detalle */
+    .contenido-imagen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2vh;
+        width: 100%;
+    }
+
+    /* Imagen principal */
+    .imagen-principal {
+        order: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        border: 0.3vh solid black;
+    }
+
+    .imagen-principal img {
+        width: 90%;
+        max-width: 400px; /* Controla el tamaño máximo */
+        border-radius: 2vh;
+        object-fit: cover;
+    }
+
+    /* Título de la obra debajo de la imagen */
+    .nombre-obra {
+        order: 2;
+        font-size: 3vh;
+        text-align: center;
+        margin-bottom: 2vh;
+        color: #32551c;
+        width: 100%;
+        padding: 1vh 0;
+        position: relative;
+        z-index: 2;
+        border: 0.3vh solid black;
+    }
+
+    /* Descripción de la obra */
+    .contenido-detalle {
+        order: 3;
+        width: 90%;
+        text-align: center;
+        border: 0.3vh solid black;
+    }
+
+    /* Galería de imágenes */
+    .imagenes-carrousel {
+        order: 4;
+        width: 90%;
+        border: 0.3vh solid black;
+    }
+
+    .imagenes-carrousel .carrousel-container {
+        justify-content: center;
+    }
+
+    .imagenes-carrousel .carrousel-container img {
+        width: 40vw;
+        height: auto;
+        border-radius: 1vh;
+    }
+
+    .imagenes-carrousel .ver-mas {
+        text-align: center;
+        margin-top: 1vh;
+    }
+}
+
+
+/* Estilos para pantallas medianas (Tablet) */
+@media (min-width: 350px) and (max-width: 768px) {
+    /* Puedes agregar estilos específicos para tablets aquí */
+}
+
+/* Estilos para pantallas grandes (Desktop) */
+@media (min-width: 769px) {
+    .detalle-obra,
+    .imagenes-carrousel {
+        font-family: 'Arial', sans-serif;
+        color: #3b6021;
+        padding: 2vh;
+    }
+
+    .detalle-obra {
+        padding-top: 4vh;
+        border: 0.3vh solid black;
+    }
+
+    .contenido-imagen {
+        margin-top: 3vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 3vh;
+    }
+
+    .contenido-detalle {
+        flex: 1;
+    }
+
+    .imagen-principal {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imagen-principal img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 3vh;
+    }
+
+    .imagenes-carrousel {
+        border: 0.3vh solid black;
+    }
+
+    .imagenes-carrousel h2 {
+        font-size: 3vh;
+        margin-bottom: 2vh;
+        color: #32551c;
+    }
+
+    .carrousel-container {
+        margin-top: 3vh;
+    }
+
+    .imagenes-carrousel .carrousel-container {
+        display: flex;
+        gap: 2vh;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .imagenes-carrousel .carrousel-container img {
+        width: 22vh;
+        height: 15vh;
+        border-radius: 1vh;
+        object-fit: cover;
+    }
+
+    .imagenes-carrousel .ver-mas {
+        margin-top: 2vh;
+        text-align: right;
+    }
+
+    .imagenes-carrousel .ver-mas a {
+        color: #32551c;
+        text-decoration: none;
+        font-weight: bold;
+    }
+}
