@@ -102,3 +102,11 @@ class detalleIntegrante(View):
 
         }
         return render(request,'detalleIntegrante.html',context)
+
+
+class Obra(View):
+    def get(self,request):
+        context={
+
+        }
+        return render(request,'obra.html',context)

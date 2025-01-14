@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+{% block estilos %} <link rel="stylesheet" type="text/css" href="{% static 'css/estilos-obra.css'%}">
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> 
+{% endblock %}
+{% block title %} Nosotros - Obra {% endblock %}
+{% block nombre_seccion %} Detalle Obras {% endblock %}
+{% block content %} 
+
+
+
+<section class="seccion-obra">
+    <div class="obra-container">
+        <h2 class="nombre-obra">Nombre de la Obra</h2>
+        <div class="descripcion">Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
+                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
+                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
+                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
+                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
+                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
+                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
+                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
+                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
+        </div>
+        <div class="imagen-principal">
+            <img src="{% static 'img/foto2.jpg'%}" alt="">
+        </div>
+    </div>
+
+</section>
+
+<section class="seccion-carrousel">
+    
+    <div class="carrousel-container">
+        <h3>Galería</h3> <!-- Subtítulo para la galería -->
+        <!-- Carrusel -->
+        <div class="imagenes-container">
+            <div class="imagenes" id="imagenes">
+                <img src="{% static 'img/Imagen-noImage.png' %}" alt="Imagen 1">
+                <img src="{% static 'img/Imagen-noImage.png' %}" alt="Imagen 2">
+                <img src="{% static 'img/Imagen-noImage.png' %}" alt="Imagen 3">
+            </div>
+        </div>
+
+        <!-- Y ACA EL BOTON DE 'ver todas las fotos' -->
+        <div class="ver-mas">
+            <a href="#">Ver más</a>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+{% endblock %}
+
+{% block script %}
+<script>
+    const carousel = document.getElementById('imagenes');
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+
+    carousel.addEventListener('mousedown', startDrag);
+    carousel.addEventListener('mouseup', endDrag);
+    carousel.addEventListener('mousemove', drag);
+    carousel.addEventListener('mouseleave', endDrag);
+
+    carousel.addEventListener('touchstart', (e) => startDrag(e.touches[0]));
+    carousel.addEventListener('touchend', endDrag);
+    carousel.addEventListener('touchmove', (e) => drag(e.touches[0]));
+
+    function startDrag(e) {
+        isDragging = true;
+        startPos = e.clientX;
+        carousel.style.transition = 'none';
+    }
+
+    function drag(e) {
+        if (!isDragging) return;
+        const currentPos = e.clientX;
+        const deltaX = currentPos - startPos;
+        currentTranslate = prevTranslate + deltaX;
+        carousel.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    function endDrag() {
+        isDragging = false;
+        const slideWidth = carousel.clientWidth / carousel.childElementCount;
+        const currentIndex = Math.round(-currentTranslate / slideWidth);
+        prevTranslate = currentIndex * -slideWidth;
+        carousel.style.transition = 'transform 0.5s ease-in-out';
+        carousel.style.transform = `translateX(${prevTranslate}px)`;
+    }
+</script>
+
+{% endblock %}

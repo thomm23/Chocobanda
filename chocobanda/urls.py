@@ -19,5 +19,6 @@ urlpatterns = [
     path('impactoSocialGaleria', impactoSocialGaleria.as_view(),name="impactoSocialGaleria"),
     path('integrantes', integrantes.as_view(),name="integrantes"),
     path('detalleIntegrante', detalleIntegrante.as_view(),name="detalleIntegrante"),
+    path('obra/', Obra.as_view(),name="obra"),
 
 ]
