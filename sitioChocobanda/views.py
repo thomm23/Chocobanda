@@ -95,3 +95,10 @@ class integrantes(View):
 
         }
         return render(request,'integrantes.html',context)
+    
+class detalleIntegrante(View):
+    def get(self,request):
+        context={
+
+        }
+        return render(request,'detalleIntegrante.html',context)
