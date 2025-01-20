@@ -1,7 +1,7 @@
-
 from django.contrib import admin
 from django.urls import path
 from sitioChocobanda.views import *
+from sitioChocobanda import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -10,15 +10,14 @@ urlpatterns = [
     path('nuestraHistoria/', NuestraHistoria.as_view(), name="nuestraHistoria"),
     path('galeria/', Galeria.as_view(), name="galeria"),
     path('login/', Login.as_view(), name="login"),
-    path('contraseñaOlvidada/', ContraseñaOlvidada.as_view(), name="contraseñaOlvidada"),  
-    path('contacto/', contacto.as_view(), name="contacto"),
-    path ('impactoSocial/',impactosocial.as_view(),name='impactoSocial'),
-    path('novedades/', novedades.as_view(), name="novedades"),
-    path('novedad/', novedad.as_view(), name="novedad"),
-    path('impactoSocialInsti', impactoSocialInsti.as_view(),name="impactoSocialInsti"),
-    path('impactoSocialGaleria', impactoSocialGaleria.as_view(),name="impactoSocialGaleria"),
-    path('integrantes', integrantes.as_view(),name="integrantes"),
-    path('detalleIntegrante', detalleIntegrante.as_view(),name="detalleIntegrante"),
-    path('obra/', Obra.as_view(),name="obra"),
-
+    path('contraseñaOlvidada/', ContraseñaOlvidada.as_view(), name="contraseñaOlvidada"),
+    path('contacto/', Contacto.as_view(), name="contacto"),
+    path('impactoSocial/', ImpactoSocial.as_view(), name='impactoSocial'),
+    path('novedades/', Novedades.as_view(), name="novedades"),
+    path('novedad/', Novedad.as_view(), name="novedad"),
+    path('impactoSocialInsti/', ImpactoSocialInsti.as_view(), name="impactoSocialInsti"),
+    path('impactoSocialGaleria/', ImpactoSocialGaleria.as_view(), name="impactoSocialGaleria"),
+    path('integrantes/', Integrantes.as_view(), name='integrantes'),
+    path('integrantes/<int:id>/', detalleIntegrante.as_view(), name="detalleIntegrante"),
+    path('obra/', Obra.as_view(), name="obra"),
 ]

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-{% block estilos %} <link rel="stylesheet" type="text/css" href="{% static 'css\integrantes.css'%}">
+{% block estilos %} 
+<link rel="stylesheet" type="text/css" href="{% static 'css\integrantes.css'%}">
 {% endblock %}
 {% block title %} Chocobanda - INTEGRANTES {% endblock %}
 {% block nombre_seccion %} Integrantes {% endblock %}
@@ -19,76 +20,78 @@
 </div>
 
 <div class="tabs-container">
-  <!-- Pestañas de categorías -->
-  <div class="tabs">
-      <p data-target="#actuales" class="active">Actuales</p>
-      <p data-target="#invitados">Invitados</p>
-      <p data-target="#memorables">Memorables</p>
-  </div>
+    <!-- Pestañas de categorías -->
+    <div class="tabs">
+        <p data-target="#actuales" class="active">Actuales</p>
+        <p data-target="#invitados">Invitados</p>
+        <p data-target="#memorables">Memorables</p>
+    </div>
 
-  <!-- Contenido de las pestañas -->
-  <div class="content">
-      <div data-content id="actuales" class="active">
-          <div class="container-integrantes">
-              <div class="card-item">
-                  <a href="{% url 'detalleIntegrante' %}" class="card-link">
-                      <div class="card-actor">
-                          <img src="{% static 'img/foto-principal.jpg'%}" alt="">
-                      </div>
-                      <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                      <div class="card-text">
-                          <h3 class="card-title">Profesional 1</h3>
-                          <p class="card-decription">Descripción 1</p>
-                      </div>
-                  </a>
-              </div>
-              <div class="card-item">
-                  <a href="{% url 'detalleIntegrante' %}" class="card-link">
-                      <div class="card-actor">
-                          <img src="{% static 'img/foto-principal.jpg'%}" alt="">
-                      </div>
-                      <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                      <div class="card-text">
-                          <h3 class="card-title">Profesional 2</h3>
-                          <p class="card-decription">Descripción 2</p>
-                      </div>
-                  </a>
-              </div>
-          </div>
-      </div>
-      <div data-content id="invitados">
-          <div class="container-integrantes">
-              <div class="card-item">
-                  <a href="{% url 'detalleIntegrante' %}" class="card-link">
-                      <div class="card-actor">
-                          <img src="{% static 'img/foto-principal.jpg'%}" alt="">
-                      </div>
-                      <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                      <div class="card-text">
-                          <h3 class="card-title">Invitado 1</h3>
-                          <p class="card-decription">Descripción 1</p>
-                      </div>
-                  </a>
-              </div>
-          </div>
-      </div>
-      <div data-content id="memorables">
-          <div class="container-integrantes">
-              <div class="card-item">
-                  <a href="{% url 'detalleIntegrante' %}" class="card-link">
-                      <div class="card-actor">
-                          <img src="{% static 'img/foto-principal.jpg'%}" alt="">
-                      </div>
-                      <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                      <div class="card-text">
-                          <h3 class="card-title">Memorable 1</h3>
-                          <p class="card-decription">Descripción 1</p>
-                      </div>
-                  </a>
-              </div>
-          </div>
-      </div>
-  </div>
+    <!-- Contenido de las pestañas -->
+    <div class="content">
+        <!-- Sección Actuales -->
+        <div data-content id="actuales" class="active">
+            {% if actuales %}
+            <div class="container-integrantes">
+                {% for actual in actuales%}
+                <div class="card-item">
+                    <a href="{% url 'detalleIntegrante' actual.id %}" class="card-link">
+                        <img src="{{ actual.foto.url }}" alt="Foto de {{ actual.nombre }}" class="card-img">
+                        <div class="card-text">
+                            <h3 class="card-title">{{ actual.nombre }}</h3>
+                            <p class="card-description">{{ actual.descripcion }}</p>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            {% elif not actuales %}
+            <p>No hay integrantes actuales disponibles.</p>
+            {% endif %}
+        </div>
+
+        <!-- Sección Invitados -->
+        <div data-content id="invitados">
+            {% if invitados %}
+            <div class="container-integrantes">
+                {% for invitado in invitados %}
+                <div class="card-item">
+                    <a href="{% url 'detalleIntegrante' invitado.id %}" class="card-link">
+                        <img src="{{ invitado.foto.url }}" alt="Foto de {{ invitado.nombre }}" class="card-img">
+                        <div class="card-text">
+                            <h3 class="card-title">{{ invitado.nombre }}</h3>
+                            <p class="card-description">{{ invitado.descripcion }}</p>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>No hay invitados disponibles actualmente.</p>
+            {% endif %}
+        </div>
+
+        <!-- Sección Memorables -->
+        <div data-content id="memorables">
+            {% if memorables %}
+            <div class="container-integrantes">
+                {% for memorable in memorables %}
+                <div class="card-item">
+                    <a href="{% url 'detalleIntegrante' memorable.id %}" class="card-link">
+                        <img src="{{ memorable.foto.url }}" alt="Foto de {{ memorable.nombre }}" class="card-img">
+                        <div class="card-text">
+                            <h3 class="card-title">{{ memorable.nombre }}</h3>
+                            <p class="card-description">{{ memorable.descripcion }}</p>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>No hay integrantes memorables disponibles actualmente.</p>
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock %}
 
@@ -125,4 +128,3 @@
     });
 </script>
 {% endblock %}
-
