@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block estilos %} 
-<link rel="stylesheet" type="text/css" href="{% static 'css\integrantes.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/integrantes.css' %}">
 {% endblock %}
 {% block title %} Chocobanda - INTEGRANTES {% endblock %}
 {% block nombre_seccion %} Integrantes {% endblock %}
@@ -33,7 +33,7 @@
         <div data-content id="actuales" class="active">
             {% if actuales %}
             <div class="container-integrantes">
-                {% for actual in actuales%}
+                {% for actual in actuales %}
                 <div class="card-item">
                     <a href="{% url 'detalleIntegrante' actual.id %}" class="card-link">
                         <img src="{{ actual.foto.url }}" alt="Foto de {{ actual.nombre }}" class="card-img">
@@ -45,7 +45,7 @@
                 </div>
                 {% endfor %}
             </div>
-            {% elif not actuales %}
+            {% else %}
             <p>No hay integrantes actuales disponibles.</p>
             {% endif %}
         </div>

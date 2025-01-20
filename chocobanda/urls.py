@@ -1,5 +1,7 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from sitioChocobanda.views import *
 from sitioChocobanda import views
 
@@ -21,3 +23,6 @@ urlpatterns = [
     path('integrantes/<int:id>/', detalleIntegrante.as_view(), name="detalleIntegrante"),
     path('obra/', Obra.as_view(), name="obra"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
