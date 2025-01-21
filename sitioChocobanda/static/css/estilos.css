@@ -3,6 +3,11 @@
     src: url('../fonts/JokermanStd.otf') format('opentype');
     font-family: 'Jokerman';
   }
+  :root {
+    --color-principal: #3b6021; /* Verde */
+    --color-secundario: #8c4a2f; /* Marrón */
+    --color-fondo: #f1e7c8; /* Beige */
+}
   html, body {
     margin: 0;
     padding: 0;
@@ -52,7 +57,7 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem;
-    background-color: #8c4a2f;
+    background-color: var(--color-principal);
 }
 
 .nav-list{
@@ -123,24 +128,30 @@ nav{
     justify-content: center;
     margin: 1rem;
     background-color: #f1e7c8;
-    border: 2px solid #4c6a2a;
+    border: 2px solid var(--color-secundario);
 }
 
 .funciones h2 {
-    color: #4c6a2a;
+    color: var(--color-secundario);
     display: flex;
     flex-direction: column;
 }
 
 .funciones h3 {
-    color: #8c4a2f;
+    color: var(--color-principal);
     text-align: center;
     width: 100%;
 }
+.funciones h3 p{
+    color: var(--color-secundario);
+}
+.proxima-funcion h3 p{
+    color: var(--color-fondo);
+}
 
 .proxima-funcion{
-    background-color: #8c4a2f;
-    border: 2px solid #8c4a2f;
+    background-color: var(--color-principal);
+    border: 2px solid var(--color-principal);
 }
 .proxima-funcion h2 {
     color: #f1e7c8;
@@ -214,6 +225,9 @@ nav{
 }
 .home-td-fecha{
     margin-bottom: 1rem;
+}
+.funciones .home-td-content{
+    color: var(--color-principal);
 }
 
 @media screen and (max-width: 768px) {
@@ -349,7 +363,6 @@ nav{
 
     .tabla-agenda-section td, .tabla-agenda-section th {
         text-align: center;
-        font-size: 1.2rem;
         padding: 0.5rem;
     }
     .funciones h2 {
@@ -365,7 +378,7 @@ nav{
     }
     .proxima-funcion .nombre-funcion{
         color: #f1e7c8;
-        font-weight: 500;        
+        font-weight: 500;
     }
     .proxima-funcion h2 {
         color: #f1e7c8;
@@ -376,6 +389,9 @@ nav{
         text-align: left;
         width: 100%;
         font-weight: 500;
+    }
+    .proxima-funcion h3 p{
+        color: var(--color-fondo);
     }
 
     .nombre-funcion{
@@ -390,7 +406,7 @@ nav{
         width: 100%;
         height: 10rem;
         padding: 2rem;
-        border-radius: 60px;
+        border-radius: 60px 0 0  60px;       
     }
     .proxima-funcion tr, .funciones tr{
         display: flex;
@@ -481,6 +497,10 @@ nav{
         border-spacing: 0;
         border: 0px;
     }
+    .home-td-fecha{
+        margin-top: 1rem;
+    }
+
 
 }
 
