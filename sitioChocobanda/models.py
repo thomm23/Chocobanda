@@ -46,17 +46,19 @@ class Obra(models.Model):
     titulo = models.CharField(max_length=255)
     descripcion = models.TextField()
     foto = models.ImageField(upload_to='obras/', null=True, blank=True)
-    duracion = models.DurationField()
-    personajes = models.ManyToManyField(Personaje, related_name='obras')
 
     def __str__(self):
         return self.titulo
 
-class Evento(models.Model):
+class GaleriaObra(models.Model):
+    obra = models.ForeignKey(Obra, related_name='galeria_obra', on_delete=models.CASCADE)
+    foto = models.ImageField(upload_to='galeria_obra/')
+    descripcion = models.CharField(max_length=255, blank=True, null=True)
+
+class Agenda(models.Model):
     obra = models.ForeignKey(Obra, on_delete=models.CASCADE, related_name='eventos')
     lugar = models.CharField(max_length=255)
     fecha = models.DateField()
-    integrantes = models.ManyToManyField(Integrante, related_name='eventos')
     invitados = models.TextField(null=True, blank=True)  # JSON or comma-separated
     instituciones_beneficiadas = models.TextField(null=True, blank=True)  # JSON or comma-separated
 
