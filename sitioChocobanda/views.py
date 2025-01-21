@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import View
-from .models import Integrante
+from .models import *
 
 class detalleIntegrante(View):
     def get(self, request, id):

@@ -36,12 +36,17 @@
                 {% for actual in actuales %}
                 <div class="card-item">
                     <a href="{% url 'detalleIntegrante' actual.id %}" class="card-link">
-                        <img src="{{ actual.foto.url }}" alt="Foto de {{ actual.nombre }}" class="card-img">
+                        <div class="card-actor">
+                            <img src="{{ actual.foto.url }}" alt="Foto de {{ actual.nombre }}">
+
+                        </div>
+                        <img src=" {{actual.personajes.first.foto.url }}" alt="Foto de {{ actual.personajes.first.nombre }}" class="card-img">
                         <div class="card-text">
                             <h3 class="card-title">{{ actual.nombre }}</h3>
                             <p class="card-description">{{ actual.descripcion }}</p>
                         </div>
                     </a>
+                    
                 </div>
                 {% endfor %}
             </div>
