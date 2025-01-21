@@ -21,13 +21,6 @@
     flex-direction: column;
 }
 
-/*VARIABLES*/
-:root {
-    --color-principal: #3b6021; /* Verde */
-    --color-secundario: #8c4a2f; /* Marrón */
-    --color-fondo: #f1e7c8; /* Beige */
-}
-
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -37,7 +30,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--color-principal);
+    background-color: #8c4a2f;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -85,7 +78,7 @@ header{
 footer {
     color: #f1e7c8;
     padding: 15px;
-    background-color: var(--color-principal);
+    background-color: #8c4a2f;
     border-radius: 5px 5px 0 0;
     position: relative;
     width: 100%;
@@ -107,7 +100,7 @@ nav{
     width: 100%;
     height: 75vh;
     border-radius: 0px 0px 5px 5px;
-    box-shadow: 0 10px 10px -10px var(--color-principal);
+    box-shadow: 0 10px 10px -10px rgba(139, 69, 19, 0.9);
     object-position: bottom;
     object-fit: cover;
 }
@@ -116,7 +109,7 @@ nav{
     font-size: 22px;
     text-align: center;
     margin: 2rem 1rem 1.5rem;
-    color: var(--color-principal);
+    color: #8c4a2f;
     font-weight: bold;
 }
 .funciones{
@@ -175,10 +168,6 @@ nav{
     flex-direction: row;
     justify-content: center;
 }
-
-
-.agenda-section h1 {
-    color: var(--color-principal);
 .home-title {
     color: #8c4a2f;
     margin: 1rem;
@@ -186,19 +175,19 @@ nav{
 }
 
 .novedades-section h1{
-    color: var(--color-principal);
+    color: #8c4a2f;
     margin: 1rem;
 }
 
 .novedades-section p {
-    color: var(--color-secundario);
+    color: #4c6a2a;
     margin: 1rem;
     text-align: right;
     font-weight: bold;
 }
 
 .redes a {
-    color: var(--color-secundario);
+    color: #4c6a2a;
     font-size: 3rem;
     margin: 0 1rem;
 }
@@ -211,7 +200,7 @@ nav{
 }
 
 .nav ul li a:hover{
-    color: var(--color-principal);
+    color: #8c4a2f;
     padding: 0.2rem;
     border-radius: 10px 10px 10px 10px;
     background-color: #f1e7c8;
@@ -252,7 +241,7 @@ nav{
         align-items: center;
         justify-content: space-between;
         padding: 2rem;
-        background-color: var(--color-principal);
+        background-color: #8c4a2f;
         position: fixed;
         width: 100%;
         top: 0;
@@ -284,7 +273,7 @@ nav{
         top: 0;
         right: 0;
         bottom: 0;
-        background-color: var(--color-principal);
+        background-color: #8c4a2f;
         padding: 2rem 0 0 2rem;
         box-shadow: 0 0 0 100vmax rgba(140, 74, 47, .3);
         transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -306,13 +295,13 @@ nav{
         padding-left: 20%;
         flex-direction: column;
         align-items: end; 
-        background-color: var(--color-principal);
+        background-color: #8c4a2f;
         width: 50%;
         height: 100%;
     }
 
     .nav.visible ul li a:hover{
-        color: var(--color-principal);
+        color: #8c4a2f;
         padding: 0 0.5rem;
         border-radius: 10px 0 0 10px;
         transform: scale(1.1);
@@ -326,7 +315,7 @@ nav{
     footer{
         color: #f1e7c8;
         padding: 15px;
-        background-color: var(--color-principal);
+        background-color: #8c4a2f;
         border-radius: 5px 5px 0 0;
         width: 100%;
         font-size: 13px;
@@ -364,7 +353,7 @@ nav{
         font-size: 22px;
         text-align: center;
         margin: 2rem 1rem 1.5rem;
-        color: var(--color-principal);
+        color: #8c4a2f;
         font-weight: bold;
     }
     
@@ -379,13 +368,6 @@ nav{
     .funciones h2 {
         color: #8c4a2f;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 1rem;
-        padding: 2rem;
-        border-radius: 30px 0px 0 30px;
-        background-color: var(--color-principal);
-        flex-direction: row;
         flex-direction: column;
         margin-right: 1rem;
         font-weight: 600;
@@ -439,19 +421,10 @@ nav{
         margin: 1rem;
         padding-right: 15%;
         flex-direction: row;
-        border-radius: 30px 0px 0 30px;
-        border: 2px solid var(--color-secundario);
     }
 
-    .funciones h2 {
-        color: var(--color-secundario);
-        display: flex;
-        flex-direction: column;
-        margin-right: 1rem;
-    }
 
     .funciones h3 {
-        color: var(--color-principal);
         text-align: center;
         width: 100%;
     }
@@ -464,13 +437,13 @@ nav{
     }
 
     .agenda-section h1 {
-        color: var(--color-principal);
+        color: #8c4a2f;
         margin: 1rem;
         align-self: flex-start;
     }
 
     .novedades-section h1{
-        color: var(--color-principal);
+        color: #8c4a2f;
         margin: 1rem;
     }
     .home-td-content{
@@ -485,14 +458,14 @@ nav{
         align-items: center;
     }
     .novedades-section p {
-        color: var(--color-secundario);
+        color: #4c6a2a;
         margin: 1rem;
         text-align: right;
         font-weight: bold;
     }
 
     .redes a {
-        color: var(--color-secundario);
+        color: #4c6a2a;
         font-size: 3rem;
         margin: 0 1rem;
     }
@@ -511,7 +484,7 @@ nav{
     }
     
     .tabla-novedades td {
-        background-color: var(--color-principal);
+        background-color: #8c4a2f;
         color: #d2b48c;
         text-align: left;
         margin: 0;
@@ -533,14 +506,14 @@ nav{
 
 /* Novedades-Carrousel-home.html */
 .title-novedades{
-    color: var(--color-principal);
+    color: #8c4a2f;
     margin: 1rem 0 1rem 1rem;
 
 }
 .home-redirrecion p{
     display: flex;
     font-weight: 800;
-    color: var(--color-principal);
+    color: #4c6a2a;
     justify-content: end;
     margin-right: 1rem;
 }
@@ -567,7 +540,7 @@ nav{
 .card-list .card-item .card-link{
     user-select: none;
     display: block;
-    background: var(--color-principal);
+    background: #8c4a2f;
     color: #f1e7c8;
     text-decoration: none;
     box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
@@ -590,12 +563,11 @@ nav{
 
 }
 .swiper-slide-button{
-    color: var(--color-secundario);
+    color: #4c6a2a;
 }
 .card-wrapper .swiper-pagination-bullet {
     height: 13px;
     width: 13px;
     opacity: 0.5;
-    background: var(--color-secundario);
-}
+    background: #4c6a2a;
 }
