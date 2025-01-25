@@ -22,6 +22,7 @@ urlpatterns = [
     path('integrantes/', Integrantes.as_view(), name='integrantes'),
     path('integrantes/<int:id>/', detalleIntegrante.as_view(), name="detalleIntegrante"),
     path('obra/', ObraVista.as_view(), name="obra"),
+    path('obra/<int:id>/', ObraVista.as_view(), name='detalle_obra')
 ]
 
 if settings.DEBUG:

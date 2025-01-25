@@ -11,19 +11,11 @@
 
 <section class="seccion-obra">
     <div class="obra-container">
-        <h2 class="nombre-obra">Nombre de la Obra</h2>
-        <div class="descripcion">Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
-                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
-                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
-                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
-                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
-                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
-                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
-                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
-                    Aquí va una breve descripción de la obra, incluyendo detalles sobre la trama, el autor y otros elementos relevantess.
+        <h2 class="nombre-obra">{{ obra.titulo }}</h2>
+        <div class="descripcion">{{ obra.descripcion }}
         </div>
         <div class="imagen-principal">
-            <img src="{% static 'img/foto2.jpg'%}" alt="">
+            <img src="{{ obra.foto.url }}" alt="Foto de {{ obra.titulo }}">
         </div>
     </div>
 

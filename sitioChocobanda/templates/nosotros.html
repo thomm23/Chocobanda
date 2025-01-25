@@ -91,11 +91,15 @@
             <h1>Nuestras Obras</h1>
             {% for obra in nuestras_obras %}
             <div class="obras">
-                <img class="obras-img" src="{{ obra.foto.url }}" alt="{{ obra.titulo }}">
-                <div class="obras-info">
+                <a href="{% url 'detalle_obra' obra.id %}">
+                    <img class="obras-img" src="{{ obra.foto.url }}" alt="{{ obra.titulo }} ">
+                </a>
+            <div class="obras-info">
+                <a href="{% url 'detalle_obra' obra.id %}">
                     <h3 class="obras-info-title">{{ obra.titulo }}</h3>
                     <p class="obras-info-desc">{{ obra.descripcion|slice:":100" }}...</p>
-                </div>
+                </a>
+            </div>
             </div>
             {% empty %}
                 <p>No hay obras por el momento.</p>
