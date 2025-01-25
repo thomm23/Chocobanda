@@ -92,7 +92,7 @@ class ImpactoSocialGaleria(View):
         context = {}
         return render(request, 'impactoSocial-Galeria.html', context)
 
-class ObraVista(View):
+class DetalleObra(View):
     
     def get(self, request, id):
         obra = get_object_or_404(Obra, id=id)

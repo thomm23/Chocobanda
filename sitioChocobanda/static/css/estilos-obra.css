@@ -192,11 +192,12 @@
     }
 
     /* Estilos para la galería */
-    .seccion-carrousel {
-        /* border: 0.3vh solid black; */
+    
+    /* .seccion-carrousel {
+        border: 0.3vh solid black;
     
         
-    }
+    } */
 
     .seccion-carrousel h2 {
         font-size: 3vh;

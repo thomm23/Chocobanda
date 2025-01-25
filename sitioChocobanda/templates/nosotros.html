@@ -90,17 +90,15 @@
         <section class="agenda-section">
             <h1>Nuestras Obras</h1>
             {% for obra in nuestras_obras %}
-            <div class="obras">
-                <a href="{% url 'detalle_obra' obra.id %}">
+            <a href="{% url 'detalle_obra' obra.id %}">
+                <div class="obras">
                     <img class="obras-img" src="{{ obra.foto.url }}" alt="{{ obra.titulo }} ">
-                </a>
-            <div class="obras-info">
-                <a href="{% url 'detalle_obra' obra.id %}">
+                <div class="obras-info">
                     <h3 class="obras-info-title">{{ obra.titulo }}</h3>
                     <p class="obras-info-desc">{{ obra.descripcion|slice:":100" }}...</p>
-                </a>
-            </div>
-            </div>
+                </div>
+                </div>
+            </a>
             {% empty %}
                 <p>No hay obras por el momento.</p>
             {% endfor %}
