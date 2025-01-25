@@ -92,18 +92,22 @@
             {% for obra in nuestras_obras %}
             <a href="{% url 'detalle_obra' obra.id %}">
                 <div class="obras">
-                    <img class="obras-img" src="{{ obra.foto.url }}" alt="{{ obra.titulo }} ">
-                <div class="obras-info">
-                    <h3 class="obras-info-title">{{ obra.titulo }}</h3>
-                    <p class="obras-info-desc">{{ obra.descripcion|slice:":100" }}...</p>
-                </div>
+                    {% if obra.foto %}
+                        <img class="obras-img" src="{{ obra.foto.url }}" alt="{{ obra.titulo }}">
+                    {% else %}
+                        <p>Imagen no disponible</p>
+                    {% endif %}
+                    <div class="obras-info">
+                        <h3 class="obras-info-title">{{ obra.titulo }}</h3>
+                        <p class="obras-info-desc">{{ obra.descripcion|slice:":100" }}...</p>
+                    </div>
                 </div>
             </a>
             {% empty %}
                 <p>No hay obras por el momento.</p>
             {% endfor %}
-            
         </section>
+        
 {%endblock%}
 
 {% block script %}

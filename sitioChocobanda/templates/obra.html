@@ -12,13 +12,16 @@
 <section class="seccion-obra">
     <div class="obra-container">
         <h2 class="nombre-obra">{{ obra.titulo }}</h2>
-        <div class="descripcion">{{ obra.descripcion }}
-        </div>
+        <div class="descripcion">{{ obra.descripcion }}</div>
+        
         <div class="imagen-principal">
-            <img src="{{ obra.foto.url }}" alt="Foto de {{ obra.titulo }}">
+            {% if obra.foto %}
+                <img src="{{ obra.foto.url }}" alt="Foto de {{ obra.titulo }}">
+            {% else %}
+                <p>Imagen no disponible</p>
+            {% endif %}
         </div>
     </div>
-
 </section>
 
 <section class="seccion-carrousel">
