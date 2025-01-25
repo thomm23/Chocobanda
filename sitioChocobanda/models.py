@@ -78,7 +78,7 @@ class Noticia(models.Model):
 class Institucion(models.Model):
     nombre = models.CharField(max_length=255)
     descripcion = models.TextField()
-    impacto_social = models.TextField()
+    impacto_social = models.TextField(null=True, blank=True)
     link_institucion = models.URLField(null=True, blank=True)
     foto = models.ImageField(upload_to='instituciones/', null=True, blank=True)
 
