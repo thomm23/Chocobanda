@@ -41,27 +41,6 @@
         rem placeat assumenda, et quod ipsum, at deleniti nam qui. Libero quasi atque aliquam amet ipsa.
     </h3>
 </div>
-<div class="imagenes-carrosel">
-    <h1 style="font-size: 1.8rem; margin-top: 5%; margin-bottom:5%; padding-left: 5%; color: #8C4A2F;">
-        Galeria
-    </h1>
-    <!-- Carrusel -->
-    <div class="carousel-container">
-        <div class="carousel" id="carousel">
-            <img src="{% static 'img/Imagen-noImage.png' %}" alt="Imagen 1">
-            <img src="{% static 'img/Imagen-noImage.png' %}" alt="Imagen 2">
-            <img src="{% static 'img/Imagen-noImage.png' %}" alt="Imagen 3">
-        </div>
-    </div>
-
-    <!-- Y ACA EL BOTON DE 'ver todas las fotos' -->
-    <h3 style="
-       margin-top: 5%; font-size: 1rem; color: #4c6a2a; display: flex; justify-content: flex-end;">
-        <a href="{% url 'impactoSocialGaleria'%}"  style="text-decoration: none; color: inherit;">Ver todas las fotos</a>
-    </h3>
-
-
-</div>
 
 <div style=" text-align: center;
 color: #8c4a2f;
@@ -71,45 +50,3 @@ margin-top: 1rem;">
 </div>
 {% endblock %}
 
-{% block script %}
-<script>
-    const carousel = document.getElementById('carousel');
-    let isDragging = false;
-    let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-
-    carousel.addEventListener('mousedown', startDrag);
-    carousel.addEventListener('mouseup', endDrag);
-    carousel.addEventListener('mousemove', drag);
-    carousel.addEventListener('mouseleave', endDrag);
-
-    carousel.addEventListener('touchstart', (e) => startDrag(e.touches[0]));
-    carousel.addEventListener('touchend', endDrag);
-    carousel.addEventListener('touchmove', (e) => drag(e.touches[0]));
-
-    function startDrag(e) {
-        isDragging = true;
-        startPos = e.clientX;
-        carousel.style.transition = 'none';
-    }
-
-    function drag(e) {
-        if (!isDragging) return;
-        const currentPos = e.clientX;
-        const deltaX = currentPos - startPos;
-        currentTranslate = prevTranslate + deltaX;
-        carousel.style.transform = `translateX(${currentTranslate}px)`;
-    }
-
-    function endDrag() {
-        isDragging = false;
-        const slideWidth = carousel.clientWidth / carousel.childElementCount;
-        const currentIndex = Math.round(-currentTranslate / slideWidth);
-        prevTranslate = currentIndex * -slideWidth;
-        carousel.style.transition = 'transform 0.5s ease-in-out';
-        carousel.style.transform = `translateX(${prevTranslate}px)`;
-    }
-</script>
-
-{% endblock %}

@@ -28,27 +28,3 @@
     padding-left: 5%;
     color: #8C4A2F;
 }
-.carousel-container {
-    position: relative;
-    width: 100%;
-    max-width: 800px; /* Más largo para mostrar más imágenes */
-    margin: auto;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.carousel {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px; /* Espacio entre imágenes */
-    transition: transform 0.3s ease-in-out;
-    cursor: grab;
-}
-
-.carousel img {
-    width: calc((100% / 3) - 20px); /* Mostrar 3 imágenes con espacio */
-    height: 150px; /* Altura de las imágenes */
-    object-fit: cover;
-    flex-shrink: 0;
-    user-select: none;
-}
