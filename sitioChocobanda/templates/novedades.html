@@ -4,68 +4,10 @@
  {% block title %} Chocobanda - NOVEDADES {% endblock %}
  {% block nombre_seccion %} Novedades {% endblock %}
  {%block content%}
- <section class="novedades-section">
-    <div class="title">
-        <h1>Agenda</h1>
-    </div>
-    <div class="desplegable-novedades">
-        <select class="selector" name="opciones"> 
-            <option value="opcion1"><p>2024</p></option> 
-            <option value="opcion2">2024</option> 
-            <option value="opcion3">2024</option> 
-        </select>
-    </div>
-</section>
+ 
 
 <section class="agenda-section">
-    <div class="proxima-funcion">
-    <table class="tabla-agenda-section">
-        <tr>
-            <td>
-                <h2 class="dia-funcion">{% block dia_funcion %}22{% endblock %}</h2>
-                <h2 class="mes-funcion">{% block mes_funcion %}Octubre{% endblock %}</h2>
-            </td>
-            <td>
-                <h3 class="nombre-funcion">{% block nombre_funcion %}Proxima función{% endblock %}</h3>
-                <h3 class="hora-funcion">{% block hora_funcion %}20:00{% endblock %}</h3>
-                <h3 class="lugar-funcion">{% block lugar_funcion %}Teatro Colon{% endblock %}</h3>
-            </td>
-        </tr>
-    </table>
-    </div>
-
-    <div class="funciones">
-    <table class="tabla-agenda-section">
-        <tr>
-            <td>
-                <h2 class="dia-funcion2">{% block dia_funcion2 %}22{% endblock %}</h2>
-                <h2 class="mes-funcion2">{% block mes_funcion2 %}Octubre{% endblock %}</h2>
-            </td>
-            <td>
-                <h3 class="nombre-funcion2">{% block nombre_funcion2 %}Funcion de Gala{% endblock %}</h3>
-                <h3 class="hora-funcion2">{% block hora_funcion2 %}20:00{% endblock %}</h3>
-                <h3 class="lugar-funcion2">{% block lugar_funcion2 %}Teatro Colon{% endblock %}</h3>
-            </td>
-        </tr>
-    </table>
-    </div>
-
-    <div class="funciones">
-        <table class="tabla-agenda-section">
-            <tr>
-                <td>
-                    <h2 class="dia-funcion3">{% block dia_funcion3 %}22{% endblock %}</h2>
-                    <h2 class="mes-funcion3">{% block mes_funcion3 %}Octubre{% endblock %}</h2>
-                </td>
-                <td>
-                    <h3 class="nombre-funcion3">{% block nombre_funcion3 %}Funcion de Gala{% endblock %}</h3>
-                    <h3 class="hora-funcion3">{% block hora_funcion3 %}20:00{% endblock %}</h3>
-                    <h3 class="lugar-funcion3">{% block lugar_funcion3 %}Teatro Colon{% endblock %}</h3>
-                </td>
-            </tr>
-        </table>
-    </div>
-
+   
     {% comment %} El siguiente contenido es solo para desktop {% endcomment %}
     <div class="noticia-desk-section">
          <div class="noticia-desk-item"> 

@@ -16,12 +16,6 @@
     margin-top: 14vh;
 }
 
-.selector2 {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto; 
-}
 
 .galeria-obras, .galeria-fechas {
     width: 90%;
@@ -412,7 +406,7 @@
         flex-wrap: wrap;
     }
 
-    .selector, .selector2 {
+    .selector {
         flex-direction: row;
         gap: 1.11vh;
         width: 48%;

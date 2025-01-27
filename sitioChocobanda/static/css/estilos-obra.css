@@ -60,67 +60,7 @@
         /* border: 0.3vh solid black; */
         color: var(--color-secundario);
     }
-
-    /* Galería de imágenes - CUARTO */
-    .seccion-carrousel {
-        order: 4; /* Galería en cuarto lugar */
-        width: 100%;
-        /* border: 0.6vh solid black; */
-        padding: 0vh 3vh 3vh 3vh;
-    }
-
-
-    .carrousel-container{
-        
-        color: var(--color-principal);
-        
-    }
-    
-    .carrousel-container h3{
-        font-size: 3vh;
-        margin-bottom: 2vh;
-
-    }
-    
-
-     /* ESTILOS CARRUSEL */
-     .imagenes-container {
-        width: 100%;
-        margin: auto;
-        overflow-x: auto; /* Permitir desplazamiento horizontal si las imágenes se desbordan */
-        white-space: nowrap; /* Evitar que las imágenes se envuelvan */
-    }
-    
-    .imágenes {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 2vh; /* Espacio entre imágenes */
-        transition: transform 0.3s ease-in-out;
-        cursor: grab;
-    }
-    
-    .imagenes img {
-        width: 18vh;
-        height: 18vh; /* Altura de las imágenes */
-        object-fit: cover;
-        margin-right: 1vh; /* Espacio entre las imágenes */
-        display: inline-block; /* Asegura que las imágenes estén en una fila horizontal */
-    }
-
-    .ver-mas{
-        margin-top: 2vh;
-        text-align: right;
-
-
-    }
-
-    .ver-mas a{
-        
-        text-decoration: none ;
-        color: var(--color-principal);
-        font-weight: bold;
-
-    }
+ 
 }
 
 
@@ -129,21 +69,14 @@
 
     
 
-    .seccion-obra,
-    .seccion-carrousel {
+    .seccion-obra    {
         font-family: 'Arial', sans-serif;
         color: var(--color-principal);
         box-sizing: border-box;
         /* border: 0.3vh solid black; */
     }
     
-    .carrousel-container{
-
-        padding: 2vh;
-        /* border: 0.3vh solid black; */
-
-    }
-
+    
     /* Nombre de la obra en la primera fila ocupando todo el ancho */
     .nombre-obra {
         text-align: left;
@@ -191,50 +124,6 @@
         
     }
 
-    /* Estilos para la galería */
     
-    /* .seccion-carrousel {
-        border: 0.3vh solid black;
-    
-        
-    } */
-
-    .seccion-carrousel h2 {
-        font-size: 3vh;
-        margin-bottom: 2vh;
-        color: var(--color-principal);
-    }
-
-    .imagenes-container {
-        margin-top: 3vh;
-        display: flex;
-        gap: 2vh;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-    }
-
-    .seccion-carrousel .imagenes-container img {
-        width: 22vh;
-        height: 15vh;
-        border-radius: 1vh;
-        object-fit: cover;
-    }
-
-    .seccion-carrousel .ver-mas {
-        margin-top: 2vh;
-        text-align: right;
-    }
-
-    .seccion-carrousel .ver-mas a {
-        color: var(--color-principal);
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .imagenes-container img {
-        margin-right: 1vh; /* Espacio entre las imágenes */
-    }
-
-
 }
 

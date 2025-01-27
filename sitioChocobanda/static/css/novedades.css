@@ -1,36 +1,4 @@
-.novedades-section{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-.novedades-section .desplegable-novedades{
-    margin-right: 5vh;
-    width: 250px;
-    display: flex;
-    flex-direction: row;
-}
-.novedades-section .desplegable-novedades .selector{
-    font-size: 16px;
-    color: #4c6a2a; 
-    background-color: #f1e7c8;
-    border: 2px solid ;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    width: 100%;
-    transition: border-color 0.3s ease;
-    margin: 20px;
-    font-weight: 700;
-}
-.novedades-section .desplegable-novedades .selector option{
-    font-weight: 700;
-}
-.card-novedades{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 .card-novedades .card-item{
     margin: 2rem;
 }
@@ -83,29 +51,7 @@
 
 /* desktop */
 @media screen and (min-width: 769px){
-    .agenda-section{
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    .tabla-agenda-section td{
-       padding-left: 2rem;
-       padding-right: 2rem;
-    }
-    .agenda-section h3{
-        font-weight: 400;
-    }
-    .proxima-funcion, .funciones{
-        height: 16rem;
-        width: 20rem;
-        border-radius: 30px;
-        padding: 2rem;
-    }
-    .agenda-section td{
-        display: block;
-        text-align: center;
-        justify-content: center;
-    }
-
+    
     .card-novedades{
         display: none;
     }

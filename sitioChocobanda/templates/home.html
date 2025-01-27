@@ -14,7 +14,7 @@
 </div>
 
 <section class="agenda-section">
-    <h2 class= "home-title">Agenda</h2>
+    <h2 class= "home-title">Próxima función</h2>
     <div class = "home-funciones-wrapper">
         
         <div class="funciones proxima-funcion">
@@ -128,9 +128,7 @@
         </div> {% endcomment %}
 
     </div>
-    <div class="home-redirrecion">
-        <p><a href="">Ver todo los eventos</a></p>
-    </div>
+    
 </section>
 <h2 class= "home-title">Novedades</h2>
 <div class="container-novedades swiper">
@@ -173,7 +171,7 @@
 </div> 
 
 <div class="home-redirrecion">
-    <p><a href="">Ver todas las novedades</a></p>
+    <p><a href="{% url 'novedades' %}">Ver todas las novedades</a></p>
 </div>
 {% endblock %} 
 
