@@ -7,109 +7,32 @@
 {% block nombre_seccion %} Impacto social {% endblock %}
 {% block content %}
 <!-- Institucion -->
-<div class="header">
-    <img class="imagen-header" src="{% static 'img/Imagen-noImage.png' %}" alt="Imagen de la Institución">
-</div>
-
-<div>
-    <h2 class="text-imagen">
-        Breve descrpcion de la institución:
+<div class="institucion-container">
+    <div class="DescripcionInstitucion">
+        <h1 class="text-imagen">Breve descrpcion de la institución: </h1>
         <h3 class="text-sub-imagen"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit
             aut
             facere tempora sit in, saepe blanditiis. Fugiat ipsum nihil unde sunt excepturi nam. Rerum earum voluptates
             numquam, animi iure tempora?
         </h3>
-    </h2>
+    </div>
+    <div class="header">
+        <img class="imagen-header" src="{% static 'img/Imagen-noImage.png' %}" alt="Imagen de la Institución">
+    </div>
 </div>
 
-<div class="subtitle">
-
-    <h1 style="  font-size: 1.8rem;
-    margin-top: 5%;
-    margin-bottom:5% ;
-    padding-left: 5%;
-    color: #8C4A2F;
-    ">
-        Nuestro impacto
-    </h1>
-    <h3 style="   
-        font-size: 1.5rem;
-        font-weight: 400;
-        color: #8C4A2F;
-        text-align: center;">
+<div class="NuestroImpacto">
+    <h1 class="text-imagen-2"> Nuestro impacto </h1>
+    <h3 class="text-sub-imagen-2">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut pariatur consequuntur similique libero blanditiis
         rem placeat assumenda, et quod ipsum, at deleniti nam qui. Libero quasi atque aliquam amet ipsa.
     </h3>
 </div>
-<div class="imagenes-carrosel">
-    <h1 style="font-size: 1.8rem; margin-top: 5%; margin-bottom:5%; padding-left: 5%; color: #8C4A2F;">
-        Galeria
-    </h1>
-    <!-- Carrusel -->
-    <div class="carousel-container">
-        <div class="carousel" id="carousel">
-            <img src="{% static 'img/Imagen-noImage.png' %}" alt="Imagen 1">
-            <img src="{% static 'img/Imagen-noImage.png' %}" alt="Imagen 2">
-            <img src="{% static 'img/Imagen-noImage.png' %}" alt="Imagen 3">
-        </div>
-    </div>
-
-    <!-- Y ACA EL BOTON DE 'ver todas las fotos' -->
-    <h3 style="
-       margin-top: 5%; font-size: 1rem; color: #4c6a2a; display: flex; justify-content: flex-end;">
-        <a href="{% url 'impactoSocialGaleria'%}"  style="text-decoration: none; color: inherit;">Ver todas las fotos</a>
-    </h3>
-
-
-</div>
 
 <div style=" text-align: center;
 color: #8c4a2f;
-margin-top: 1rem;">
+margin-top: 5rem;">
     <p><strong><i class="bi bi-whatsapp verde" style="color: #4c6a2a;"></i> Teléfono:</strong> +54 000 000 0000</p>
     <p><strong><i class="bi bi-envelope verde" style="color: #4c6a2a;"></i>Email:</strong> ejemplo@gmail.com</p>
 </div>
-{% endblock %}
-
-{% block script %}
-<script>
-    const carousel = document.getElementById('carousel');
-    let isDragging = false;
-    let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-
-    carousel.addEventListener('mousedown', startDrag);
-    carousel.addEventListener('mouseup', endDrag);
-    carousel.addEventListener('mousemove', drag);
-    carousel.addEventListener('mouseleave', endDrag);
-
-    carousel.addEventListener('touchstart', (e) => startDrag(e.touches[0]));
-    carousel.addEventListener('touchend', endDrag);
-    carousel.addEventListener('touchmove', (e) => drag(e.touches[0]));
-
-    function startDrag(e) {
-        isDragging = true;
-        startPos = e.clientX;
-        carousel.style.transition = 'none';
-    }
-
-    function drag(e) {
-        if (!isDragging) return;
-        const currentPos = e.clientX;
-        const deltaX = currentPos - startPos;
-        currentTranslate = prevTranslate + deltaX;
-        carousel.style.transform = `translateX(${currentTranslate}px)`;
-    }
-
-    function endDrag() {
-        isDragging = false;
-        const slideWidth = carousel.clientWidth / carousel.childElementCount;
-        const currentIndex = Math.round(-currentTranslate / slideWidth);
-        prevTranslate = currentIndex * -slideWidth;
-        carousel.style.transition = 'transform 0.5s ease-in-out';
-        carousel.style.transform = `translateX(${prevTranslate}px)`;
-    }
-</script>
-
 {% endblock %}
