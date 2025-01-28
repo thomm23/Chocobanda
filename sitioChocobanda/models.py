@@ -85,7 +85,6 @@ class Institucion(models.Model):
     def __str__(self):
         return self.nombre
 
-
 class GaleriaInstitucion(models.Model):
     institucion = models.ForeignKey(Institucion, related_name='galeria', on_delete=models.CASCADE)
     foto = models.ImageField(upload_to='galeria_instituciones/')
