@@ -17,10 +17,12 @@ class Integrantes(View):
         print(actuales)
         invitados = Integrante.objects.filter(estado='invitados')
         memorables = Integrante.objects.filter(estado='memorables')
+        todos_integrantes = Integrante.objects.all()
         context = {
             'actuales': actuales,
             'invitados': invitados,
             'memorables': memorables,
+            'todos_integrantes': todos_integrantes,
         }
         return render(request, 'integrantes.html', context)
 
@@ -32,9 +34,11 @@ class PaginaPrincipal(View):
 class Nosotros(View):
     def get(self, request):
         ajustes = AjustesPagina.objects.first()  # Obtén la primera instancia de AjustesPagina
+        todos_integrantes = Integrante.objects.all()
         nuestras_obras = Obra.objects.all()
         context = {
             'ajustes': ajustes,
+            'todos_integrantes': todos_integrantes,
             'nuestras_obras': nuestras_obras, 
         }
         return render(request, 'nosotros.html', context)

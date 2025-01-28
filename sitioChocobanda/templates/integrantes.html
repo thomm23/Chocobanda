@@ -62,7 +62,10 @@
                 {% for invitado in invitados %}
                 <div class="card-item">
                     <a href="{% url 'detalleIntegrante' invitado.id %}" class="card-link">
-                        <img src="{{ invitado.personaje.last.foto.url }}" alt="Foto de {{ invitado.personajes.last.nombre  }}" class="card-img">
+                        <div class="card-actor">
+                          <img src="{{ invitado.foto.url }}" alt="Foto de {{ invitado.nombre }}">
+                        </div>
+                        <img src=" {{invitado.personajes.last.foto.url }}" alt="Foto de {{ invitado.personajes.last.nombre }}" class="card-img">
                         <div class="card-text">
                             <h3 class="card-title">{{ invitado.personajes.last.nombre }}</h3>
                             <p class="card-description">{{ invitado.nombre }}</p>
@@ -83,9 +86,12 @@
                 {% for memorable in memorables %}
                 <div class="card-item">
                     <a href="{% url 'detalleIntegrante' memorable.id %}" class="card-link">
-                        <img src="{{ memorable.foto.url }}" alt="Foto de {{ memorable.nombre }}" class="card-img">
+                        <div class="card-actor">
+                            <img src="{{ memorable.foto.url }}" alt="Foto de {{ memorable.nombre }}">
+                          </div>
+                          <img src=" {{memorable.personajes.last.foto.url }}" alt="Foto de {{ memorable.personajes.last.nombre }}" class="card-img">
                         <div class="card-text">
-                            <h3 class="card-title">{{ memorable.nombre }}</h3>
+                            <h3 class="card-title">{{ memorable.personajes.last.nombre }}</h3>
                             <p class="card-description">{{ memorable.nombre }}</p>
                         </div>
                     </a>

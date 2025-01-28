@@ -18,73 +18,40 @@
             {% endif %}</p>
             <p class="nosotros-redireccion"><a href="/nuestraHistoria">Leer más</a></p>
         </section>
-
+       
         <section class="integrantes-section">
             <h1>Integrantes</h1>
             <div class="container-integrantes swiper">
                 <div class="card-wrapper">
                     <ul class="card-list swiper-wrapper">
-                        <li class="card-item swiper-slide">
-                            <a href="#" class="card-link">
-                                <div class="card-actor">
-                                    <img src="{% static 'img/foto-principal.jpg'%}" alt="">
-                                </div>
-                                <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                                <div class="card-text">
-                                    <p class="date">fecha</p>
-                                    <h3 class="card-title">titulo</h3>
-                                    <p class="card-decription">description</p>
-                                </div>
-                            </a>
+                        {% if todos_integrantes %}
+                            {% for integrante in todos_integrantes %}
+                            <li class="card-item swiper-slide">
+                                <a href="{% url 'detalleIntegrante' integrante.id %}" class="card-link">
+                                    <div class="card-actor">
+                                        <img src="{{ integrante.foto.url }}" alt="Foto de {{ integrante.nombre }}">
+                                    </div>
+                                    <img src="{{ integrante.personajes.last.foto.url }}" alt="Foto de {{ integrante.personajes.last.nombre }}" class="card-img">
+                                    <div class="card-text">
+                                        <h3 class="card-title">{{ integrante.personajes.last.nombre }}</h3>
+                                        <p class="card-description">{{ integrante.nombre }}</p>
+                                    </div>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        {% else %}
+                        <li>
+                            <p>No hay integrantes disponibles actualmente.</p>
                         </li>
-                        <li class="card-item swiper-slide">
-                            <a href="#" class="card-link">
-                                <div class="card-actor">
-                                    <img src="{% static 'img/foto-principal.jpg'%}" alt="">
-                                </div>
-                                <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                                <div class="card-text">
-                                    <p class="date">fecha</p>
-                                    <h3 class="card-title">titulo</h3>
-                                    <p class="card-decription">description</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="card-item swiper-slide">
-                            <a href="#" class="card-link">
-                                <div class="card-actor">
-                                    <img src="{% static 'img/foto-principal.jpg'%}" alt="">
-                                </div>
-                                <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                                <div class="card-text">
-                                    <p class="date">fecha</p>
-                                    <h3 class="card-title">titulo</h3>
-                                    <p class="card-decription">description</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="card-item swiper-slide">
-                            <a href="#" class="card-link">
-                                <div class="card-actor">
-                                    <img src="{% static 'img/foto-principal.jpg'%}" alt="">
-                                </div>
-                                <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                                <div class="card-text">
-                                    <p class="date">fecha</p>
-                                    <h3 class="card-title">titulo</h3>
-                                    <p class="card-decription">description</p>
-                                </div>
-                            </a>
-                        </li>
+                        {% endif %}
                     </ul>
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
-
+        
             <div class="nosotros-integrantes-redireccion">
                 <p class="nosotros-redireccion"><a href="{% url 'integrantes' %}">Ver todos los integrantes</a></p>
             </div>
-
         </section>
 
         <section class="agenda-section">
