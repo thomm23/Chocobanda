@@ -73,55 +73,47 @@
     {% endif %}
 </section>
 
-<h2 class= "home-title">Novedades</h2>
+<h2 class="home-title">Novedades</h2>
 <div class="container-novedades swiper">
-    <div class="card-wrapper">
-        <ul class="card-list swiper-wrapper">
-            <li class="card-item swiper-slide">
+    <div class="swiper-wrapper">
+        {% if noticias %}
+            {% for noticia in noticias %}
+            <div class="swiper-slide">
                 <a href="#" class="card-link">
-                    <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                    <img src="{{ noticia.foto.url }}" alt="" class="card-img">
                     <div class="card-text">
-                        <p class="date">fecha</p>
-                        <h3 class="card-title">titulo</h3>
-                        <p class="card-decription">description</p>
+                        <p class="date">{{ noticia.fecha|date:"d M Y" }}</p>
+                        <h3 class="card-title">{{ noticia.titulo }}</h3>
+                        <p class="card-description">{{ noticia.cuerpo|truncatewords:20 }}</p>
                     </div>
                 </a>
-            </li>
-            <li class="card-item swiper-slide">
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="swiper-slide">
                 <a href="#" class="card-link">
-                    <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                    <img src="{% static 'img/foto-principal.jpg' %}" alt="" class="card-img">
                     <div class="card-text">
-                        <p class="date">fecha</p>
-                        <h3 class="card-title">titulo</h3>
-                        <p class="card-decription">description</p>
+                        <p class="date">Próximamente</p>
+                        <h3 class="card-title">Próximamente</h3>
+                        <p class="card-description">Descripción de la novedad próximamente.</p>
                     </div>
                 </a>
-            </li>
-            <li class="card-item swiper-slide">
-                <a href="#" class="card-link">
-                    <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                    <div class="card-text">
-                        <p class="date">fecha</p>
-                        <h3 class="card-title">titulo</h3>
-                        <p class="card-decription">description</p>
-                    </div>
-                </a>
-            </li>
-
-        </ul>
-        <div class="swiper-pagination"></div>
+            </div>
+        {% endif %}
     </div>
-</div> 
+    <div class="swiper-pagination"></div>
+</div>
 
 <div class="home-redirrecion">
     <p><a href="{% url 'novedades' %}">Ver todas las novedades</a></p>
 </div>
-{% endblock %} 
+{% endblock %}
 
-{% block script %} 
+{% block script %}
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
-    new Swiper('.card-wrapper', {
+    new Swiper('.container-novedades', {
         // Optional parameters
         loop: true,
         spaceBetween: 30,
@@ -151,5 +143,4 @@
         }
   });
 </script>
-
 {% endblock %}
