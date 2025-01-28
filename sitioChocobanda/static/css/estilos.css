@@ -1,8 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @font-face {
     src: url('../fonts/JokermanStd.otf') format('opentype');
     font-family: 'Jokerman';
   }
+@font-face {
+    src: url('../fonts/LondonBridgeMedium.otf') format('opentype');
+    font-family: 'London Bridge Medium';
+}
+@font-face {
+    src: url('../fonts/MSGothic.ttf') format('opentype');
+    font-family: 'Gothic';
+}
+
   :root {
     --color-principal: #3b6021; /* Verde */
     --color-secundario: #8c4a2f; /* Marrón */
@@ -59,6 +69,14 @@ header{
     padding: 0.5rem;
     background-color: var(--color-principal);
 }
+
+.titulo.desktop {
+    display: inline;
+  }
+  
+.titulo.mobile {
+    display: none;
+  }
 
 .nav-list{
     display: flex;
@@ -247,6 +265,23 @@ nav{
         top: 0;
         z-index: 1040;
     }
+
+    .titulo.desktop {
+        display: none;
+      }
+
+    .titulo.mobile .atras {
+        font-family: 'MS Gothic', 'sans-serif';
+        display: inline; /* Asegura un comportamiento inline */
+        white-space: pre;
+
+        /* font-weight: bold; */
+      }
+
+    .titulo.mobile {
+        display: inline;
+        font-family: 'London Bridge Medium', sans-serif;
+      }
 
     .abrir-menu,
     .cerrar-menu{

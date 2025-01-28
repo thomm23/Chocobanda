@@ -16,7 +16,12 @@
  </head>
  <body>
     <header>
-      <h1> <a class="titulo" href="{% url 'home'%}">{% block nombre_seccion %} Chocobanda {% endblock %}</a></h1>
+      <h1> 
+        <a class="titulo desktop" href="{% url 'home' %}">Chocobanda</a>
+        <a class="titulo mobile" href="{% url 'home' %}">
+          <span class="atras">&lt; </span> {% block nombre_seccion %} Chocobanda {% endblock %}
+        </a>
+      </h1>
       <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
       <nav class="nav" id="nav">
         <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
