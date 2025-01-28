@@ -28,7 +28,10 @@ class Integrantes(View):
 
 class PaginaPrincipal(View):
     def get(self, request):
-        context = {}
+        ajustes = AjustesPagina.objects.first()  # Obtén la primera instancia de AjustesPagina
+        context = {
+            'ajustes': ajustes,
+        }
         return render(request, 'home.html', context)
 
 class Nosotros(View):
@@ -104,5 +107,3 @@ class DetalleObra(View):
             'obra': obra,
         }
         return render(request, 'obra.html', context)
-
-
