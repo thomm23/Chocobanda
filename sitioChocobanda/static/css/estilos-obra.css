@@ -1,11 +1,13 @@
+:root {
+    --color-principal: #3b6021; /* Verde */
+    --color-secundario: #8c4a2f; /* Marrón */
+    --color-fondo: #f1e7c8; /* Beige */
+    --color-terciario: #E87722; /* naranja */
+}
+
 @media (max-width: 768px) {
     
-    :root {
-        --color-principal: #3b6021; /* Verde */
-        --color-secundario: #8c4a2f; /* Marrón */
-        --color-fondo: #f1e7c8; /* Beige */
-        --color-terciario: #E87722; /* naranja */
-    }
+    
     
     /* Contenedor de la imagen y el detalle */
 

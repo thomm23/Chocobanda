@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @font-face {
     src: url('../fonts/JokermanStd.otf') format('opentype');
     font-family: 'Jokerman';
-  }
+}
+
   :root {
     --color-principal: #3b6021; /* Verde */
     --color-secundario: #8c4a2f; /* Marrón */
@@ -59,6 +61,14 @@ header{
     padding: 0.5rem;
     background-color: var(--color-principal);
 }
+
+.titulo.desktop {
+    display: inline;
+  }
+  
+.titulo.mobile, .icono-volver {
+    display: none;
+  }
 
 .nav-list{
     display: flex;
@@ -241,6 +251,8 @@ nav{
         align-items: center;
         justify-content: space-between;
         padding: 2rem;
+        padding-top: 1rem; /* Cambia el valor según lo que necesites */
+        padding-bottom: 1rem; /* Cambia el valor según lo que necesites */
         background-color: #4C6A2A;
         position: fixed;
         width: 100%;
@@ -248,6 +260,26 @@ nav{
         z-index: 1040;
     }
 
+    .titulo.desktop {
+        display: none;
+    }
+
+    .icono-volver {
+        
+        display: inline; 
+        font-weight: bold;
+        text-decoration: none;
+        color: #f1e7c8;
+    }
+
+    .titulo.mobile {
+        
+        display: inline; 
+        font-family: 'Montserrat', serif;
+        font-weight: normal;
+        
+    }
+    
     .abrir-menu,
     .cerrar-menu{
         display: block;
