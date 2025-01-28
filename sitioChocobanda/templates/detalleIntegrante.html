@@ -6,15 +6,15 @@
 
 <section class="container">  
     <section class="detalle-desk-image">
-        <img src="{% static 'img/Imagen-NoImage.png' %}" alt="Imagen Grande" class="big-image"> 
-        <img src="{% static 'img/Imagen-NoImage.png' %}" alt="Imagen Pequeña" class="small-image">   
+        <img src=" {{  integrante.personajes.first.foto.url }}" alt="Foto de {{ actual.personajes.first.nombre }}" class="big-image"> 
+        <img src="{{ integrante.foto.url }}" alt="Foto de {{ actual.nombre }}" class="small-image">   
     </section>
   
       <section class="detalle-desk-text"> 
-          <h2>Nombre del personaje</h2> 
-          <h3>Nombre del profesional</h3>
+          <h2>{{ integrante.personajes.first.nombre }}</h2> 
+          <h3>{{ integrante.nombre }} - {{ integrante.ocupacion }}</h3>
           <br>
-          <p class="descripcion-desk-detail">{% lorem 2 b random %}</p> 
+          <p class="descripcion-desk-detail">{{ integrante.descripcion }}</p> 
       </section> 
       
     

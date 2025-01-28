@@ -1,133 +1,89 @@
-@media (max-width: 576px) {
-
+@media (max-width: 768px) {
+    
+    :root {
+        --color-principal: #3b6021; /* Verde */
+        --color-secundario: #8c4a2f; /* Marrón */
+        --color-fondo: #f1e7c8; /* Beige */
+        --color-terciario: #E87722; /* naranja */
+    }
     
     /* Contenedor de la imagen y el detalle */
-   
+
+
 
     .obra-container{
         display: flex;
         flex-direction: column; /* Elementos en columna */
         gap: 2vh;
         align-items: center;
-        border: 0.3vh solid black;
+        /* border: 0.3vh solid black; */
 
     }
-    
-    .carrousel-container{
-        
-        padding: 2vh;
-    }
-    
-    
 
    
     /* Imagen principal - PRIMERO */
     .imagen-principal {
         order: 1; /* Imagen en primer lugar */
-        width: 100%;
+        width: 100vw; /* Ancho completo de la pantalla */
+        max-width: 100%; /* Evita que la imagen sobrepase su contenedor */
         justify-content: center;
-        border: 0.3vh solid black;
+        /* border: 0.3vh solid black; */
+        display: flex; /* Para centrar el contenido */
     }
-
+    
     .imagen-principal img {
-        width: 100%;
-        max-width:max-content;
-        border-radius: 2vh;
+        width: 100%; /* Ocupar el ancho completo del contenedor */
+        max-width: 100%; /* Asegura que no se desborde */
+        height: auto; /* Mantiene la proporción */
+        border-radius: 3vh;
         object-fit: cover;
+        box-shadow: 0 0.5vh 3vh rgba(0, 0, 0, 0.5); /* Sombra en la parte inferior */
     }
 
     /* Título de la obra - SEGUNDO */
     .nombre-obra {
         order: 2; /* Título en segundo lugar */
-        font-size: 3vh;
+        font-size: 3.5vh;
         text-align: left;
-        margin-bottom: 2vh;
-        color: #32551c;
-        width: 90%;
-        padding: 1vh 0;
-        border: 0.3vh solid black;
+        color: var(--color-secundario);
+        width: 100%;
+        padding: 2vh 3vh 2vh 3vh;
+        /* border: 0.3vh solid black; */
     }
 
     /* Descripción de la obra - TERCERO */
     .descripcion {
         order: 3; /* Detalle en tercer lugar */
-        width: 90%;
-        text-align: center;
-        padding: 0vh;
-        border: 0.3vh solid black;
-    }
-
-    /* Galería de imágenes - CUARTO */
-    .seccion-carrousel {
-        order: 4; /* Galería en cuarto lugar */
         width: 100%;
-        border: 0.6vh solid black;
+        text-align: left;
+        padding: 0vh 3vh 3vh 3vh;
+        /* border: 0.3vh solid black; */
+        color: var(--color-secundario);
     }
-
-    
-
-     /* ESTILOS CARRUSEL */
-    .imagenes-container {
-        position: relative;
-        width: 100%;
-        max-width: 800px; /* Más largo para mostrar más imágenes */
-        margin: auto;
-        overflow: hidden;
-        border-radius: 10px;
-    }
-    
-    .imágenes {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 20px; /* Espacio entre imágenes */
-        transition: transform 0.3s ease-in-out;
-        cursor: grab;
-    }
-    
-    .imagenes img {
-        width: calc((100% / 3) - 20px); /* Mostrar 3 imágenes con espacio */
-        height: 150px; /* Altura de las imágenes */
-        object-fit: cover;
-        flex-shrink: 0;
-        user-select: none;
-    }
+ 
 }
 
-
-
-/* Estilos para pantallas medianas (Tablet) */
-@media (min-width: 350px) and (max-width: 768px) {
-    /* Puedes agregar estilos específicos para tablets aquí */
-}
 
 /* Estilos para pantallas grandes (Desktop) */
 @media (min-width: 769px) {
 
     
 
-    .seccion-obra,
-    .seccion-carrousel {
+    .seccion-obra    {
         font-family: 'Arial', sans-serif;
-        color: #3b6021;
-        padding: 2vh;
+        color: var(--color-principal);
         box-sizing: border-box;
-        border: 0.3vh solid black;
+        /* border: 0.3vh solid black; */
     }
     
-    .carrousel-container{
-
-        padding: 2vh;
-        border: 0.3vh solid black;
-
-    }
-
+    
     /* Nombre de la obra en la primera fila ocupando todo el ancho */
     .nombre-obra {
         text-align: left;
-        margin-bottom: 2vh;
-        color: #32551c;
+        margin-top: 2vh;
+        color: var(--color-principal);
         width: 100%;
-        border: 0.3vh solid black;
+        /* border: 0.3vh solid black; */
     }
 
     /* Contenedor principal con flex en columna */
@@ -135,12 +91,12 @@
         display: flex;
         flex-direction: row; /* Los elementos estarán en columna */
         flex-flow: row wrap;
-        gap: 2vh;
-        
+        gap: 1vh;
+        align-items: flex-start; /* Los elementos estarán fijados a la parte superior */
     }
 
     .obra-container{
-        border: 0.3vh solid black;
+        /* border: 0.3vh solid black; */
         padding: 2vh;
         box-sizing: border-box;
     }
@@ -149,7 +105,7 @@
         width: calc(50% - 1vh); /* Restamos la mitad del gap */
         text-align: left;
         box-sizing: border-box;
-        border: 0.3vh solid black;
+        /* border: 0.3vh solid black; */
     }
 
     .imagen-principal {
@@ -158,54 +114,16 @@
         justify-content: center;
         align-items: center;
         box-sizing: border-box;
-        border: 0.3vh solid black;
+        /* border: 0.3vh solid black; */
     }
 
     .imagen-principal img {
         max-width: 100%;
         height: auto;
-        display: block;
         border-radius: 3vh;
-    }
-
-    /* Estilos para la galería */
-    .seccion-carrousel {
-        border: 0.3vh solid black;
-    
         
     }
 
-    .seccion-carrousel h2 {
-        font-size: 3vh;
-        margin-bottom: 2vh;
-        color: #32551c;
-    }
-
-    .imagenes-container {
-        margin-top: 3vh;
-        display: flex;
-        gap: 2vh;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-    }
-
-    .seccion-carrousel .imagenes-container img {
-        width: 22vh;
-        height: 15vh;
-        border-radius: 1vh;
-        object-fit: cover;
-    }
-
-    .seccion-carrousel .ver-mas {
-        margin-top: 2vh;
-        text-align: right;
-    }
-
-    .seccion-carrousel .ver-mas a {
-        color: #32551c;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
+    
 }
 

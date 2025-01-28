@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import View
-from .models import Integrante
+from .models import *
 
 class detalleIntegrante(View):
     def get(self, request, id):
@@ -17,10 +17,12 @@ class Integrantes(View):
         print(actuales)
         invitados = Integrante.objects.filter(estado='invitados')
         memorables = Integrante.objects.filter(estado='memorables')
+        todos_integrantes = Integrante.objects.all()
         context = {
             'actuales': actuales,
             'invitados': invitados,
             'memorables': memorables,
+            'todos_integrantes': todos_integrantes,
         }
         return render(request, 'integrantes.html', context)
 
@@ -31,12 +33,22 @@ class PaginaPrincipal(View):
 
 class Nosotros(View):
     def get(self, request):
-        context = {}
+        ajustes = AjustesPagina.objects.first()  # Obtén la primera instancia de AjustesPagina
+        todos_integrantes = Integrante.objects.all()
+        nuestras_obras = Obra.objects.all()
+        context = {
+            'ajustes': ajustes,
+            'todos_integrantes': todos_integrantes,
+            'nuestras_obras': nuestras_obras, 
+        }
         return render(request, 'nosotros.html', context)
 
 class NuestraHistoria(View):
     def get(self, request):
-        context = {}
+        ajustes = AjustesPagina.objects.first()  # Obtén la primera instancia de AjustesPagina
+        context = {
+            'ajustes': ajustes,
+        }
         return render(request, 'nuestraHistoria.html', context)
 
 class Galeria(View):
@@ -84,7 +96,13 @@ class ImpactoSocialGaleria(View):
         context = {}
         return render(request, 'impactoSocial-Galeria.html', context)
 
-class Obra(View):
-    def get(self, request):
-        context = {}
+class DetalleObra(View):
+    
+    def get(self, request, id):
+        obra = get_object_or_404(Obra, id=id)
+        context = {
+            'obra': obra,
+        }
         return render(request, 'obra.html', context)
+
+

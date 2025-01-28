@@ -3,6 +3,11 @@
     src: url('../fonts/JokermanStd.otf') format('opentype');
     font-family: 'Jokerman';
   }
+  :root {
+    --color-principal: #3b6021; /* Verde */
+    --color-secundario: #8c4a2f; /* Marrón */
+    --color-fondo: #f1e7c8; /* Beige */
+}
   html, body {
     margin: 0;
     padding: 0;
@@ -16,13 +21,6 @@
     flex-direction: column;
 }
 
-/*VARIABLES*/
-:root {
-    --color-principal: #3b6021; /* Verde */
-    --color-secundario: #8c4a2f; /* Marrón */
-    --color-fondo: #f1e7c8; /* Beige */
-}
-
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -32,7 +30,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--color-principal);
+    background-color: #8c4a2f;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -80,7 +78,7 @@ header{
 footer {
     color: #f1e7c8;
     padding: 15px;
-    background-color: var(--color-principal);
+    background-color: #8c4a2f;
     border-radius: 5px 5px 0 0;
     position: relative;
     width: 100%;
@@ -102,7 +100,7 @@ nav{
     width: 100%;
     height: 75vh;
     border-radius: 0px 0px 5px 5px;
-    box-shadow: 0 10px 10px -10px var(--color-principal);
+    box-shadow: 0 10px 10px -10px rgba(139, 69, 19, 0.9);
     object-position: bottom;
     object-fit: cover;
 }
@@ -111,48 +109,32 @@ nav{
     font-size: 22px;
     text-align: center;
     margin: 2rem 1rem 1.5rem;
-    color: var(--color-principal);
+    color: #8c4a2f;
     font-weight: bold;
 }
-.proxima-funcion , .funciones{
+.funciones{
     width: 20rem;
     height: 15rem;
     padding: 5rem;;
     border-radius: 30px;
 } 
-.proxima-funcion tr td, .funciones tr td{
+.funciones tr td{
     display: block;
-}     
-/* .proxima-funcion {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem;
-    padding: 2rem;
-    padding-right: 45%;
-    border-radius: 30px 0px 0 30px;
-    background-color: var(--color-principal);
-    flex-direction: row;
-} */
+}  
+
 .funciones {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 1rem;
-    /* padding: 2rem;
-    padding-right: 30%; */
     background-color: #f1e7c8;
-    flex-direction: row;
-    border-radius: 30px 0px 0 30px;
     border: 2px solid var(--color-secundario);
-    padding-right: 30%;
 }
 
 .funciones h2 {
     color: var(--color-secundario);
     display: flex;
     flex-direction: column;
-    margin-right: 1rem;
 }
 
 .funciones h3 {
@@ -160,20 +142,23 @@ nav{
     text-align: center;
     width: 100%;
 }
+.funciones h3 p{
+    color: var(--color-secundario);
+}
+.proxima-funcion h3 p{
+    color: var(--color-fondo);
+}
 
 .proxima-funcion{
-    background-color: #8c4a2f;
-    border: 2px solid #8c4a2f;
+    background-color: var(--color-principal);
+    border: 2px solid var(--color-principal);
 }
 .proxima-funcion h2 {
     color: #f1e7c8;
-    margin-right: 1rem;
 }
 
 .proxima-funcion h3 {
     color: #f1e7c8;
-    text-align: center;
-    width: 100%;
 }
 
 
@@ -183,28 +168,26 @@ nav{
     flex-direction: row;
     justify-content: center;
 }
-
-
-.agenda-section h1 {
-    color: var(--color-principal);
+.home-title {
+    color: #8c4a2f;
     margin: 1rem;
     align-self: flex-start;
 }
 
 .novedades-section h1{
-    color: var(--color-principal);
+    color: #8c4a2f;
     margin: 1rem;
 }
 
 .novedades-section p {
-    color: var(--color-secundario);
+    color: #4c6a2a;
     margin: 1rem;
     text-align: right;
     font-weight: bold;
 }
 
 .redes a {
-    color: var(--color-secundario);
+    color: #4c6a2a;
     font-size: 3rem;
     margin: 0 1rem;
 }
@@ -217,7 +200,7 @@ nav{
 }
 
 .nav ul li a:hover{
-    color: var(--color-principal);
+    color: #8c4a2f;
     padding: 0.2rem;
     border-radius: 10px 10px 10px 10px;
     background-color: #f1e7c8;
@@ -230,9 +213,21 @@ nav{
 
 .tabla-agenda-section td, .tabla-agenda-section th {
     text-align: center;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    padding-right: 3rem;
+    max-width: 100%;
+}
+.material-symbols-outlined { 
+    margin-right: 4px; 
+}
+.lugar-funcion{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.home-td-fecha{
+    margin-bottom: 1rem;
+}
+.funciones .home-td-content{
+    color: var(--color-principal);
 }
 
 @media screen and (max-width: 768px) {
@@ -246,7 +241,7 @@ nav{
         align-items: center;
         justify-content: space-between;
         padding: 2rem;
-        background-color: var(--color-principal);
+        background-color: #4C6A2A;
         position: fixed;
         width: 100%;
         top: 0;
@@ -278,7 +273,7 @@ nav{
         top: 0;
         right: 0;
         bottom: 0;
-        background-color: var(--color-principal);
+        background-color: #8c4a2f;
         padding: 2rem 0 0 2rem;
         box-shadow: 0 0 0 100vmax rgba(140, 74, 47, .3);
         transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -300,13 +295,13 @@ nav{
         padding-left: 20%;
         flex-direction: column;
         align-items: end; 
-        background-color: var(--color-principal);
+        background-color: #8c4a2f;
         width: 50%;
         height: 100%;
     }
 
     .nav.visible ul li a:hover{
-        color: var(--color-principal);
+        color: #8c4a2f;
         padding: 0 0.5rem;
         border-radius: 10px 0 0 10px;
         transform: scale(1.1);
@@ -320,7 +315,7 @@ nav{
     footer{
         color: #f1e7c8;
         padding: 15px;
-        background-color: var(--color-principal);
+        background-color: #8c4a2f;
         border-radius: 5px 5px 0 0;
         width: 100%;
         font-size: 13px;
@@ -358,7 +353,7 @@ nav{
         font-size: 22px;
         text-align: center;
         margin: 2rem 1rem 1.5rem;
-        color: var(--color-principal);
+        color: #8c4a2f;
         font-weight: bold;
     }
     
@@ -368,19 +363,11 @@ nav{
 
     .tabla-agenda-section td, .tabla-agenda-section th {
         text-align: center;
-        font-size: 1.2rem;
         padding: 0.5rem;
     }
     .funciones h2 {
         color: #8c4a2f;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 1rem;
-        padding: 2rem;
-        border-radius: 30px 0px 0 30px;
-        background-color: var(--color-principal);
-        flex-direction: row;
         flex-direction: column;
         margin-right: 1rem;
         font-weight: 600;
@@ -391,7 +378,7 @@ nav{
     }
     .proxima-funcion .nombre-funcion{
         color: #f1e7c8;
-        font-weight: 500;        
+        font-weight: 500;
     }
     .proxima-funcion h2 {
         color: #f1e7c8;
@@ -402,6 +389,9 @@ nav{
         text-align: left;
         width: 100%;
         font-weight: 500;
+    }
+    .proxima-funcion h3 p{
+        color: var(--color-fondo);
     }
 
     .nombre-funcion{
@@ -416,7 +406,7 @@ nav{
         width: 100%;
         height: 10rem;
         padding: 2rem;
-        border-radius: 60px;
+        border-radius: 60px 0 0  60px;       
     }
     .proxima-funcion tr, .funciones tr{
         display: flex;
@@ -431,19 +421,10 @@ nav{
         margin: 1rem;
         padding-right: 15%;
         flex-direction: row;
-        border-radius: 30px 0px 0 30px;
-        border: 2px solid var(--color-secundario);
     }
 
-    .funciones h2 {
-        color: var(--color-secundario);
-        display: flex;
-        flex-direction: column;
-        margin-right: 1rem;
-    }
 
     .funciones h3 {
-        color: var(--color-principal);
         text-align: center;
         width: 100%;
     }
@@ -456,13 +437,13 @@ nav{
     }
 
     .agenda-section h1 {
-        color: var(--color-principal);
+        color: #8c4a2f;
         margin: 1rem;
         align-self: flex-start;
     }
 
     .novedades-section h1{
-        color: var(--color-principal);
+        color: #8c4a2f;
         margin: 1rem;
     }
     .home-td-content{
@@ -474,20 +455,17 @@ nav{
     }
     .icon-contenedor { 
         display: flex; 
-        align-items: center; 
-    } 
-    .material-symbols-outlined { 
-        margin-right: 8px; 
+        align-items: center;
     }
     .novedades-section p {
-        color: var(--color-secundario);
+        color: #4c6a2a;
         margin: 1rem;
         text-align: right;
         font-weight: bold;
     }
 
     .redes a {
-        color: var(--color-secundario);
+        color: #4c6a2a;
         font-size: 3rem;
         margin: 0 1rem;
     }
@@ -506,7 +484,7 @@ nav{
     }
     
     .tabla-novedades td {
-        background-color: var(--color-principal);
+        background-color: #8c4a2f;
         color: #d2b48c;
         text-align: left;
         margin: 0;
@@ -519,21 +497,28 @@ nav{
         border-spacing: 0;
         border: 0px;
     }
+    .home-td-fecha{
+        margin-top: 1rem;
+    }
+
 
 }
 
 /* Novedades-Carrousel-home.html */
 .title-novedades{
-    color: var(--color-principal);
+    color: #8c4a2f;
     margin: 1rem 0 1rem 1rem;
 
 }
-.novedades-redirrecion{
+.home-redirrecion p{
     display: flex;
     font-weight: 800;
-    color: var(--color-principal);
+    color: #4c6a2a;
     justify-content: end;
     margin-right: 1rem;
+}
+.home-redirrecion a:visited{
+    color: #4c6a2a;
 }
 .container-novedades{
     display: flex;
@@ -555,11 +540,9 @@ nav{
 .card-list .card-item .card-link{
     user-select: none;
     display: block;
-    background: var(--color-principal);
+    background: #8c4a2f;
     color: #f1e7c8;
-    /* border-radius: 12px; */
     text-decoration: none;
-    /* border: 2px solid transparent; */
     box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
     transition: 0.2 ease;
     border-radius: 10px;
@@ -580,12 +563,11 @@ nav{
 
 }
 .swiper-slide-button{
-    color: var(--color-secundario);
+    color: #4c6a2a;
 }
 .card-wrapper .swiper-pagination-bullet {
     height: 13px;
     width: 13px;
     opacity: 0.5;
-    background: var(--color-secundario);
+    background: #4c6a2a;
 }
-  

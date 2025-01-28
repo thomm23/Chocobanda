@@ -36,12 +36,17 @@
                 {% for actual in actuales %}
                 <div class="card-item">
                     <a href="{% url 'detalleIntegrante' actual.id %}" class="card-link">
-                        <img src="{{ actual.foto.url }}" alt="Foto de {{ actual.nombre }}" class="card-img">
+                        <div class="card-actor">
+                            {% comment %} imagen redonda integrante {% endcomment %}
+                            <img src="{{ actual.foto.url }}" alt="Foto de {{ actual.nombre }}">
+                        </div>
+                        <img src=" {{actual.personajes.last.foto.url }}" alt="Foto de {{ actual.personajes.last.nombre }}" class="card-img">
                         <div class="card-text">
-                            <h3 class="card-title">{{ actual.nombre }}</h3>
-                            <p class="card-description">{{ actual.descripcion }}</p>
+                            <h3 class="card-title">{{ actual.personajes.last.nombre }}</h3>
+                            <p class="card-description">{{ actual.nombre }}</p>
                         </div>
                     </a>
+                    
                 </div>
                 {% endfor %}
             </div>
@@ -57,10 +62,14 @@
                 {% for invitado in invitados %}
                 <div class="card-item">
                     <a href="{% url 'detalleIntegrante' invitado.id %}" class="card-link">
-                        <img src="{{ invitado.foto.url }}" alt="Foto de {{ invitado.nombre }}" class="card-img">
+                        <div class="card-actor">
+                            {% comment %} imagen redonda integrante {% endcomment %}
+                            <img src="{{ invitado.foto.url }}" alt="Foto de {{ invitado.nombre }}">
+                        </div>
+                        <img src="{{ invitado.personajes.last.foto.url }}" alt="Foto de {{ invitado.personajes.last.nombre  }}" class="card-img">
                         <div class="card-text">
-                            <h3 class="card-title">{{ invitado.nombre }}</h3>
-                            <p class="card-description">{{ invitado.descripcion }}</p>
+                            <h3 class="card-title">{{ invitado.personajes.last.nombre }}</h3>
+                            <p class="card-description">{{ invitado.nombre }}</p>
                         </div>
                     </a>
                 </div>
@@ -78,10 +87,14 @@
                 {% for memorable in memorables %}
                 <div class="card-item">
                     <a href="{% url 'detalleIntegrante' memorable.id %}" class="card-link">
-                        <img src="{{ memorable.foto.url }}" alt="Foto de {{ memorable.nombre }}" class="card-img">
+                        <div class="card-actor">
+                            {% comment %} imagen redonda integrante {% endcomment %}
+                            <img src="{{ memorable.foto.url }}" alt="Foto de {{ memorable.nombre }}">
+                        </div>
+                        <img src="{{ memorable.personajes.last.foto.url }}" alt="Foto de {{ memorable.personajes.last.nombre }}" class="card-img">
                         <div class="card-text">
-                            <h3 class="card-title">{{ memorable.nombre }}</h3>
-                            <p class="card-description">{{ memorable.descripcion }}</p>
+                            <h3 class="card-title">{{ memorable.personajes.last.nombre }}</h3>
+                            <p class="card-description">{{ memorable.nombre }}</p>
                         </div>
                     </a>
                 </div>

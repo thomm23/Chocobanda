@@ -11,14 +11,11 @@
     <section class="nosotros-section">
         <h2 class="nosotros-titulo">La historia de la</h2>
         <h1 class="nosotros-chocobanda">Chocobanda</h1>
-        <p class="nosotros-descripcion">{% lorem 1 b random %}</p>
-        {%comment%}
-            {% if nosotros %} Si existe el objeto nuestraHistoria. // No estoy seguro de si es así
-                <p>{%nosotros.textPresentation%}</p>
-            {% else %}
-                <p>Proximamente...</p>
-            {% endif %}
-        {%endcomment%}
+        <p class="nosotros-descripcion"> {% if ajustes %}
+            {{ ajustes.historia_chocobanda }}
+        {% else %}
+            Próximamente...
+        {% endif %}</p>
         <p class="nosotros-redireccion"><a href="/nosotros">Leer menos</a></p>
     </section>
 {%endblock%}
