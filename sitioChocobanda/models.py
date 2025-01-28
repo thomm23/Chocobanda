@@ -59,6 +59,7 @@ class Evento(models.Model):
     obra = models.ForeignKey(Obra, on_delete=models.CASCADE, related_name='eventos')
     lugar = models.CharField(max_length=255)
     fecha = models.DateField()
+    hora = models.TimeField(default='00:00:00')
     invitados = models.TextField(null=True, blank=True)  # JSON or comma-separated
     instituciones_beneficiadas = models.TextField(null=True, blank=True)  # JSON or comma-separated
 
@@ -70,7 +71,7 @@ class Noticia(models.Model):
     titulo = models.CharField(max_length=255)
     fecha = models.DateField()
     cuerpo = models.TextField()
-    fotos = models.ManyToManyField(Multimedia, related_name='noticias_fotos', blank=True)
+    foto = models.ImageField(upload_to='novedades/', null=True, blank=True)
 
     def __str__(self):
         return self.titulo
@@ -119,4 +120,3 @@ class AjustesPagina(models.Model):
     def __str__(self):
         return "Ajustes de la Página"
 
-# Create your models here.

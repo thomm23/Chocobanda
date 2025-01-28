@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load l10n %}
 {% block title %} Chocobanda - INICIO {% endblock %}
 {% block estilos%}
 <link rel="stylesheet" type="text/css" href="{% static 'css/home.css'%}">
@@ -8,178 +9,112 @@
 {%block content%}
 
 <div class="foto-principal">
-    <img src="{% static 'img/foto-principal.jpg'%}" alt="Foto principal">
+    <img src="{% static 'img/foto-principal.jpg' %}" alt="Foto principal">
 </div>
 <div class="descripcion">
-    <p>Acercándonos a los niños y sus familias a través del arte, creando lazos afectivos y apoyando a quienes mas lo necesitan</p>
+    <p>Acercándonos a los niños y sus familias a través del arte, creando lazos afectivos y apoyando a quienes más lo necesitan</p>
 </div>
-
+<h2 class="home-title">Próxima función</h2>
 <section class="agenda-section">
-    <h2 class= "home-title">Próxima función</h2>
-    <div class = "home-funciones-wrapper">
-        
+    
+    <div class="home-funciones-wrapper">
+        {% if eventos %}
         <div class="funciones proxima-funcion">
             <table class="tabla-agenda-section">
                 <tr>
-                    <td class ="home-td-fecha">
-                        <h2 class="dia-funcion">{% block dia_funcion %}22{% endblock %}</h2>
-                        <h2 class="mes-funcion">{% block mes_funcion %}Octubre{% endblock %}</h2>
+                    <td class="home-td-fecha">
+                        <h2 class="dia-funcion">{{ eventos.0.fecha|date:"d" }}</h2>
+                        <h2 class="mes-funcion">{{ eventos.0.fecha|date:"F" }}</h2>
                     </td>
-                    <td class ="home-td-content">
-                        <h3 class="nombre-funcion">{% block nombre_funcion %}Funcion de Gala{% endblock %}</h3>
-                        <h3 class="hora-funcion"> 
-                            <p class="material-symbols-outlined">schedule</p>  
-                            {% block hora_funcion %}20:00{% endblock %}
+                    <td class="home-td-content">
+                        <h3 class="nombre-funcion">{{ eventos.0.obra.titulo }}</h3>
+                        <h3 class="hora-funcion">
+                            <p class="material-symbols-outlined">schedule</p>
+                            {{ eventos.0.hora|time:"H:i" }}
                         </h3>
                         <h3 class="lugar-funcion">
                             <p class="material-symbols-outlined">location_on</p>
-                            {% block lugar_funcion %}Teatro Colon{% endblock %}
+                            {{ eventos.0.lugar }}
                         </h3>
                     </td>
                 </tr>
             </table>
         </div>
-        
-        <div class="funciones">
-            <table class="tabla-agenda-section">
-                <tr>
-                    <td class ="home-td-fecha">
-                        <h2 class="dia-funcion2">{% block dia_funcion2 %}22{% endblock %}</h2>
-                        <h2 class="mes-funcion2">{% block mes_funcion2 %}Octubre{% endblock %}</h2>
-                    </td>
-                    <td class ="home-td-content">
-                        <h3 class="nombre-funcion2">{% block nombre_funcion2 %}Funcion de Gala{% endblock %}</h3>
-                        <h3 class="hora-funcion2"> 
-                            <p class="material-symbols-outlined">schedule</p>  
-                            {% block hora_funcion2 %}20:00{% endblock %}
-                        </h3>
-                        <h3 class="lugar-funcion">
-                            <p class="material-symbols-outlined">location_on</p>
-                            {% block lugar_funcion2 %}Teatro Colon{% endblock %}
-                        </h3>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        
-        <div class="funciones">
-            <table class="tabla-agenda-section">
-                <tr>
-                    <td class ="home-td-fecha">
-                        <h2 class="dia-funcion3">{% block dia_funcion3 %}22{% endblock %}</h2>
-                        <h2 class="mes-funcion3">{% block mes_funcion3 %}Octubre{% endblock %}</h2>
-                    </td>
-                    <td class ="home-td-content">
-                        <h3 class="nombre-funcion3">{% block nombre_funcion3 %}Funcion de Gala{% endblock %}</h3>
-                        <h3 class="hora-funcion3"> 
-                            <p class="material-symbols-outlined">schedule</p>  
-                            {% block hora_funcion3 %}20:00{% endblock %}
-                        </h3>
-                        <h3 class="lugar-funcion">
-                            <p class="material-symbols-outlined">location_on</p>
-                            {% block lugar_funcion3 %}Teatro Colon{% endblock %}
-                        </h3>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-       {% comment %} <div class="funciones">
-            <table class="tabla-agenda-section">
-                <tr>
-                    <td class ="home-td-fecha">
-                        <h2 class="dia-funcion4">{% block dia_funcion4 %}22{% endblock %}</h2>
-                        <h2 class="mes-funcion4">{% block mes_funcion4 %}Octubre{% endblock %}</h2>
-                    </td>
-                    <td class ="home-td-content">
-                        <h3 class="nombre-funcion4">{% block nombre_funcion4 %}Funcion de Gala{% endblock %}</h3>
-                        <h3 class="hora-funcion4"> 
-                            <p class="material-symbols-outlined">schedule</p>  
-                            {% block hora_funcion4 %}20:00{% endblock %}
-                        </h3>
-                        <h3 class="lugar-funcion">
-                            <p class="material-symbols-outlined">location_on</p>
-                            {% block lugar_funcion4 %}Teatro Colon{% endblock %}
-                        </h3>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-         <div class="funciones">
-            <table class="tabla-agenda-section">
-                <tr>
-                    <td class ="home-td-fecha">
-                        <h2 class="dia-funcion5">{% block dia_funcion5 %}22{% endblock %}</h2>
-                        <h2 class="mes-funcion5">{% block mes_funcion5 %}Octubre{% endblock %}</h2>
-                    </td>
-                    <td class ="home-td-content">
-                        <h3 class="nombre-funcion5">{% block nombre_funcion5 %}Funcion de Gala{% endblock %}</h3>
-                        <h3 class="hora-funcion5"> 
-                            <p class="material-symbols-outlined">schedule</p>  
-                            {% block hora_funcion5 %}20:00{% endblock %}
-                        </h3>
-                        <h3 class="lugar-funcion">
-                            <p class="material-symbols-outlined">location_on</p>
-                            {% block lugar_funcion5 %}Teatro Colon{% endblock %}
-                        </h3>
-                    </td>
-                </tr>
-            </table>
-        </div> {% endcomment %}
-
+        {% else %}
+        <p>No hay próximos eventos.</p>
+        {% endif %}
     </div>
-    
+
+    {% if eventos|length > 1 %}   
+    <div class="home-funciones-wrapper">
+        {% for evento in eventos|slice:"1:" %}
+        <div class="funciones">
+            <table class="tabla-agenda-section">
+                <tr>
+                    <td class="home-td-fecha">
+                        <h2 class="dia-funcion">{{ evento.fecha|date:"d" }}</h2>
+                        <h2 class="mes-funcion">{{ evento.fecha|date:"F" }}</h2>
+                    </td>
+                    <td class="home-td-content">
+                        <h3 class="nombre-funcion">{{ evento.obra.titulo }}</h3>
+                        <h3 class="hora-funcion">
+                            <p class="material-symbols-outlined">schedule</p>
+                            {{ evento.hora|time:"H:i" }}
+                        </h3>
+                        <h3 class="lugar-funcion">
+                            <p class="material-symbols-outlined">location_on</p>
+                            {{ evento.lugar }}
+                        </h3>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 </section>
-<h2 class= "home-title">Novedades</h2>
-<div class="container-novedades swiper">
-    <div class="card-wrapper">
-        <ul class="card-list swiper-wrapper">
-            <li class="card-item swiper-slide">
-                <a href="#" class="card-link">
-                    <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                    <div class="card-text">
-                        <p class="date">fecha</p>
-                        <h3 class="card-title">titulo</h3>
-                        <p class="card-decription">description</p>
-                    </div>
-                </a>
-            </li>
-            <li class="card-item swiper-slide">
-                <a href="#" class="card-link">
-                    <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                    <div class="card-text">
-                        <p class="date">fecha</p>
-                        <h3 class="card-title">titulo</h3>
-                        <p class="card-decription">description</p>
-                    </div>
-                </a>
-            </li>
-            <li class="card-item swiper-slide">
-                <a href="#" class="card-link">
-                    <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                    <div class="card-text">
-                        <p class="date">fecha</p>
-                        <h3 class="card-title">titulo</h3>
-                        <p class="card-decription">description</p>
-                    </div>
-                </a>
-            </li>
 
-        </ul>
-        <div class="swiper-pagination"></div>
+<h2 class="home-title">Novedades</h2>
+<div class="container-novedades swiper">
+    <div class="swiper-wrapper">
+        {% if noticias %}
+            {% for noticia in noticias %}
+            <div class="swiper-slide">
+                <a href="#" class="card-link">
+                    <img src="{{ noticia.foto.url }}" alt="" class="card-img">
+                    <div class="card-text">
+                        <p class="date">{{ noticia.fecha|date:"d M Y" }}</p>
+                        <h3 class="card-title">{{ noticia.titulo }}</h3>
+                        <p class="card-description">{{ noticia.cuerpo|truncatewords:20 }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="swiper-slide">
+                <a href="#" class="card-link">
+                    <img src="{% static 'img/foto-principal.jpg' %}" alt="" class="card-img">
+                    <div class="card-text">
+                        <p class="date">Próximamente</p>
+                        <h3 class="card-title">Próximamente</h3>
+                        <p class="card-description">Descripción de la novedad próximamente.</p>
+                    </div>
+                </a>
+            </div>
+        {% endif %}
     </div>
-</div> 
+    <div class="swiper-pagination"></div>
+</div>
 
 <div class="home-redirrecion">
     <p><a href="{% url 'novedades' %}">Ver todas las novedades</a></p>
 </div>
-{% endblock %} 
+{% endblock %}
 
-{% block script %} 
+{% block script %}
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
-    new Swiper('.card-wrapper', {
+    new Swiper('.container-novedades', {
         // Optional parameters
         loop: true,
         spaceBetween: 30,
@@ -209,5 +144,4 @@
         }
   });
 </script>
-
 {% endblock %}

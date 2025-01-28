@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import View
-from .models import *
+from .models import Evento, Noticia, Integrante, Personaje, Obra, GaleriaObra, Institucion, Multimedia, Galeria, GaleriaInstitucion, Cancion, Video, AjustesPagina
+
 
 class detalleIntegrante(View):
     def get(self, request, id):
@@ -28,7 +29,12 @@ class Integrantes(View):
 
 class PaginaPrincipal(View):
     def get(self, request):
-        context = {}
+        eventos = Evento.objects.order_by('fecha')  # Obtén todos los eventos ordenados por fecha
+        noticias = Noticia.objects.order_by('-fecha')  # Obtén todas las novedades ordenadas por fecha descendente
+        context = {
+            'eventos': eventos,
+            'noticias': noticias,
+        }
         return render(request, 'home.html', context)
 
 class Nosotros(View):
