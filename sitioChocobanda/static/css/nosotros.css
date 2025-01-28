@@ -152,9 +152,6 @@
         font-weight: 500;
     }
 
-    a{
-        font-weight: bold;
-    }
     .obras {
         display: flex;
         align-items: center;

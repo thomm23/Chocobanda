@@ -3,14 +3,6 @@
 @font-face {
     src: url('../fonts/JokermanStd.otf') format('opentype');
     font-family: 'Jokerman';
-  }
-@font-face {
-    src: url('../fonts/LondonBridgeMedium.otf') format('opentype');
-    font-family: 'London Bridge Medium';
-}
-@font-face {
-    src: url('../fonts/MSGothic.ttf') format('opentype');
-    font-family: 'Gothic';
 }
 
   :root {
@@ -74,7 +66,7 @@ header{
     display: inline;
   }
   
-.titulo.mobile {
+.titulo.mobile, .icono-volver {
     display: none;
   }
 
@@ -259,6 +251,8 @@ nav{
         align-items: center;
         justify-content: space-between;
         padding: 2rem;
+        padding-top: 1rem; /* Cambia el valor según lo que necesites */
+        padding-bottom: 1rem; /* Cambia el valor según lo que necesites */
         background-color: #4C6A2A;
         position: fixed;
         width: 100%;
@@ -268,20 +262,24 @@ nav{
 
     .titulo.desktop {
         display: none;
-      }
+    }
 
-    .titulo.mobile .material-symbols-outlined {
+    .icono-volver {
         
         display: inline; 
         font-weight: bold;
-        
-      }
+        text-decoration: none;
+        color: #f1e7c8;
+    }
 
     .titulo.mobile {
-        display: inline;
-        font-family: 'London Bridge Medium', sans-serif;
-      }
-
+        
+        display: inline; 
+        font-family: 'Montserrat', serif;
+        font-weight: normal;
+        
+    }
+    
     .abrir-menu,
     .cerrar-menu{
         display: block;

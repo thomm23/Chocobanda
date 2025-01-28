@@ -18,9 +18,10 @@
     <header>
       <h1> 
         <a class="titulo desktop" href="{% url 'home' %}">Chocobanda</a>
-        <a class="titulo mobile" href="{% url 'home' %}">
-          <span class="material-symbols-outlined">arrow_back_ios</span> {% block nombre_seccion %} Chocobanda {% endblock %}
+        <a class="icono-volver" href="{% url 'home' %}">
+          <span class="material-symbols-outlined">arrow_back_ios</span>
         </a>
+        <a class="titulo mobile">{% block nombre_seccion %} Chocobanda {% endblock %}</a>
       </h1>
       <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
       <nav class="nav" id="nav">
