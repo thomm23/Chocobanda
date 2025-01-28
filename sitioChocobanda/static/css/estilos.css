@@ -270,12 +270,11 @@ nav{
         display: none;
       }
 
-    .titulo.mobile .atras {
-        font-family: 'MS Gothic', 'sans-serif';
-        display: inline; /* Asegura un comportamiento inline */
-        white-space: pre;
-
-        /* font-weight: bold; */
+    .titulo.mobile .material-symbols-outlined {
+        
+        display: inline; 
+        font-weight: bold;
+        
       }
 
     .titulo.mobile {
