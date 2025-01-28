@@ -161,13 +161,12 @@ nav{
     color: #f1e7c8;
 }
 
-
-
 .home-funciones-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
+
 .home-title {
     color: #8c4a2f;
     margin: 1rem;
@@ -204,6 +203,13 @@ nav{
     padding: 0.2rem;
     border-radius: 10px 10px 10px 10px;
     background-color: #f1e7c8;
+}
+
+.agenda-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 5%;
 }
 
 .tabla-agenda-section {

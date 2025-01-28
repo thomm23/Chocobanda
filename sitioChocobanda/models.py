@@ -59,6 +59,7 @@ class Evento(models.Model):
     obra = models.ForeignKey(Obra, on_delete=models.CASCADE, related_name='eventos')
     lugar = models.CharField(max_length=255)
     fecha = models.DateField()
+    hora = models.TimeField(default='00:00:00')
     invitados = models.TextField(null=True, blank=True)  # JSON or comma-separated
     instituciones_beneficiadas = models.TextField(null=True, blank=True)  # JSON or comma-separated
 

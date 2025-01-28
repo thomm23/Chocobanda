@@ -28,7 +28,10 @@ class Integrantes(View):
 
 class PaginaPrincipal(View):
     def get(self, request):
-        context = {}
+        eventos = Evento.objects.order_by('fecha')  # Obtén todos los eventos ordenados por fecha
+        context = {
+            'eventos': eventos,
+        }
         return render(request, 'home.html', context)
 
 class Nosotros(View):
