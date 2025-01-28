@@ -10,82 +10,27 @@
 <!-- Contenedor Principal -->
 <div class="impacto-container">
     <h1 class="section-title">Instituciones beneficiadas</h1>
-    {% comment %}
-        {% for institucion in instituciones_beneficiadas %}
-            <div class="instituciones-list">
-                <a href="{% url 'impactoSocialInsti' institucion.id%}" style="text-decoration: none; color: inherit;">
-                    <div class="institucion-item">
-                        <div class="institucion-image">
-                            {% if obra.foto %}
-                                <img src="{{ institucion.foto.url }}" alt="{{ institucion.nombre }}">
-                            {% else %}
-                                <img src="{% static 'img/foto2.JPG'%}" alt="Imagen de la Institución">
-                            {% endif %}
-                        </div>
-
-                        <div class="institucion-info">
-                            <h3 class="institucion-name"> {{ institucion.nombre }} </h3>
-                            <p class="institucion-description"> {{ institucion.descripcion }} </p>
-                        </div>
+    {% for institucion in instituciones_beneficiadas %}
+        <div class="instituciones-list">
+            <a href="{% url 'impactoSocialInsti' institucion.id %}" style="text-decoration: none; color: inherit;">
+                <div class="institucion-item">
+                    <div class="institucion-image">
+                        {% if institucion.foto %}
+                            <img src="{{ institucion.foto.url }}" alt="{{ institucion.nombre }}">
+                        {% else %}
+                            <img src="{% static 'img/foto2.JPG' %}" alt="Imagen de la Institución">
+                        {% endif %}
                     </div>
-                </a>
-            </div>
-        {% empty %}
-            <p>No hay instituciones por el momento.</p>
-        {% endfor %}
-    {% endcomment %}
-    <div class="instituciones-list">
-        <a href="{% url 'impactoSocialInsti'%}" style="text-decoration: none; color: inherit;">
-            <div class="institucion-item">
-                <div class="institucion-image">
-                    <img src="{% static 'img/foto2.JPG'%}" alt="Imagen de la Institución">
+
+                    <div class="institucion-info">
+                        <h3 class="institucion-name"> {{ institucion.nombre }} </h3>
+                        <p class="institucion-description"> {{ institucion.descripcion }} </p>
+                    </div>
                 </div>
-
-                <div class="institucion-info">
-                    <h3 class="institucion-name">Nombre de la institución 1</h3>
-                    <p class="institucion-description">
-                        Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos.
-                    </p>
-                </div>
-
-            </div>
-        </a>
-    </div>
-
-    <div class="instituciones-list">
-        <a href="{% url 'impactoSocialInsti'%}" style="text-decoration: none; color: inherit;">
-            <div class="institucion-item">
-                <div class="institucion-image">
-                    <img src="{% static 'img/foto2.JPG'%}" alt="Imagen de la Institución">
-                </div>
-
-                <div class="institucion-info">
-                    <h3 class="institucion-name">Nombre de la institución 2</h3>
-                    <p class="institucion-description">
-                        Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos.
-                    </p>
-                </div>
-
-            </div>
-        </a>
-    </div>
-
-    <div class="instituciones-list">
-        <a href="{% url 'impactoSocialInsti'%}" style="text-decoration: none; color: inherit;">
-            <div class="institucion-item">
-                <div class="institucion-image">
-                    <img src="{% static 'img/foto2.JPG'%}" alt="Imagen de la Institución">
-                </div>
-
-                <div class="institucion-info">
-                    <h3 class="institucion-name">Nombre de la institución 3</h3>
-                    <p class="institucion-description">
-                        Breve descripción de la obra de no más de 3 líneas y utilizar al final 3 puntos.
-                    </p>
-                </div>
-
-            </div>
-        </a>
-    </div>
+            </a>
+        </div>
+    {% empty %}
+        <p>No hay instituciones por el momento.</p>
+    {% endfor %}
 </div>
 {% endblock %}

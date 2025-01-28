@@ -73,7 +73,10 @@ class Contacto(View):
 
 class ImpactoSocial(View):
     def get(self, request):
-        context = {}
+        instituciones_beneficiadas = Institucion.objects.all()
+        context = {
+            'instituciones_beneficiadas': instituciones_beneficiadas,
+        }
         return render(request, 'impactoSocial.html', context)
 
 class Novedades(View):
@@ -87,9 +90,12 @@ class Novedad(View):
         return render(request, 'novedad.html', context)
 
 class ImpactoSocialInsti(View):
-    def get(self, request):
-        context = {}
-        return render(request, 'impactoSocial-Insti.html', context)
+    def get(self, request, id):
+            institucion = get_object_or_404(Institucion, id=id)
+            context = {
+            'institucion': institucion,
+            }
+            return render(request, 'impactoSocial-Insti.html', context)
 
 class ImpactoSocialGaleria(View):
     def get(self, request):
@@ -104,5 +110,3 @@ class DetalleObra(View):
             'obra': obra,
         }
         return render(request, 'obra.html', context)
-
-
