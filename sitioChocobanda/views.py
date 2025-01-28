@@ -33,11 +33,9 @@ class PaginaPrincipal(View):
 
 class Nosotros(View):
     def get(self, request):
-        ajustes = AjustesPagina.objects.first()  # Obtén la primera instancia de AjustesPagina
         todos_integrantes = Integrante.objects.all()
         nuestras_obras = Obra.objects.all()
         context = {
-            'ajustes': ajustes,
             'todos_integrantes': todos_integrantes,
             'nuestras_obras': nuestras_obras, 
         }
@@ -45,10 +43,7 @@ class Nosotros(View):
 
 class NuestraHistoria(View):
     def get(self, request):
-        ajustes = AjustesPagina.objects.first()  # Obtén la primera instancia de AjustesPagina
-        context = {
-            'ajustes': ajustes,
-        }
+        context = {}
         return render(request, 'nuestraHistoria.html', context)
 
 class Galeria(View):
@@ -97,12 +92,9 @@ class ImpactoSocialGaleria(View):
         return render(request, 'impactoSocial-Galeria.html', context)
 
 class DetalleObra(View):
-    
     def get(self, request, id):
         obra = get_object_or_404(Obra, id=id)
         context = {
             'obra': obra,
         }
         return render(request, 'obra.html', context)
-
-
