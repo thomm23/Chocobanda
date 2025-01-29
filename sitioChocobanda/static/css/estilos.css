@@ -80,6 +80,13 @@ header{
     color: #f1e7c8;
 }
 
+.nav-list li a.active {
+    background-color: var(--color-fondo); 
+    color: var(--color-principal); 
+    padding: 0.2rem;
+    border-radius: 10px;
+}
+
 .abrir-menu,
 .cerrar-menu{
     display: none;
@@ -88,7 +95,7 @@ header{
 footer {
     color: #f1e7c8;
     padding: 15px;
-    background-color: #8c4a2f;
+    background-color: var(--color-principal);
     border-radius: 5px 5px 0 0;
     position: relative;
     width: 100%;
@@ -209,10 +216,10 @@ nav{
 }
 
 .nav ul li a:hover{
-    color: #8c4a2f;
+    color: var(--color-principal);
     padding: 0.2rem;
     border-radius: 10px 10px 10px 10px;
-    background-color: #f1e7c8;
+    background-color: var(--color-fondo);
 }
 
 .agenda-section {
@@ -311,7 +318,7 @@ nav{
         top: 0;
         right: 0;
         bottom: 0;
-        background-color: #8c4a2f;
+        background-color: var(--color-principal);
         padding: 2rem 0 0 2rem;
         box-shadow: 0 0 0 100vmax rgba(140, 74, 47, .3);
         transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -333,13 +340,13 @@ nav{
         padding-left: 20%;
         flex-direction: column;
         align-items: end; 
-        background-color: #8c4a2f;
+        background-color: var(--color-principal);
         width: 50%;
         height: 100%;
     }
 
     .nav.visible ul li a:hover{
-        color: #8c4a2f;
+        color: var(--color-principal);
         padding: 0 0.5rem;
         border-radius: 10px 0 0 10px;
         transform: scale(1.1);
@@ -353,7 +360,7 @@ nav{
     footer{
         color: #f1e7c8;
         padding: 15px;
-        background-color: #8c4a2f;
+        background-color: var(--color-principal);
         border-radius: 5px 5px 0 0;
         width: 100%;
         font-size: 13px;

@@ -84,3 +84,44 @@
     {% endblock %}
   </body>
 </html>
+
+{% block seccionSeleccionada %} 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const links = document.querySelectorAll(".nav-list li a");
+      const homeLink = document.querySelector(".titulo.desktop");  // Obtener el enlace "Home" (escritorio)
+      const backLink = document.querySelector(".icono-volver");    // Obtener el enlace "Home" (icono de volver)
+
+      // Manejar el clic en los enlaces del menú
+      links.forEach(link => {
+          link.addEventListener("click", () => {
+              links.forEach(l => l.classList.remove("active")); // Quita la clase de los demás
+              link.classList.add("active"); // Agrega la clase solo al clickeado
+              localStorage.setItem("selectedSection", link.href); // Guarda en localStorage
+          });
+      });
+
+      // Manejar el clic en el enlace de "Home" (escritorio)
+      homeLink.addEventListener("click", () => {
+          links.forEach(l => l.classList.remove("active"));  // Elimina la clase activa de todos los enlaces
+          localStorage.removeItem("selectedSection"); // Elimina la selección guardada en localStorage
+      });
+
+      // Manejar el clic en el enlace de "Home" (icono de volver)
+      backLink.addEventListener("click", () => {
+          links.forEach(l => l.classList.remove("active"));  // Elimina la clase activa de todos los enlaces
+          localStorage.removeItem("selectedSection"); // Elimina la selección guardada en localStorage
+      });
+
+      // Recuperar la selección después de recargar la página
+      const savedSection = localStorage.getItem("selectedSection");
+      if (savedSection) {
+          links.forEach(link => {
+              if (link.href === savedSection) {
+                  link.classList.add("active");
+              }
+          });
+      }
+  });
+</script>
+{% endblock %}
