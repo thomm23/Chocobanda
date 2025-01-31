@@ -80,7 +80,7 @@
     
     
     /* Nombre de la obra en la primera fila ocupando todo el ancho */
-    .nombre-obra {
+    .nombre-obra,.titulo-programa {
         text-align: left;
         margin-top: 2vh;
         color: var(--color-principal);
@@ -97,7 +97,7 @@
         align-items: flex-start; /* Los elementos estarán fijados a la parte superior */
     }
 
-    .obra-container{
+    .obra-container,.programa-container {
         /* border: 0.3vh solid black; */
         padding: 2vh;
         box-sizing: border-box;

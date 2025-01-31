@@ -23,5 +23,21 @@
         </div>
     </div>
 </section>
+<section class="seccion-programa">
+    <div class="programa-container">
+        <h2 class="titulo-programa">Programa</h2>
+        <div class="programa">
+            {% if obra.programa_obra %}
+                <p>{{ obra.programa_obra.programa|linebreaksbr }}</p>
+            {% else %}
+                 <p>No hay programa disponible para esta obra.</p>
+            {% endif %}
+        </div>
+        
+        
+        </div>
+    </div>
+
+</section>
 
 {% endblock %}

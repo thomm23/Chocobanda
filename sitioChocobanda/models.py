@@ -49,6 +49,18 @@ class Obra(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+class ProgramaObra(models.Model):
+    obra = models.OneToOneField(
+        Obra, 
+        on_delete=models.CASCADE, 
+        related_name='programa_obra',  # Nombre para acceder desde Obra
+        primary_key=True  # Asegura que sea una relación uno a uno
+    )
+    programa = models.TextField()  # Campo para almacenar el programa de la obra
+
+    def __str__(self):
+        return f"Programa de {self.obra.titulo}"
 
 class GaleriaObra(models.Model):
     obra = models.ForeignKey(Obra, related_name='galeria_obra', on_delete=models.CASCADE)
