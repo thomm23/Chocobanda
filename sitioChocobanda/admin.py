@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Integrante, Personaje, Obra, GaleriaObra, Evento, Noticia, Institucion, Multimedia, Galeria, GaleriaInstitucion, Cancion, Video, AjustesPagina, ProgramaObra
+from .models import Integrante, Personaje, Obra, GaleriaObra, Evento, Noticia, Institucion, Multimedia, Galeria, Cancion, Video, AjustesPagina, ProgramaObra
 
 # Registrar los modelos en el admin
 admin.site.register(Integrante)
@@ -9,7 +9,6 @@ admin.site.register(Noticia)
 admin.site.register(Institucion)
 admin.site.register(Multimedia)
 admin.site.register(Galeria)
-admin.site.register(GaleriaInstitucion)
 admin.site.register(Cancion)
 admin.site.register(Video)
 admin.site.register(AjustesPagina)
