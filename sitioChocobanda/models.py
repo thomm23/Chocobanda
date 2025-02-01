@@ -1,4 +1,6 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+
 
 class Multimedia(models.Model):
     nombre = models.CharField(max_length=255)
@@ -57,7 +59,7 @@ class ProgramaObra(models.Model):
         related_name='programa_obra',  # Nombre para acceder desde Obra
         primary_key=True  # Asegura que sea una relación uno a uno
     )
-    programa = models.TextField()  # Campo para almacenar el programa de la obra
+    programa = RichTextField()  # Campo para almacenar el programa de la obra
 
     def __str__(self):
         return f"Programa de {self.obra.titulo}"
@@ -97,11 +99,6 @@ class Institucion(models.Model):
 
     def __str__(self):
         return self.nombre
-
-class GaleriaInstitucion(models.Model):
-    institucion = models.ForeignKey(Institucion, related_name='galeria', on_delete=models.CASCADE)
-    foto = models.ImageField(upload_to='galeria_instituciones/')
-    descripcion = models.CharField(max_length=255, blank=True, null=True)
 
 class Cancion(models.Model):
     nombre = models.CharField(max_length=255)

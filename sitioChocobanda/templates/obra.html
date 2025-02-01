@@ -28,7 +28,7 @@
         <h2 class="titulo-programa">Programa</h2>
         <div class="programa">
             {% if obra.programa_obra %}
-                <p>{{ obra.programa_obra.programa|linebreaksbr }}</p>
+                <p>{{ obra.programa_obra.programa|safe }}</p>
             {% else %}
                  <p>No hay programa disponible para esta obra.</p>
             {% endif %}

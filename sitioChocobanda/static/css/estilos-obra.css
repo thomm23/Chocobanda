@@ -47,7 +47,7 @@
         order: 2; /* Título en segundo lugar */
         font-size: 3.5vh;
         text-align: left;
-        color: var(--color-secundario);
+        color: var(--color-principal);
         width: 100%;
         padding: 2vh 3vh 2vh 3vh;
         /* border: 0.3vh solid black; */
@@ -60,7 +60,20 @@
         text-align: left;
         padding: 0vh 3vh 3vh 3vh;
         /* border: 0.3vh solid black; */
-        color: var(--color-secundario);
+        color: var(--color-principal);
+    }
+
+    .titulo-programa {
+        color: var(--color-principal);
+        font-size: 3.5vh;
+        text-align: left;
+        padding: 2vh 3vh 2vh 3vh;
+    }
+
+    .programa {
+        color: var(--color-principal);
+        padding: 0vh 3vh 3vh 3vh;
+    
     }
  
 }
@@ -126,6 +139,16 @@
         
     }
 
+    .titulo-programa {
+        color: var(--color-principal);
+        text-align: left;
+        
+    }
+
+    .programa {
+        color: var(--color-principal);
+        margin-top: 1.5vh;
     
+    }
 }
 
