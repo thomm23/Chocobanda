@@ -35,7 +35,7 @@
             <div class="container-integrantes">
                 {% for actual in actuales %}
                 <div class="card-item">
-                    <a href="{% url 'detalleIntegrante' actual.id %}" class="card-link">
+                    <a href="{% url 'detalleIntegrante' actual.id %}" class="card-inte">
                         <div class="card-actor">
                             {% comment %} imagen redonda integrante {% endcomment %}
                             <img src="{{ actual.foto.url }}" alt="Foto de {{ actual.nombre }}">
@@ -61,7 +61,7 @@
             <div class="container-integrantes">
                 {% for invitado in invitados %}
                 <div class="card-item">
-                    <a href="{% url 'detalleIntegrante' invitado.id %}" class="card-link">
+                    <a href="{% url 'detalleIntegrante' invitado.id %}" class="card-inte">
                         <div class="card-actor">
                             {% comment %} imagen redonda integrante {% endcomment %}
                             <img src="{{ invitado.foto.url }}" alt="Foto de {{ invitado.nombre }}">
@@ -86,7 +86,7 @@
             <div class="container-integrantes">
                 {% for memorable in memorables %}
                 <div class="card-item">
-                    <a href="{% url 'detalleIntegrante' memorable.id %}" class="card-link">
+                    <a href="{% url 'detalleIntegrante' memorable.id %}" class="card-inte">
                         <div class="card-actor">
                             {% comment %} imagen redonda integrante {% endcomment %}
                             <img src="{{ memorable.foto.url }}" alt="Foto de {{ memorable.nombre }}">
