@@ -1,3 +1,9 @@
+:root {
+    --color-principal: #3b6021; /* Verde */
+    --color-secundario: #8c4a2f; /* Marrón */
+    --color-fondo: #f1e7c8; /* Beige */
+}
+
 /* Estilos principales (Mobile First)*/
 .player-bar.hidden {
     display: none;
@@ -24,9 +30,9 @@
     padding: 1vh;
     box-sizing: border-box;
     font-size: 1rem;
-    color: #3b6021;
-    background-color: #f1e7c8;
-    border: 0.22vh solid #3b6021;
+    color: var(--color-principal);
+    background-color: var(--color-fondo);
+    border: 0.22vh solid var(--color-principal);
     border-radius: 0.56vh;
     padding: 0.56vh 1.11vh;
     cursor: pointer;
