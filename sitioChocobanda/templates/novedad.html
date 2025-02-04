@@ -6,19 +6,17 @@
 {%block content%}
 <section class ="section-novedad"> 
     <div class = "container-fecha-novedad"> 
-        <span> 00 mes 2024</span>
+        <span>{{noticia.fecha}}</span>
     </div> 
     <div class = "content-novedad"> 
         <div class = "titulo-novedad"> 
-            <h1> Titulo de la noticia</h1>  
+            <h1>{{ noticia.titulo}}</h1>  
         </div> 
         <div class = "detalles-novedad"> 
-            <p class ="novedad-descp">{% lorem 1 b random %}</p>
+            <p class ="novedad-descp">{{noticia.cuerpo}}</p>
             <div class = "container-img">
-                <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
+                <img src="{{  noticia.foto.url }}" alt="" class="card-img">
             </div>
-            <p> {% lorem 2 b random %}</p>
-
         </div> 
     </div> 
 </section> 

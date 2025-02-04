@@ -9,7 +9,7 @@
 <section class="agenda-section">
    
     {% comment %} El siguiente contenido es solo para desktop {% endcomment %}
-    <div class="noticia-desk-section">
+    {% comment %} <div class="noticia-desk-section">
          <div class="noticia-desk-item"> 
             <div class="noticia-desk-text"> 
                 <span>00 del mes de 2024</span> 
@@ -32,10 +32,51 @@
                 <img src="{% static 'img/foto-principal.jpg'%}" alt="Imagen de novedad"> 
             </div> 
         </div> 
-    </div>
+    </div> {% endcomment %}
 
+    {% if noticias%}
+    {% for noticia in noticias%}
+    {% comment %} Este es para desktop {% endcomment %}
+    <div class="noticia-desk-section">
+       <a href="{% url 'novedad' noticia.id_noticia %}" class="noticia-desk-link">
+            <div class="noticia-desk-item">
+                <div class="noticia-desk-text">
+                    <span>{{noticia.fecha|date:"d M Y"}}</span>
+                    <h2>{{noticia.titulo}}</h2>
+                    <p class = "noticia-desk-description">{{noticia.cuerpo|truncatewords:30}}</p>
+                    {% comment %} <p class="noticia-desk-detail">{{noticia.cuerpo}}</p> {% endcomment %}
+                </div>
+                <div class="noticia-desk-image card-img">
+                    <img src="{{noticia.foto.url}}" alt="Imagen de noticia">
+                </div>
+            </div>
+        </a>
+    </div>
     {% comment %} Este es para mobile {% endcomment %}
     <div class = "card-novedades">
+        <ul class="card-list">
+            <li class="card-item">
+                <a href="#" class="card-link">
+                    <img src="{{noticia.foto.url}}" alt="" class="card-img">
+                    <div class="card-text">
+                        <p class="date">{{noticia.fecha|date:"d M Y"}}</p>
+                        <h3 class="card-title">{{noticia.titulo}}</h3>
+                        <p class="card-decription">{{noticia.cuerpo|truncatewords:20}}</p>
+                    </div>
+                </a>
+            </li>
+    </div>
+    {% endfor %}
+    {% else %}
+        <h1>
+            No hay noticias
+        </h1>
+    {% endif%}
+
+
+
+    {% comment %} Este es para mobile {% endcomment %}
+    {% comment %} <div class = "card-novedades">
         <ul class="card-list">
             <li class="card-item">
                 <a href="#" class="card-link">
@@ -69,6 +110,6 @@
             </li>
 
         </ul>
-    </div>
+    </div> {% endcomment %}
 </section>
  {% endblock %}

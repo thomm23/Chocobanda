@@ -82,12 +82,18 @@ class ImpactoSocial(View):
 
 class Novedades(View):
     def get(self, request):
-        context = {}
+        noticias = Noticia.objects.order_by('-fecha')
+        context = {
+            'noticias': noticias,
+        }
         return render(request, 'novedades.html', context)
 
 class Novedad(View):
-    def get(self, request):
-        context = {}
+    def get(self, request,id):
+        noticia = get_object_or_404(Noticia, id_noticia=id)
+        context = {
+            'noticia': noticia,
+        }
         return render(request, 'novedad.html', context)
 
 class ImpactoSocialInsti(View):
