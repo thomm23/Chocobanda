@@ -31,34 +31,57 @@
     color: var(--color-secundario);
 }
 
-.container-integrantes{
+.container-integrantes2{
     display: flex;
     align-items: center;
     justify-content: center;
-
+    background-color: var(--color-fondo);
+    color:  var(--color-principal);
 }
-.card-actor {
+.card-integrante2{
+    color:var(--color-principal);
+}
+.card-description{
+    color:var(--color-principal);
+}
+.big-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    position: relative;
+    display: block;
+}
+
+.big-image {
+    width: 100%;
+    border-radius: 8px;
+    position: relative;
+}
+
+.small-image { 
     display: flex;
     position: absolute;
     bottom: 15%;
     right: 1vh;
-    width: 13vh;
-    height: 13vh;
+    width: 20vh;
+    height: 20vh;
     border-radius: 50%;
+    border: var(--color-fondo) 2px solid;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-}
-
-.card-actor img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: black 2px solid;
-}
+    color: var(--color-principal);
+    z-index: 10;
+ 
+ }
 
 .card-item {
     position: relative;
+    background-color: var(--color-fondo);
+    color: var(--color-principal);
 }
+
+
+
 .nosotros-section h1{
     text-align: center;
     margin-bottom: 2vh;
@@ -74,8 +97,9 @@
 }
 
 .integrantes-section h1{
-    color: var(--color-principal);
+    background-color:#f1e7c8;
     margin:  2vh;
+    color: var(--color-principal);
 }
 
 .obras {
@@ -140,8 +164,14 @@
 }
 
 @media screen and (max-width: 768px) {
-    .nosotros-section{
-        padding-top: 7vh;
+   
+    .nosotros-chocobanda{
+        font-size:  8vh;
+    }
+    .nosotros-descripcion {
+        margin: 1vh 2vh; /* Reduce los márgenes en la versión móvil */
+        font-size: 14px; /* Ajusta el tamaño de la fuente si es necesario */
+        text-align: left; /* Ajusta la alineación del texto */
     }
     .nosotros-redireccion{
         display: flex;
