@@ -1,6 +1,14 @@
 from django.contrib import admin
 from .models import Integrante, Personaje, Obra, GaleriaObra, Evento, Noticia, Institucion, Multimedia, Galeria, Cancion, Video, AjustesPagina, ProgramaObra
 
+#Estetica basica del ADMIN
+
+admin.site.site_header = "Administración de la Chocobanda"
+admin.site.site_title = "Chocobanda | Panel administrativo"
+admin.site.index_title = "Bienvenido al panel administrativo de la Chocobanda"
+
+
+
 # Registrar los modelos en el admin
 admin.site.register(Integrante)
 admin.site.register(Personaje)
