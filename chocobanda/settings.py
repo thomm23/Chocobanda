@@ -20,6 +20,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -96,7 +97,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'es-eu'
 
 TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
@@ -111,7 +112,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'sitioChocobanda/static/'
-STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static"), ]
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, "sitioChocobanda/static"), ]
 
 # Media files configuration
 MEDIA_URL = '/media/'
@@ -122,3 +123,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+JAZZMIN_SETTINGS = {
+    "site_title": "La Chocobanda",
+    "site_brand": "La Chocobanda",
+    #"site_logo": "static/img/logo.png",
+    "site_icon": None,
+    "welcome_sign": "Bienvenido al panel administrativo de La Chocobanda!",
+}
