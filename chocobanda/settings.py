@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sitioChocobanda',
-    'ckeditor',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -129,4 +129,11 @@ JAZZMIN_SETTINGS = {
     #"site_logo": "static/img/logo.png",
     "site_icon": None,
     "welcome_sign": "Bienvenido al panel administrativo de La Chocobanda!",
+}
+
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 500,
+    'menubar': True,
+    'plugins': 'advlist autolink lists link image charmap preview anchor',  # Asegura que los plugins estén habilitados
+    'toolbar': 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',  # Añadidos subrayado, enlace e imagen
 }

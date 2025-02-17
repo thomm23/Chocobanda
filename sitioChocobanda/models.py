@@ -1,5 +1,5 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+from tinymce.models import HTMLField
 
 
 class Multimedia(models.Model):
@@ -59,7 +59,7 @@ class ProgramaObra(models.Model):
         related_name='programa_obra',  # Nombre para acceder desde Obra
         primary_key=True  # Asegura que sea una relación uno a uno
     )
-    programa = RichTextField()  # Campo para almacenar el programa de la obra
+    programa = HTMLField()  # Campo para almacenar el programa de la obra
 
     def __str__(self):
         return f"Programa de {self.obra.titulo}"
