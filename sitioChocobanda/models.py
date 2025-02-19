@@ -1,5 +1,6 @@
 from django.db import models
 from tinymce.models import HTMLField
+from cropperjs.models import CropperImageField
 
 
 class Multimedia(models.Model):
@@ -23,7 +24,7 @@ class Integrante(models.Model):
     
     nombre = models.CharField(max_length=255)
     ocupacion = models.CharField(max_length=255, null=True, blank=True)
-    foto = models.ImageField(upload_to='integrantes/', null=True, blank=True)
+    foto = CropperImageField(upload_to='integrantes/', null=True, blank=True, aspectratio=1,dimensions=(200, 200))
     descripcion = models.TextField(null=True, blank=True)
     estado = models.CharField(max_length=255, choices=ESTADO_CHOICES, default='Actual')
 
@@ -34,12 +35,12 @@ class Integrante(models.Model):
 class Personaje(models.Model):
     nombre = models.CharField(max_length=255)
     integrante = models.ForeignKey(
-        Integrante, 
-        on_delete=models.CASCADE, 
-        related_name='personajes'
-    )  # Relación "uno a muchos"
-    foto = models.ImageField(upload_to='personajes/', null=True, blank=True)
-    
+        "Integrante",
+        on_delete=models.CASCADE,
+        related_name="personajes"
+    )
+    foto = CropperImageField(upload_to='personajes/', null=True, blank=True, aspectratio=1,dimensions=(300, 200))
+        
     def __str__(self):
         return self.nombre
     
@@ -47,8 +48,8 @@ class Personaje(models.Model):
 class Obra(models.Model):
     titulo = models.CharField(max_length=255)
     descripcion = models.TextField()
-    foto = models.ImageField(upload_to='obras/', null=True, blank=True)
-
+    foto = CropperImageField(upload_to='obras/', null=True, blank=True, aspectratio=1,dimensions=(600, 400))
+    
     def __str__(self):
         return self.titulo
     
@@ -66,7 +67,7 @@ class ProgramaObra(models.Model):
 
 class GaleriaObra(models.Model):
     obra = models.ForeignKey(Obra, related_name='galeria_obra', on_delete=models.CASCADE)
-    foto = models.ImageField(upload_to='galeria_obra/')
+    foto = CropperImageField(upload_to='galeria_obra/', null=True, blank=True, aspectratio=1,dimensions=(1024, 768))
     descripcion = models.CharField(max_length=255, blank=True, null=True)
 
 class Evento(models.Model):
@@ -85,7 +86,7 @@ class Noticia(models.Model):
     titulo = models.CharField(max_length=255)
     fecha = models.DateField()
     cuerpo = models.TextField()
-    foto = models.ImageField(upload_to='novedades/', null=True, blank=True)
+    foto = CropperImageField(upload_to='novedades/', null=True, blank=True, aspectratio=1,dimensions=(600, 400))
 
     def __str__(self):
         return self.titulo
@@ -95,7 +96,7 @@ class Institucion(models.Model):
     descripcion = models.TextField()
     impacto_social = models.TextField(null=True, blank=True)
     link_institucion = models.URLField(null=True, blank=True)
-    foto = models.ImageField(upload_to='instituciones/', null=True, blank=True)
+    foto = CropperImageField(upload_to='instituciones/', null=True, blank=True, aspectratio=1,dimensions=(600, 400))
 
     def __str__(self):
         return self.nombre
