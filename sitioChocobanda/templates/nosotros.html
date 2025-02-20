@@ -4,7 +4,7 @@
 {% block nombre_seccion %} Nosotros {% endblock %}
 {% block estilos %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-<link rel="stylesheet" type="text/css" href="{% static "css/estilos.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/nosotros.css'%}">
 {% endblock %}
 
@@ -30,11 +30,23 @@
                             <li class="card-item2 swiper-slide">
                                 <a href="{% url 'detalleIntegrante' integrante.id %}" class="card-integrante2">
                                     <div class="small-image">
-                                        <img src="{{ integrante.foto.url }}" alt="Foto de {{ integrante.nombre }}">
+                                        {% if integrante.foto %}
+                                            <img src="{{ integrante.foto.url }}" alt="Foto de {{ integrante.nombre }}">
+                                        {% else %}
+                                        <img src="{% static 'img/default-profile.png' %}" alt="Foto de {{ integrante.nombre }}">
+                                        {% endif %}
                                     </div>
-                                    <img src="{{ integrante.personajes.last.foto.url }}" alt="Foto de {{ integrante.personajes.last.nombre }}" class="big-image">
+                                    {% if integrante.personajes.last.foto %}
+                                        <img src="{{ integrante.personajes.last.foto.url }}" 
+                                             alt="Foto de {{ integrante.personajes.last.nombre|default:'Personaje desconocido' }}" 
+                                             class="big-image">
+                                    {% else %}
+                                    <img src="{% static 'img/default-character.png' %}" alt="Foto de {{ integrante.nombre }}"
+                                             alt="Foto de {{ integrante.personajes.last.nombre|default:'Personaje desconocido' }}" 
+                                             class="big-image">
+                                    {% endif %}
                                     <div class="card-text2">
-                                        <h3 class="card-title">{{ integrante.personajes.last.nombre }}</h3>
+                                        <h3 class="card-title">{{ integrante.personajes.last.nombre|default:'Sin Personaje' }}</h3>
                                         <p class="card-description">{{ integrante.nombre }}</p>
                                     </div>
                                 </a>
@@ -54,6 +66,7 @@
                 <p class="nosotros-redireccion"><a href="{% url 'integrantes' %}">Ver todos los integrantes</a></p>
             </div>
         </section>
+        
 
 
         <section class="agenda-section">

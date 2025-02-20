@@ -6,8 +6,27 @@
 
 <section class="container">  
     <section class="detalle-desk-image">
-        <img src=" {{  integrante.personajes.first.foto.url }}" alt="Foto de {{ actual.personajes.first.nombre }}" class="big-image"> 
-        <img src="{{ integrante.foto.url }}" alt="Foto de {{ actual.nombre }}" class="small-image">   
+        <!-- Imagen del personaje (big-image) -->
+        {% if integrante.personajes.first.foto %}
+            <img src="{{ integrante.personajes.first.foto.url }}" 
+                 alt="Foto de {{ integrante.personajes.first.nombre|default:'Personaje sin foto' }}" 
+                 class="big-image">
+        {% else %}
+            <img src="{% static 'img/default-character.png' %}" 
+                 alt="Foto de {{ integrante.personajes.first.nombre|default:'Personaje sin foto' }}" 
+                 class="big-image">
+        {% endif %}
+    
+        <!-- Imagen del integrante (small-image) -->
+        {% if integrante.foto %}
+            <img src="{{ integrante.foto.url }}" 
+                 alt="Foto de {{ integrante.nombre }}" 
+                 class="small-image">
+        {% else %}
+            <img src="{% static 'img/default-profile.png' %}" 
+                 alt="Foto de {{ integrante.nombre }}" 
+                 class="small-image">
+        {% endif %}
     </section>
   
       <section class="detalle-desk-text"> 
