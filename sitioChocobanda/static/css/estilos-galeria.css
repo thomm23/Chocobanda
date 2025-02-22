@@ -102,8 +102,7 @@
     min-height: 8.89vh;
 }
 
-.galeria-item::before {
-    content: "🖼️"; 
+.galeria-item::before { 
     font-size: 2.67vh;
     color: #3b6021;
 }
@@ -404,15 +403,16 @@
 
 }
 
-/* Estilos para pantallas grandes (Desktop) */
 @media (min-width: 769px) {
     .contenedor-selector {
+        display: flex;
         flex-direction: row;
         justify-content: space-between; /* Alinea los selectores horizontalmente */
         flex-wrap: wrap;
     }
 
     .selector {
+        display: flex;
         flex-direction: row;
         gap: 1.11vh;
         width: 48%;
@@ -420,14 +420,33 @@
     }
     
     .galeria-grid {
-        grid-template-columns: repeat(4, 1fr);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+        gap: 2vh; /* Espacio entre las imágenes */
+        padding: 2vh;
     }
 
     .galeria-item {
+        width: 100%; /* Asegura que los elementos se ajusten al contenedor */
+        height: auto;
         min-width: 13.33vh;
         min-height: 13.33vh;
+        aspect-ratio: 1; /* Asegura que las imágenes sean cuadradas */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 2vh; /* Bordes redondeados, puedes ajustar el valor */
+        cursor: pointer;
     }
     
+    .galeria-item img {
+        width: 100%; /* Asegura que la imagen se adapte al contenedor */
+        height: 100%; /* Asegura que la imagen se ajuste */
+        object-fit: cover; /* Mantiene la proporción sin deformar la imagen */
+        
+    }
+
     .buscador {
         max-width: 44.44vh;
     }
@@ -439,6 +458,7 @@
     .galeria-item-canciones {
         padding: 1.67vh 2.22vh;
         position: relative;
+        display: flex;
         flex-direction: row;
         align-items: center;
     }
@@ -456,8 +476,9 @@
         margin-top: 1.11vh;
     }
      
-    .modal img {/*REVISAR*/
-        transform: rotate(-90deg); /* Gira la imagen 90 grados hacia la izquierda */
+    .modal img {
+        transform: rotate(-90deg); /* Gira la imagen 90 grados hacia la izquierda dentro del modal */
+        max-width: 100%; /* Asegura que la imagen no se desborde en el modal */
+        height: auto;
     }
 }
-

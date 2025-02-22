@@ -54,7 +54,8 @@ class NuestraHistoria(View):
 
 class Galeria(View):
     def get(self, request):
-        context = {}
+        obras = Obra.objects.all()  # Obtiene todas las obras de la BD
+        context = {'obras': obras}  # Agrega la variable al contexto
         return render(request, 'galeria.html', context)
 
 class Login(View):

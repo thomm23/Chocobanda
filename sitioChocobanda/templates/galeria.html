@@ -11,10 +11,10 @@
 <div class="contenedor-selector">
     <div class="selector">
         <select class="galeria-obras">
-            <option>Todas las obras</option>
-            <option>Obra 1</option>
-            <option>Obra 2</option>
-            <option>Obra 3</option>
+            <option value="">Todas las obras</option>
+            {% for obra in obras %}
+                <option value="{{ obra.id }}">{{ obra.titulo }}</option>
+            {% endfor %}
         </select>
     </div>
 </div>
@@ -30,12 +30,13 @@
     <div class="galeria-content">
         <div class="tab-content active" id="fotos">
             <div class="galeria-grid">
-                <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
-                <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
-                <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
-                <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
-                <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
-                <div class="galeria-item" data-type="foto" data-src="{% static 'img/foto1.jpg' %}"></div>
+                {% for obra in obras %}
+                    {% for galeria in obra.galeria_obra.all %}
+                        <div class="galeria-item" data-type="foto" data-obra="{{ obra.id }}" data-src="{{ galeria.foto.url }}">
+                            <img src="{{ galeria.foto.url }}" alt="Foto de {{ obra.titulo }}">
+                        </div>
+                    {% endfor %}
+                {% endfor %}
             </div>
         </div>
         
@@ -152,6 +153,25 @@
                 // Agregar la clase 'active' a la pestaña y el contenido correspondientes
                 tab.classList.add('active');
                 document.querySelector(target).classList.add('active');
+            });
+        });
+
+        // Lógica para filtrar fotos por obra seleccionada
+        const selectObras = document.querySelector('.galeria-obras');
+        const fotosContainer = document.querySelector('.galeria-grid');
+        
+        // Función para filtrar las fotos
+        selectObras.addEventListener('change', function() {
+            const selectedObraId = selectObras.value;
+            const fotos = fotosContainer.querySelectorAll('.galeria-item');
+            
+            fotos.forEach(foto => {
+                const obraId = foto.getAttribute('data-obra');
+                if (selectedObraId === "" || obraId === selectedObraId) {
+                    foto.style.display = "block"; // Mostrar foto
+                } else {
+                    foto.style.display = "none"; // Ocultar foto
+                }
             });
         });
     
