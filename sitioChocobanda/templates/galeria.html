@@ -126,8 +126,15 @@
 
 <!-- Modal -->
 <div id="modal" class="modal">
-    <span class="close">&times;</span>
-    <div id="modal-content" class="modal-content"></div>
+    <div class="modal-container">
+        <div class="modal-icons">
+            <span id="download-modal" class="material-symbols-outlined">Download</span>
+            <span id="close-modal" class="material-symbols-outlined">Close</span>
+        </div>
+        <div id="modal-content" class="modal-content">
+            <!-- La imagen o video se insertará aquí -->
+        </div>
+    </div>
 </div>
 
 <!-- Audio -->
@@ -179,8 +186,20 @@
         const items = document.querySelectorAll('.galeria-item');
         const modal = document.getElementById('modal');
         const modalContent = document.getElementById('modal-content');
-        const closeModal = document.querySelector('.close');
+        const closeModalIcon = document.getElementById('close-modal');
+        const downloadModalIcon = document.getElementById('download-modal');
+        let currentImageUrl = ''; // Variable para almacenar la URL de la imagen actual
     
+        // Función para cerrar el modal
+        function closeModal() {
+            modal.style.display = 'none';
+            currentImageUrl = ''; // Liberar la variable al cerrar el modal
+        }
+    
+        // Cerrar el modal al hacer clic en el ícono de cierre
+        closeModalIcon.addEventListener('click', closeModal);
+    
+        // Abrir el modal al hacer clic en una foto o video
         items.forEach(item => {
             item.addEventListener('click', function() {
                 const type = item.getAttribute('data-type');
@@ -194,6 +213,7 @@
                     img.src = src;
                     img.alt = 'Foto';
                     modalContent.appendChild(img);
+                    currentImageUrl = src; // Guardar la URL de la imagen actual
                 } else if (type === 'video') {
                     const video = document.createElement('video');
                     video.src = src;
@@ -204,20 +224,23 @@
                 modal.style.display = 'block'; // Mostrar el modal
             });
         });
-    
-        // Cerrar el modal al hacer clic en la cruz
-        closeModal.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-    
-        // Cerrar el modal si el usuario hace clic fuera del contenido
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
+
+        // Lógica para descargar la imagen
+        downloadModalIcon.addEventListener('click', function() {
+            if (currentImageUrl) {
+                // Crear un enlace temporal para la descarga
+                const link = document.createElement('a');
+                link.href = currentImageUrl;
+                link.download = 'imagen.jpg'; // Nombre del archivo descargado
+                document.body.appendChild(link);
+                link.click(); // Simular el clic en el enlace
+                document.body.removeChild(link); // Eliminar el enlace temporal
+            } else {
+                console.error("No hay una imagen para descargar.");
             }
         });
 
-        // Lógica para reproducir el audio
+        // Lógica para reproducir el audio (resto del código sin cambios)
         const playerBar = document.getElementById("player-bar");
         const audioPlayer = document.getElementById("audio-player");
         const playerImg = document.getElementById("player-img");

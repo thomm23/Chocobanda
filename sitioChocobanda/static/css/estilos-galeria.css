@@ -22,7 +22,6 @@
     margin-top: 14vh;
 }
 
-
 .galeria-obras, .galeria-fechas {
     width: 90%;
     max-width: 100%;
@@ -81,9 +80,11 @@
     text-decoration: underline;
 }
 
+
 .galeria-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Cambiado a 3 columnas */
+    gap: 0.56vh; /* Espacio entre las imágenes */
     background-color: #3b6021;
     border-radius: 0.56vh;
     padding: 0.56vh;
@@ -94,12 +95,18 @@
 .galeria-item {
     background-color: #c1a378;
     border: 0.22vh solid #3b6021;
-    aspect-ratio: 1;
+    aspect-ratio: 1; /* Mantiene el formato cuadrado */
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 8.89vh;
-    min-height: 8.89vh;
+    width: 100%; /* Asegura que ocupe todo el espacio disponible */
+    height: auto; /* Altura automática para mantener el aspecto cuadrado */
+}
+
+.galeria-item img {
+    width: 100%; /* Asegura que la imagen ocupe todo el espacio del contenedor */
+    height: 100%; /* Asegura que la imagen ocupe todo el espacio del contenedor */
+    object-fit: cover; /* Mantiene la proporción sin deformar la imagen */
 }
 
 .galeria-item::before { 
@@ -229,7 +236,7 @@
     color: #e0d6b8;
 }
 
-/* Estilo para el modal */
+/* Estilos para el modal */
 .modal {
     display: none;
     position: fixed;
@@ -243,42 +250,53 @@
     padding-top: 6.67vh;
 }
 
-.modal-content {
+/* Contenedor que agrupa los íconos y la imagen */
+.modal-container {
+    position: relative; /* Permite posicionar los íconos de manera absoluta */
     margin: auto;
-    display: block;
     width: 80%;
     max-width: 77.78vh;
+    background-color: transparent; /* Fondo transparente */
+}
+
+/* Estilos para los íconos del modal */
+.modal-icons {
+    position: absolute;
+    top: -40px; /* Mueve los íconos arriba del contenedor de la imagen */
+    right: 0; /* Alinea los íconos a la derecha del contenedor */
+    display: flex;
+    gap: 10px; /* Espacio entre los íconos */
+}
+
+.modal-icons .material-symbols-outlined {
+    cursor: pointer;
+    font-size: 24px; /* Tamaño de los íconos */
+    color: #f1e7c8;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-icons .material-symbols-outlined:hover {
+    color: #E87722; /* Cambia el color al hacer hover */
+    transform: scale(1.2); /* Aumenta el tamaño al hacer hover */
+}
+
+/* Estilos para el contenido del modal (imagen o video) */
+.modal-content {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .modal img {
     width: 100%;
     height: auto;
+    display: block; /* Asegura que la imagen no tenga espacio extra debajo */
 }
 
 .modal video {
     width: 100%;
     height: auto;
 }
-
-.close {/*REVISAR*/
-    position: absolute;
-    top: 3.89vh;
-    right: 3.89vh;
-    width: 2vh;
-    height: 2vh;
-    border-left: 0.33vh solid #f1e7c8;
-    border-top: 0.33vh solid #f1e7c8;
-    transform: rotate(45deg);
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.close:hover,
-.close:focus {
-    color: #f1e7c8; /* El color de la cruz no cambia al hacer hover ya que está el mismo */
-    transform: scale(1.2) rotate(45deg); /* Aumentar el tamaño y mantener la rotación */
-}
-
 
 /* Contenedor general de canciones */
 .galeria-grid-canciones {
@@ -375,7 +393,6 @@
     color: #f1e7c8;
 }
 
-
 /* Estilos para pantallas medianas (Tablet) */
 @media (min-width: 350px) and (max-width: 768px) {
     .galeria-grid {
@@ -400,7 +417,6 @@
     .cancion-info {
         gap: 1.67vh;
     }
-
 }
 
 @media (min-width: 769px) {
@@ -444,7 +460,6 @@
         width: 100%; /* Asegura que la imagen se adapte al contenedor */
         height: 100%; /* Asegura que la imagen se ajuste */
         object-fit: cover; /* Mantiene la proporción sin deformar la imagen */
-        
     }
 
     .buscador {
@@ -477,7 +492,7 @@
     }
      
     .modal img {
-        transform: rotate(-90deg); /* Gira la imagen 90 grados hacia la izquierda dentro del modal */
+        transform: rotate(0deg); /* Gira la imagen 90 grados hacia la izquierda dentro del modal */
         max-width: 100%; /* Asegura que la imagen no se desborde en el modal */
         height: auto;
     }

@@ -48,7 +48,7 @@ class Personaje(models.Model):
 class Obra(models.Model):
     titulo = models.CharField(max_length=255)
     descripcion = models.TextField()
-    foto = CropperImageField(upload_to='obras/', null=True, blank=True, aspectratio=1,dimensions=(600, 400))
+    foto = CropperImageField(upload_to='obras/', null=True, blank=True, aspectratio=1,dimensions=(900, 600))
     
     def __str__(self):
         return self.titulo
