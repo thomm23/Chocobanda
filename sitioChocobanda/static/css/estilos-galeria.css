@@ -246,26 +246,27 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(101, 67, 33, 0.8);
-    padding-top: 6.67vh;
+    background-color: #4C6A2ACC;
+    padding-top: 0;
 }
 
 /* Contenedor que agrupa los íconos y la imagen */
 .modal-container {
-    position: relative; /* Permite posicionar los íconos de manera absoluta */
-    margin: auto;
-    width: 80%;
+    position: relative;
+    top: 50%; /* Mueve el contenedor al 50% de la altura */
+    left: 50%; /* Mueve el contenedor al 50% del ancho */
+    transform: translate(-50%, -50%); /* Ajusta el centro del contenedor */
+    width: 75%;
     max-width: 77.78vh;
-    background-color: transparent; /* Fondo transparente */
+    background-color: transparent;
 }
 
 /* Estilos para los íconos del modal */
 .modal-icons {
-    position: absolute;
-    top: -40px; /* Mueve los íconos arriba del contenedor de la imagen */
-    right: 0; /* Alinea los íconos a la derecha del contenedor */
     display: flex;
     gap: 10px; /* Espacio entre los íconos */
+    padding: 10px 0; /* Espacio alrededor de los íconos */
+    justify-content: flex-end; /* Alinea los íconos a la derecha */
 }
 
 .modal-icons .material-symbols-outlined {
@@ -290,13 +291,14 @@
 .modal img {
     width: 100%;
     height: auto;
-    display: block; /* Asegura que la imagen no tenga espacio extra debajo */
+    display: block;
 }
 
 .modal video {
     width: 100%;
     height: auto;
 }
+
 
 /* Contenedor general de canciones */
 .galeria-grid-canciones {
