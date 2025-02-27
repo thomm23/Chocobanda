@@ -2,6 +2,7 @@
     --color-principal: #3b6021; /* Verde */
     --color-secundario: #8c4a2f; /* Marrón */
     --color-fondo: #f1e7c8; /* Beige */
+    --color-interactivo: #BC570A; /* Naranja */
 }
 
 /* Estilos principales (Mobile First)*/
@@ -230,6 +231,12 @@
 
 .galeria-item-canciones:hover {
     background-color: #2f501a;
+}
+
+#canciones {
+    background-color: var(--color-principal); 
+    padding-top: 2vh;
+    padding-bottom: 2vh;
 }
 
 .cancion-info {
@@ -518,6 +525,19 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+    }
+
+    
+
+    #canciones {
+        background-color: var(--color-principal); 
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+    }
+
+    /* Si quieres cambiar solo el texto dentro del input */
+    #canciones input {
+        color: var(--color-interactivo);
     }
     
     .cancion-texto .titulo-cancion {
