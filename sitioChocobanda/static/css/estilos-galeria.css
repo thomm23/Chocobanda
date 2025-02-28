@@ -405,13 +405,9 @@
 .control-button {
     background: none;
     border: none;
-    font-size: 2vh;
+    /* font-size: 2vh; */
     cursor: pointer;
-}
-
-.control-button i {
-    color: #f1e7c8;
-}
+} 
 
 .player-progress {
     display: flex;
