@@ -2,7 +2,6 @@
 {% load static %}
 {% block estilos %} 
 <link rel="stylesheet" type="text/css" href="{% static 'css/estilos-galeria.css'%}">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> 
 {% endblock %}
 {% block title %} Chocobanda - GALERIA {% endblock %}
 {% block nombre_seccion %} Galería {% endblock %}
@@ -56,10 +55,9 @@
             <div class="buscador">
                 <input type="text" placeholder="Nombre de la canción">
                 <button type="submit" aria-label="Buscar">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#3b6021" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-lupa">
+                    <span class="icon-lupa material-symbols-outlined">search</span>
                       <circle cx="11" cy="11" r="8"></circle>
                       <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
                 </button>
             </div>
 
@@ -73,10 +71,10 @@
                     </div>
                 </div>
                 <div class="player-controls">
-                    <button id="prev-button" class="control-button"><i class="fas fa-backward"></i></button>
-                    <button id="play-pause-button" class="control-button"><i class="fas fa-play"></i></button>
-                    <button id="stop-button" class="control-button"><i class="fas fa-stop"></i></button>
-                    <button id="next-button" class="control-button"><i class="fas fa-forward"></i></button>
+                    <span id="prev-button" class="control-button material-symbols-outlined">replay_10</span>
+                    <span id="play-pause-button" class="control-button material-symbols-outlined">play_circle</span>
+                    <span id="stop-button" class="control-button material-symbols-outlined">stop_circle</span>
+                    <span id="next-button" class="control-button material-symbols-outlined">forward_10</span>
                 </div>
                 <div class="player-progress">
                     <span id="current-time" class="time">00:00</span>
@@ -89,37 +87,32 @@
         
             <!-- Lista de canciones -->
             <div class="galeria-grid-canciones">
-                <div class="galeria-item-canciones" data-audio-src="{% static 'audio/cancion.mp3' %}" data-img-src="{% static 'img/Imagen-NoImage.png' %}" data-title="Nombre de la Canción 1" data-subtitle="Nombre de la Obra 1">
-                    <div class="cancion-info">
-                        <div class="cancion-play">▶</div>
-                        <div class="cancion-texto">
-                            <div class="titulo-cancion">Nombre de la Canción 1</div>
-                            <div class="subtitulo">Nombre de la Obra 1</div>
+                {% for obra in obras %}  <!-- Recorre todas las obras -->
+                    {% for cancion in obra.canciones_obra.all %}  <!-- Recorre las canciones de cada obra -->
+                        <div class="galeria-item-canciones" 
+                             data-obra="{{ obra.id }}"
+                             data-audio-src="{% if cancion.archivo %}{{ cancion.archivo.url }}{% elif cancion.enlace %}{{ cancion.enlace }}{% endif %}"
+                             data-img-src="{% if obra.foto %}{{ obra.foto.url }}{% else %}{% static 'img/Imagen-NoImage.png' %}{% endif %}" 
+                             data-title="{{ cancion.titulo }}"
+                             data-subtitle="{{ cancion.obra.titulo }}">
+                            <div class="cancion-info">
+                                <div class="cancion-play">▶</div>
+                                <div class="cancion-texto">
+                                    <div class="titulo-cancion">{{ cancion.titulo }}</div>
+                                    <div class="subtitulo">{{ cancion.obra.titulo }}</div>
+                                </div>
+                            </div>
+                            <div class="duracion">
+                                {% if cancion.duracion %}
+                                    {{ cancion.duracion|time:"i:s" }}  <!-- Formatea la duración en minutos:segundos -->
+                                {% else %}
+                                    00:00
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
-                    <div class="duracion">00:00</div>
-                </div>
-                <div class="galeria-item-canciones" data-audio-src="{% static 'audio/cancion.mp3' %}" data-img-src="{% static 'img/Imagen-NoImage.png' %}" data-title="Nombre de la Canción 2" data-subtitle="Nombre de la Obra 2">
-                    <div class="cancion-info">
-                        <div class="cancion-play">▶</div>
-                        <div class="cancion-texto">
-                            <div class="titulo-cancion">Nombre de la Canción 2</div>
-                            <div class="subtitulo">Nombre de la Obra 2</div>
-                        </div>
-                    </div>
-                    <div class="duracion">00:00</div>
-                </div>
-                <div class="galeria-item-canciones" data-audio-src="{% static 'audio/cancion.mp3' %}" data-img-src="{% static 'img/Imagen-NoImage.png' %}" data-title="Nombre de la Canción 3" data-subtitle="Nombre de la Obra 3">
-                    <div class="cancion-info">
-                        <div class="cancion-play">▶</div>
-                        <div class="cancion-texto">
-                            <div class="titulo-cancion">Nombre de la Canción 3</div>
-                            <div class="subtitulo">Nombre de la Obra 3</div>
-                        </div>
-                    </div>
-                    <div class="duracion">00:00</div>
-                </div>
-            </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>            
         </div>
     </div>
 </div>
@@ -153,251 +146,347 @@
 {% block script %}
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Lógica para las pestañas
-        const tabs = document.querySelectorAll('.tab');
-        const tabContents = document.querySelectorAll('.tab-content');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const target = tab.getAttribute('data-target');
-        
-                // Eliminar la clase 'active' de todas las pestañas y contenidos
-                tabs.forEach(t => t.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-        
-                // Agregar la clase 'active' a la pestaña y el contenido correspondientes
-                tab.classList.add('active');
-                document.querySelector(target).classList.add('active');
-            });
-        });
+    // Lógica para las pestañas
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.getAttribute('data-target');
+    
+            // Eliminar la clase 'active' de todas las pestañas y contenidos
+            tabs.forEach(t => t.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+    
+            // Agregar la clase 'active' a la pestaña y el contenido correspondientes
+            tab.classList.add('active');
+            document.querySelector(target).classList.add('active');
 
-        // Lógica para filtrar fotos por obra seleccionada
-        const selectObras = document.querySelector('.galeria-obras');
-        const fotosContainer = document.querySelector('.galeria-grid');
-        
-        selectObras.addEventListener('change', function() {
-            const selectedObraId = selectObras.value;
-            const fotos = fotosContainer.querySelectorAll('.galeria-item');
-            
-            fotos.forEach(foto => {
-                const obraId = foto.getAttribute('data-obra');
-                if (selectedObraId === "" || obraId === selectedObraId) {
-                    foto.style.display = "block"; // Mostrar foto
-                } else {
-                    foto.style.display = "none"; // Ocultar foto
-                }
-            });
-        });
-
-        // Lógica del modal
-        const modal = document.getElementById("modal");
-        const modalContent = document.getElementById("modal-content");
-        const closeModalIcon = document.getElementById("close-modal");
-        const mobileCloseModalIcon = document.getElementById("mobile-close-modal");
-        const downloadModalIcon = document.getElementById("download-modal");
-        const mobileDownloadModalIcon = document.getElementById("mobile-download-modal");
-        const mobileNavBar = document.querySelector(".mobile-nav-bar");
-
-        // Función para cerrar el modal y ocultar el nav-bar
-        function closeModal() {
-            modal.style.display = "none";
-            mobileNavBar.classList.remove("visible"); // Ocultar el nav-bar al cerrar el modal
-        }
-
-        // Cerrar el modal al hacer clic en el ícono de cierre
-        closeModalIcon.addEventListener("click", closeModal);
-        mobileCloseModalIcon.addEventListener("click", closeModal);
-
-        // Abrir el modal al hacer clic en una foto o video
-        const items = document.querySelectorAll(".galeria-item");
-        items.forEach(item => {
-            item.addEventListener("click", function () {
-                const type = item.getAttribute("data-type");
-                const src = item.getAttribute("data-src");
-
-                // Limpiar el contenido del modal
-                modalContent.innerHTML = "";
-
-                if (type === "foto") {
-                    const img = document.createElement("img");
-                    img.src = src;
-                    img.alt = "Foto";
-                    modalContent.appendChild(img);
-                } else if (type === "video") {
-                    const video = document.createElement("video");
-                    video.src = src;
-                    video.controls = true;
-                    modalContent.appendChild(video);
-                }
-
-                modal.style.display = "block"; // Mostrar el modal
-
-                // Mostrar el nav-bar móvil al tocar la imagen dentro del modal
-                modalContent.addEventListener("click", function () {
-                    mobileNavBar.classList.add("visible"); // Mostrar el nav-bar móvil
-                });
-            });
-        });
-
-        // Descargar la imagen al tocar el ícono de descarga
-        downloadModalIcon.addEventListener("click", function () {
-            const currentImageUrl = document.querySelector(".modal-content img")?.src;
-            if (currentImageUrl) {
-                const link = document.createElement("a");
-                link.href = currentImageUrl;
-                link.download = "imagen.jpg";
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-        });
-
-        // Descargar la imagen desde el nav-bar móvil
-        mobileDownloadModalIcon.addEventListener("click", function () {
-            const currentImageUrl = document.querySelector(".modal-content img")?.src;
-            if (currentImageUrl) {
-                const link = document.createElement("a");
-                link.href = currentImageUrl;
-                link.download = "imagen.jpg";
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-        });
-
-        // Lógica para la reproducción de audio (resto del código sin cambios)
-        const playerBar = document.getElementById("player-bar");
-        const audioPlayer = document.getElementById("audio-player");
-        const playerImg = document.getElementById("player-img");
-        const playerTitle = document.getElementById("player-title");
-        const playerSubtitle = document.getElementById("player-subtitle");
-        const playPauseButton = document.getElementById("play-pause-button");
-        const stopButton = document.getElementById("stop-button");
-        const progressBar = document.querySelector(".progress-bar");
-        const progress = document.getElementById("progress");
-        const currentTimeEl = document.getElementById("current-time");
-        const totalTimeEl = document.getElementById("total-time");
-            
-        let currentAudio = null;
-        
-        // Función para cargar una canción
-        function loadSong(audioSrc, imgSrc, title, subtitle) {
+            // Detener la reproducción si se cambia de pestaña
             if (currentAudio) {
-                currentAudio.pause();
-                currentAudio.currentTime = 0;
-            }
-            
-            audioPlayer.src = audioSrc;
-            playerImg.src = imgSrc;
-            playerTitle.textContent = title;
-            playerSubtitle.textContent = subtitle;
-            
-            audioPlayer.load();
-            audioPlayer.play();
-            playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
-            currentAudio = audioPlayer;
-            
-            playerBar.classList.remove("hidden");
-
-            audioPlayer.onended = () => {
-                resetPlayIcons();
-                hidePlayerBar();
-            }
-        }
-
-        // Función para resetear todos los botones a play
-        function resetPlayIcons() {
-            const allButtons = document.querySelectorAll(".cancion-play");
-            allButtons.forEach(btn => btn.textContent = "▶");
-        }
-            
-        // Función para ocultar la barra de reproducción
-        function hidePlayerBar() {
-            playerBar.classList.add("hidden");
-        }
-
-        // Actualizar la barra de progreso
-        audioPlayer.addEventListener("timeupdate", () => {
-            if (audioPlayer.duration) {
-                const progressRatio = audioPlayer.currentTime / audioPlayer.duration;
-                progress.style.width = `${progressRatio * 100}%`;
-            
-                // Actualizar tiempo actual y total
-                currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
-                totalTimeEl.textContent = formatTime(audioPlayer.duration);
-            }
-        });
-            
-        // Formato de tiempo
-        function formatTime(time) {
-            const minutes = Math.floor(time / 60);
-            const seconds = Math.floor(time % 60);
-            return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-        }
-            
-        // Play/Pause
-        playPauseButton.addEventListener("click", () => {
-        if (currentAudio.paused) {
-            currentAudio.play();
-            playPauseButton.innerHTML = '<i class="fas fa-pause"></i>'; // Cambiar el ícono en el playPauseButton
-            document.querySelector('.cancion-play').innerHTML = '❚❚'; // Cambiar el ícono en el div .cancion-play
-        
-            document.querySelector('.cancion-play').classList.add('reproduciendo');
-            
-        } else {
-            currentAudio.pause();
-            playPauseButton.innerHTML = '<i class="fas fa-play"></i>'; // Cambiar el ícono en el playPauseButton
-            document.querySelector('.cancion-play').innerHTML = '▶'; // Cambiar el ícono en el div .cancion-play
-            
-            document.querySelector('.cancion-play').classList.remove('reproduciendo');
-        }
-        });
-                    
-        // Stop
-        stopButton.addEventListener("click", () => {
-            currentAudio.pause();
-            currentAudio.currentTime = 0;
-            playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
-        });
-            
-        // Interacción con las canciones
-        const canciones = document.querySelectorAll(".galeria-item-canciones");
-            canciones.forEach(cancion => {
-            cancion.addEventListener("click", (event) => {
-                // Verificar si el clic fue en el botón con la clase "cancion-play"
-                if (event.target.classList.contains("cancion-play")) {
-                    const audioSrc = cancion.getAttribute("data-audio-src");
-                    const imgSrc = cancion.getAttribute("data-img-src");
-                    const title = cancion.getAttribute("data-title");
-                    const subtitle = cancion.getAttribute("data-subtitle");
-
-                    loadSong(audioSrc, imgSrc, title, subtitle);
-                    togglePlayPauseIcon(event.target);
-                    
-                    event.target.classList.add('reproduciendo');
-                    /*console.log('Clase "reproduciendo" añadida'); REVISAR*/
-                }
-            });
-        });
-        // Función para alternar el icono de play/pause
-        function togglePlayPauseIcon(button) {
-            // Resetear todos los botones a play
-            const allButtons = document.querySelectorAll(".cancion-play");
-            allButtons.forEach(btn => btn.textContent = "▶");
-        
-            // Cambiar el botón actual a pausa
-            button.textContent = '❚❚';
-        }
-        // Interacción con la barra de progreso
-        progressBar.addEventListener("click", (e) => {
-            const barWidth = progressBar.clientWidth;
-            const clickPosition = e.offsetX;
-            const clickRatio = clickPosition / barWidth;
-            
-            if (currentAudio) {
-                currentAudio.currentTime = currentAudio.duration * clickRatio;
+                stopButton.click(); // Simular clic en el botón de stop
             }
         });
     });
+
+    // Lógica para filtrar fotos por obra seleccionada
+    const selectObras = document.querySelector('.galeria-obras');
+    const fotosContainer = document.querySelector('.galeria-grid');
+    
+    selectObras.addEventListener('change', function() {
+        const selectedObraId = selectObras.value;
+        const fotos = fotosContainer.querySelectorAll('.galeria-item');
+        
+        fotos.forEach(foto => {
+            const obraId = foto.getAttribute('data-obra');
+            if (selectedObraId === "" || obraId === selectedObraId) {
+                foto.style.display = "block"; // Mostrar foto
+            } else {
+                foto.style.display = "none"; // Ocultar foto
+            }
+        });
+
+        // Detener la reproducción si se cambia de obra
+        if (currentAudio) {
+            stopButton.click(); // Simular clic en el botón de stop
+        }
+    });
+
+    // Lógica para filtrar canciones por obra seleccionada
+    const cancionesContainer = document.querySelector('.galeria-grid-canciones');
+
+    selectObras.addEventListener('change', function() {
+        const selectedObraId = selectObras.value; // Obtén el ID de la obra seleccionada
+        const canciones = cancionesContainer.querySelectorAll('.galeria-item-canciones');
+
+        canciones.forEach(cancion => {
+            const obraId = cancion.getAttribute('data-obra'); // Obtén el ID de la obra de la canción
+            if (selectedObraId === "" || obraId === selectedObraId) {
+                cancion.style.display = "block"; // Mostrar canción
+            } else {
+                cancion.style.display = "none"; // Ocultar canción
+            }
+        });
+
+        // Detener la reproducción si se cambia de obra
+        if (currentAudio) {
+            stopButton.click(); // Simular clic en el botón de stop
+        }
+    });
+
+    // Lógica para el buscador de canciones
+    const buscadorInput = document.querySelector('.buscador input');
+    buscadorInput.addEventListener('input', function() {
+        const searchText = buscadorInput.value.toLowerCase();
+        const canciones = document.querySelectorAll('.galeria-item-canciones');
+
+        canciones.forEach(cancion => {
+            const titulo = cancion.querySelector('.titulo-cancion').textContent.toLowerCase();
+            if (titulo.includes(searchText)) {
+                cancion.style.display = "block"; // Mostrar si coincide
+            } else {
+                cancion.style.display = "none"; // Ocultar si no coincide
+            }
+        });
+    });
+
+    // Lógica del modal
+    const modal = document.getElementById("modal");
+    const modalContent = document.getElementById("modal-content");
+    const closeModalIcon = document.getElementById("close-modal");
+    const mobileCloseModalIcon = document.getElementById("mobile-close-modal");
+    const downloadModalIcon = document.getElementById("download-modal");
+    const mobileDownloadModalIcon = document.getElementById("mobile-download-modal");
+    const mobileNavBar = document.querySelector(".mobile-nav-bar");
+
+    // Función para cerrar el modal y ocultar el nav-bar
+    function closeModal() {
+        modal.style.display = "none";
+        mobileNavBar.classList.remove("visible"); // Ocultar el nav-bar al cerrar el modal
+    }
+
+    // Cerrar el modal al hacer clic en el ícono de cierre
+    closeModalIcon.addEventListener("click", closeModal);
+    mobileCloseModalIcon.addEventListener("click", closeModal);
+
+    // Abrir el modal al hacer clic en una foto o video
+    const items = document.querySelectorAll(".galeria-item");
+    items.forEach(item => {
+        item.addEventListener("click", function () {
+            const type = item.getAttribute("data-type");
+            const src = item.getAttribute("data-src");
+
+            // Limpiar el contenido del modal
+            modalContent.innerHTML = "";
+
+            if (type === "foto") {
+                const img = document.createElement("img");
+                img.src = src;
+                img.alt = "Foto";
+                modalContent.appendChild(img);
+            } else if (type === "video") {
+                const video = document.createElement("video");
+                video.src = src;
+                video.controls = true;
+                modalContent.appendChild(video);
+            }
+
+            modal.style.display = "block"; // Mostrar el modal
+
+            // Mostrar el nav-bar móvil al tocar la imagen dentro del modal
+            modalContent.addEventListener("click", function () {
+                mobileNavBar.classList.add("visible"); // Mostrar el nav-bar móvil
+            });
+        });
+    });
+
+    // Descargar la imagen al tocar el ícono de descarga
+    downloadModalIcon.addEventListener("click", function () {
+        const currentImageUrl = document.querySelector(".modal-content img")?.src;
+        if (currentImageUrl) {
+            const link = document.createElement("a");
+            link.href = currentImageUrl;
+            link.download = "imagen.jpg";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    });
+
+    // Descargar la imagen desde el nav-bar móvil
+    mobileDownloadModalIcon.addEventListener("click", function () {
+        const currentImageUrl = document.querySelector(".modal-content img")?.src;
+        if (currentImageUrl) {
+            const link = document.createElement("a");
+            link.href = currentImageUrl;
+            link.download = "imagen.jpg";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    });
+
+    // Lógica para la reproducción de audio (resto del código sin cambios)
+    const playerBar = document.getElementById("player-bar");
+    const audioPlayer = document.getElementById("audio-player");
+    const playerImg = document.getElementById("player-img");
+    const playerTitle = document.getElementById("player-title");
+    const playerSubtitle = document.getElementById("player-subtitle");
+    const playPauseButton = document.getElementById("play-pause-button");
+    const stopButton = document.getElementById("stop-button");
+    const progressBar = document.querySelector(".progress-bar");
+    const progress = document.getElementById("progress");
+    const currentTimeEl = document.getElementById("current-time");
+    const totalTimeEl = document.getElementById("total-time");
+    const prevButton = document.getElementById("prev-button");
+    const nextButton = document.getElementById("next-button");
+
+    let currentAudio = null;
+
+    // Función para cargar una canción
+    function loadSong(audioSrc, imgSrc, title, subtitle) {
+        // Verificar si la canción ya está cargada y es la misma que se está reproduciendo
+        if (currentAudio && currentAudio.src.endsWith(audioSrc)) {
+            // Si la canción ya está cargada y reproduciéndose, pausarla o reanudarla
+            if (!currentAudio.paused) {
+                currentAudio.pause();
+                playPauseButton.innerHTML = '<span class="material-symbols-outlined">play_circle</span>';
+                document.querySelector('.cancion-play.reproduciendo').innerHTML = '▶';
+                document.querySelector('.cancion-play.reproduciendo').classList.remove('reproduciendo');
+            } else {
+                currentAudio.play();
+                playPauseButton.innerHTML = '<span class="material-symbols-outlined">pause_circle</span>';
+                document.querySelector('.cancion-play.reproduciendo').innerHTML = '❚❚';
+                document.querySelector('.cancion-play.reproduciendo').classList.add('reproduciendo');
+            }
+            return;
+        }
+
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
+
+        audioPlayer.src = audioSrc;
+        playerImg.src = imgSrc;
+        playerTitle.textContent = title;
+        playerSubtitle.textContent = subtitle;
+
+        audioPlayer.load();
+        audioPlayer.play();
+        playPauseButton.innerHTML = '<span class="material-symbols-outlined">pause_circle</span>';
+        currentAudio = audioPlayer;
+
+        playerBar.classList.remove("hidden"); // Asegurar que la barra de reproducción se muestre
+
+        audioPlayer.onended = () => {
+            resetPlayIcons();
+            hidePlayerBar();
+            currentAudio = null; // Reinicializar currentAudio
+        }
+    }
+
+    // Función para resetear todos los botones a play
+    function resetPlayIcons() {
+        const allButtons = document.querySelectorAll(".cancion-play");
+        allButtons.forEach(btn => {
+            btn.textContent = "▶";
+            btn.classList.remove('reproduciendo');
+        });
+    }
+
+    // Función para ocultar la barra de reproducción
+    function hidePlayerBar() {
+        playerBar.classList.add("hidden");
+    }
+
+    // Actualizar la barra de progreso
+    audioPlayer.addEventListener("timeupdate", () => {
+        if (audioPlayer.duration) {
+            const progressRatio = audioPlayer.currentTime / audioPlayer.duration;
+            progress.style.width = `${progressRatio * 100}%`;
+
+            // Actualizar tiempo actual y total
+            currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+            totalTimeEl.textContent = formatTime(audioPlayer.duration);
+        }
+    });
+
+    // Formato de tiempo
+    function formatTime(time) {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+        return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    }
+
+    // Play/Pause
+    playPauseButton.addEventListener("click", () => {
+        if (currentAudio.paused) {
+            currentAudio.play();
+            playPauseButton.innerHTML = '<span class="material-symbols-outlined">pause_circle</span>'; // Cambiar el ícono en el playPauseButton
+            document.querySelector('.cancion-play.reproduciendo').innerHTML = '❚❚'; // Cambiar el ícono en el div .cancion-play
+        } else {
+            currentAudio.pause();
+            playPauseButton.innerHTML = '<span class="material-symbols-outlined">play_circle</span>'; // Cambiar el ícono en el playPauseButton
+            document.querySelector('.cancion-play.reproduciendo').innerHTML = '▶'; // Cambiar el ícono en el div .cancion-play
+        }
+    });
+
+    // Stop
+    stopButton.addEventListener("click", () => {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        playPauseButton.innerHTML = '<span class="material-symbols-outlined">play_circle</span>'; // Cambiar el ícono en el playPauseButton
+        resetPlayIcons(); // Resetear íconos de reproducción
+        hidePlayerBar();  // Ocultar la barra de reproducción
+
+        // Reinicializar todas las variables
+        currentAudio = null;
+    });
+
+    // Interacción con las canciones
+    const canciones = document.querySelectorAll(".galeria-item-canciones");
+    canciones.forEach(cancion => {
+        cancion.addEventListener("click", (event) => {
+            // Verificar si el clic fue en el botón con la clase "cancion-play"
+            if (event.target.classList.contains("cancion-play")) {
+                const audioSrc = cancion.getAttribute("data-audio-src");
+                const imgSrc = cancion.getAttribute("data-img-src");
+                const title = cancion.getAttribute("data-title");
+                const subtitle = cancion.getAttribute("data-subtitle");
+
+                loadSong(audioSrc, imgSrc, title, subtitle);
+                togglePlayPauseIcon(event.target);
+
+                event.target.classList.add('reproduciendo');
+                playerBar.classList.remove("hidden"); // Asegurar que la barra de reproducción se muestre
+            }
+        });
+    });
+
+    // Función para alternar el icono de play/pause
+    function togglePlayPauseIcon(button) {
+        // Resetear todos los botones a play
+        const allButtons = document.querySelectorAll(".cancion-play");
+        allButtons.forEach(btn => {
+            btn.textContent = "▶";
+            btn.classList.remove('reproduciendo');
+        });
+
+        // Cambiar el botón actual a pausa solo si la canción está reproduciéndose
+        if (!currentAudio.paused) {
+            button.textContent = '❚❚';
+            button.classList.add('reproduciendo');
+        } else {
+            button.textContent = '▶';
+            button.classList.remove('reproduciendo');
+        }
+    }
+
+    // Interacción con la barra de progreso
+    progressBar.addEventListener("click", (e) => {
+        const barWidth = progressBar.clientWidth;
+        const clickPosition = e.offsetX;
+        const clickRatio = clickPosition / barWidth;
+
+        if (currentAudio) {
+            currentAudio.currentTime = currentAudio.duration * clickRatio;
+        }
+    });
+
+    // Adelantar 10 segundos
+    nextButton.addEventListener("click", () => {
+        if (currentAudio) {
+            currentAudio.currentTime = Math.min(currentAudio.currentTime + 10, currentAudio.duration);
+        }
+    });
+
+    // Retroceder 10 segundos
+    prevButton.addEventListener("click", () => {
+        if (currentAudio) {
+            currentAudio.currentTime = Math.max(currentAudio.currentTime - 10, 0);
+        }
+    });
+});
 </script>
 {% endblock %}

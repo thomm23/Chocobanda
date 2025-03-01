@@ -1,6 +1,7 @@
 from django.db import models
 from tinymce.models import HTMLField
 from cropperjs.models import CropperImageField
+from django.core.exceptions import ValidationError
 
 
 class Multimedia(models.Model):
@@ -70,6 +71,31 @@ class GaleriaObra(models.Model):
     foto = CropperImageField(upload_to='galeria_obra/', null=True, blank=True, aspectratio=1,dimensions=(1024, 768))
     descripcion = models.CharField(max_length=255, blank=True, null=True)
 
+class CancionObra(models.Model):
+    titulo = models.CharField(max_length=255)
+    duracion = models.DurationField(null=True, blank=True)  # Opcional si no se conoce la duración
+    archivo = models.FileField(upload_to='canciones/', null=True, blank=True)  # Archivo subido
+    enlace = models.URLField(null=True, blank=True)  # Enlace externo
+    obra = models.ForeignKey(Obra, related_name='canciones_obra', on_delete=models.CASCADE)  # Relación con la obra
+
+    def clean(self):
+        if not self.archivo and not self.enlace:
+            raise ValidationError("Debes proporcionar un archivo o un enlace para la canción.")
+        if self.archivo and self.enlace:
+            raise ValidationError("No puedes cargar un archivo y un enlace al mismo tiempo.")
+    
+    def __str__(self):
+        return f"Cancion de {self.obra.titulo}"
+    
+class VideoObra(models.Model):
+    titulo = models.CharField(max_length=255)
+    duracion = models.DurationField(null=True, blank=True)  # Opcional si no se conoce la duración
+    enlace = models.URLField(null=False, blank=False)  # Enlace Obligatorio
+    obra = models.ForeignKey(Obra, related_name='videos_obra', on_delete=models.CASCADE)  # Relación con la obra
+    
+    def __str__(self):
+        return f"Video de {self.obra.titulo}"
+
 class Evento(models.Model):
     obra = models.ForeignKey(Obra, on_delete=models.CASCADE, related_name='eventos')
     lugar = models.CharField(max_length=255)
@@ -100,23 +126,6 @@ class Institucion(models.Model):
 
     def __str__(self):
         return self.nombre
-
-class Cancion(models.Model):
-    nombre = models.CharField(max_length=255)
-    duracion = models.DurationField()  # Para almacenar la duración en formato HH:MM:SS
-    archivo = models.FileField(upload_to='canciones/')  # Subir el archivo de la canción
-    obra = models.ForeignKey(Obra, related_name='canciones', on_delete=models.CASCADE)  # Relación con la obra
-
-    def __str__(self):
-        return self.nombre
-    
-class Video(models.Model):
-    nombre = models.CharField(max_length=255)
-    enlace_youtube = models.URLField()
-    obra = models.ForeignKey(Obra, related_name='videos', on_delete=models.CASCADE)  # Relación con la obra
-
-    def __str__(self):
-        return f'{self.nombre} - {self.obra.nombre}'
     
 class AjustesPagina(models.Model):
     historia_chocobanda = models.TextField()  # El texto que se podrá modificar

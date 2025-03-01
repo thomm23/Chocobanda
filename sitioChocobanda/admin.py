@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Integrante, Personaje, Obra, GaleriaObra, Evento, Noticia, Institucion, Multimedia, Galeria, Cancion, Video, AjustesPagina, ProgramaObra
+from .models import Integrante, Personaje, Obra, GaleriaObra, Evento, Noticia, Institucion, Multimedia, Galeria, AjustesPagina, ProgramaObra, CancionObra, VideoObra
 
 #Estetica basica del ADMIN
 
@@ -17,8 +17,6 @@ admin.site.register(Noticia)
 admin.site.register(Institucion)
 admin.site.register(Multimedia)
 admin.site.register(Galeria)
-admin.site.register(Cancion)
-admin.site.register(Video)
 admin.site.register(AjustesPagina)
 
 # Clase para el Inline de GaleriaObra
@@ -35,11 +33,27 @@ class ProgramaObraInline(admin.StackedInline):  # O admin.TabularInline
     extra = 1
     fields = ['programa']
     verbose_name = "Programa de la obra"
-    verbose_name_plural = "Programas de la obra"
+    verbose_name_plural = "Programa de la obra"
+
+    # Clase para el Inline de CancionObra
+class CancionObraInline(admin.StackedInline):  # O admin.TabularInline
+    model = CancionObra
+    extra = 1
+    fields = ['titulo', 'duracion', 'archivo', 'enlace']
+    verbose_name = "Canción de la obra"
+    verbose_name_plural = "Canciones de la obra"
+
+    # Clase para el Inline de VideoObra
+class VideoObraInline(admin.StackedInline):  # O admin.TabularInline
+    model = VideoObra
+    extra = 1
+    fields = ['titulo', 'duracion', 'enlace']
+    verbose_name = "Video de la obra"
+    verbose_name_plural = "Videos de la obra"
 
 # Registrar el modelo Obra con su clase personalizada de admin
 @admin.register(Obra)
 class ObraAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'descripcion')
     search_fields = ('titulo',)
-    inlines = [GaleriaObraInline, ProgramaObraInline]  # Agrega ambos inlines aquí
+    inlines = [GaleriaObraInline, ProgramaObraInline, CancionObraInline, VideoObraInline]  # Agrega ambos inlines aquí
