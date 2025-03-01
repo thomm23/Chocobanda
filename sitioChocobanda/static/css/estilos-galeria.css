@@ -5,6 +5,45 @@
 }
 
 /* Estilos principales (Mobile First)*/
+
+/* Estilos para el nav-bar móvil */
+.mobile-nav-bar {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la pantalla */
+    top: 0; /* Posicionado en la parte superior */
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    background-color: #4C6A2A;
+    padding: 10px; /* Espaciado interno */
+    z-index: 10000; /* Asegura que esté por encima del modal */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+}
+
+.mobile-nav-bar.visible {
+    display: flex;
+    justify-content: flex-end; /* Mueve los íconos a la derecha */
+    align-items: center;
+    padding-right: 10%; /* 12.5% del ancho */ 
+}
+
+/* Estilos para los íconos del nav-bar móvil */
+.mobile-nav-bar .modal-icons {
+    display: flex;
+    gap: 20px; /* Espacio entre los íconos */
+}
+
+.mobile-nav-bar .material-symbols-outlined {
+    font-size: 24px; /* Tamaño de los íconos */
+    color: #f1e7c8; /* Color de los íconos */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-nav-bar .material-symbols-outlined:hover {
+    color: #E87722; /* Cambia el color al hacer hover */
+    transform: scale(1.2); /* Aumenta el tamaño al hacer hover */
+}
+
 .player-bar.hidden {
     display: none;
 }
@@ -256,7 +295,7 @@
     top: 50%; /* Mueve el contenedor al 50% de la altura */
     left: 50%; /* Mueve el contenedor al 50% del ancho */
     transform: translate(-50%, -50%); /* Ajusta el centro del contenedor */
-    width: 75%;
+    width: 80%;
     max-width: 77.78vh;
     background-color: transparent;
 }
@@ -267,6 +306,7 @@
     gap: 10px; /* Espacio entre los íconos */
     padding: 10px 0; /* Espacio alrededor de los íconos */
     justify-content: flex-end; /* Alinea los íconos a la derecha */
+    display: none;
 }
 
 .modal-icons .material-symbols-outlined {
@@ -492,10 +532,30 @@
         align-self: flex-end;
         margin-top: 1.11vh;
     }
+
+    .modal-icons {
+        display: flex;
+        gap: 10px; /* Espacio entre los íconos */
+        padding: 10px 0; /* Espacio alrededor de los íconos */
+        justify-content: flex-end; /* Alinea los íconos a la derecha */
+    }
      
     .modal img {
         transform: rotate(0deg); /* Gira la imagen 90 grados hacia la izquierda dentro del modal */
         max-width: 100%; /* Asegura que la imagen no se desborde en el modal */
         height: auto;
     }
+
+    .mobile-nav-bar.visible {
+        display: none;
+    }
+
+    @media only screen and (max-width: 768px) and (orientation: landscape) {
+        .modal img {
+            transform: rotate(90deg); /* Rota la imagen 90 grados */
+            max-width: 100%; /* Asegura que la imagen no se desborde */
+            height: auto; /* Mantiene la proporción de la imagen */
+        }
+    }
+
 }

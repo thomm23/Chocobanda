@@ -137,6 +137,14 @@
     </div>
 </div>
 
+<!-- Nav-bar móvil -->
+<div class="mobile-nav-bar">
+    <div class="modal-icons">
+        <span id="mobile-download-modal" class="material-symbols-outlined">download</span>
+        <span id="mobile-close-modal" class="material-symbols-outlined">close</span>
+    </div>
+</div>
+
 <!-- Audio -->
 <audio id="audio-player"></audio>
 
@@ -167,7 +175,6 @@
         const selectObras = document.querySelector('.galeria-obras');
         const fotosContainer = document.querySelector('.galeria-grid');
         
-        // Función para filtrar las fotos
         selectObras.addEventListener('change', function() {
             const selectedObraId = selectObras.value;
             const fotos = fotosContainer.querySelectorAll('.galeria-item');
@@ -181,66 +188,84 @@
                 }
             });
         });
-    
-        // Lógica para abrir el modal
-        const items = document.querySelectorAll('.galeria-item');
-        const modal = document.getElementById('modal');
-        const modalContent = document.getElementById('modal-content');
-        const closeModalIcon = document.getElementById('close-modal');
-        const downloadModalIcon = document.getElementById('download-modal');
-        let currentImageUrl = ''; // Variable para almacenar la URL de la imagen actual
-    
-        // Función para cerrar el modal
+
+        // Lógica del modal
+        const modal = document.getElementById("modal");
+        const modalContent = document.getElementById("modal-content");
+        const closeModalIcon = document.getElementById("close-modal");
+        const mobileCloseModalIcon = document.getElementById("mobile-close-modal");
+        const downloadModalIcon = document.getElementById("download-modal");
+        const mobileDownloadModalIcon = document.getElementById("mobile-download-modal");
+        const mobileNavBar = document.querySelector(".mobile-nav-bar");
+
+        // Función para cerrar el modal y ocultar el nav-bar
         function closeModal() {
-            modal.style.display = 'none';
-            currentImageUrl = ''; // Liberar la variable al cerrar el modal
+            modal.style.display = "none";
+            mobileNavBar.classList.remove("visible"); // Ocultar el nav-bar al cerrar el modal
         }
-    
+
         // Cerrar el modal al hacer clic en el ícono de cierre
-        closeModalIcon.addEventListener('click', closeModal);
-    
+        closeModalIcon.addEventListener("click", closeModal);
+        mobileCloseModalIcon.addEventListener("click", closeModal);
+
         // Abrir el modal al hacer clic en una foto o video
+        const items = document.querySelectorAll(".galeria-item");
         items.forEach(item => {
-            item.addEventListener('click', function() {
-                const type = item.getAttribute('data-type');
-                const src = item.getAttribute('data-src');
-    
+            item.addEventListener("click", function () {
+                const type = item.getAttribute("data-type");
+                const src = item.getAttribute("data-src");
+
                 // Limpiar el contenido del modal
-                modalContent.innerHTML = '';
-    
-                if (type === 'foto') {
-                    const img = document.createElement('img');
+                modalContent.innerHTML = "";
+
+                if (type === "foto") {
+                    const img = document.createElement("img");
                     img.src = src;
-                    img.alt = 'Foto';
+                    img.alt = "Foto";
                     modalContent.appendChild(img);
-                    currentImageUrl = src; // Guardar la URL de la imagen actual
-                } else if (type === 'video') {
-                    const video = document.createElement('video');
+                } else if (type === "video") {
+                    const video = document.createElement("video");
                     video.src = src;
                     video.controls = true;
                     modalContent.appendChild(video);
                 }
-    
-                modal.style.display = 'block'; // Mostrar el modal
+
+                modal.style.display = "block"; // Mostrar el modal
+
+                // Mostrar el nav-bar móvil al tocar la imagen dentro del modal
+                modalContent.addEventListener("click", function () {
+                    mobileNavBar.classList.add("visible"); // Mostrar el nav-bar móvil
+                });
             });
         });
 
-        // Lógica para descargar la imagen
-        downloadModalIcon.addEventListener('click', function() {
+        // Descargar la imagen al tocar el ícono de descarga
+        downloadModalIcon.addEventListener("click", function () {
+            const currentImageUrl = document.querySelector(".modal-content img")?.src;
             if (currentImageUrl) {
-                // Crear un enlace temporal para la descarga
-                const link = document.createElement('a');
+                const link = document.createElement("a");
                 link.href = currentImageUrl;
-                link.download = 'imagen.jpg'; // Nombre del archivo descargado
+                link.download = "imagen.jpg";
                 document.body.appendChild(link);
-                link.click(); // Simular el clic en el enlace
-                document.body.removeChild(link); // Eliminar el enlace temporal
-            } else {
-                console.error("No hay una imagen para descargar.");
+                link.click();
+                document.body.removeChild(link);
             }
         });
 
-        // Lógica para reproducir el audio (resto del código sin cambios)
+        // Descargar la imagen desde el nav-bar móvil
+        mobileDownloadModalIcon.addEventListener("click", function () {
+            const currentImageUrl = document.querySelector(".modal-content img")?.src;
+            if (currentImageUrl) {
+                const link = document.createElement("a");
+                link.href = currentImageUrl;
+                link.download = "imagen.jpg";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        });
+
+        // Lógica para la reproducción de audio (resto del código sin cambios)
         const playerBar = document.getElementById("player-bar");
         const audioPlayer = document.getElementById("audio-player");
         const playerImg = document.getElementById("player-img");
