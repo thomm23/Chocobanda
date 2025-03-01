@@ -5,8 +5,15 @@
     --color-interactivo: #BC570A; /* Naranja */
 }
 
-/* Estilos principales (Mobile First)*/
+/* Estilos principales (Mobile First) */
 
+.contenedor-selector {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 /* Estilos para el nav-bar móvil */
 .mobile-nav-bar {
     display: none; /* Oculto por defecto */
@@ -24,7 +31,7 @@
     display: flex;
     justify-content: flex-end; /* Mueve los íconos a la derecha */
     align-items: center;
-    padding-right: 10%; /* 12.5% del ancho */ 
+    padding-right: 10%; /* 10% del ancho */
 }
 
 /* Estilos para los íconos del nav-bar móvil */
@@ -59,23 +66,21 @@
     flex-direction: column;
     width: 100%;
     margin: 0 auto;
-    margin-top: 14vh;
+    margin-top: 20px; /* Reemplazado vh por px */
 }
 
 .galeria-obras, .galeria-fechas {
     width: 90%;
     max-width: 100%;
-    font-size: 2vh;
-    padding: 1vh;
+    font-size: 1rem; /* Reemplazado vh por rem */
+    padding: 10px; /* Reemplazado vh por px */
     box-sizing: border-box;
-    font-size: 1rem;
     color: var(--color-principal);
     background-color: var(--color-fondo);
-    border: 0.22vh solid var(--color-principal);
-    border-radius: 0.56vh;
-    padding: 0.56vh 1.11vh;
+    border: 1px solid var(--color-principal); /* Reemplazado vh por px */
+    border-radius: 5px; /* Reemplazado vh por px */
     cursor: pointer;
-    margin: 2.22vh;
+    margin: 10px; /* Reemplazado vh por px */
     transition: border-color 0.3s ease;
 }
 
@@ -88,24 +93,24 @@
 }
 
 .galeria {
-    margin-top: 2.22vh;
+    margin-top: 20px; /* Reemplazado vh por px */
     background-color: #f1e7c8;
 }
 
 .galeria-header {
     display: flex;
-    gap: 1.11vh;
+    gap: 10px; /* Reemplazado vh por px */
     justify-content: space-around;
-    margin-bottom: 0vh;
+    margin-bottom: 0;
 }
 
 .tab {
     background-color: #f1e7c8;
     color: #8c4a2f;
-    font-size: 2vh;
+    font-size: 1rem; /* Reemplazado vh por rem */
     border: none;
-    padding: 1.11vh 2.22vh;
-    border-radius: 0.56vh 0.56vh 0 0;
+    padding: 10px 20px; /* Reemplazado vh por px */
+    border-radius: 5px 5px 0 0; /* Reemplazado vh por px */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -120,21 +125,20 @@
     text-decoration: underline;
 }
 
-
 .galeria-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Cambiado a 3 columnas */
-    gap: 0.56vh; /* Espacio entre las imágenes */
+    gap: 5px; /* Reemplazado vh por px */
     background-color: #3b6021;
-    border-radius: 0.56vh;
-    padding: 0.56vh;
+    border-radius: 5px; /* Reemplazado vh por px */
+    padding: 5px; /* Reemplazado vh por px */
     justify-items: center;
     align-items: center;
 }
 
 .galeria-item {
     background-color: #c1a378;
-    border: 0.22vh solid #3b6021;
+    border: 1px solid #3b6021; /* Reemplazado vh por px */
     aspect-ratio: 1; /* Mantiene el formato cuadrado */
     display: flex;
     align-items: center;
@@ -149,8 +153,8 @@
     object-fit: cover; /* Mantiene la proporción sin deformar la imagen */
 }
 
-.galeria-item::before { 
-    font-size: 2.67vh;
+.galeria-item::before {
+    font-size: 1.5rem; /* Reemplazado vh por rem */
     color: #3b6021;
 }
 
@@ -164,31 +168,32 @@
 
 .canciones {
     background-color: #3b6021;
-    padding: 1.67vh;
+    padding: 20px; /* Reemplazado vh por px */
 }
 
 .buscador {
     display: flex;
     align-items: center;
     background-color: #f1e7c8;
-    border-radius: 2.22vh;
-    padding: 0.56vh 1.67vh;
+    border-radius: 20px; /* Reemplazado vh por px */
+    padding: 0px 20px; /* Reemplazado vh por px */
     width: 100%;
-    margin-bottom: 2.22vh;
+    margin-bottom: 20px; /* Reemplazado vh por px */
+    border: 2px solid #BC570A; /* Borde color #BC570A */
 }
 
 .buscador input {
     border: none;
     background-color: transparent;
     outline: none;
-    font-size: 1.78vh;
+    font-size: 1rem; /* Reemplazado vh por rem */
     flex-grow: 1;
-    color: #f1e7c8;
-    padding: 0.56vh 1.11vh;
+    color: #BC570A; /* Fuente color #BC570A */
+    padding: 10px; /* Reemplazado vh por px */
 }
 
 .buscador input::placeholder {
-    color:#3b6021;
+    color: #BC570A; /* Color del texto del placeholder */
 }
 
 .buscador button {
@@ -202,21 +207,21 @@
 }
 
 .icon-lupa {
-    width: 2.22vh;
-    height: 2.22vh;
-    stroke: #3b6021;
+    width: 20px; /* Reemplazado vh por px */
+    height: 20px; /* Reemplazado vh por px */
+    color: #BC570A;
 }
 
 .buscador button:hover .icon-lupa {
-    stroke: #2f501a;
+    color: #2f501a;
 }
 
 /* Lista de canciones */
 .galeria-grid-canciones {
     display: flex;
     flex-direction: column;
-    gap: 1.11vh;
-    margin-top: 1.11vh;
+    gap: 10px; /* Reemplazado vh por px */
+    margin-top: 10px; /* Reemplazado vh por px */
 }
 
 .galeria-item-canciones {
@@ -224,8 +229,8 @@
     flex-direction: column;
     align-items: flex-start;
     background-color: #3b6021;
-    padding: 1.11vh 1.67vh;
-    border-radius: 1.11vh;
+    padding: 10px 20px; /* Reemplazado vh por px */
+    border-radius: 10px; /* Reemplazado vh por px */
     color: #f1e7c8;
 }
 
@@ -234,23 +239,23 @@
 }
 
 #canciones {
-    background-color: var(--color-principal); 
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+    background-color: var(--color-principal);
+    padding-top: 20px; /* Reemplazado vh por px */
+    padding-bottom: 20px; /* Reemplazado vh por px */
 }
 
 .cancion-info {
     display: flex;
     align-items: center;
-    gap: 1.11vh;
+    gap: 10px; /* Reemplazado vh por px */
     width: 100%;
 }
 
 .cancion-play {
     background-color: #f1e7c8;
     color: #3b6021;
-    width: 4.44vh;
-    height: 4.44vh;
+    width: 40px; /* Reemplazado vh por px */
+    height: 40px; /* Reemplazado vh por px */
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -258,7 +263,7 @@
     cursor: pointer;
 }
 
-.cancion-play.reproduciendo {/*REVISAR*/
+.cancion-play.reproduciendo {
     background-color: #E87722;
 }
 
@@ -274,11 +279,11 @@
 .cancion-texto .titulo {
     color: #f1e7c8;
     font-weight: bold;
-    font-size: 1.56vh;
+    font-size: 1.2rem; /* Reemplazado vh por rem */
 }
 
 .cancion-texto .subtitulo {
-    font-size: 1.33vh;
+    font-size: 1rem; /* Reemplazado vh por rem */
     color: #e0d6b8;
 }
 
@@ -299,20 +304,20 @@
 /* Contenedor que agrupa los íconos y la imagen */
 .modal-container {
     position: relative;
-    top: 50%; /* Mueve el contenedor al 50% de la altura */
-    left: 50%; /* Mueve el contenedor al 50% del ancho */
-    transform: translate(-50%, -50%); /* Ajusta el centro del contenedor */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 80%;
-    max-width: 77.78vh;
+    max-width: 600px; /* Reemplazado vh por px */
     background-color: transparent;
 }
 
 /* Estilos para los íconos del modal */
 .modal-icons {
     display: flex;
-    gap: 10px; /* Espacio entre los íconos */
-    padding: 10px 0; /* Espacio alrededor de los íconos */
-    justify-content: flex-end; /* Alinea los íconos a la derecha */
+    gap: 10px; /* Reemplazado vh por px */
+    padding: 10px 0; /* Reemplazado vh por px */
+    justify-content: flex-end;
     display: none;
 }
 
@@ -346,12 +351,11 @@
     height: auto;
 }
 
-
 /* Contenedor general de canciones */
 .galeria-grid-canciones {
     display: grid;
     grid-template-rows: auto auto;
-    gap: 1.11vh;
+    gap: 10px; /* Reemplazado vh por px */
 }
 
 /* Barra de reproducción */
@@ -360,11 +364,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1.11vh;
+    padding: 10px; /* Reemplazado vh por px */
     background-color: #3b6021;
     color: #f1e7c8;
-    border: 0.11vh solid #3b6021;
-    border-radius: 0.56vh;
+    border: 1px solid #3b6021; /* Reemplazado vh por px */
+    border-radius: 5px; /* Reemplazado vh por px */
     width: 75%;
     margin: 0 auto;
     box-sizing: border-box;
@@ -373,7 +377,7 @@
 .player-info {
     display: flex;
     align-items: center;
-    gap: 1.11vh;
+    gap: 10px; /* Reemplazado vh por px */
     justify-content: center;
     width: 100%;
     text-align: center;
@@ -382,46 +386,45 @@
 .player-img {
     width: 30%;
     height: auto;
-    border-radius: 0.56vh;
+    border-radius: 5px; /* Reemplazado vh por px */
     flex-shrink: 0;
 }
 
 .player-text {
-    font-size: 1.56vh;
+    font-size: 1.2rem; /* Reemplazado vh por rem */
     flex-grow: 1;
     width: 70%;
-    text-align: left; 
+    text-align: left;
 }
 
 .player-controls {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.11vh;
+    gap: 10px; /* Reemplazado vh por px */
     width: 100%;
-    margin-top: 1.11vh;
+    margin-top: 10px; /* Reemplazado vh por px */
 }
 
 .control-button {
     background: none;
     border: none;
-    /* font-size: 2vh; */
     cursor: pointer;
-} 
+}
 
 .player-progress {
     display: flex;
     align-items: center;
-    gap: 0.56vh;
+    gap: 5px; /* Reemplazado vh por px */
     width: 100%;
-    margin-top: 1.11vh;
+    margin-top: 10px; /* Reemplazado vh por px */
 }
 
 .progress-bar {
     flex-grow: 1;
     background-color: #E87722;
-    border-radius: 0.56vh;
-    height: 0.56vh;
+    border-radius: 5px; /* Reemplazado vh por px */
+    height: 5px; /* Reemplazado vh por px */
     position: relative;
 }
 
@@ -429,12 +432,12 @@
     background-color: #f1e7c8;
     height: 100%;
     width: 0;
-    border-radius: 0.56vh;
+    border-radius: 5px; /* Reemplazado vh por px */
     transition: width 0.3s ease;
 }
 
 .time {
-    font-size: 1.33vh;
+    font-size: 1rem; /* Reemplazado vh por rem */
     color: #f1e7c8;
 }
 
@@ -445,14 +448,14 @@
     }
 
     .galeria-item {
-        min-width: 11.11vh;
-        min-height: 11.11vh;
+        min-width: 100px; /* Reemplazado vh por px */
+        min-height: 100px; /* Reemplazado vh por px */
     }
-    
+
     .galeria-grid-canciones {
-        gap: 1.67vh;
+        gap: 15px; /* Reemplazado vh por px */
     }
-    
+
     .galeria-item-canciones {
         flex-direction: row; /* Cambia a disposición horizontal */
         align-items: center;
@@ -460,105 +463,100 @@
     }
 
     .cancion-info {
-        gap: 1.67vh;
+        gap: 15px; /* Reemplazado vh por px */
     }
 }
 
 @media (min-width: 769px) {
     .contenedor-selector {
+        margin-top: 10px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between; /* Alinea los selectores horizontalmente */
+        justify-content: space-between;
         flex-wrap: wrap;
     }
 
     .selector {
         display: flex;
         flex-direction: row;
-        gap: 1.11vh;
+        gap: 10px; /* Reemplazado vh por px */
         width: 48%;
-        margin-top: 2.22vh;
+        margin-top: 20px; /* Reemplazado vh por px */
     }
-    
+
     .galeria-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-        gap: 2vh; /* Espacio entre las imágenes */
-        padding: 2vh;
+        gap: 20px; /* Reemplazado vh por px */
+        padding: 20px; /* Reemplazado vh por px */
     }
 
     .galeria-item {
-        width: 100%; /* Asegura que los elementos se ajusten al contenedor */
+        width: 100%;
         height: auto;
-        min-width: 13.33vh;
-        min-height: 13.33vh;
-        aspect-ratio: 1; /* Asegura que las imágenes sean cuadradas */
+        min-width: 120px; /* Reemplazado vh por px */
+        min-height: 120px; /* Reemplazado vh por px */
+        aspect-ratio: 1;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        border-radius: 2vh; /* Bordes redondeados, puedes ajustar el valor */
+        border-radius: 10px; /* Reemplazado vh por px */
         cursor: pointer;
     }
-    
+
     .galeria-item img {
-        width: 100%; /* Asegura que la imagen se adapte al contenedor */
-        height: 100%; /* Asegura que la imagen se ajuste */
-        object-fit: cover; /* Mantiene la proporción sin deformar la imagen */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .buscador {
-        max-width: 44.44vh;
+        max-width: 400px; /* Reemplazado vh por px */
+        margin-left: 20px; /* Reemplazado vh por px */
     }
-    
+
     .galeria-grid-canciones {
-        gap: 2.22vh;
+        gap: 20px; /* Reemplazado vh por px */
     }
-    
+
     .galeria-item-canciones {
-        padding: 1.67vh 2.22vh;
+        padding: 15px 20px; /* Reemplazado vh por px */
         position: relative;
         display: flex;
         flex-direction: row;
         align-items: center;
     }
 
-    
-
     #canciones {
-        background-color: var(--color-principal); 
-        padding-top: 2vh;
-        padding-bottom: 2vh;
+        background-color: var(--color-principal);
+        padding-top: 20px; /* Reemplazado vh por px */
+        padding-bottom: 20px; /* Reemplazado vh por px */
     }
 
-    /* Si quieres cambiar solo el texto dentro del input */
-    #canciones input {
-        color: var(--color-interactivo);
-    }
-    
     .cancion-texto .titulo-cancion {
-        font-size: 1.78vh;
+        font-size: 1.2rem; /* Reemplazado vh por rem */
     }
-    
+
     .cancion-texto .subtitulo {
-        font-size: 1.56vh;
+        font-size: 1rem; /* Reemplazado vh por rem */
     }
-    
+
     .duracion {
         align-self: flex-end;
-        margin-top: 1.11vh;
+        margin-top: 10px; /* Reemplazado vh por px */
     }
 
     .modal-icons {
         display: flex;
-        gap: 10px; /* Espacio entre los íconos */
-        padding: 10px 0; /* Espacio alrededor de los íconos */
-        justify-content: flex-end; /* Alinea los íconos a la derecha */
+        gap: 10px; /* Reemplazado vh por px */
+        padding: 10px 0; /* Reemplazado vh por px */
+        justify-content: flex-end;
     }
-     
+
     .modal img {
-        transform: rotate(0deg); /* Gira la imagen 90 grados hacia la izquierda dentro del modal */
-        max-width: 100%; /* Asegura que la imagen no se desborde en el modal */
+        transform: rotate(0deg);
+        max-width: 100%;
         height: auto;
     }
 
@@ -568,10 +566,9 @@
 
     @media only screen and (max-width: 768px) and (orientation: landscape) {
         .modal img {
-            transform: rotate(90deg); /* Rota la imagen 90 grados */
-            max-width: 100%; /* Asegura que la imagen no se desborde */
-            height: auto; /* Mantiene la proporción de la imagen */
+            transform: rotate(90deg);
+            max-width: 100%;
+            height: auto;
         }
     }
-
 }

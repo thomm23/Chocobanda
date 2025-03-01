@@ -88,47 +88,51 @@
 {% block seccionSeleccionada %} 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-  const links = document.querySelectorAll(".nav-list li a");
-  const homeLink = document.querySelector(".titulo.desktop");  // Obtener el enlace "Home" (escritorio)
-  const backLink = document.querySelector(".icono-volver");    // Obtener el enlace "Home" (icono de volver)
-  const currentPath = window.location.pathname;  // Solo el path de la URL
-  const homePath = "{% url 'home' %}";  // URL generada dinámicamente por Django
+  const links = document.querySelectorAll(".nav-list li a"); // Links del header
+  const footerLinks = document.querySelectorAll("footer a"); // Links del footer
+  const homeLink = document.querySelector(".titulo.desktop");  
+  const backLink = document.querySelector(".icono-volver");  
+  const currentPath = window.location.pathname;
+  const homePath = "{% url 'home' %}"; 
 
-  // Verifica si estamos en la página de inicio
-  if (currentPath === homePath) {
-    links.forEach(l => l.classList.remove("active")); // Elimina la clase activa de todos los enlaces
-    localStorage.removeItem("selectedSection"); // Elimina la selección guardada en localStorage
-  }
-
-  // Manejar el clic en los enlaces del menú
-  links.forEach(link => {
-    link.addEventListener("click", () => {
-      links.forEach(l => l.classList.remove("active")); // Quita la clase de los demás
-      link.classList.add("active"); // Agrega la clase solo al clickeado
-      localStorage.setItem("selectedSection", link.href); // Guarda en localStorage
-    });
-  });
-
-  // Manejar el clic en el enlace de "Home" (escritorio)
-  homeLink.addEventListener("click", () => {
-    links.forEach(l => l.classList.remove("active"));  
-    localStorage.removeItem("selectedSection"); 
-  });
-
-  // Manejar el clic en el enlace de "Home" (icono de volver)
-  backLink.addEventListener("click", () => {
-    links.forEach(l => l.classList.remove("active"));  
-    localStorage.removeItem("selectedSection"); 
-  });
-
-  // Recuperar la selección después de recargar la página, si existe
-  const savedSection = localStorage.getItem("selectedSection");
-  if (savedSection) {
-    links.forEach(link => {
-      if (link.href === savedSection) {
+  function updateActiveLink(targetHref) {
+    links.forEach(l => l.classList.remove("active"));
+    footerLinks.forEach(l => l.classList.remove("active"));
+    [...links, ...footerLinks].forEach(link => {
+      if (link.href === targetHref) {
         link.classList.add("active");
       }
     });
+    localStorage.setItem("selectedSection", targetHref);
+  }
+
+  // Quitar la selección en Home
+  if (currentPath === homePath) {
+    links.forEach(l => l.classList.remove("active"));
+    footerLinks.forEach(l => l.classList.remove("active"));
+    localStorage.removeItem("selectedSection");
+  }
+
+  // Manejo de clics en el header y footer
+  [...links, ...footerLinks].forEach(link => {
+    link.addEventListener("click", (event) => {
+      updateActiveLink(event.currentTarget.href);
+    });
+  });
+
+  // Clic en Home (escritorio o icono volver)
+  [homeLink, backLink].forEach(link => {
+    link.addEventListener("click", () => {
+      links.forEach(l => l.classList.remove("active"));
+      footerLinks.forEach(l => l.classList.remove("active"));
+      localStorage.removeItem("selectedSection");
+    });
+  });
+
+  // Restaurar la selección después de recargar
+  const savedSection = localStorage.getItem("selectedSection");
+  if (savedSection) {
+    updateActiveLink(savedSection);
   }
 });
 </script>
