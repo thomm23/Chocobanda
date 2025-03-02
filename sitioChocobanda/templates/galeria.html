@@ -248,80 +248,110 @@
     });
 
     // Lógica del modal
-    const modal = document.getElementById("modal");
-    const modalContent = document.getElementById("modal-content");
-    const closeModalIcon = document.getElementById("close-modal");
-    const mobileCloseModalIcon = document.getElementById("mobile-close-modal");
-    const downloadModalIcon = document.getElementById("download-modal");
-    const mobileDownloadModalIcon = document.getElementById("mobile-download-modal");
-    const mobileNavBar = document.querySelector(".mobile-nav-bar");
+const modal = document.getElementById("modal");
+const modalContent = document.getElementById("modal-content");
+const closeModalIcon = document.getElementById("close-modal");
+const mobileCloseModalIcon = document.getElementById("mobile-close-modal");
+const downloadModalIcon = document.getElementById("download-modal");
+const mobileDownloadModalIcon = document.getElementById("mobile-download-modal");
+const mobileNavBar = document.querySelector(".mobile-nav-bar");
 
-    // Función para cerrar el modal y ocultar el nav-bar
-    function closeModal() {
-        modal.style.display = "none";
-        mobileNavBar.classList.remove("visible"); // Ocultar el nav-bar al cerrar el modal
+// Variable para almacenar el iframe actual
+let currentIframe = null;
+
+// Función para cerrar el modal, ocultar el nav-bar y detener la reproducción del iframe
+function closeModal() {
+    modal.style.display = "none";
+    mobileNavBar.classList.remove("visible"); // Ocultar el nav-bar al cerrar el modal
+
+    // Detener la reproducción del iframe
+    if (currentIframe) {
+        currentIframe.src = ""; // Eliminar la fuente del iframe para detener la reproducción
+        currentIframe = null; // Limpiar la referencia al iframe
     }
 
-    // Cerrar el modal al hacer clic en el ícono de cierre
-    closeModalIcon.addEventListener("click", closeModal);
-    mobileCloseModalIcon.addEventListener("click", closeModal);
+    // Mostrar el botón de descarga al cerrar el modal
+    downloadModalIcon.style.display = "block";
+    mobileDownloadModalIcon.style.display = "block";
+}
 
-    // Abrir el modal al hacer clic en una foto o video
-    const items = document.querySelectorAll(".galeria-item");
-    items.forEach(item => {
-        item.addEventListener("click", function () {
-            const type = item.getAttribute("data-type");
-            const src = item.getAttribute("data-src");
+// Cerrar el modal al hacer clic en el ícono de cierre
+closeModalIcon.addEventListener("click", closeModal);
+mobileCloseModalIcon.addEventListener("click", closeModal);
 
-            // Limpiar el contenido del modal
-            modalContent.innerHTML = "";
+// Abrir el modal al hacer clic en una foto o video
+const items = document.querySelectorAll(".galeria-item");
+items.forEach(item => {
+    item.addEventListener("click", function () {
+        const type = item.getAttribute("data-type");
+        const src = item.getAttribute("data-src");
 
-            if (type === "foto") {
-                const img = document.createElement("img");
-                img.src = src;
-                img.alt = "Foto";
-                modalContent.appendChild(img);
-            } else if (type === "video") {
-                const video = document.createElement("video");
-                video.src = src;
-                video.controls = true;
-                modalContent.appendChild(video);
-            }
+        // Limpiar el contenido del modal
+        modalContent.innerHTML = "";
 
-            modal.style.display = "block"; // Mostrar el modal
+        if (type === "foto") {
+            const img = document.createElement("img");
+            img.src = src;
+            img.alt = "Foto";
+            modalContent.appendChild(img);
 
-            // Mostrar el nav-bar móvil al tocar la imagen dentro del modal
-            modalContent.addEventListener("click", function () {
-                mobileNavBar.classList.add("visible"); // Mostrar el nav-bar móvil
-            });
+            // Mostrar el botón de descarga para fotos
+            downloadModalIcon.style.display = "block";
+            mobileDownloadModalIcon.style.display = "block";
+        } else if (type === "video") {
+            // Crear un iframe para reproducir el video de YouTube
+            const iframe = document.createElement("iframe");
+            iframe.src = src; // Usar la URL embebida del video
+            console.log(iframe.src);
+            iframe.width = "640";
+            iframe.height = "360";
+            iframe.frameBorder = "0";
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            iframe.allowFullscreen = true;
+            modalContent.appendChild(iframe);
+
+            // Ocultar el botón de descarga para videos
+            downloadModalIcon.style.display = "none";
+            mobileDownloadModalIcon.style.display = "none";
+
+            // Guardar la referencia al iframe actual
+            currentIframe = iframe;
+        }
+
+        modal.style.display = "block"; // Mostrar el modal
+
+        // Mostrar el nav-bar móvil al tocar la imagen dentro del modal
+        modalContent.addEventListener("click", function () {
+            mobileNavBar.classList.add("visible"); // Mostrar el nav-bar móvil
         });
     });
+});
 
-    // Descargar la imagen al tocar el ícono de descarga
-    downloadModalIcon.addEventListener("click", function () {
-        const currentImageUrl = document.querySelector(".modal-content img")?.src;
-        if (currentImageUrl) {
-            const link = document.createElement("a");
-            link.href = currentImageUrl;
-            link.download = "imagen.jpg";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-    });
+// Descargar la imagen al tocar el ícono de descarga
+downloadModalIcon.addEventListener("click", function () {
+    const currentImageUrl = document.querySelector(".modal-content img")?.src;
+    if (currentImageUrl) {
+        const link = document.createElement("a");
+        link.href = currentImageUrl;
+        link.download = "imagen.jpg";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+});
 
-    // Descargar la imagen desde el nav-bar móvil
-    mobileDownloadModalIcon.addEventListener("click", function () {
-        const currentImageUrl = document.querySelector(".modal-content img")?.src;
-        if (currentImageUrl) {
-            const link = document.createElement("a");
-            link.href = currentImageUrl;
-            link.download = "imagen.jpg";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-    });
+// Descargar la imagen desde el nav-bar móvil
+mobileDownloadModalIcon.addEventListener("click", function () {
+    const currentImageUrl = document.querySelector(".modal-content img")?.src;
+    if (currentImageUrl) {
+        const link = document.createElement("a");
+        link.href = currentImageUrl;
+        link.download = "imagen.jpg";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+});
 
     // Lógica para la reproducción de audio (resto del código sin cambios)
     const playerBar = document.getElementById("player-bar");

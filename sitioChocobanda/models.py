@@ -101,18 +101,17 @@ class VideoObra(models.Model):
 
     def get_embed_url(self):
         """Convierte el enlace de YouTube en formato embebido"""
-        if "watch?v=" in self.enlace:
-            return self.enlace.replace("watch?v=", "embed/")
-        elif "youtu.be" in self.enlace:
-            return self.enlace.replace("youtu.be/", "www.youtube.com/embed/")
-        return self.enlace  # En caso de que ya esté en formato embed
+        youtube_id = self.get_youtube_id()  # Obtener solo el ID del video
+        if youtube_id:
+            return f"https://www.youtube.com/embed/{youtube_id}"
+        return self.enlace  # En caso de que no se pueda obtener el ID
 
     def get_youtube_id(self):
         """Extrae el ID del video de YouTube"""
         if "watch?v=" in self.enlace:
-            return self.enlace.split("watch?v=")[1].split("&")[0]
+            return self.enlace.split("watch?v=")[1].split("&")[0]  # Solo el ID, sin parámetros adicionales
         elif "youtu.be" in self.enlace:
-            return self.enlace.split("youtu.be/")[1].split("?")[0]
+            return self.enlace.split("youtu.be/")[1].split("?")[0]  # Solo el ID, sin parámetros adicionales
         return None
 
     def get_thumbnail_url(self):
