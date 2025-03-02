@@ -565,10 +565,40 @@
     }
 
     @media only screen and (max-width: 768px) and (orientation: landscape) {
-        .modal img {
+        /* Ajustar la imagen del modal para que no sobrepase los límites de la pantalla */
+        .modal-container {
             transform: rotate(90deg);
-            max-width: 100%;
+            max-width: 100vh; /* Ajusta el ancho máximo al alto de la pantalla */
+            max-height: 100vw; /* Ajusta el alto máximo al ancho de la pantalla */
+            width: auto;
             height: auto;
+            object-fit: contain; /* Asegura que la imagen se ajuste sin deformarse */
+        }
+    
+        /* Posicionar la barra mobile-nav-bar en el costado izquierdo */
+        .mobile-nav-bar {
+            display: flex;
+            flex-direction: column; /* Coloca los íconos en vertical */
+            justify-content: flex-start; /* Alinea los íconos al inicio */
+            align-items: flex-start; /* Alinea los íconos a la izquierda */
+            top: 0;
+            left: 0;
+            width: auto; /* Ancho automático para que no ocupe mucho espacio */
+            height: 100%; /* Ocupa toda la altura */
+            padding: 10px; /* Espaciado interno */
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+            overflow: hidden; /* Evita que aparezca la barra de desplazamiento */
+        }
+    
+        /* Ajustar los íconos dentro de la barra */
+        .mobile-nav-bar .modal-icons {
+            flex-direction: column; /* Coloca los íconos en vertical */
+            gap: 15px; /* Espacio entre los íconos */
+        }
+    
+        /* Asegurar que no aparezca la barra de desplazamiento */
+        .mobile-nav-bar.visible {
+            overflow: hidden;
         }
     }
 }

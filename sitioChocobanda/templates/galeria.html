@@ -25,7 +25,7 @@
         <button class="tab" data-target="#videos">Videos</button>
         <button class="tab" data-target="#canciones">Canciones</button>
     </div>
-
+    <!-- Fotos -->
     <div class="galeria-content">
         <div class="tab-content active" id="fotos">
             <div class="galeria-grid">
@@ -38,15 +38,16 @@
                 {% endfor %}
             </div>
         </div>
-        
+        <!-- Videos -->
         <div class="tab-content" id="videos">
             <div class="galeria-grid">
-                <div class="galeria-item" data-type="video" data-src="{% static 'img/video1.jpg' %}"></div>
-                <div class="galeria-item" data-type="video" data-src="{% static 'img/video1.jpg' %}"></div>
-                <div class="galeria-item" data-type="video" data-src="{% static 'img/video1.jpg' %}"></div>
-                <div class="galeria-item" data-type="video" data-src="{% static 'img/video1.jpg' %}"></div>
-                <div class="galeria-item" data-type="video" data-src="{% static 'img/video1.jpg' %}"></div>
-                <div class="galeria-item" data-type="video" data-src="{% static 'img/video1.jpg' %}"></div>
+                {% for obra in obras %}
+                    {% for video in obra.videos_obra.all %}
+                        <div class="galeria-item" data-type="video" data-obra="{{ obra.id }}" data-src="{{ video.get_embed_url }}">
+                            <img src="{{ video.get_thumbnail_url }}" alt="{{ video.titulo }}" class="video-thumbnail">
+                        </div>
+                    {% endfor %}
+                {% endfor %}
             </div>
         </div>
 
@@ -85,7 +86,7 @@
                 </div>
             </div>
         
-            <!-- Lista de canciones -->
+            <!-- Canciones -->
             <div class="galeria-grid-canciones">
                 {% for obra in obras %}  <!-- Recorre todas las obras -->
                     {% for cancion in obra.canciones_obra.all %}  <!-- Recorre las canciones de cada obra -->
@@ -185,6 +186,22 @@
                 foto.style.display = "none"; // Ocultar foto
             }
         });
+
+    // Lógica para filtrar videos por obra seleccionada
+    selectObras.addEventListener('change', function() {
+        const selectedObraId = selectObras.value; // Obtén el ID de la obra seleccionada
+        const videosContainer = document.querySelector('#videos .galeria-grid');
+        const videos = videosContainer.querySelectorAll('.galeria-item[data-type="video"]');
+
+        videos.forEach(video => {
+            const obraId = video.getAttribute('data-obra'); // Obtén el ID de la obra del video
+            if (selectedObraId === "" || obraId === selectedObraId) {
+                video.style.display = "block"; // Mostrar video si coincide
+            } else {
+                video.style.display = "none"; // Ocultar video si no coincide
+            }
+        });
+    });
 
         // Detener la reproducción si se cambia de obra
         if (currentAudio) {

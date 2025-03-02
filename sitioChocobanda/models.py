@@ -2,6 +2,7 @@ from django.db import models
 from tinymce.models import HTMLField
 from cropperjs.models import CropperImageField
 from django.core.exceptions import ValidationError
+import re
 
 
 class Multimedia(models.Model):
@@ -89,12 +90,40 @@ class CancionObra(models.Model):
     
 class VideoObra(models.Model):
     titulo = models.CharField(max_length=255)
-    duracion = models.DurationField(null=True, blank=True)  # Opcional si no se conoce la duración
-    enlace = models.URLField(null=False, blank=False)  # Enlace Obligatorio
-    obra = models.ForeignKey(Obra, related_name='videos_obra', on_delete=models.CASCADE)  # Relación con la obra
-    
+    duracion = models.DurationField(null=True, blank=True)
+    enlace = models.URLField()  # URLField en lugar de TextField
+    obra = models.ForeignKey(Obra, related_name='videos_obra', on_delete=models.CASCADE)
+
+    def clean(self):
+        youtube_regex = r'(https?://)?(www\.)?(youtube\.com|youtu\.be)/.+'
+        if not re.match(youtube_regex, self.enlace):
+            raise ValidationError("Debes ingresar un enlace válido de YouTube.")
+
+    def get_embed_url(self):
+        """Convierte el enlace de YouTube en formato embebido"""
+        if "watch?v=" in self.enlace:
+            return self.enlace.replace("watch?v=", "embed/")
+        elif "youtu.be" in self.enlace:
+            return self.enlace.replace("youtu.be/", "www.youtube.com/embed/")
+        return self.enlace  # En caso de que ya esté en formato embed
+
+    def get_youtube_id(self):
+        """Extrae el ID del video de YouTube"""
+        if "watch?v=" in self.enlace:
+            return self.enlace.split("watch?v=")[1].split("&")[0]
+        elif "youtu.be" in self.enlace:
+            return self.enlace.split("youtu.be/")[1].split("?")[0]
+        return None
+
+    def get_thumbnail_url(self):
+        """Genera la URL de la miniatura del video"""
+        youtube_id = self.get_youtube_id()
+        if youtube_id:
+            return f"https://img.youtube.com/vi/{youtube_id}/0.jpg"
+        return None
+
     def __str__(self):
-        return f"Video de {self.obra.titulo}"
+        return f"{self.titulo} - {self.obra.titulo}"
 
 class Evento(models.Model):
     obra = models.ForeignKey(Obra, on_delete=models.CASCADE, related_name='eventos')
