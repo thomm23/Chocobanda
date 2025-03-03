@@ -85,55 +85,30 @@
   </body>
 </html>
 
-{% block seccionSeleccionada %} 
+{% block seccionSeleccionada %}
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-  const links = document.querySelectorAll(".nav-list li a"); // Links del header
-  const footerLinks = document.querySelectorAll("footer a"); // Links del footer
-  const homeLink = document.querySelector(".titulo.desktop");  
-  const backLink = document.querySelector(".icono-volver");  
-  const currentPath = window.location.pathname;
-  const homePath = "{% url 'home' %}"; 
+  // Función para actualizar los botones activos basados en la URL actual
+  function updateActiveLinks() {
+    const links = document.querySelectorAll(".nav-list li a"); // Links del header
+    const footerLinks = document.querySelectorAll("footer a"); // Links del footer
+    const currentPath = window.location.pathname; // Obtiene la ruta actual
 
-  function updateActiveLink(targetHref) {
-    links.forEach(l => l.classList.remove("active"));
-    footerLinks.forEach(l => l.classList.remove("active"));
+    // Remover la clase "active" de todos los enlaces
+    links.forEach(link => link.classList.remove("active"));
+    footerLinks.forEach(link => link.classList.remove("active"));
+
+    // Agregar la clase "active" al enlace que coincide con la ruta actual
     [...links, ...footerLinks].forEach(link => {
-      if (link.href === targetHref) {
+      if (link.pathname === currentPath) {
         link.classList.add("active");
       }
     });
-    localStorage.setItem("selectedSection", targetHref);
   }
 
-  // Quitar la selección en Home
-  if (currentPath === homePath) {
-    links.forEach(l => l.classList.remove("active"));
-    footerLinks.forEach(l => l.classList.remove("active"));
-    localStorage.removeItem("selectedSection");
-  }
+  // Ejecutar la función cuando la página se carga por primera vez
+  document.addEventListener("DOMContentLoaded", updateActiveLinks);
 
-  // Manejo de clics en el header y footer
-  [...links, ...footerLinks].forEach(link => {
-    link.addEventListener("click", (event) => {
-      updateActiveLink(event.currentTarget.href);
-    });
-  });
-
-  // Clic en Home (escritorio o icono volver)
-  [homeLink, backLink].forEach(link => {
-    link.addEventListener("click", () => {
-      links.forEach(l => l.classList.remove("active"));
-      footerLinks.forEach(l => l.classList.remove("active"));
-      localStorage.removeItem("selectedSection");
-    });
-  });
-
-  // Restaurar la selección después de recargar
-  const savedSection = localStorage.getItem("selectedSection");
-  if (savedSection) {
-    updateActiveLink(savedSection);
-  }
-});
+  // Ejecutar la función cuando la página se muestra (incluyendo al navegar hacia atrás)
+  window.addEventListener("pageshow", updateActiveLinks);
 </script>
 {% endblock %}
