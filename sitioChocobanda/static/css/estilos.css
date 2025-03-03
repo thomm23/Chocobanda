@@ -9,6 +9,7 @@
     --color-principal: #3b6021; /* Verde */
     --color-secundario: #8c4a2f; /* Marrón */
     --color-fondo: #f1e7c8; /* Beige */
+    --color-interactivo: #BC570A; /* Naranja */
 }
   html, body {
     margin: 0;
@@ -77,12 +78,12 @@ header{
 
 .nav-list li a{
     text-decoration: none;
-    color: #f1e7c8;
+    color: var(--color-fondo);
 }
 
 .nav-list li a.active {
     background-color: var(--color-fondo); 
-    color: var(--color-principal); 
+    color: var(--color-interactivo);
     padding: 0.2rem;
     border-radius: 10px;
 }
@@ -125,9 +126,8 @@ nav{
 .descripcion p {
     font-size: 22px;
     text-align: center;
-    margin: 2rem 1rem 1.5rem;
-    color: #8c4a2f;
-    font-weight: bold;
+    margin: 1rem 1rem 1.5rem 1rem;
+    color: var(--color-principal);
 }
 .funciones{
     width: 20rem;
@@ -185,13 +185,14 @@ nav{
 }
 
 .home-title {
-    color: #8c4a2f;
+    color: var(--color-principal);
     margin: 1rem;
     align-self: flex-start;
+    margin-bottom: 0;
 }
 
 .novedades-section h1{
-    color: #8c4a2f;
+    color: var(--color-principal);
     margin: 1rem;
 }
 
@@ -200,6 +201,10 @@ nav{
     margin: 1rem;
     text-align: right;
     font-weight: bold;
+}
+
+.swiper-slide{
+    padding: 30px;
 }
 
 .redes a {
@@ -222,6 +227,10 @@ nav{
     background-color: var(--color-fondo);
 }
 
+.no-eventos {
+    color: var(--color-principal);
+}
+
 .agenda-section {
     display: flex;
     flex-direction: row;
@@ -238,17 +247,22 @@ nav{
     text-align: center;
     max-width: 100%;
 }
+
+
 .material-symbols-outlined { 
     margin-right: 4px; 
 }
+
 .lugar-funcion{
     width: 100%;
     display: flex;
     align-items: center;
 }
+
 .home-td-fecha{
     margin-bottom: 1rem;
 }
+
 .funciones .home-td-content{
     color: var(--color-principal);
 }
@@ -266,7 +280,7 @@ nav{
         padding: 2rem;
         padding-top: 1rem; /* Cambia el valor según lo que necesites */
         padding-bottom: 1rem; /* Cambia el valor según lo que necesites */
-        background-color: #4C6A2A;
+        background-color: var(--color-principal);
         position: fixed;
         width: 100%;
         top: 0;
@@ -397,9 +411,8 @@ nav{
     .descripcion p {
         font-size: 22px;
         text-align: center;
-        margin: 2rem 1rem 1.5rem;
-        color: #8c4a2f;
-        font-weight: bold;
+        margin: 0.5rem 1rem 1.5rem 1rem;
+        color: var(--color-principal);
     }
     
     .tabla-agenda-section {
@@ -411,7 +424,7 @@ nav{
         padding: 0.5rem;
     }
     .funciones h2 {
-        color: #8c4a2f;
+        color: var(--color-principal);
         display: flex;
         flex-direction: column;
         margin-right: 1rem;
@@ -446,7 +459,15 @@ nav{
     .home-funciones-wrapper {
         flex-direction: column;
         width: 100%; 
+        color: var(--color-principal);
     }
+
+    .no-eventos {
+        margin-left: 15px;
+        margin-right: 15px;
+        color: var(--color-principal);
+    }
+
     .proxima-funcion , .funciones{
         width: 100%;
         height: 10rem;
@@ -474,6 +495,10 @@ nav{
         width: 100%;
     }
 
+    .home-title {
+        margin-bottom: 0;
+    }
+
     .agenda-section {
         display: flex;
         flex-direction: column;
@@ -482,13 +507,13 @@ nav{
     }
 
     .agenda-section h1 {
-        color: #8c4a2f;
+        color: var(--color-principal);
         margin: 1rem;
         align-self: flex-start;
     }
 
     .novedades-section h1{
-        color: #8c4a2f;
+        color: var(--color-principal);
         margin: 1rem;
     }
     .home-td-content{
@@ -551,7 +576,7 @@ nav{
 
 /* Novedades-Carrousel-home.html */
 .title-novedades{
-    color: #8c4a2f;
+    color: var(--color-principal);
     margin: 1rem 0 1rem 1rem;
 
 }
@@ -563,7 +588,7 @@ nav{
     margin-right: 1rem;
 }
 .home-redirrecion a:visited{
-    color: #4c6a2a;
+    color: var(--color-interactivo);
 }
 .container-novedades{
     display: flex;
@@ -586,8 +611,8 @@ nav{
 .card-list .card-item .card-link{
     user-select: none;
     display: block;
-    background: #8c4a2f;
-    color: #f1e7c8;
+    background: var(--color-principal);
+    color: var(--color-fondo);
     text-decoration: none;
     box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
     transition: 0.2 ease;
@@ -599,7 +624,7 @@ nav{
     padding-bottom: 10px;
 }
 .card-list .card-item .card-link:hover{
-    border-color: blue;
+    border-color: black;
 }
 .card-list .card-link .card-img{
     width: 100%;
@@ -637,8 +662,8 @@ nav{
 
 .card-link {
     display: block;
-    background: #8c4a2f;
-    color: #f1e7c8;
+    background: var(--color-principal);
+    color: var(--color-fondo);
     text-decoration: none;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
     transition: 0.2s ease;
@@ -669,7 +694,7 @@ nav{
 
 .card-description {
     font-size: 1rem;
-    color: #d2b48c;
+    color: var(--color-fondo);
 }
 
 .swiper-pagination-bullet {
@@ -678,6 +703,6 @@ nav{
 }
 
 .swiper-pagination-bullet-active {
-    background: #8c4a2f;
+    background: var(--color-principal);
     opacity: 1;
 }
