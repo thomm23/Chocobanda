@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Integrante, Personaje, Obra, GaleriaObra, Evento, Noticia, Institucion, Multimedia, Galeria, AjustesPagina, ProgramaObra, CancionObra, VideoObra
+from .models import Integrante, Personaje, Obra, GaleriaObra, Evento, Noticia, Institucion, Multimedia, AjustesPagina, ProgramaObra, CancionObra, VideoObra
 
 #Estetica basica del ADMIN
 
@@ -16,7 +16,6 @@ admin.site.register(Evento)
 admin.site.register(Noticia)
 admin.site.register(Institucion)
 admin.site.register(Multimedia)
-admin.site.register(Galeria)
 admin.site.register(AjustesPagina)
 
 # Clase para el Inline de GaleriaObra
