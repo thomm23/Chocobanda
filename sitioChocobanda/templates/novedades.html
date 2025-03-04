@@ -7,36 +7,9 @@
  
 
 <section class="agenda-section">
-   
-    {% comment %} El siguiente contenido es solo para desktop {% endcomment %}
-    {% comment %} <div class="noticia-desk-section">
-         <div class="noticia-desk-item"> 
-            <div class="noticia-desk-text"> 
-                <span>00 del mes de 2024</span> 
-                <h2>Título de noticia</h2> 
-                <p class = "noticia-desk-description">Breve descripción de la noticia no más de dos líneas. Lorem ipsum dolor sit amet consectetur.</p> 
-                <p class="noticia-desk-detail">{% lorem 2 b random %}</p> 
-            </div> 
-            <div class="noticia-desk-image card-img"> 
-                <img src="{% static 'img/foto-principal.jpg'%}" alt="Imagen de noticia"> 
-            </div> 
-        </div> 
-        <div class="noticia-desk-item"> 
-            <div class="noticia-desk-text"> 
-                <span>00 del mes de 2024</span> 
-                <h2>Título de novedad</h2> 
-                <p>Breve descripción de la novedad no más de dos líneas...</p> 
-                <p class="noticia-desk-detail">{% lorem 2 b random %}</p> 
-            </div> 
-            <div class="noticia-desk-image"> 
-                <img src="{% static 'img/foto-principal.jpg'%}" alt="Imagen de novedad"> 
-            </div> 
-        </div> 
-    </div> {% endcomment %}
 
     {% if noticias%}
     {% for noticia in noticias%}
-    {% comment %} Este es para desktop {% endcomment %}
     <div class="noticia-desk-section">
        <a href="{% url 'novedad' noticia.id_noticia %}" class="noticia-desk-link">
             <div class="noticia-desk-item">

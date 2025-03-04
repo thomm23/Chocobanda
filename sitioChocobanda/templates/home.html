@@ -84,7 +84,7 @@
         {% if noticias %}
             {% for noticia in noticias %}
             <div class="swiper-slide">
-                <a href="#" class="card-link">
+                <a href="{% url 'novedad' noticia.id_noticia %}" class="card-link">
                     {% if noticia.foto %}
                         <img src="{{ noticia.foto.url }}" alt="Foto principal de la pagina">
                     {% else %}
