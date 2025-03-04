@@ -55,10 +55,10 @@
 .small-image {
     display: flex;
     position: absolute;
-    bottom: 30%;
+    bottom: 35%;
     right: 7px;
-    width: 125px;
-    height: 125px;
+    width: 105px;
+    height: 105px;
     border-radius: 50%;
     box-shadow: 8px 8px 24px 0px #3911003D;
     overflow: hidden;
@@ -81,6 +81,7 @@
     width: 100%;
     margin-left: 15px;
     margin-right: 15px;
+    
 }
 
 .card-item2 {
@@ -88,16 +89,16 @@
     border: 3px solid var(--color-interactivo); /* Borde gris claro */
     border-radius: 10px;    /* Bordes redondeados */
     padding: 15px;          /* Espaciado interno */
-    height: 300px;
-    width: 300px;
-    max-height: 300px;
-    max-width: 300px;
+    height: 235px;
+    width: 235px;
+    max-height: 235px;
+    max-width: 235px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto hover suave */
 }
 
 .card-text2 {
-    margin-top: 50px; /* Empuja el texto hacia abajo */
+    margin-top: 28px; /* Empuja el texto hacia abajo */
 }
 
 .card-title, .card-description {
@@ -217,7 +218,7 @@
 @media screen and (max-width: 768px) {
 
     .nosotros-section{
-        margin-top: 85px;
+        margin-top: 75px;
     }
 
     .nosotros-chocobanda{
@@ -252,29 +253,46 @@
     }
 
     .card-item2 {
-        border: none;
         background-color: #3b6021;
+        border: none;
     }
 
     .card-title, .card-description {
         color: var(--color-fondo)
     }
 
-   .obras {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 15px;
-    border-radius: 30px 0px 0 30px; /* Borde redondeado solo en la esquina izquierda */
-    border-top: 2px solid var(--color-interactivo); /* Borde superior */
-    border-left: 2px solid var(--color-interactivo); /* Borde izquierdo */
-    border-bottom: 2px solid var(--color-interactivo); /* Borde inferior */
-    border-right: none; /* Sin borde derecho */
+    .obras {
+        display: flex; /* Usa Flexbox para alinear los elementos */
+        align-items: stretch; /* Asegura que los elementos ocupen toda la altura */
+        width: auto; /* El ancho se ajustará automáticamente al contenido */
+        margin-top: 15px;
+        border-radius: 30px 0 0 30px; /* Borde redondeado solo en la esquina izquierda */
+        border-top: 2px solid var(--color-interactivo); /* Borde superior */
+        border-left: 2px solid var(--color-interactivo); /* Borde izquierdo */
+        border-bottom: 2px solid var(--color-interactivo); /* Borde inferior */
+        border-right: none; /* Sin borde derecho */
+        overflow: hidden; /* Evita que el contenido sobresalga del contenedor */
+        height: auto; /* La altura se ajusta automáticamente al contenido */
     }
-
-    .obras-info{
-        margin: 5px;
+    
+    .obras-img {
+        width: 180px; /* Ancho fijo de la imagen */
+        height: 120px; /* Alto fijo de la imagen */
+        object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
+        border-radius: 30px 0 0 0; /* Redondea solo la esquina superior izquierda */
+        margin: 0; /* Elimina cualquier margen interno */
+        display: block; /* Asegura que la imagen sea tratada como un bloque */
+        flex-shrink: 0; /* Evita que la imagen se reduzca */
+    }
+    
+    .obras-info {
+        margin: 0; /* Elimina márgenes internos */
+        padding: 10px; /* Agrega un poco de espacio entre la imagen y el texto */
+        display: flex; /* Usa Flexbox para organizar el contenido */
+        flex-direction: column; /* Coloca los elementos en columna */
+        justify-content: center; /* Centra verticalmente el contenido */
+        background-color: transparent; /* Asegúrate de que el fondo no interfiera */
+        height: 100%; /* Asegura que el texto ocupe toda la altura disponible */
     }
 
     .obras-info-desc{
@@ -293,4 +311,5 @@
     .nosotros-integrantes-redireccion{
         margin-right: 15px;
     }
+
 }

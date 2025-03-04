@@ -98,21 +98,24 @@
 }
 
 .galeria-header {
-    display: flex;
-    gap: 10px; /* Reemplazado vh por px */
-    justify-content: space-around;
-    margin-bottom: 0;
+    display: flex; /* Usamos Flexbox */
+    /* width: 100%; */
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 0; /* Elimina paddings internos */
 }
 
 .tab {
-    background-color: #f1e7c8;
-    color: #8c4a2f;
-    font-size: 1rem; /* Reemplazado vh por rem */
-    border: none;
-    padding: 10px 20px; /* Reemplazado vh por px */
-    border-radius: 5px 5px 0 0; /* Reemplazado vh por px */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    flex-grow: 1; /* Hace que cada pestaña crezca para ocupar el mismo espacio */
+    text-align: center; /* Centra el texto dentro de cada pestaña */
+    background-color: #f1e7c8; /* Color de fondo */
+    color: var(--color-principal); /* Color del texto */
+    font-size: 1rem; /* Tamaño de fuente */
+    border: none; /* Sin bordes adicionales */
+    padding: 10px 0; /* Padding vertical (sin horizontal) */
+    cursor: pointer; /* Cursor de puntero */
+    transition: background-color 0.3s ease; /* Transición suave */
+    border-radius: 5px 5px 0 0; /* Bordes redondeados solo arriba */
 }
 
 .tab:hover {
@@ -120,9 +123,10 @@
 }
 
 .tab.active {
-    background-color: #3b6021;
-    color: #f1e7c8;
-    text-decoration: underline;
+    text-decoration: underline; /* Subrayado para el tab activo */
+    color: var(--color-fondo); /* Cambia el color del texto */
+    background-color: var(--color-principal); /* Cambia el color de fondo */
+    border-radius: 16px 16px 0 0; /* Ajusta los bordes redondeados */
 }
 
 .galeria-grid {

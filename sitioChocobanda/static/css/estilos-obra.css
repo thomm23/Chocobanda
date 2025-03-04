@@ -2,153 +2,167 @@
     --color-principal: #3b6021; /* Verde */
     --color-secundario: #8c4a2f; /* Marrón */
     --color-fondo: #f1e7c8; /* Beige */
-    --color-terciario: #E87722; /* naranja */
+    --color-terciario: #E87722; /* Naranja */
 }
 
+
+/* Estilos para pantallas pequeñas (Mobile) */
 @media (max-width: 768px) {
-    
-    
-    
     /* Contenedor de la imagen y el detalle */
-
-
-
-    .obra-container{
+    .obra-container {
         display: flex;
         flex-direction: column; /* Elementos en columna */
-        gap: 2vh;
+        gap: 10px; 
         align-items: center;
-        /* border: 0.3vh solid black; */
-
     }
 
-   
-    /* Imagen principal - PRIMERO */
+    /* Imagen principal */
     .imagen-principal {
         order: 1; /* Imagen en primer lugar */
-        width: 100vw; /* Ancho completo de la pantalla */
+        width: 100%; /* Ancho completo de la pantalla */
         max-width: 100%; /* Evita que la imagen sobrepase su contenedor */
-        justify-content: center;
-        /* border: 0.3vh solid black; */
-        display: flex; /* Para centrar el contenido */
+        display: flex;
+        justify-content: center; /* Centrar la imagen */
     }
-    
+
     .imagen-principal img {
         width: 100%; /* Ocupar el ancho completo del contenedor */
         max-width: 100%; /* Asegura que no se desborde */
         height: auto; /* Mantiene la proporción */
-        border-radius: 3vh;
+        border-radius: 15px;
         object-fit: cover;
-        box-shadow: 0 0.5vh 3vh rgba(0, 0, 0, 0.5); /* Sombra en la parte inferior */
+        box-shadow: 0 2.5px 15px rgba(0, 0, 0, 0.5); /* 0.5vh ≈ 2.5px, 3vh ≈ 15px */
     }
 
-    /* Título de la obra - SEGUNDO */
+    /* Título de la obra */
     .nombre-obra {
         order: 2; /* Título en segundo lugar */
-        font-size: 3.5vh;
+        font-size: 18px; 
         text-align: left;
         color: var(--color-principal);
         width: 100%;
-        padding: 2vh 3vh 2vh 3vh;
-        /* border: 0.3vh solid black; */
+        padding: 10px 15px; 
+        margin: 0; /* Eliminar márgenes por defecto */
     }
 
-    /* Descripción de la obra - TERCERO */
+    /* Descripción de la obra */
     .descripcion {
-        order: 3; /* Detalle en tercer lugar */
+        order: 3; /* Descripción en tercer lugar */
         width: 100%;
         text-align: left;
-        padding: 0vh 3vh 3vh 3vh;
-        /* border: 0.3vh solid black; */
+        padding: 0 15px 15px 15px; 
         color: var(--color-principal);
+        margin: 0; /* Eliminar márgenes por defecto */
     }
 
+    /* Título del programa */
     .titulo-programa {
+        order: 4; /* Título del programa en cuarto lugar */
+        width: 100%;
         color: var(--color-principal);
-        font-size: 3.5vh;
+        font-size: 18px;
         text-align: left;
-        padding: 2vh 3vh 2vh 3vh;
+        padding: 15px 15px 10px 15px; /* Ajuste de padding */
+        margin: 0; /* Eliminar márgenes por defecto */
     }
 
-    .programa {
+    /* Contenido del programa */
+    .contenedor-programa {
+        order: 5; /* Contenido del programa en quinto lugar */
+        width: 100%;
         color: var(--color-principal);
-        padding: 0vh 3vh 3vh 3vh;
-    
+        text-align: left;
+        padding: 0 15px 15px 15px; /* Ajuste de padding */
+        margin: 0; /* Eliminar márgenes por defecto */
     }
- 
+
+    .programa, .cont-programa {
+        width: 100%;
+        text-align: left;
+        margin: 0; /* Eliminar márgenes por defecto */
+    }
 }
+
 
 
 /* Estilos para pantallas grandes (Desktop) */
 @media (min-width: 769px) {
-
-    
-
-    .seccion-obra    {
+    /* Sección principal */
+    .seccion-obra {
+        margin-left: 30px;
+        margin-right: 30px;
         font-family: 'Arial', sans-serif;
         color: var(--color-principal);
         box-sizing: border-box;
-        /* border: 0.3vh solid black; */
     }
-    
-    
-    /* Nombre de la obra en la primera fila ocupando todo el ancho */
-    .nombre-obra,.titulo-programa {
+
+    /* Nombre de la obra */
+    .nombre-obra, .titulo-programa {
         text-align: left;
-        margin-top: 2vh;
+        margin-top: 10px; 
         color: var(--color-principal);
         width: 100%;
-        /* border: 0.3vh solid black; */
     }
 
-    /* Contenedor principal con flex en columna */
-    .seccion-obra,.obra-container {
+    /* Contenedor principal con flex */
+    .seccion-obra, .obra-container {
+        align-items: flex-start;
+        justify-content: center;
         display: flex;
-        flex-direction: row; /* Los elementos estarán en columna */
+        flex-direction: row;
         flex-flow: row wrap;
-        gap: 1vh;
-        align-items: flex-start; /* Los elementos estarán fijados a la parte superior */
+        gap: 5px; 
     }
 
-    .obra-container,.programa-container {
-        /* border: 0.3vh solid black; */
-        padding: 2vh;
+    /* Contenedor de la obra */
+    .obra-container {
+        padding: 10px; /* 2vh ≈ 10px */
         box-sizing: border-box;
     }
 
+    /* Descripción de la obra */
     .descripcion {
-        width: calc(50% - 1vh); /* Restamos la mitad del gap */
+        width: calc(50% - 5px); 
         text-align: left;
         box-sizing: border-box;
-        /* border: 0.3vh solid black; */
     }
 
+    /* Imagen principal */
     .imagen-principal {
-        width: calc(50% - 1vh); /* Restamos la mitad del gap */
+        width: calc(50% - 5px); 
         display: flex;
         justify-content: center;
         align-items: center;
         box-sizing: border-box;
-        /* border: 0.3vh solid black; */
     }
 
     .imagen-principal img {
         max-width: 100%;
         height: auto;
-        border-radius: 3vh;
-        
+        border-radius: 15px; 
     }
 
+    /* Título del programa */
     .titulo-programa {
         color: var(--color-principal);
         text-align: left;
-        
+        width: 100%; /* Asegurar que ocupe el ancho completo */
     }
 
-    .programa {
-        color: var(--color-principal);
-        margin-top: 1.5vh;
-    
+    /* Contenedor del programa */
+    .contenedor-programa {
+        width: 100%; /* Ocupar el ancho completo */
+        text-align: left; /* Alineación forzada */
+        margin: 0;
+        padding: 0;
+        display: block; /* Evitar que flex interfiera */
+    }
+
+    /* Contenido del programa */
+    .programa, .cont-programa {
+        width: 100%;
+        text-align: left; 
+        margin: 0;
+        padding: 0;
     }
 }
-

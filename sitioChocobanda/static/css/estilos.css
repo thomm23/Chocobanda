@@ -60,6 +60,8 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background-color: var(--color-principal);
 }
 
@@ -284,9 +286,9 @@ nav{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 2rem;
-        padding-top: 1rem; /* Cambia el valor según lo que necesites */
-        padding-bottom: 1rem; /* Cambia el valor según lo que necesites */
+        padding: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
         background-color: var(--color-principal);
         position: fixed;
         width: 100%;
@@ -324,7 +326,7 @@ nav{
         cursor: pointer;
     }
     .cerrar-menu{
-        margin-right: 2rem;
+        margin-right: 1rem;
     }
 
     .nav{
@@ -346,7 +348,8 @@ nav{
     }
 
     .nav ul li a{
-        font-size: 3rem;
+        padding-right: 1rem;
+        font-size: 2rem;
         font-weight: bold;
         transition: color 0.3s ease;
     }

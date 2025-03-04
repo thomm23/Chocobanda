@@ -7,8 +7,6 @@
 {% block nombre_seccion %} Detalle Obras {% endblock %}
 {% block content %} 
 
-
-
 <section class="seccion-obra">
     <div class="obra-container">
         <h2 class="nombre-obra">{{ obra.titulo }}</h2>
@@ -21,23 +19,19 @@
                 <p>Imagen no disponible</p>
             {% endif %}
         </div>
-    </div>
-</section>
-<section class="seccion-programa">
-    <div class="programa-container">
         <h2 class="titulo-programa">Programa</h2>
-        <div class="programa">
-            {% if obra.programa_obra %}
-                <p>{{ obra.programa_obra.programa|safe }}</p>
+        <div class="contenedor-programa">
+            <div class="programa">
+                {% if obra.programa_obra %}
+                <p class="cont-programa">{{ obra.programa_obra.programa|safe }}</p>
             {% else %}
-                 <p>No hay programa disponible para esta obra.</p>
+                 <p class="cont-programa">No hay programa disponible para esta obra.</p>
             {% endif %}
-        </div>
-        
-        
+            </div>
+            
         </div>
     </div>
-
 </section>
+
 
 {% endblock %}
