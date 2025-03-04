@@ -37,23 +37,18 @@
     background-color: var(--color-fondo);
     color:  var(--color-principal);
 }
+
 .card-integrante2{
     color:var(--color-principal);
 }
+
 .card-description{
     color:var(--color-principal);
-}
-.big-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    position: relative;
-    display: block;
 }
 
 .big-image {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;;
     position: relative;
 }
 
@@ -106,7 +101,7 @@
 }
 
 .card-title, .card-description {
-    margin-left: 6px;
+    margin-left: 8px;
 }
 
 .swiper-slide {
@@ -254,6 +249,15 @@
         width: 100%; /* Ocupa todo el ancho disponible */
         margin: 0; /* Centra el contenedor si es necesario */
         padding: 0 15px; /* Agrega un poco de espacio a los lados */
+    }
+
+    .card-item2 {
+        border: none;
+        background-color: #3b6021;
+    }
+
+    .card-title, .card-description {
+        color: var(--color-fondo)
     }
 
    .obras {
