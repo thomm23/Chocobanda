@@ -10,7 +10,7 @@
 
 {% block content %}
         <section class="nosotros-section">
-            <h2 class="nosotros-titulo">La historia de la</h2>
+            <h2 class="nosotros-titulo">La historia de</h2>
             <h1 class="nosotros-chocobanda">Chocobanda</h1>
             <p class="nosotros-descripcion"> {% if ajustes %}
                 {{ ajustes.historia_chocobanda|slice:":400" }}
@@ -99,6 +99,8 @@
         // Optional parameters
         loop: true,
         spaceBetween: 30,
+        centeredSlides: true,
+        slidesPerView: 'auto', //Si habilito lo de abajo esto lo vuelo
 
         // If we need pagination
         pagination: {
@@ -112,17 +114,17 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
         },
-        breakpoints : {
-            0: {
-                slidesPerView: 1
-            },
-            768: {
-                slidesPerView: 2
-            },
-            1024: {
-                slidesPerView: 3
-            }
-        }
+        // breakpoints : {
+        //     0: {
+        //         slidesPerView: 1
+        //     },
+        //     768: {
+        //         slidesPerView: 2
+        //     },
+        //     1024: {
+        //         slidesPerView: 'auto'
+        //     }
+        // }
   });
 </script>
 

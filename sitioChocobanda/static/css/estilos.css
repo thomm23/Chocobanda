@@ -19,7 +19,7 @@
     height: 100%;
     overflow-x: hidden;
     font-family: 'Montserrat', serif;
-    background-color: #f1e7c8;
+    background-color: var(--color-fondo);
     display: flex;
     flex-direction: column;
 }
@@ -29,15 +29,15 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1e7c8;
+    background: var(--color-fondo);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #8c4a2f;
+    background-color: var(--color-principal);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #e69151;
+    background-color: var(--color-interactivo);
 }
 
 * {
@@ -94,7 +94,7 @@ header{
 }
 
 footer {
-    color: #f1e7c8;
+    color: var(--color-fondo);
     padding: 15px;
     background-color: var(--color-principal);
     border-radius: 5px 5px 0 0;
@@ -102,7 +102,7 @@ footer {
     width: 100%;
 }
 footer a{
-    color: #f1e7c8;
+    color: var(--color-fondo);
 }
 ul li{
     list-style: none;
@@ -126,7 +126,7 @@ nav{
 .descripcion p {
     font-size: 22px;
     text-align: center;
-    margin: 1rem 1rem 1.5rem 1rem;
+    margin: 0.5rem 1rem 1.5rem 1rem;
     color: var(--color-principal);
 }
 .funciones{
@@ -144,7 +144,7 @@ nav{
     align-items: center;
     justify-content: center;
     margin: 1rem;
-    background-color: #f1e7c8;
+    background-color: var(--color-fondo);
     border: 2px solid var(--color-secundario);
 }
 
@@ -271,6 +271,13 @@ nav{
 
     ::-webkit-scrollbar {
         display: none;
+    }
+
+    .nav-list li a.active {
+        background-color: var(--color-fondo); 
+        color: var(--color-principal);
+        padding: 0.2rem;
+        border-radius: 10px;
     }
 
     header {

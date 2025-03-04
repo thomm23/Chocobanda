@@ -41,7 +41,7 @@ class Personaje(models.Model):
         on_delete=models.CASCADE,
         related_name="personajes"
     )
-    foto = CropperImageField(upload_to='personajes/', null=True, blank=True, aspectratio=1,dimensions=(300, 200))
+    foto = CropperImageField(upload_to='personajes/', null=True, blank=True, aspectratio=16/9,dimensions=(1280, 720))
         
     def __str__(self):
         return self.nombre
@@ -50,7 +50,7 @@ class Personaje(models.Model):
 class Obra(models.Model):
     titulo = models.CharField(max_length=255)
     descripcion = models.TextField()
-    foto = CropperImageField(upload_to='obras/', null=True, blank=True, aspectratio=1,dimensions=(900, 600))
+    foto = CropperImageField(upload_to='obras/', null=True, blank=True, aspectratio=16/9,dimensions=(1280, 720))
     
     def __str__(self):
         return self.titulo

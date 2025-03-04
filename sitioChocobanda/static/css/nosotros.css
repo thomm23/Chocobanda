@@ -2,33 +2,32 @@
     --color-principal: #3b6021; /* Verde */
     --color-secundario: #8c4a2f; /* Marrón */
     --color-fondo: #f1e7c8; /* Beige */
-    --color-terciario: #E87722; /* naranja */
+    --color-interactivo: #E87722; /* naranja */
 }
 
 .nosotros-titulo{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--color-secundario);
-
+    color: var(--color-principal);
 }
 .nosotros-chocobanda{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--color-secundario);
+    color: var(--color-principal);
     font-family: Jokerman;
-    font-size: 10vh;
+    font-size: 70px;
 }
 
 .nosotros-descripcion{
     display: flex;
     align-items: center;
     justify-content: justify;
-    margin: 50vh;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    color: var(--color-secundario);
+    margin: 150px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    color: var(--color-principal);
 }
 
 .container-integrantes2{
@@ -58,20 +57,18 @@
     position: relative;
 }
 
-.small-image { 
+.small-image {
     display: flex;
     position: absolute;
-    bottom: 15%;
-    right: 1vh;
-    width: 20vh;
-    height: 20vh;
+    bottom: 30%;
+    right: 7px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
-    border: var(--color-fondo) 2px solid;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 8px 8px 24px 0px #3911003D;
     overflow: hidden;
     color: var(--color-principal);
     z-index: 10;
- 
  }
 
 .card-item {
@@ -80,25 +77,66 @@
     color: var(--color-principal);
 }
 
+.card-wrapper {
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    height: 100%;
+    min-width: 300px;
+    width: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
 
+.card-item2 {
+    display: flex;
+    border: 3px solid var(--color-interactivo); /* Borde gris claro */
+    border-radius: 10px;    /* Bordes redondeados */
+    padding: 15px;          /* Espaciado interno */
+    height: 300px;
+    width: 300px;
+    max-height: 300px;
+    max-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto hover suave */
+}
+
+.card-text2 {
+    margin-top: 50px; /* Empuja el texto hacia abajo */
+}
+
+.card-title, .card-description {
+    margin-left: 6px;
+}
+
+.swiper-slide {
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin-top: 0;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
 
 .nosotros-section h1{
     text-align: center;
-    margin-bottom: 2vh;
+    margin-bottom: 15px;
 }
+
 .nosotros-section
 {
     display: flex;
     flex-direction: column;
     text-align: justify;
-    margin: 2vh;
-    margin-top: 7vh;
+    margin: 15px;
+    margin-top: 20px;
     color: var(--color-principal);
 }
 
 .integrantes-section h1{
     background-color:#f1e7c8;
-    margin:  2vh;
+    margin:  15px;
     color: var(--color-principal);
 }
 
@@ -124,13 +162,13 @@
     flex-grow: 1;
     color: var(--color-principal);
     text-align: justify;
-    margin-right: 1rem; 
+    margin-right: 1rem;
     padding-right: 1rem;
 }
 
 .obras-info-title{
-    font-size: 16px;
-    color: var(--color-terciario);
+    font-size: 18px;
+    color: var(--color-principal);
     margin-bottom: 0.5rem;
 }
 
@@ -139,8 +177,16 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 14px;
-    margin-right: -5vh;
+    margin-left: 15px;
+}
+
+
+.agenda-section a {
+    display: block; /* Convierte el <a> en un bloque */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto */
+    margin-right: 0;
 }
 
 .obras-img {
@@ -148,30 +194,44 @@
     height: 200px;
     object-fit: cover;
     flex-shrink: 0;
+    border-radius: 5%;
 }
 
 .nosotros-redireccion{
     display: flex;
     justify-content: end;
     font-weight: 800;
+    text-decoration: none;
     color: var(--color-principal);
-    font-size: 17px;
-    margin-top: 1vh;
+    font-size: 18px;
+    margin-top: 7px;
     font-weight: 500;
 }
+
+.nosotros-redireccion a {
+    text-decoration: none;
+    color: var(--color-interactivo);
+    font-weight: bold;
+
+}
+
 .nosotros-integrantes-redireccion{
-    margin-right: 2vh;
+    margin-right: 15px;
 }
 
 @media screen and (max-width: 768px) {
-   
+
+    .nosotros-section{
+        margin-top: 85px;
+    }
+
     .nosotros-chocobanda{
-        font-size:  8vh;
+        font-size:  56px;
     }
     .nosotros-descripcion {
-        margin: 1vh 2vh; /* Reduce los márgenes en la versión móvil */
-        font-size: 14px; /* Ajusta el tamaño de la fuente si es necesario */
-        text-align: left; /* Ajusta la alineación del texto */
+        margin: 7px 15px;
+        font-size: 14px;
+        text-align: left;
     }
     .nosotros-redireccion{
         display: flex;
@@ -179,23 +239,40 @@
         font-weight: 800;
         color: var(--color-principal);
         font-size: 17px;
-        margin-top: 1vh;
+        margin-top: 7px;
         font-weight: 500;
     }
 
-    .obras {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 1rem;
-        overflow: hidden;
-        margin-top: 2vh;
-        border-radius: 30px 0px 0 30px;
-        border: 2px solid var(--color-secundario);
+    .agenda-section a {
+        display: block; /* Convierte el <a> en un bloque */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        text-decoration: none; /* Elimina el subrayado del enlace */
+        color: inherit; /* Hereda el color del texto */
     }
+
+    .agenda-section {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin: 0; /* Centra el contenedor si es necesario */
+        padding: 0 15px; /* Agrega un poco de espacio a los lados */
+    }
+
+   .obras {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 30px 0px 0 30px; /* Borde redondeado solo en la esquina izquierda */
+    border-top: 2px solid var(--color-interactivo); /* Borde superior */
+    border-left: 2px solid var(--color-interactivo); /* Borde izquierdo */
+    border-bottom: 2px solid var(--color-interactivo); /* Borde inferior */
+    border-right: none; /* Sin borde derecho */
+    }
+
     .obras-info{
         margin: 5px;
     }
+
     .obras-info-desc{
         font-size: 14px;
         padding-right: 10px;
@@ -210,6 +287,6 @@
     }
 
     .nosotros-integrantes-redireccion{
-        margin-right: 2vh;
+        margin-right: 15px;
     }
 }
