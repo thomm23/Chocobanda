@@ -20,7 +20,7 @@
     <div class="home-funciones-wrapper">
         {% if eventos %}
         <div class="funciones proxima-funcion">
-            <table class="tabla-agenda-section">
+            {% comment %} <table class="tabla-agenda-section">
                 <tr>
                     <td class="home-td-fecha">
                         <h2 class="dia-funcion">{{ eventos.0.fecha|date:"d" }}</h2>
@@ -38,10 +38,25 @@
                         </h3>
                     </td>
                 </tr>
-            </table>
-        </div>
+            </table> {% endcomment %}
+            <div class="home-td-fecha">
+                <h2 class="dia-funcion">{{ eventos.0.fecha|date:"d" }}</h2>
+                <h2 class="mes-funcion">{{ eventos.0.fecha|date:"F" }}</h2>
+                <h3 class="nombre-funcion">{{ eventos.0.obra.titulo }}</h3>
+            </div>
+            
+            <div class="home-td-content">
+                <h3 class="hora-funcion">
+                    <p class="material-symbols-outlined">schedule</p>
+                    {{ eventos.0.hora|time:"H:i" }}
+                </h3>
+                <h3 class="lugar-funcion">
+                    <p class="material-symbols-outlined">location_on</p>
+                    {{ eventos.0.lugar }}
+                </h3>
+            </div> 
         {% else %}
-        <p class="no-eventos">No hay próximos eventos.</p>
+        <p>No hay próximos eventos.</p>
         {% endif %}
     </div>
 
@@ -58,7 +73,7 @@
                     <td class="home-td-content">
                         <h3 class="nombre-funcion">{{ evento.obra.titulo }}</h3>
                         <h3 class="hora-funcion">
-                            <p class="material-symbols-outlined">schedule</p>
+                            <p class="material-symbols-outlined">schedule</p>   
                             {{ evento.hora|time:"H:i" }}
                         </h3>
                         <h3 class="lugar-funcion">
