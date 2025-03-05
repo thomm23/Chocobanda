@@ -266,7 +266,10 @@ nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+}
+.home-td-title{
+    margin-bottom: 0.5rem;
 }
 .nombre-funcion{
     margin-top: 0.5rem;
@@ -513,7 +516,7 @@ nav{
     .funciones {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         margin: 1rem;
         padding-right: 15%;
         flex-direction: row;
@@ -522,6 +525,7 @@ nav{
 
     .funciones h3 {
         width: 100%;
+        text-align: start;
     }
 
     .home-title {
@@ -549,7 +553,9 @@ nav{
         align-content: center ;
     }
     .home-td-content .nombre-funcion{
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 700;
        
     }
     .icon-contenedor { 
@@ -596,10 +602,6 @@ nav{
         border-spacing: 0;
         border: 0px;
     }
-    .home-td-fecha{
-        margin-top: 1rem;
-    }
-
 
 }
 
