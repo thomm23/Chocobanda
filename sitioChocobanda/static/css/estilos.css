@@ -52,7 +52,7 @@ main {
 
 .titulo{
     font-family: 'Jokerman', serif;
-    color: #f1e7c8;
+    color: var(--color-fondo);
 }
 
 header{

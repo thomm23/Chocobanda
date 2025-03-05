@@ -11,11 +11,6 @@ class Multimedia(models.Model):
     evento = models.CharField(max_length=255, null=True, blank=True)
     etiquetas = models.TextField(null=True, blank=True)  # JSON or comma-separated
     archivo = models.FileField(upload_to='multimedia/')
-
-class Galeria(models.Model):
-    fotos = models.ManyToManyField(Multimedia, related_name='galerias_fotos', blank=True)
-    canciones = models.TextField(null=True, blank=True)  # Comma-separated links
-    videos = models.ManyToManyField(Multimedia, related_name='galerias_videos', blank=True)
     
 class Integrante(models.Model):
     ESTADO_CHOICES = [
@@ -140,7 +135,7 @@ class Noticia(models.Model):
     titulo = models.CharField(max_length=255)
     fecha = models.DateField()
     cuerpo = models.TextField()
-    foto = CropperImageField(upload_to='novedades/', null=True, blank=True, aspectratio=1,dimensions=(600, 400))
+    foto = CropperImageField(upload_to='novedades/', null=True, blank=True, aspectratio=16/9,dimensions=(720, 720))
 
     def __str__(self):
         return self.titulo
@@ -162,7 +157,8 @@ class AjustesPagina(models.Model):
     youtube_link = models.URLField(null=True, blank=True)  # Enlace a YouTube
     telefono = models.CharField(max_length=20, null=True, blank=True)  # Teléfono de contacto
     correo_electronico = models.EmailField(null=True, blank=True)  # Correo electrónico de contacto
-
+    foto_principal = CropperImageField(upload_to='ajustes/', null=True, blank=True, aspectratio=16/9,dimensions=(1280, 720))
+    
     def __str__(self):
         return "Ajustes de la Página"
 

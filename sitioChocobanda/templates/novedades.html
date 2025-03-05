@@ -7,36 +7,9 @@
  
 
 <section class="agenda-section">
-   
-    {% comment %} El siguiente contenido es solo para desktop {% endcomment %}
-    {% comment %} <div class="noticia-desk-section">
-         <div class="noticia-desk-item"> 
-            <div class="noticia-desk-text"> 
-                <span>00 del mes de 2024</span> 
-                <h2>Título de noticia</h2> 
-                <p class = "noticia-desk-description">Breve descripción de la noticia no más de dos líneas. Lorem ipsum dolor sit amet consectetur.</p> 
-                <p class="noticia-desk-detail">{% lorem 2 b random %}</p> 
-            </div> 
-            <div class="noticia-desk-image card-img"> 
-                <img src="{% static 'img/foto-principal.jpg'%}" alt="Imagen de noticia"> 
-            </div> 
-        </div> 
-        <div class="noticia-desk-item"> 
-            <div class="noticia-desk-text"> 
-                <span>00 del mes de 2024</span> 
-                <h2>Título de novedad</h2> 
-                <p>Breve descripción de la novedad no más de dos líneas...</p> 
-                <p class="noticia-desk-detail">{% lorem 2 b random %}</p> 
-            </div> 
-            <div class="noticia-desk-image"> 
-                <img src="{% static 'img/foto-principal.jpg'%}" alt="Imagen de novedad"> 
-            </div> 
-        </div> 
-    </div> {% endcomment %}
 
     {% if noticias%}
     {% for noticia in noticias%}
-    {% comment %} Este es para desktop {% endcomment %}
     <div class="noticia-desk-section">
        <a href="{% url 'novedad' noticia.id_noticia %}" class="noticia-desk-link">
             <div class="noticia-desk-item">
@@ -47,17 +20,24 @@
                     {% comment %} <p class="noticia-desk-detail">{{noticia.cuerpo}}</p> {% endcomment %}
                 </div>
                 <div class="noticia-desk-image card-img">
-                    <img src="{{noticia.foto.url}}" alt="Imagen de noticia">
+                    {% if noticia.foto %}
+                        <img src="{{ noticia.foto.url }}" alt="" class="card-img">
+                    {% else %}
+                        <img src="{% static 'img/foto-principal.jpg' %}" alt="" class="card-img">
+                    {% endif %}
                 </div>
             </div>
         </a>
     </div>
-    {% comment %} Este es para mobile {% endcomment %}
     <div class = "card-novedades">
         <ul class="card-list">
             <li class="card-item">
                 <a href="#" class="card-link">
-                    <img src="{{noticia.foto.url}}" alt="" class="card-img">
+                    {% if noticia.foto %}
+                        <img src="{{ noticia.foto.url }}" alt="" class="card-img">
+                    {% else %}
+                        <img src="{% static 'img/foto-principal.jpg' %}" alt="" class="card-img">
+                    {% endif %}
                     <div class="card-text">
                         <p class="date">{{noticia.fecha|date:"d M Y"}}</p>
                         <h3 class="card-title">{{noticia.titulo}}</h3>
@@ -73,43 +53,5 @@
         </h1>
     {% endif%}
 
-
-
-    {% comment %} Este es para mobile {% endcomment %}
-    {% comment %} <div class = "card-novedades">
-        <ul class="card-list">
-            <li class="card-item">
-                <a href="#" class="card-link">
-                    <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                    <div class="card-text">
-                        <p class="date">fecha</p>
-                        <h3 class="card-title">titulo</h3>
-                        <p class="card-decription">description</p>
-                    </div>
-                </a>
-            </li>
-            <li class="card-item">
-                <a href="#" class="card-link">
-                    <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                    <div class="card-text">
-                        <p class="date">fecha</p>
-                        <h3 class="card-title">titulo</h3>
-                        <p class="card-decription">description</p>
-                    </div>
-                </a>
-            </li>
-            <li class="card-item">
-                <a href="#" class="card-link">
-                    <img src="{% static 'img/foto-principal.jpg'%}" alt="" class="card-img">
-                    <div class="card-text">
-                        <p class="date">fecha</p>
-                        <h3 class="card-title">titulo</h3>
-                        <p class="card-decription">description</p>
-                    </div>
-                </a>
-            </li>
-
-        </ul>
-    </div> {% endcomment %}
 </section>
  {% endblock %}
