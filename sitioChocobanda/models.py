@@ -135,7 +135,7 @@ class Noticia(models.Model):
     titulo = models.CharField(max_length=255)
     fecha = models.DateField()
     cuerpo = models.TextField()
-    foto = CropperImageField(upload_to='novedades/', null=True, blank=True, aspectratio=16/9,dimensions=(720, 720))
+    foto = CropperImageField(upload_to='novedades/', null=True, blank=True, aspectratio=16/9,dimensions=(1280, 720))
 
     def __str__(self):
         return self.titulo
