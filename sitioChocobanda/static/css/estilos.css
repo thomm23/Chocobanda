@@ -5,13 +5,16 @@
     font-family: 'Jokerman';
 }
 
-  :root {
+/* Variables de colores */
+:root {
     --color-principal: #3b6021; /* Verde */
     --color-secundario: #8c4a2f; /* Marrón */
     --color-fondo: #f1e7c8; /* Beige */
     --color-interactivo: #BC570A; /* Naranja */
 }
-  html, body {
+
+/* Estilos generales */
+html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -24,6 +27,7 @@
     flex-direction: column;
 }
 
+/* Estilos de la barra de desplazamiento */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -40,22 +44,26 @@
     background-color: var(--color-interactivo);
 }
 
+/* Reset de márgenes y padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Estilos del contenido principal */
 main {
     flex: 1; 
 }
 
-.titulo{
+/* Estilos del título */
+.titulo {
     font-family: 'Jokerman', serif;
     color: var(--color-fondo);
 }
 
-header{
+/* Estilos del header */
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -67,18 +75,19 @@ header{
 
 .titulo.desktop {
     display: inline;
-  }
-  
+}
+
 .titulo.mobile, .icono-volver {
     display: none;
-  }
+}
 
-.nav-list{
+/* Estilos de la lista de navegación */
+.nav-list {
     display: flex;
     gap: 1rem;
 }
 
-.nav-list li a{
+.nav-list li a {
     text-decoration: none;
     color: var(--color-fondo);
 }
@@ -91,10 +100,11 @@ header{
 }
 
 .abrir-menu,
-.cerrar-menu{
+.cerrar-menu {
     display: none;
 }
 
+/* Estilos del footer */
 footer {
     color: var(--color-fondo);
     padding: 15px;
@@ -103,19 +113,25 @@ footer {
     position: relative;
     width: 100%;
 }
-footer a{
+
+footer a {
     color: var(--color-fondo);
 }
-ul li{
+
+/* Estilos generales de listas y enlaces */
+ul li {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
 }
-nav{
+
+nav {
     display: inline;
 }
 
+/* Estilos de la imagen principal */
 .foto-principal img {
     width: 100%;
     height: 75vh;
@@ -125,21 +141,25 @@ nav{
     object-fit: cover;
 }
 
+/* Estilos de la descripción */
 .descripcion p {
     font-size: 22px;
     text-align: center;
     margin: 0.5rem 1rem 1.5rem 1rem;
     color: var(--color-principal);
 }
-.funciones{
+
+/* Estilos de las funciones */
+.funciones {
     width: 20rem;
     height: 15rem;
-    padding: 5rem;;
+    padding: 5rem;
     border-radius: 30px;
-} 
-.funciones tr td{
+}
+
+.funciones tr td {
     display: block;
-}  
+}
 
 .funciones {
     display: flex;
@@ -161,17 +181,20 @@ nav{
     color: var(--color-principal);
     width: 100%;
 }
-.funciones h3 p{
+
+.funciones h3 p {
     color: var(--color-secundario);
 }
-.proxima-funcion h3 p{
+
+.proxima-funcion h3 p {
     color: var(--color-fondo);
 }
 
-.proxima-funcion{
+.proxima-funcion {
     background-color: var(--color-principal);
     border: 2px solid var(--color-principal);
 }
+
 .proxima-funcion h2 {
     color: #f1e7c8;
 }
@@ -180,12 +203,14 @@ nav{
     color: #f1e7c8;
 }
 
+/* Estilos del contenedor de funciones */
 .home-funciones-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
+/* Estilos del título de la sección */
 .home-title {
     color: var(--color-principal);
     margin: 1rem;
@@ -193,7 +218,8 @@ nav{
     margin-bottom: 0;
 }
 
-.novedades-section h1{
+/* Estilos de la sección de novedades */
+.novedades-section h1 {
     color: var(--color-principal);
     margin: 1rem;
 }
@@ -205,7 +231,8 @@ nav{
     font-weight: bold;
 }
 
-.swiper-slide{
+/* Estilos del carrusel de novedades */
+.swiper-slide {
     padding: 30px;
 }
 
@@ -214,7 +241,7 @@ nav{
     font-size: 3rem;
     margin: 0 1rem;
 }
-    
+
 .redes {
     display: flex;
     justify-content: center;
@@ -222,17 +249,20 @@ nav{
     margin: 1rem;
 }
 
-.nav ul li a:hover{
+/* Estilos de hover en la navegación */
+.nav ul li a:hover {
     color: var(--color-principal);
     padding: 0.2rem;
     border-radius: 10px 10px 10px 10px;
     background-color: var(--color-fondo);
 }
 
+/* Estilos para cuando no hay eventos */
 .no-eventos {
     color: var(--color-principal);
 }
 
+/* Estilos de la sección de agenda */
 .agenda-section {
     display: flex;
     flex-direction: row;
@@ -250,35 +280,37 @@ nav{
     max-width: 100%;
 }
 
-
+/* Estilos de los íconos */
 .material-symbols-outlined { 
     margin-right: 4px; 
 }
 
-.lugar-funcion{
+.lugar-funcion {
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-.home-td-fecha{
+.home-td-fecha {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 0.5rem;
 }
-.home-td-title{
+
+.home-td-title {
     margin-bottom: 0.5rem;
 }
-.nombre-funcion{
+
+.nombre-funcion {
     margin-top: 0.5rem;
     color: #4c6a2a;
     font-weight: 500;
     text-align: center;
 }
 
-.funciones .home-td-content{
+.funciones .home-td-content {
     width: inherit;
     max-width: 300px;
     display: flex;
@@ -288,16 +320,234 @@ nav{
     gap: 0.5rem;
     color: var(--color-principal);
 }
-.funciones h3,h2{
+
+.funciones h3, h2 {
     font-weight: 450;
+}
+
+/* Estilos específicos para el carrusel de novedades */
+.title-novedades {
+    color: var(--color-principal);
+    margin: 1rem 0 1rem 1rem;
+}
+
+.home-redirrecion p {
+    display: flex;
+    font-weight: 800;
+    color: #4c6a2a;
+    justify-content: end;
+    margin-right: 1rem;
+}
+
+.home-redirrecion a:visited {
+    color: var(--color-interactivo);
+}
+
+.container-novedades {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.card-wrapper {
+    max-width: 1100px;
+    padding: 20px 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.card-list .card-item {
+    list-style: none;
+    margin: 10px;
+}
+
+.card-list .card-item .card-link:active {
+    cursor: grabbing;
+}
+
+.card-list .card-item .card-link {
+    user-select: none;
+    display: block;
+    background: var(--color-principal);
+    color: var(--color-fondo);
+    text-decoration: none;
+    box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
+    transition: 0.2 ease;
+    border-radius: 10px;
+}
+
+.card-list .card-item .card-text {
+    margin: 10px 0 0 10px;
+    padding-bottom: 10px;
+}
+
+.card-list .card-item .card-link:hover {
+    border-color: black;
+}
+
+.card-list .card-link .card-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.swiper-slide-button {
+    color: #4c6a2a;
+}
+
+.card-wrapper .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background: #4c6a2a;
+}
+
+/* Estilos para la sección de novedades */
+.container-novedades {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 400px;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    height: 325px; /* Altura fija */
+    width: 100%; /* Ancho del contenedor */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 325px; /* Ancho fijo */
+    height: 325px; /* Alto fijo */
+    min-width: 325px; /* Evita que el ancho sea menor */
+    min-height: 325px; /* Evita que el alto sea menor */
+    max-width: 325px; /* Evita que el ancho sea mayor */
+    max-height: 325px; /* Evita que el alto sea mayor */
+    flex-shrink: 0; /* Evita que el slide se contraiga */
+    flex-grow: 0; /* Evita que el slide crezca */
+    box-sizing: border-box; /* Incluye padding y border en el cálculo del tamaño */
+}
+
+.card-link {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    margin: 0; /* Sin márgenes externos */
+    border-radius: 10px;
+    width: 100%; /* Ocupa todo el ancho del slide */
+    height: 100%; /* Ocupa todo el alto del slide */
+    min-width: 100%; /* Permite que el ancho se ajuste al contenedor */
+    min-height: 100%; /* Permite que el alto se ajuste al contenedor */
+    max-width: 100%; /* Limita el ancho al contenedor */
+    max-height: 100%; /* Limita el alto al contenedor */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    background-color: var(--color-principal);
+    box-sizing: border-box; /* Incluye padding y border en el cálculo del tamaño */
+}
+
+.card-img {
+    width: 100%; /* Ocupa todo el ancho del card-link */
+    height: 50%; /* Altura relativa al card-link */
+    object-fit: cover; /* Mantiene la relación de aspecto */
+    border-radius: 8px 8px 0 0; /* Bordes redondeados solo en la parte superior */
+    position: relative;
+    box-sizing: border-box; /* Incluye padding y border en el cálculo */
+}
+
+.card-text {
+    padding-top: 10px;
+    color: var(--color-fondo);
+    box-sizing: border-box; /* Incluye padding y border en el cálculo */
+    height: 50%; /* La mitad del contenedor */
+    max-height: 50%; /* La mitad del contenedor */
+    box-sizing: border-box;
+    overflow: hidden; /* Evita que el texto lo deforme */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos si es necesario */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-text .date {
+    font-size: 14px;
+    text-align: left;
+    color: var(--color-fondo);
+    margin-bottom: 5px;
+}
+
+.card-text .card-description {
+    margin-top: 5px;
+    font-size: 16px;
+    color: var(--color-fondo);
+    text-align: left;
+}
+
+.card-text .date {
+    font-size: 14px;
+    text-align: left;
+    color: var(--color-fondo);
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 5px;
+    white-space: nowrap; /* Evita que el texto haga un salto de línea */
+    overflow: hidden; /* Oculta el texto que se desborda */
+    text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
+    max-width: 90%; /* Define un ancho máximo para que el truncamiento funcione */
+}
+
+.card-title {
+    font-size: 24px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    color: var(--color-fondo);
+    white-space: nowrap; /* Evita que el texto haga un salto de línea */
+    overflow: hidden; /* Oculta el texto que se desborda */
+    text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
+    max-width: 90%; /* Define un ancho máximo para que el truncamiento funcione */
+}
+
+.card-description {
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    display: -webkit-box; /* Crea un contenedor flexible */
+    -webkit-line-clamp: 3; /* Limita el texto a 2 líneas */
+    -webkit-box-orient: vertical; /* Orientación vertical del texto */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) */
+    max-width: 90%; /* Restringe el ancho al 90% del contenedor */
+    word-break: break-word; /* Evita desbordes por palabras largas */
+}
+
+.card-text .date, .card-text .card-description {
+    font-weight: normal; /* Asegura que el texto no esté en negrita */
+}
+
+.card-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-pagination-bullet {
+    background: #4c6a2a;
+    opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--color-principal);
+    opacity: 1;
 }
 
 @media screen and (max-width: 768px) {
 
+    /* Oculta la barra de desplazamiento en dispositivos móviles */
     ::-webkit-scrollbar {
         display: none;
     }
 
+    /* Estilos para enlaces activos en la navegación */
     .nav-list li a.active {
         background-color: var(--color-fondo); 
         color: var(--color-principal);
@@ -305,6 +555,7 @@ nav{
         border-radius: 10px;
     }
 
+    /* Estilos del header en móviles */
     header {
         display: flex;
         align-items: center;
@@ -319,28 +570,40 @@ nav{
         z-index: 1040;
     }
 
+    /* Oculta el título de escritorio en móviles */
     .titulo.desktop {
         display: none;
     }
 
+    /* Estilos para el ícono de volver */
     .icono-volver {
-        
         display: inline; 
         font-weight: bold;
         text-decoration: none;
         color: #f1e7c8;
     }
 
+    /* Estilos para el título móvil */
     .titulo.mobile {
-        
         display: inline; 
         font-family: 'Montserrat', serif;
         font-weight: normal;
-        
     }
-    
+
+    /* Estilos específicos para la página de inicio en móviles */
+    body.home-page .icono-volver {
+        display: none; /* Oculta el botón "Volver" solo en el home */
+    }
+
+    body.home-page .titulo.mobile {
+        display: inline; /* Muestra el título móvil solo en el home */
+        font-family: 'Jokerman', serif; /* Aplica una fuente específica */
+        font-weight: normal; /* Ajusta el peso de la fuente */
+    }
+
+    /* Estilos para los botones de abrir y cerrar menú */
     .abrir-menu,
-    .cerrar-menu{
+    .cerrar-menu {
         display: block;
         border: 0;
         background-color: transparent;
@@ -348,11 +611,13 @@ nav{
         font-size: 2rem;
         cursor: pointer;
     }
-    .cerrar-menu{
+
+    .cerrar-menu {
         margin-right: 1rem;
     }
 
-    .nav{
+    /* Estilos para la navegación móvil */
+    .nav {
         opacity: 0;
         width: 70%;
         visibility: hidden;
@@ -370,20 +635,22 @@ nav{
         transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
-    .nav ul li a{
+    .nav ul li a {
         padding-right: 1rem;
         font-size: 2rem;
         font-weight: bold;
         transition: color 0.3s ease;
     }
 
-    .nav.visible{
+    /* Estilos para la navegación visible */
+    .nav.visible {
         opacity: 1;
         visibility: visible;
         margin: 0;
     }
 
-    .nav-list{
+    /* Estilos para la lista de navegación en móviles */
+    .nav-list {
         padding-left: 20%;
         flex-direction: column;
         align-items: end; 
@@ -392,7 +659,8 @@ nav{
         height: 100%;
     }
 
-    .nav.visible ul li a:hover{
+    /* Efecto hover en enlaces de navegación visible */
+    .nav.visible ul li a:hover {
         color: var(--color-principal);
         padding: 0 0.5rem;
         border-radius: 10px 0 0 10px;
@@ -400,11 +668,13 @@ nav{
         background-color: #f1e7c8;
     }
 
-    body{
+    /* Estilos generales del body en móviles */
+    body {
         background-color: #f1e7c8;
     }
-        
-    footer{
+
+    /* Estilos del footer en móviles */
+    footer {
         color: #f1e7c8;
         padding: 15px;
         background-color: var(--color-principal);
@@ -413,23 +683,24 @@ nav{
         font-size: 13px;
     }
 
-    footer a{
+    footer a {
         color: #f1e7c8;
     }
 
-    ul li{
+    /* Reset de estilos para listas y enlaces */
+    ul li {
         list-style: none;
-            
     }
-    
-    a{
+
+    a {
         text-decoration: none;
     }
-    
-    nav{
+
+    nav {
         display: inline;
     }
 
+    /* Estilos para la imagen principal en móviles */
     .foto-principal {
         display: flex;
     }
@@ -441,13 +712,15 @@ nav{
         box-shadow: 0 10px 10px -10px rgba(139, 69, 19, 0.9);
     }
 
+    /* Estilos para la descripción en móviles */
     .descripcion p {
         font-size: 22px;
         text-align: center;
         margin: 0.5rem 1rem 1.5rem 1rem;
         color: var(--color-principal);
     }
-    
+
+    /* Estilos para la tabla de agenda en móviles */
     .tabla-agenda-section {
         border-collapse: collapse;
     }
@@ -456,6 +729,8 @@ nav{
         text-align: center;
         padding: 0.5rem;
     }
+
+    /* Estilos para las funciones en móviles */
     .funciones h2 {
         color: var(--color-principal);
         display: flex;
@@ -463,32 +738,38 @@ nav{
         margin-right: 1rem;
         font-weight: 600;
     }
-    .funciones .nombre-funcion{
+
+    .funciones .nombre-funcion {
         color: #4c6a2a;
         font-weight: 600;
     }
-    .proxima-funcion .nombre-funcion{
+
+    .proxima-funcion .nombre-funcion {
         color: #f1e7c8;
         font-weight: 500;
     }
+
     .proxima-funcion h2 {
         color: #f1e7c8;
         margin-right: 1rem;
     }
+
     .proxima-funcion h3 {
         color: #f1e7c8;
         text-align: left;
         width: 100%;
         font-weight: 500;
     }
-    .proxima-funcion h3 p{
+
+    .proxima-funcion h3 p {
         color: var(--color-fondo);
     }
 
-    .nombre-funcion{
+    .nombre-funcion {
         width: 100%;
     }
 
+    /* Estilos para el contenedor de funciones en móviles */
     .home-funciones-wrapper {
         flex-direction: column;
         width: 100%; 
@@ -501,13 +782,14 @@ nav{
         color: var(--color-principal);
     }
 
-    .proxima-funcion , .funciones{
+    .proxima-funcion, .funciones {
         width: 100%;
         height: 10rem;
         padding: 2rem;
-        border-radius: 60px 0 0  60px;       
+        border-radius: 60px 0 0 60px;       
     }
-    .proxima-funcion tr, .funciones tr{
+
+    .proxima-funcion tr, .funciones tr {
         display: flex;
         flex-direction: row;
         width: 100%;
@@ -522,7 +804,6 @@ nav{
         flex-direction: row;
     }
 
-
     .funciones h3 {
         width: 100%;
         text-align: start;
@@ -532,6 +813,7 @@ nav{
         margin-bottom: 0;
     }
 
+    /* Estilos para la sección de agenda en móviles */
     .agenda-section {
         display: flex;
         flex-direction: column;
@@ -545,23 +827,27 @@ nav{
         align-self: flex-start;
     }
 
-    .novedades-section h1{
+    /* Estilos para la sección de novedades en móviles */
+    .novedades-section h1 {
         color: var(--color-principal);
         margin: 1rem;
     }
-    .home-td-content{
-        align-content: center ;
+
+    .home-td-content {
+        align-content: center;
     }
-    .home-td-content .nombre-funcion{
+
+    .home-td-content .nombre-funcion {
         margin-bottom: 0.5rem;
         font-size: 1.5rem;
         font-weight: 700;
-       
     }
+
     .icon-contenedor { 
         display: flex; 
         align-items: center;
     }
+
     .novedades-section p {
         color: #4c6a2a;
         margin: 1rem;
@@ -569,12 +855,13 @@ nav{
         font-weight: bold;
     }
 
+    /* Estilos para las redes sociales en móviles */
     .redes a {
         color: #4c6a2a;
         font-size: 3rem;
         margin: 0 1rem;
     }
-        
+
     .redes {
         display: flex;
         justify-content: center;
@@ -582,19 +869,20 @@ nav{
         margin: 1rem;
     }
 
+    /* Estilos para la tabla de novedades en móviles */
     .tabla-novedades img {
         height: 20rem;
         width: 25rem;
         padding: 0;
     }
-    
+
     .tabla-novedades td {
         background-color: #8c4a2f;
         color: #d2b48c;
         text-align: left;
         margin: 0;
     }
-    
+
     .tabla-novedades {
         border-radius: 10px;
         margin-left: 10%;
@@ -603,137 +891,88 @@ nav{
         border: 0px;
     }
 
-}
+    /* Estilos para el carrusel de novedades en móviles */
+    .container-novedades {
+        height: 300px; 
+    }
 
-/* Novedades-Carrousel-home.html */
-.title-novedades{
-    color: var(--color-principal);
-    margin: 1rem 0 1rem 1rem;
+    .swiper-wrapper {
+        height: 240px; 
+        width: 100%; /* Ancho del contenedor */
+    }
 
-}
-.home-redirrecion p{
-    display: flex;
-    font-weight: 800;
-    color: #4c6a2a;
-    justify-content: end;
-    margin-right: 1rem;
-}
-.home-redirrecion a:visited{
-    color: var(--color-interactivo);
-}
-.container-novedades{
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-}
-.card-wrapper{
-    max-width: 1100px;
-    padding: 20px 10px;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-.card-list .card-item {
-    list-style: none;
-    margin: 10px;
-}
-.card-list .card-item .card-link:active{
-    cursor: grabbing;
-}
-.card-list .card-item .card-link{
-    user-select: none;
-    display: block;
-    background: var(--color-principal);
-    color: var(--color-fondo);
-    text-decoration: none;
-    box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
-    transition: 0.2 ease;
-    border-radius: 10px;
-    
-}
-.card-list .card-item .card-text{
-    margin: 10px 0 0 10px;
-    padding-bottom: 10px;
-}
-.card-list .card-item .card-link:hover{
-    border-color: black;
-}
-.card-list .card-link .card-img{
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    border-radius: 10px;
+    .swiper-slide {
+        width: 240px; /* Ancho fijo */
+        height: 240px; /* Alto fijo */
+        min-width: 240px; /* Evita que el ancho sea menor */
+        min-height: 240px; /* Evita que el alto sea menor */
+        max-width: 240px; /* Evita que el ancho sea mayor */
+        max-height: 240px; /* Evita que el alto sea mayor */
+    }
 
-}
-.swiper-slide-button{
-    color: #4c6a2a;
-}
-.card-wrapper .swiper-pagination-bullet {
-    height: 13px;
-    width: 13px;
-    opacity: 0.5;
-    background: #4c6a2a;
-}
+    .card-link {
+        width: 100%; /* Ocupa todo el ancho del slide */
+        height: 100%; /* Ocupa todo el alto del slide */
+        min-width: 0; /* Permite que el ancho se ajuste al contenedor */
+        min-height: 0; /* Permite que el alto se ajuste al contenedor */
+        max-width: 100%; /* Limita el ancho al contenedor */
+        max-height: 100%; /* Limita el alto al contenedor */
+    }
 
-/* Estilos para la sección de novedades */
-.container-novedades {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-}
+    .card-img {
+        width: 100%; /* Ocupa todo el ancho del card-link */
+        height: 50%; /* Altura relativa al card-link */
+        object-fit: cover; /* Mantiene la relación de aspecto */
+    }
 
-.swiper-wrapper {
-    display: flex;
-}
+    .card-text {
+        padding-top: 12px;
+        height: 50%; /* La mitad del contenedor */
+        max-height: 50%; /* La mitad del contenedor */
+        overflow: hidden; /* Evita que el texto lo deforme */
+        text-overflow: ellipsis; /* Agrega puntos suspensivos si es necesario */
+        display: flex;
+        flex-direction: column;
+    }
 
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .card-title {
+        font-size: 18px;
+        margin-left: 15px;
+        margin-bottom: 5px;
+        color: var(--color-fondo);
+        white-space: nowrap; /* Evita que el texto haga un salto de línea */
+        overflow: hidden; /* Oculta el texto que se desborda */
+        text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
+        max-width: 90%; /* Define un ancho máximo para que el truncamiento funcione */
+    }
 
-.card-link {
-    display: block;
-    background: var(--color-principal);
-    color: var(--color-fondo);
-    text-decoration: none;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
-    transition: 0.2s ease;
-    border-radius: 10px;
-    overflow: hidden;
-}
+    .card-text .date {
+        font-size: 12px;
+        text-align: left;
+        color: var(--color-fondo);
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 5px;
+        white-space: nowrap; /* Evita que el texto haga un salto de línea */
+        overflow: hidden; /* Oculta el texto que se desborda */
+        text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
+        max-width: 90%; /* Define un ancho máximo para que el truncamiento funcione */
+    }
 
-.card-link:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
-}
+    .card-description {
+        overflow: hidden; /* Oculta el contenido que se desborda */
+        display: -webkit-box; /* Crea un contenedor flexible */
+        -webkit-line-clamp: 2; /* Limita el texto a 2 líneas */
+        -webkit-box-orient: vertical; /* Orientación vertical del texto */
+        text-overflow: ellipsis; /* Agrega puntos suspensivos (...) */
+        max-width: 90%; /* Restringe el ancho al 90% del contenedor */
+        word-break: break-word; /* Evita desbordes por palabras largas */
+    }
 
-.card-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-bottom: 2px solid #f1e7c8;
-}
-
-.card-text {
-    padding: 10px;
-}
-
-.card-title {
-    font-size: 1.5rem;
-    margin: 10px 0;
-}
-
-.card-description {
-    font-size: 1rem;
-    color: var(--color-fondo);
-}
-
-.swiper-pagination-bullet {
-    background: #4c6a2a;
-    opacity: 0.7;
-}
-
-.swiper-pagination-bullet-active {
-    background: var(--color-principal);
-    opacity: 1;
+    .card-text .card-description {
+        margin-top: 0;
+        font-size: 14px;
+        color: var(--color-fondo);
+        text-align: left;
+    }
 }

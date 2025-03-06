@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
     <title>{% block title %} Chocobanda {% endblock %}</title>
  </head>
- <body>
+ <body class="{% block body_class %}{% endblock %}">
     <header>
       <h1> 
         <a class="titulo desktop" href="{% url 'home' %}">Chocobanda</a>
