@@ -292,6 +292,221 @@ nav{
     font-weight: 450;
 }
 
+/* Novedades-Carrousel-home.html */
+.title-novedades{
+    color: var(--color-principal);
+    margin: 1rem 0 1rem 1rem;
+
+}
+.home-redirrecion p{
+    display: flex;
+    font-weight: 800;
+    color: #4c6a2a;
+    justify-content: end;
+    margin-right: 1rem;
+}
+.home-redirrecion a:visited{
+    color: var(--color-interactivo);
+}
+.container-novedades{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.card-wrapper{
+    max-width: 1100px;
+    padding: 20px 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.card-list .card-item {
+    list-style: none;
+    margin: 10px;
+}
+.card-list .card-item .card-link:active{
+    cursor: grabbing;
+}
+.card-list .card-item .card-link{
+    user-select: none;
+    display: block;
+    background: var(--color-principal);
+    color: var(--color-fondo);
+    text-decoration: none;
+    box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
+    transition: 0.2 ease;
+    border-radius: 10px;
+    
+}
+.card-list .card-item .card-text{
+    margin: 10px 0 0 10px;
+    padding-bottom: 10px;
+}
+.card-list .card-item .card-link:hover{
+    border-color: black;
+}
+.card-list .card-link .card-img{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+.swiper-slide-button{
+    color: #4c6a2a;
+}
+.card-wrapper .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background: #4c6a2a;
+}
+
+/* Estilos para la sección de novedades */
+.container-novedades {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 400px;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    height: 325px; /* Altura fija */
+    width: 100%; /* Ancho del contenedor */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 325px; /* Ancho fijo */
+    height: 325px; /* Alto fijo */
+    min-width: 325px; /* Evita que el ancho sea menor */
+    min-height: 325px; /* Evita que el alto sea menor */
+    max-width: 325px; /* Evita que el ancho sea mayor */
+    max-height: 325px; /* Evita que el alto sea mayor */
+    flex-shrink: 0; /* Evita que el slide se contraiga */
+    flex-grow: 0; /* Evita que el slide crezca */
+    box-sizing: border-box; /* Incluye padding y border en el cálculo del tamaño */
+     /*overflow: hidden; Oculta cualquier contenido que se desborde */
+}
+
+.card-link {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    margin: 0; /* Sin márgenes externos */
+    border-radius: 10px;
+    width: 100%; /* Ocupa todo el ancho del slide */
+    height: 100%; /* Ocupa todo el alto del slide */
+    min-width: 100%; /* Permite que el ancho se ajuste al contenedor */
+    min-height: 100%; /* Permite que el alto se ajuste al contenedor */
+    max-width: 100%; /* Limita el ancho al contenedor */
+    max-height: 100%; /* Limita el alto al contenedor */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    background-color: var(--color-principal);
+    box-sizing: border-box; /* Incluye padding y border en el cálculo del tamaño */
+}
+
+.card-img {
+    width: 100%; /* Ocupa todo el ancho del card-link */
+    height: 50%; /* Altura relativa al card-link */
+    object-fit: cover; /* Mantiene la relación de aspecto */
+    border-radius: 8px 8px 0 0; /* Bordes redondeados solo en la parte superior */
+    position: relative;
+    box-sizing: border-box; /* Incluye padding y border en el cálculo */
+}
+
+.card-text {
+    padding-top: 10px;
+    color: var(--color-fondo);
+    box-sizing: border-box; /* Incluye padding y border en el cálculo */
+    height: 50%; /* La mitad del contenedor */
+    max-height: 50%; /* La mitad del contenedor */
+    box-sizing: border-box;
+    overflow: hidden; /* Evita que el texto lo deforme */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos si es necesario */
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.card-text .date {
+    font-size: 14px;
+    text-align: left;
+    color: var(--color-fondo);
+    margin-bottom: 5px;
+}
+
+.card-text .card-description {
+    margin-top: 5px;
+    font-size: 16px;
+    color: var(--color-fondo);
+    text-align: left;
+}
+
+.card-text .date {
+    font-size: 14px;
+    text-align: left;
+    color: var(--color-fondo);
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 5px;
+    white-space: nowrap; /* Evita que el texto haga un salto de línea */
+    overflow: hidden; /* Oculta el texto que se desborda */
+    text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
+    max-width: 90%; /* Define un ancho máximo para que el truncamiento funcione */
+}
+
+.card-title {
+    font-size: 24px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    color: var(--color-fondo);
+    white-space: nowrap; /* Evita que el texto haga un salto de línea */
+    overflow: hidden; /* Oculta el texto que se desborda */
+    text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
+    max-width: 90%; /* Define un ancho máximo para que el truncamiento funcione */
+
+}
+
+.card-description {
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    display: -webkit-box; /* Crea un contenedor flexible */
+    -webkit-line-clamp: 3; /* Limita el texto a 2 líneas */
+    -webkit-box-orient: vertical; /* Orientación vertical del texto */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) */
+    max-width: 90%; /* Restringe el ancho al 90% del contenedor */
+    word-break: break-word; /* Evita desbordes por palabras largas */
+}
+
+
+
+.card-text .date, .card-text .card-description {
+    font-weight: normal; /* Asegura que el texto no esté en negrita */
+}
+
+
+.card-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.swiper-pagination-bullet {
+    background: #4c6a2a;
+    opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--color-principal);
+    opacity: 1;
+}
+
+
 @media screen and (max-width: 768px) {
 
     ::-webkit-scrollbar {
@@ -337,6 +552,17 @@ nav{
         font-family: 'Montserrat', serif;
         font-weight: normal;
         
+    }
+
+        /* Estilos específicos para la página de inicio */
+    body.home-page .icono-volver {
+        display: none; /* Oculta el botón "Volver" solo en el home */
+    }
+
+    body.home-page .titulo.mobile {
+        display: inline; /* Muestra el título móvil solo en el home */
+        font-family: 'Jokerman', serif; /* Aplica una fuente específica */
+        font-weight: normal; /* Ajusta el peso de la fuente */
     }
     
     .abrir-menu,
@@ -603,137 +829,90 @@ nav{
         border: 0px;
     }
 
-}
-
-/* Novedades-Carrousel-home.html */
-.title-novedades{
-    color: var(--color-principal);
-    margin: 1rem 0 1rem 1rem;
-
-}
-.home-redirrecion p{
-    display: flex;
-    font-weight: 800;
-    color: #4c6a2a;
-    justify-content: end;
-    margin-right: 1rem;
-}
-.home-redirrecion a:visited{
-    color: var(--color-interactivo);
-}
-.container-novedades{
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-}
-.card-wrapper{
-    max-width: 1100px;
-    padding: 20px 10px;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-.card-list .card-item {
-    list-style: none;
-    margin: 10px;
-}
-.card-list .card-item .card-link:active{
-    cursor: grabbing;
-}
-.card-list .card-item .card-link{
-    user-select: none;
-    display: block;
-    background: var(--color-principal);
-    color: var(--color-fondo);
-    text-decoration: none;
-    box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
-    transition: 0.2 ease;
-    border-radius: 10px;
+    .container-novedades {
+        height: 300px; 
+    }
     
-}
-.card-list .card-item .card-text{
-    margin: 10px 0 0 10px;
-    padding-bottom: 10px;
-}
-.card-list .card-item .card-link:hover{
-    border-color: black;
-}
-.card-list .card-link .card-img{
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    border-radius: 10px;
+    .swiper-wrapper {
+        height: 240px; 
+        width: 100%; /* Ancho del contenedor */
+    }
+    
+    .swiper-slide {
+        width: 240px; /* Ancho fijo */
+        height: 240px; /* Alto fijo */
+        min-width: 240px; /* Evita que el ancho sea menor */
+        min-height: 240px; /* Evita que el alto sea menor */
+        max-width: 240px; /* Evita que el ancho sea mayor */
+        max-height: 240px; /* Evita que el alto sea mayor */
+    }
 
-}
-.swiper-slide-button{
-    color: #4c6a2a;
-}
-.card-wrapper .swiper-pagination-bullet {
-    height: 13px;
-    width: 13px;
-    opacity: 0.5;
-    background: #4c6a2a;
-}
+    .card-link {
+        width: 100%; /* Ocupa todo el ancho del slide */
+        height: 100%; /* Ocupa todo el alto del slide */
+        min-width: 0; /* Permite que el ancho se ajuste al contenedor */
+        min-height: 0; /* Permite que el alto se ajuste al contenedor */
+        max-width: 100%; /* Limita el ancho al contenedor */
+        max-height: 100%; /* Limita el alto al contenedor */
+    }
 
-/* Estilos para la sección de novedades */
-.container-novedades {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-}
+    .card-img {
+        width: 100%; /* Ocupa todo el ancho del card-link */
+        height: 50%; /* Altura relativa al card-link */
+        object-fit: cover; /* Mantiene la relación de aspecto */
+    }
+    
+    
+    .card-text {
+        padding-top: 12px;
+        height: 50%; /* La mitad del contenedor */
+        max-height: 50%; /* La mitad del contenedor */
+        overflow: hidden; /* Evita que el texto lo deforme */
+        text-overflow: ellipsis; /* Agrega puntos suspensivos si es necesario */
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+    .card-title {
+        font-size: 18px;
+        margin-left: 15px;
+        margin-bottom: 5px;
+        color: var(--color-fondo);
+        white-space: nowrap; /* Evita que el texto haga un salto de línea */
+        overflow: hidden; /* Oculta el texto que se desborda */
+        text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
+        max-width: 90%; /* Define un ancho máximo para que el truncamiento funcione */
+    }
+    
+    .card-text .date {
+        font-size: 12px;
+        text-align: left;
+        color: var(--color-fondo);
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 5px;
+        white-space: nowrap; /* Evita que el texto haga un salto de línea */
+        overflow: hidden; /* Oculta el texto que se desborda */
+        text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
+        max-width: 90%; /* Define un ancho máximo para que el truncamiento funcione */
+    }
 
-.swiper-wrapper {
-    display: flex;
-}
-
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.card-link {
-    display: block;
-    background: var(--color-principal);
-    color: var(--color-fondo);
-    text-decoration: none;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
-    transition: 0.2s ease;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.card-link:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
-}
-
-.card-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-bottom: 2px solid #f1e7c8;
-}
-
-.card-text {
-    padding: 10px;
-}
-
-.card-title {
-    font-size: 1.5rem;
-    margin: 10px 0;
-}
-
-.card-description {
-    font-size: 1rem;
-    color: var(--color-fondo);
-}
-
-.swiper-pagination-bullet {
-    background: #4c6a2a;
-    opacity: 0.7;
-}
-
-.swiper-pagination-bullet-active {
-    background: var(--color-principal);
-    opacity: 1;
+    .card-description {
+        overflow: hidden; /* Oculta el contenido que se desborda */
+        display: -webkit-box; /* Crea un contenedor flexible */
+        -webkit-line-clamp: 2; /* Limita el texto a 2 líneas */
+        -webkit-box-orient: vertical; /* Orientación vertical del texto */
+        text-overflow: ellipsis; /* Agrega puntos suspensivos (...) */
+        max-width: 90%; /* Restringe el ancho al 90% del contenedor */
+        word-break: break-word; /* Evita desbordes por palabras largas */
+    }
+    
+    .card-text .card-description {
+        margin-top: 0;
+        font-size: 14px;
+        color: var(--color-fondo);
+        text-align: left;
+    }
+    
 }

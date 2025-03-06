@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-{% load l10n %}
+{% block body_class %}home-page{% endblock %}
 {% block title %} Chocobanda - INICIO {% endblock %}
 {% block estilos%}
-<link rel="stylesheet" type="text/css" href="{% static 'css/home.css'%}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 {%  endblock %}
 {%block content%}
@@ -96,40 +95,42 @@
 </section>
 
 <h2 class="home-title">Novedades</h2>
-<div class="container-novedades swiper">
-    <div class="swiper-wrapper">
-        {% if noticias %}
-            {% for noticia in noticias %}
-            <div class="swiper-slide">
-                <a href="{% url 'novedad' noticia.id_noticia %}" class="card-link">
-                    {% if noticia.foto %}
-                        <img src="{{ noticia.foto.url }}" alt="Foto principal de la pagina">
-                    {% else %}
-                        <img src="{% static 'img/foto-principal.jpg' %}" alt="" class="card-img">
-                    {% endif %}
-                    <div class="card-text">
-                        <p class="date">{{ noticia.fecha|date:"d M Y" }}</p>
-                        <h3 class="card-title">{{ noticia.titulo }}</h3>
-                        <p class="card-description">{{ noticia.cuerpo|truncatewords:20 }}</p>
-                    </div>
-                </a>
-            </div>
-            {% endfor %}
-        {% else %}
-            <div class="swiper-slide">
-                <a href="#" class="card-link">
-                    <img src="{% static 'img/Imagen-NoImage.png' %}" alt="" class="card-img">
-                    <div class="card-text">
-                        <p class="date">Próximamente</p>
-                        <h3 class="card-title">Próximamente</h3>
-                        <p class="card-description">Descripción de la novedad próximamente.</p>
-                    </div>
-                </a>
-            </div>
-        {% endif %}
+<section class="novedades-section">
+    <div class="container-novedades swiper">
+        <div class="swiper-wrapper">
+            {% if noticias %}
+                {% for noticia in noticias %}
+                <div class="swiper-slide">
+                    <a href="{% url 'novedad' noticia.id_noticia %}" class="card-link">
+                        {% if noticia.foto %}
+                            <img src="{{ noticia.foto.url }}" alt="Foto principal de la pagina" class="card-img">
+                        {% else %}
+                            <img src="{% static 'img/foto-principal.jpg' %}" alt="" class="card-img">
+                        {% endif %}
+                        <div class="card-text">
+                            <p class="date">{{ noticia.fecha|date:"d M Y" }}</p>
+                            <h3 class="card-title">{{ noticia.titulo }}</h3>
+                            <p class="card-description">{{ noticia.cuerpo|truncatewords:20 }}</p>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="swiper-slide">
+                    <a href="#" class="card-link">
+                        <img src="{% static 'img/Imagen-NoImage.png' %}" alt="" class="card-img">
+                        <div class="card-text">
+                            <p class="date">Próximamente</p>
+                            <h3 class="card-title">Próximamente</h3>
+                            <p class="card-description">Descripción de la novedad próximamente.</p>
+                        </div>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+        <div class="swiper-pagination"></div>
     </div>
-    <div class="swiper-pagination"></div>
-</div>
+</section>
 
 <div class="home-redirrecion">
     <p><a href="{% url 'novedades' %}">Ver todas las novedades</a></p>
@@ -143,6 +144,8 @@
         // Optional parameters
         loop: true,
         spaceBetween: 30,
+        centeredSlides: true,
+        slidesPerView: 'auto', //Si habilito lo de abajo esto lo vuelo
 
         // If we need pagination
         pagination: {
@@ -150,23 +153,23 @@
         clickable :true,
         dynamicBullets: true
         },
-    
+
         // Navigation arrows
         navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
         },
-        breakpoints : {
-            0: {
-                slidesPerView: 1
-            },
-            768: {
-                slidesPerView: 2
-            },
-            1024: {
-                slidesPerView: 3
-            }
-        }
+        // breakpoints : {
+        //     0: {
+        //         slidesPerView: 1
+        //     },
+        //     768: {
+        //         slidesPerView: 2
+        //     },
+        //     1024: {
+        //         slidesPerView: 'auto'
+        //     }
+        // }
   });
 </script>
 {% endblock %}
