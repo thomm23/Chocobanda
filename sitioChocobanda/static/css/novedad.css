@@ -1,0 +1,74 @@
+:root {
+    --color-principal: #3b6021; /* Verde */
+    --color-secundario: #8c4a2f; /* Marrón */
+    --color-fondo: #f1e7c8; /* Beige */
+    --color-interactivo: #E87722; /* naranja */
+}
+
+.section-novedad {
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 1rem;
+}
+
+.content-novedad {
+    color: var(--color-principal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.content-novedad .container-fecha-novedad {
+    width: 100%;
+    font-weight: normal;
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.content-novedad .title-novedad {
+    margin: 1rem;
+    font-weight: bold;
+    color: var(--color-principal);
+    text-align: center;
+}
+
+.content-novedad .container-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card-img {
+    border-radius: 30px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-top: 1rem;
+}
+
+.content-novedad .detalles-novedad {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.novedad-descp {
+    text-align: left;
+    color: var(--color-principal);
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .content-novedad .title-novedad h1{
+        text-align: right !important;
+
+    }
+}

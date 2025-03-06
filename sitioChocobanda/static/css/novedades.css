@@ -1,75 +1,54 @@
+:root {
+    --color-principal: #3b6021; /* Verde */
+    --color-secundario: #8c4a2f; /* Marrón */
+    --color-fondo: #f1e7c8; /* Beige */
+    --color-interactivo: #E87722; /* naranja */
+}
 
+.novedades-section {
+    padding: 2rem;
+    background-color: var(--color-fondo);
+    max-width: 1200px;
+    margin: 0 auto;
+}
 .card-novedades .card-item{
     margin: 2rem;
 }
 
-/* Novedad */
-.section-novedad{
-    margin-top: 7rem;  /* para que no te coma el banner*/
+.sin-novedades{
+    font-size: 1.2rem;
+    color: var(--color-principal);
+    text-align: center;
+    margin: 20px 0;
 }
-.content-novedad{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.section-novedad .container-fecha-novedad {
-    color: #8c4a2f;
-    font-weight: 700;
-    display: flex;
-    justify-content: end;
-    margin-right: 10rem;
-    margin-top: 8rem;
-}
-
-.content-novedad .card-img{
-    width: 100%;
-    height: 100%;
-    margin-bottom: 2rem;
-    /* border-radius: 30px; */
-}
-.content-novedad h1{
-    color: #8c4a2f;
-    margin-left: 1rem;
-    margin-top: 1rem;
-}
-.detalles-novedad{
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 5rem;
-}
-.detalles-novedad p{
-    text-align: left;
-    color: #8c4a2f;
-    font-weight: 500;
-}
-.novedad-descp{
-    margin-bottom: 2rem;
-}
-
 
 /* desktop */
 @media screen and (min-width: 769px){
+    .novedades-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     
     .card-novedades{
-        display: none;
+        display: none; /*para que se oculte la version mobile*/
     }
-    .noticia-desk-section{
-        margin: 2rem;
+    .novedades-desk-section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    .noticia-desk-text h2, span{
-        color: #8c4a2f;
-    }
-    .noticia-desk-item{
+
+    .novedad-desk-item{
         display: flex;
         margin-bottom: 3rem;
         justify-content: space-between;
+        align-items: center;
 
     }
     .noticia-desk-image{
         width: 40%;
-        height: 70%;
+        height: auto;
         margin-right: 5rem;
         display: flex;
         justify-content: center;
@@ -79,30 +58,34 @@
     }
     .noticia-desk-image img{
         width: 100%;
-        height: 80%;
+        height: auto;
         aspect-ratio: 16/9;
         object-fit: cover;
     }
-    .noticia-desk-text{
+    .novedad-desk-text{
         width: 50%;
         display: flex;
         flex-direction: column;
+        text-align: left;
     }
-    .noticia-desk-text h2{
+    .novedad-desk-text h2{
         margin-top: 1rem;
+        color: var(--color-principal);
+        font-weight: bold;
+
     }
-    .noticia-desk-text span{
-        font-weight: 700;
+    .novedad-desk-text span{
+        font-weight: normal;
+        color: var(--color-principal);
     }
-    .noticia-desk-description{
-        font-weight: 600;
+    .novedad-desk-item .noticia-desk-description{
+        font-weight: normal;
         margin-top: 1rem;
+        text-align: left;
+        margin-left: 0%;
     }
-    .noticia-desk-detail{ 
-        margin-top: 1rem;
-        font-weight: 500;
-    }
-    .detalles-novedad .card-img{
+
+    .card-img{
         border-radius: 30px;
     }
     
@@ -110,35 +93,35 @@
 /* mobile */
 @media screen and (max-width: 768px) {
 
+    .novedades-section {
+        padding: 10px;
+        margin-top: 15vh;
+    }
+
     ::-webkit-scrollbar {
         display: none;
     }
-    .novedades-section{
-        margin-top: 15vh;
-    }
-    .noticia-desk-section{
+
+    .novedades-desk-section{
         display: none;
     }
-    .section-novedad .container-fecha-novedad {
-   
-        justify-content: end;
-        margin-right: 2rem;
-    
+        
+    .card-text {
+        color: var(--color-fondo); 
+        margin: 0;
+        padding: 0;
     }
     
-
+    .card-text .date,
+    .card-text .card-title,
+    .card-text .card-description {
+        color: var(--color-fondo); /* Asegura que los elementos hijos también hereden el color */
+    }
+    .card-text .date,
+    .card-text .card-description {
+    font-weight: normal;
+    text-align: left;
+    margin-left: 0%;
 }
-/* tablets */
- @media (min-width: 768px) and (max-width: 1024px) {
-    .noticia-desk-item{
-        flex-direction: column;
-        margin-right: 3rem;
-    }
-    .noticia-desk-text {
-        width: 100%;
-    }
-    .noticia-desk-image {
-        margin-top: 1rem;
-        width: 100%;
-    }
+  
 }

@@ -1,27 +1,26 @@
 {% extends "base.html"%}
 {% load static %} 
-{% block estilos %} <link rel="stylesheet" type="text/css" href="{% static 'css/novedades.css'%}"> {% endblock %}
+{% block estilos %} <link rel="stylesheet" type="text/css" href="{% static 'css/novedad.css'%}"> {% endblock %}
 {% block title %} Chocobanda - NOVEDADES {% endblock %}
 {% block nombre_seccion %} Novedades {% endblock %}
 {%block content%}
-<section class ="section-novedad"> 
-    <div class = "container-fecha-novedad"> 
-        <span>{{noticia.fecha}}</span>
-    </div> 
+<section class ="section-novedad">  
     <div class = "content-novedad"> 
-        <div class = "titulo-novedad"> 
-            <h1>{{ noticia.titulo}}</h1>  
+        <div class = "container-fecha-novedad"> 
+            <span>{{noticia.fecha}}</span>
         </div> 
-        <div class = "detalles-novedad"> 
+        <div class = "title-novedad"> 
+            <h1>{{ noticia.titulo}}</h1>  
+        </div>
+        <div class = "container-img">
+            {% if noticia.foto %}
+                <img src="{{ noticia.foto.url }}" alt="" class="card-img">
+            {% else %}
+                <img src="{% static 'img/foto-principal.jpg' %}" alt="" class="card-img">
+            {% endif %}                
+        </div> 
+        <div class = "detalles-novedad">           
             <p class ="novedad-descp">{{noticia.cuerpo}}</p>
-            <div class = "container-img">
-                {% if noticia.foto %}
-                    <img src="{{ noticia.foto.url }}" alt="" class="card-img">
-                {% else %}
-                    <img src="{% static 'img/foto-principal.jpg' %}" alt="" class="card-img">
-                {% endif %}
-                
-            </div>
         </div> 
     </div> 
 </section> 
