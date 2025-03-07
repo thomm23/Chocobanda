@@ -139,6 +139,10 @@ class Noticia(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+    class Meta:
+        verbose_name = "Novedad"
+        verbose_name_plural = "Novedades"  # Define el nombre en plural como "Novedades"
 
 class Institucion(models.Model):
     nombre = models.CharField(max_length=255)
@@ -150,6 +154,9 @@ class Institucion(models.Model):
     def __str__(self):
         return self.nombre
     
+    class Meta:
+        verbose_name_plural = "Instituciones"  # Define el nombre en plural
+    
 class AjustesPagina(models.Model):
     historia_chocobanda = models.TextField()  # El texto que se podrá modificar
     instagram_link = models.URLField(null=True, blank=True)  # Enlace a Instagram
@@ -158,7 +165,16 @@ class AjustesPagina(models.Model):
     telefono = models.CharField(max_length=20, null=True, blank=True)  # Teléfono de contacto
     correo_electronico = models.EmailField(null=True, blank=True)  # Correo electrónico de contacto
     foto_principal = CropperImageField(upload_to='ajustes/', null=True, blank=True, aspectratio=16/9,dimensions=(1280, 720))
-    
+
+    def save(self, *args, **kwargs):
+        if not self.pk and AjustesPagina.objects.exists():
+            raise ValidationError('Solo puede existir una instancia de AjustesPagina.')
+        return super(AjustesPagina, self).save(*args, **kwargs)
+
     def __str__(self):
         return "Ajustes de la Página"
+
+    class Meta:
+        verbose_name = "Ajuste de Página"
+        verbose_name_plural = "Ajustes de Página"
 
