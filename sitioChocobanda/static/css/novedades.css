@@ -11,11 +11,13 @@
     max-width: 1200px;
     margin: 0 auto;
 }
-.card-novedades .card-item{
+
+.card-novedades .novedades-card-item {
     margin: 2rem;
+    max-width: 600px; /* Establece un ancho máximo para las tarjetas */
 }
 
-.sin-novedades{
+.sin-novedades {
     font-size: 1.2rem;
     color: var(--color-principal);
     text-align: center;
@@ -23,30 +25,31 @@
 }
 
 /* desktop */
-@media screen and (min-width: 769px){
+@media screen and (min-width: 769px) {
     .novedades-section {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
-    .card-novedades{
-        display: none; /*para que se oculte la version mobile*/
+
+    .card-novedades {
+        display: none; /* Oculta la versión móvil en escritorio */
     }
-    .novedades-desk-section{
+
+    .novedades-desk-section {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .novedad-desk-item{
+    .novedad-desk-item {
         display: flex;
         margin-bottom: 3rem;
         justify-content: space-between;
         align-items: center;
-
     }
-    .noticia-desk-image{
+
+    .noticia-desk-image {
         width: 40%;
         height: auto;
         margin-right: 5rem;
@@ -56,72 +59,172 @@
         border-radius: 15px;
         overflow: hidden;
     }
-    .noticia-desk-image img{
+
+    .noticia-desk-image img {
         width: 100%;
         height: auto;
         aspect-ratio: 16/9;
         object-fit: cover;
     }
-    .novedad-desk-text{
+
+    .novedad-desk-text {
         width: 50%;
         display: flex;
         flex-direction: column;
         text-align: left;
     }
-    .novedad-desk-text h2{
+
+    .novedad-desk-text h2 {
         margin-top: 1rem;
         color: var(--color-principal);
         font-weight: bold;
-
     }
-    .novedad-desk-text span{
+
+    .novedad-desk-text span {
         font-weight: normal;
         color: var(--color-principal);
     }
-    .novedad-desk-item .noticia-desk-description{
+
+    .novedad-desk-item .noticia-desk-description {
         font-weight: normal;
         margin-top: 1rem;
         text-align: left;
         margin-left: 0%;
     }
 
-    .card-img{
+    .card-img {
         border-radius: 30px;
     }
-    
 }
+
 /* mobile */
 @media screen and (max-width: 768px) {
-
     .novedades-section {
-        padding: 10px;
-        margin-top: 15vh;
+        padding: 20px;
+        margin: 1rem;
     }
 
     ::-webkit-scrollbar {
         display: none;
     }
 
-    .novedades-desk-section{
-        display: none;
+    .novedades-desk-section {
+        display: none; /* Oculta la versión de escritorio en móvil */
     }
-        
-    .card-text {
-        color: var(--color-fondo); 
+
+    .card-novedades {
+        display: block; /* Asegura que la versión móvil esté visible */
+    }
+
+    .novedades-cards-list {
+        display: flex;
+        flex-direction: column; /* Asegura que las tarjetas se muestren una debajo de la otra */
+        align-items: center; /* Centra las tarjetas horizontalmente */
+    }
+
+    .novedades-card-item {
+        margin-bottom: 1rem; /* Añade un margen inferior para separar las tarjetas */
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 600px; /* Establece un ancho máximo para las tarjetas */
+        position: relative; /* Asegura que no haya posición absoluta */
+    }
+
+    .novedades-card-link {
+        display: flex;
+        flex-direction: column;
+        background: var(--color-principal);
+        color: var(--color-fondo);
+        text-decoration: none;
+        box-shadow: 8px 8px 24px 0px #3911003D;
+        transition: 0.2s ease;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .novedades-card-link:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .novedades-card-image {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .novedades-card-text {
+        padding: 0;
+        color: var(--color-fondo);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Alinea todo el contenido a la izquierda */
+        text-align: left;
+    }
+
+    .novedades-card-date {
+        font-size: 14px;
+        text-align: left;
+        color: var(--color-fondo); /* Asegura que el color se aplique correctamente */
+        font-weight: normal; /* Asegura que el texto no esté en negrita */
+    }
+
+    .novedades-card-title {
+        font-size: 18px;
+        margin-left: 16px;
+        color: var(--color-fondo);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 90%;
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    .novedades-card-description {
+        margin-top: 5px;
+        font-size: 16px;
+        color: var(--color-fondo); /* Asegura que el color se aplique correctamente */
+        text-align: left;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        max-width: 90%;
+        word-break: break-word;
+        font-weight: normal; /* Asegura que el texto no esté en negrita */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    .novedades-card-text .novedades-card-date,
+    .novedades-card-text .novedades-card-description {
+        color: var(--color-fondo) !important; /* Asegura que se aplique el color */
+        opacity: 1; /* Asegura que no haya transparencia */
+        text-align: left;
+        font-weight: normal;
+    }
+
+    .novedades-card-date,
+    .novedades-card-description {
+        margin: 0; /* Elimina márgenes no deseados */
+        padding: 0; /* Evita rellenos adicionales */
+        width: 100%; /* Asegura que ocupen todo el ancho disponible */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    .novedades-card-date {
+        margin-bottom: 5px; /* Espacio uniforme entre elementos */
+    }
+
+    .novedades-card-description {
+        margin-bottom: 5px;
+    }
+
+    p, h3 {
         margin: 0;
         padding: 0;
     }
-    
-    .card-text .date,
-    .card-text .card-title,
-    .card-text .card-description {
-        color: var(--color-fondo); /* Asegura que los elementos hijos también hereden el color */
-    }
-    .card-text .date,
-    .card-text .card-description {
-    font-weight: normal;
-    text-align: left;
-    margin-left: 0%;
-}
-  
 }

@@ -68,7 +68,7 @@
 
 @media screen and (max-width: 768px) {
     .content-novedad .title-novedad h1{
-        text-align: right !important;
+        text-align: left !important;
 
     }
 }

@@ -29,21 +29,22 @@
         </a>
     </div>
     <div class = "card-novedades">
-        <ul class="card-list">
-            <li class="card-item">
-                <a href="{% url 'novedad' noticia.id_noticia %}" class="card-link">
+        <ul class="novedades-cards-list">
+            <li class="novedades-card-item">
+                <a href="{% url 'novedad' noticia.id_noticia %}" class="novedades-card-link">
                     {% if noticia.foto %}
-                        <img src="{{ noticia.foto.url }}" alt="" class="card-img">
+                        <img src="{{ noticia.foto.url }}" alt="" class="novedades-card-image">
                     {% else %}
-                        <img src="{% static 'img/foto-principal.jpg' %}" alt="" class="card-img">
+                        <img src="{% static 'img/foto-principal.jpg' %}" alt="" class="novedades-card-image">
                     {% endif %}
-                    <div class="card-text">
-                        <p class="date">{{noticia.fecha|date:"d M Y"}}</p>
-                        <h3 class="card-title">{{noticia.titulo}}</h3>
-                        <p class="card-description">{{noticia.cuerpo|truncatewords:20}}</p>
+                    <div class="novedades-card-text">
+                        <p class="novedades-card-date">{{noticia.fecha|date:"d M Y"}}</p>
+                        <h3 class="novedades-card-title">{{noticia.titulo}}</h3>
+                        <p class="novedades-card-description">{{noticia.cuerpo|truncatewords:30}}</p>
                     </div>
                 </a>
             </li>
+        </ul>    
     </div>
     {% endfor %}
     {% else %}
