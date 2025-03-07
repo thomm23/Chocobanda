@@ -168,11 +168,11 @@ nav {
     justify-content: center;
     margin: 1rem;
     background-color: var(--color-fondo);
-    border: 2px solid var(--color-secundario);
+    border: 3px solid var(--color-principal);
 }
 
 .funciones h2 {
-    color: var(--color-secundario);
+    color: var(--color-principal);
     display: flex;
     flex-direction: column;
 }
@@ -183,7 +183,7 @@ nav {
 }
 
 .funciones h3 p {
-    color: var(--color-secundario);
+    color: var(--color-principal);
 }
 
 .proxima-funcion h3 p {
@@ -214,6 +214,7 @@ nav {
 .home-title {
     color: var(--color-principal);
     margin: 1rem;
+    font-weight: bold;
     align-self: flex-start;
     margin-bottom: 0;
 }
@@ -321,6 +322,7 @@ nav {
     color: var(--color-principal);
 }
 
+
 .funciones h3, h2 {
     font-weight: 450;
 }
@@ -350,7 +352,6 @@ nav {
 }
 
 .card-wrapper {
-    max-width: 1100px;
     padding: 20px 10px;
     overflow: hidden;
     margin-bottom: 20px;
@@ -740,7 +741,7 @@ nav {
     }
 
     .funciones .nombre-funcion {
-        color: #4c6a2a;
+        color: var(--color-interactivo);
         font-weight: 600;
     }
 
@@ -759,6 +760,10 @@ nav {
         text-align: left;
         width: 100%;
         font-weight: 500;
+    }
+
+    .funciones h3 p {
+        color: var(--color-interactivo);
     }
 
     .proxima-funcion h3 p {
@@ -802,6 +807,11 @@ nav {
         margin: 1rem;
         padding-right: 15%;
         flex-direction: row;
+        border: 3px solid var(--color-interactivo);
+    }
+
+    .home-funciones-wrapper .proxima-funcion:last-child {
+        border: 3px solid var(--color-principal);
     }
 
     .funciones h3 {
