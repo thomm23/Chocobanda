@@ -9,15 +9,21 @@
 {% endblock %}
 
 {% block content%}
-<form id="contact-form" class="contact-form">
+<form id="contact-form" class="contact-form" action="{% static 'php/contacto.php' %}" method="POST">
     <label for="name">Nombre <span class="rojo">*</span></label>
-    <input type="text" class="name" name="name" placeholder="Nombre" required>
+    <input type="text" class="name" name="nombre" placeholder="Nombre" required>
+    
+    <label for="apellido">Apellido <span class="rojo">*</span></label>
+    <input type="text" class="apellido" name="apellido" placeholder="Apellido" required>
     
     <label for="email">Correo <span class="rojo">*</span></label>
     <input type="email" class="email" name="email" placeholder="Ejemplo@gmail.com" required>
     
-    <label for="message">Consulta <span class="rojo">*</span></label>
-    <textarea class="message" name="message" placeholder="Consulta" required></textarea>
+    <label for="asunto">Asunto <span class="rojo">*</span></label>
+    <input type="text" class="asunto" name="asunto" placeholder="Asunto" required>
+    
+    <label for="comentario">Consulta <span class="rojo">*</span></label>
+    <textarea class="comentario" name="comentario" placeholder="Consulta" required></textarea>
     
     <button type="submit">Enviar</button>
 </form>
