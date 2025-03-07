@@ -531,7 +531,7 @@ nav {
 }
 
 .swiper-pagination-bullet {
-    background: #4c6a2a;
+    background: var(--color-principal);
     opacity: 0.7;
 }
 
