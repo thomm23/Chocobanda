@@ -19,36 +19,13 @@
 </div>
 <h2 class="home-title">Próxima función</h2>
 <section class="agenda-section">
-    
     <div class="home-funciones-wrapper">
         {% if eventos %}
         <div class="funciones proxima-funcion">
-            {% comment %} <table class="tabla-agenda-section">
-                <tr>
-                    <td class="home-td-fecha">
-                        <h2 class="dia-funcion">{{ eventos.0.fecha|date:"d" }}</h2>
-                        <h2 class="mes-funcion">{{ eventos.0.fecha|date:"F" }}</h2>
-                    </td>
-                    <td class="home-td-content">
-                        <h3 class="nombre-funcion">{{ eventos.0.obra.titulo }}</h3>
-                        <h3 class="hora-funcion">
-                            <p class="material-symbols-outlined">schedule</p>
-                            {{ eventos.0.hora|time:"H:i" }}
-                        </h3>
-                        <h3 class="lugar-funcion">
-                            <p class="material-symbols-outlined">location_on</p>
-                            {{ eventos.0.lugar }}
-                        </h3>
-                    </td>
-                </tr>
-            </table> {% endcomment %}
             <div class="home-td-fecha">
                 <h2 class="dia-funcion">{{ eventos.0.fecha|date:"d" }}</h2>
                 <h2 class="mes-funcion">{{ eventos.0.fecha|date:"F" }}</h2>
             </div>
-            {% comment %} <div class="home-td-title" style="background-color: lightcoral;">
-              
-            </div> {% endcomment %}
             <div class="home-td-content">
                 <h3 class="nombre-funcion">{{ eventos.0.obra.titulo }}</h3>
                 <h3 class="hora-funcion">
@@ -71,21 +48,18 @@
         {% for evento in eventos|slice:"1:" %}
         <div class="funciones">
             <div class="home-td-fecha">
-                <h2 class="dia-funcion">{{ eventos.0.fecha|date:"d" }}</h2>
-                <h2 class="mes-funcion">{{ eventos.0.fecha|date:"F" }}</h2>
+                <h2 class="dia-funcion">{{ evento.fecha|date:"d" }}</h2>
+                <h2 class="mes-funcion">{{ evento.fecha|date:"F" }}</h2>
             </div>
-            {% comment %} <div class="home-td-title" style="background-color: lightcoral;">
-              
-            </div> {% endcomment %}
             <div class="home-td-content">
-                <h3 class="nombre-funcion">{{ eventos.0.obra.titulo }}</h3>
+                <h3 class="nombre-funcion">{{ evento.obra.titulo }}</h3>
                 <h3 class="hora-funcion">
                     <p class="material-symbols-outlined">schedule</p>
-                    {{ eventos.0.hora|time:"H:i" }} hs
+                    {{ evento.hora|time:"H:i" }} hs
                 </h3>
                 <h3 class="lugar-funcion">
                     <p class="material-symbols-outlined">location_on</p>
-                    {{ eventos.0.lugar }}
+                    {{ evento.lugar }}
                 </h3>
             </div> 
         </div>

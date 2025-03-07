@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import View
+from django.utils.timezone import now  # Importa la función now para obtener la fecha y hora actuales
 from .models import Evento, Noticia, Integrante, Obra, Institucion
 
 
@@ -28,7 +29,8 @@ class Integrantes(View):
 
 class PaginaPrincipal(View):
     def get(self, request):
-        eventos = Evento.objects.order_by('fecha')  # Obtén todos los eventos ordenados por fecha
+        # Filtra los eventos para mostrar solo aquellos con fecha igual o posterior a hoy
+        eventos = Evento.objects.filter(fecha__gte=now().date()).order_by('fecha')
         noticias = Noticia.objects.order_by('-fecha')  # Obtén todas las novedades ordenadas por fecha descendente
         context = {
             'eventos': eventos,
