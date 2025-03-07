@@ -28,6 +28,16 @@
     margin-top: 7px;
     margin-bottom: 7px;
     color: var(--color-principal);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.recorte{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .container-integrantes2{
@@ -81,7 +91,7 @@
     width: 100%;
     margin-left: 15px;
     margin-right: 15px;
-    
+
 }
 
 .card-item2 {
@@ -295,7 +305,7 @@
         overflow: hidden; /* Evita que el contenido sobresalga del contenedor */
         height: auto; /* La altura se ajusta automáticamente al contenido */
     }
-    
+
     .obras-img {
         width: 180px; /* Ancho fijo de la imagen */
         height: 120px; /* Alto fijo de la imagen */
@@ -305,7 +315,7 @@
         display: block; /* Asegura que la imagen sea tratada como un bloque */
         flex-shrink: 0; /* Evita que la imagen se reduzca */
     }
-    
+
     .obras-info {
         margin: 0; /* Elimina márgenes internos */
         padding: 10px; /* Agrega un poco de espacio entre la imagen y el texto */

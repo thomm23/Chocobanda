@@ -12,9 +12,7 @@
         <section class="nosotros-section">
             <h2 class="nosotros-titulo">La historia de</h2>
             <h1 class="nosotros-chocobanda">Chocobanda</h1>
-            <p class="nosotros-descripcion"> {% if ajustes %}
-                {{ ajustes.historia_chocobanda|slice:":400" }}
-            {% else %}
+            <p class="nosotros-descripcion recorte">{% if ajustes %}{{ ajustes.historia_chocobanda | safe }}...{% else %} 
                 Próximamente...
             {% endif %}</p>
             <p class="nosotros-redireccion"><a href="/nuestraHistoria">Leer más</a></p>
