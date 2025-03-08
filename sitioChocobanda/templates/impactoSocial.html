@@ -7,12 +7,11 @@
 {% block nombre_seccion %} Impacto social {% endblock %}
 {% block content %}
 
-<!-- Contenedor Principal -->
 <div class="impacto-container">
     <h1 class="section-title">Instituciones beneficiadas</h1>
     {% for institucion in instituciones_beneficiadas %}
         <div class="instituciones-list">
-            <a href="{% url 'impactoSocialInsti' institucion.id %}" style="text-decoration: none; color: inherit;">
+            <a href="{% url 'impactoSocialInsti' institucion.id %}" class="institucion-link">
                 <div class="institucion-item">
                     <div class="institucion-image">
                         {% if institucion.foto %}
@@ -24,7 +23,7 @@
 
                     <div class="institucion-info">
                         <h3 class="institucion-name"> {{ institucion.nombre }} </h3>
-                        <p class="institucion-description"> {{ institucion.descripcion }} </p>
+                        <p class="institucion-description"> {{ institucion.descripcion|truncatewords:50 }} </p>
                     </div>
                 </div>
             </a>
