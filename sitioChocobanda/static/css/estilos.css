@@ -148,11 +148,29 @@ nav {
 
 /* Estilos de la descripción */
 .descripcion p {
-    font-size: 22px;
+    font-size: 24px;
     text-align: center;
     margin: 0.5rem 1rem 1.5rem 1rem;
     color: var(--color-principal);
 }
+
+
+/* Estilos para las funciones */
+.funciones h2{
+    font-size: 24px; /* Tamaño de fuente para el nombre de la función */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+}
+
+.funciones .nombre-funcion{
+    font-size: 24px;
+}
+
+.funciones .hora-funcion,
+.funciones .lugar-funcion {
+    font-size: 16px; /* Tamaño de fuente para la hora y el lugar */
+}
+
+
 
 /* Estilos de las funciones */
 .funciones {
@@ -220,6 +238,7 @@ nav {
     color: var(--color-principal);
     margin: 1rem;
     font-weight: bold;
+    font-size: 32px;
     align-self: flex-start;
     margin-bottom: 0;
 }
@@ -341,6 +360,7 @@ nav {
 .home-redirrecion p {
     display: flex;
     font-weight: 800;
+    font-size: 18px;
     color: #4c6a2a;
     justify-content: end;
     margin-right: 1rem;
@@ -537,12 +557,12 @@ nav {
 }
 
 .swiper-pagination-bullet {
-    background: var(--color-principal);
+    background: var(--color-interactivo);
     opacity: 0.7;
 }
 
 .swiper-pagination-bullet-active {
-    background: var(--color-principal);
+    background: var(--color-interactivo);
     opacity: 1;
 }
 
@@ -718,9 +738,14 @@ nav {
         box-shadow: 0 10px 10px -10px rgba(139, 69, 19, 0.9);
     }
 
+    .home-title {
+        font-size: 24px;
+    
+    }
+
     /* Estilos para la descripción en móviles */
     .descripcion p {
-        font-size: 22px;
+        font-size: 14px;
         text-align: center;
         margin: 0.5rem 1rem 1.5rem 1rem;
         color: var(--color-principal);
@@ -737,22 +762,37 @@ nav {
     }
 
     /* Estilos para las funciones en móviles */
+
+    /* Estilos para las funciones */
+
+    .funciones .nombre-funcion{
+        color: var(--color-interactivo);
+        font-weight: 600;
+        font-size: 22px;
+        margin-bottom: 0.5rem;
+    }
+
+    .funciones .hora-funcion,
+    .funciones .lugar-funcion {
+        font-size: 14px; /* Tamaño de fuente para la hora y el lugar */
+    }
+
     .funciones h2 {
         color: var(--color-principal);
         display: flex;
         flex-direction: column;
         margin-right: 1rem;
         font-weight: 600;
+        font-size: 18px;
+        text-transform: uppercase; /* Convierte el texto a mayúsculas */
     }
 
-    .funciones .nombre-funcion {
-        color: var(--color-interactivo);
-        font-weight: 600;
-    }
+
 
     .proxima-funcion .nombre-funcion {
         color: #f1e7c8;
         font-weight: 500;
+        font-size: 22px;
     }
 
     .proxima-funcion h2 {
@@ -848,15 +888,8 @@ nav {
         margin: 1rem;
     }
 
-    .home-td-content {
-        align-content: center;
-    }
+    
 
-    .home-td-content .nombre-funcion {
-        margin-bottom: 0.5rem;
-        font-size: 1.5rem;
-        font-weight: 700;
-    }
 
     .icon-contenedor { 
         display: flex; 
@@ -989,5 +1022,9 @@ nav {
         font-size: 14px;
         color: var(--color-fondo);
         text-align: left;
+    }
+
+    .home-redirrecion p{
+        font-size: 14px;
     }
 }

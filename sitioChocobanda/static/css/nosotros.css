@@ -10,14 +10,21 @@
     justify-content: center;
     align-items: center;
     color: var(--color-principal);
+    font-size: 42px;
 }
+
+.nosotros-section h1{
+    font-size: 65px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
 .nosotros-chocobanda{
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--color-principal);
     font-family: Jokerman;
-    font-size: 70px;
 }
 
 .nosotros-descripcion{
@@ -30,7 +37,9 @@
     color: var(--color-principal);
     white-space: pre-wrap;
     word-wrap: break-word;
+    font-size: 24px;
 }
+
 
 .recorte{
     display: -webkit-box;
@@ -76,6 +85,11 @@
     z-index: 10;
  }
 
+ .card-item2:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
+}
+
 .card-item {
     position: relative;
     background-color: var(--color-fondo);
@@ -115,6 +129,16 @@
     margin-left: 8px;
 }
 
+.card-titulo{
+    color: var(--color-principal);
+    font-size: 24px;
+}
+
+.card-description {
+    color: var(--color-principal);
+    font-size: 18px;
+}
+
 .swiper-slide {
     display: block;
     width: 300px;
@@ -126,19 +150,20 @@
 }
 
 .card-wrapper .swiper-pagination-bullet {
-    background: var(--color-principal);
+    background: var(--color-interactivo);
     opacity: 0.7;
 }
 
 .card-wrapper .swiper-pagination-bullet-active {
-    background: var(--color-principal);
+    background: var(--color-interactivo);
     opacity: 1;
 }
 
-
-.nosotros-section h1{
-    text-align: center;
-    margin-bottom: 15px;
+.integrantes-section h1{
+    background-color:#f1e7c8;
+    font-size: 32px;
+    margin:  15px;
+    color: var(--color-principal);
 }
 
 .nosotros-section
@@ -151,42 +176,48 @@
     color: var(--color-principal);
 }
 
-.integrantes-section h1{
-    background-color:#f1e7c8;
-    margin:  15px;
-    color: var(--color-principal);
+.agenda-section h1{
+    font-size: 32px;
 }
 
 .obras {
     display: flex;
     align-items: flex-start;
     width: 100%;
-    height: 200px;
+    min-width: 500px; /* Ancho mínimo para acomodar la imagen */
+    height: auto; /* Altura automática */
     margin: 1rem 0;
     overflow: hidden;
 }
-.obras-info{
+
+.obras-img {
+    width: 500px; /* Ancho fijo */
+    height: auto; /* Alto automático */
+    object-fit: cover; /* Recorta la imagen si es necesario */
+    border-radius: 5%;
+}
+
+.obras-info {
+    flex-grow: 1; /* Ocupa el espacio restante */
     padding: 1rem;
-    height: 200px;
-    width: calc(100% - 100px);
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Distribuye el contenido verticalmente */
     overflow: hidden;
 }
+
+.obras-info-title {
+    font-size: 28px; /* Tamaño de fuente */
+}
+
 .obras-info-desc{
-    font-size: 14px;
+    font-size: 24px;
     overflow-y: auto;
     flex-grow: 1;
     color: var(--color-principal);
     text-align: justify;
     margin-right: 1rem;
     padding-right: 1rem;
-}
-
-.obras-info-title{
-    font-size: 18px;
-    color: var(--color-principal);
-    margin-bottom: 0.5rem;
 }
 
 .agenda-section {
@@ -197,21 +228,12 @@
     margin-left: 15px;
 }
 
-
 .agenda-section a {
     display: block; /* Convierte el <a> en un bloque */
     width: 100%; /* Ocupa todo el ancho disponible */
     text-decoration: none; /* Elimina el subrayado del enlace */
     color: inherit; /* Hereda el color del texto */
     margin-right: 0;
-}
-
-.obras-img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    flex-shrink: 0;
-    border-radius: 5%;
 }
 
 .nosotros-redireccion{
@@ -229,6 +251,7 @@
     text-decoration: none;
     color: var(--color-interactivo);
     font-weight: bold;
+    font-size: 18px;
 
 }
 
@@ -252,12 +275,20 @@
         margin-top: 75px;
     }
 
+    .nosotros-titulo{
+        font-size: 24px;
+    }
+
+    .nosotros-section h1{ 
+        font-size: 40px;
+    }
+
     .nosotros-chocobanda{
         font-size:  56px;
     }
     .nosotros-descripcion {
         margin: 7px 15px;
-        font-size: 14px;
+        font-size: 16px;
         text-align: left;
     }
     .nosotros-redireccion{
@@ -268,6 +299,14 @@
         font-size: 17px;
         margin-top: 7px;
         font-weight: 500;
+    }
+
+    .nosotros-redireccion a{
+        font-size: 14px;
+    }
+
+    .integrantes-section h1, .agenda-section h1{
+        font-size: 24px;
     }
 
     .agenda-section a {
@@ -281,6 +320,7 @@
         width: 100%; /* Ocupa todo el ancho disponible */
         margin: 0; /* Centra el contenedor si es necesario */
         padding: 0 15px; /* Agrega un poco de espacio a los lados */
+        padding-right: 0;
     }
 
     .card-item2 {
@@ -289,7 +329,16 @@
     }
 
     .card-title, .card-description {
-        color: var(--color-fondo)
+        color: var(--color-fondo);
+    }
+
+    .card-title{
+        font-size: 24px;
+        font-weight: normal;
+    }
+
+    .card-description{
+        font-size: 14px;
     }
 
     .obras {
