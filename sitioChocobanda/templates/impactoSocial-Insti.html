@@ -6,30 +6,37 @@
 {% block title %} Chocobanda - Impacto Social {% endblock %}
 {% block nombre_seccion %} Impacto social {% endblock %}
 {% block content %}
-<!-- Institucion -->
-<div class="institucion-container">
-    <div class="DescripcionInstitucion">
-        <h1 class="text-imagen">Breve descripción de la institución: </h1>
-        <h3 class="text-sub-imagen"> {{ institucion.descripcion }} </h3>
+
+<!-- Sección Institución -->
+<div class="seccion-institucion">
+    <div class="institucion-container">
+        <!-- Información de la Institución -->
+        <div class="informacion-institucion">
+            <h1 class="nombre-institucion">{{ institucion.nombre }}</h1>
+            <p class="descripcion-institucion">{{ institucion.descripcion }}</p>
+        </div>
+        <!-- Foto de la Institución -->
+        <div class="imagen-institucion-container">
+            {% if institucion.foto %}
+                <img class="imagen-institucion" src="{{ institucion.foto.url }}" alt="Foto de {{ institucion.nombre }}">
+            {% else %}
+                <img class="imagen-institucion" src="{% static 'img/foto2.JPG' %}" alt="Imagen no disponible de {{ institucion.nombre }}">
+            {% endif %}
+        </div>
     </div>
-    <div class="header">
-        {% if institucion.foto %}
-            <img class="imagen-header" src="{{ institucion.foto.url }}" alt="Foto de {{ institucion.nombre }}">
-        {% else %}
-            <img class="imagen-header" src="{% static 'img/default_institucion.jpg' %}" alt="Imagen predeterminada">
-        {% endif %}
+
+    <!-- Sección Impacto Social -->
+    <div class="impacto-social-container">
+        <h2 class="titulo-impacto">Nuestro impacto</h2>
+        <p class="impacto-social">{{ institucion.impacto_social }}</p>
+    </div>
+
+    <!-- Link al Sitio Web -->
+    <div class="link-institucion-container">
+        <a href="{{ institucion.link_institucion }}" class="link-institucion">Visitar sitio web</a>
     </div>
 </div>
 
-<div class="NuestroImpacto">
-    <h1 class="text-imagen-2"> Nuestro impacto: </h1>
-    <h3 class="text-sub-imagen-2">
-        {{ institucion.impacto_social }}
-    </h3>
-</div>
 
-<div class="contact-info">
-    <p><strong><i class="bi bi-whatsapp verde"></i> Teléfono:</strong> {{ institucion.telefono }}</p>
-    <p><strong><i class="bi bi-envelope verde"></i>Email:</strong> {{ institucion.correo_electronico }}</p>
-</div>
 {% endblock %}
+
