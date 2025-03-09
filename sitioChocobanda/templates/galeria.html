@@ -213,7 +213,7 @@
             } else {
                 foto.style.display = "none"; // Ocultar foto
                 no_photo_msg.style.display = "block";  // Mostrar mensaje
-                no_photo_msg.style.height = "30vh";
+                //no_photo_msg.style.height = "30vh";
             }
             
         });
@@ -233,7 +233,7 @@
             } else {
                 video.style.display = "none"; // Ocultar video si no coincide
                 no_video_msg.style.display = "block"; // Mostrar mensaje
-                no_video_msg.style.height = "30vh";
+                //no_video_msg.style.height = "30vh";
             }
         });
         // Detener la reproducción si se cambia de obra
@@ -248,7 +248,8 @@
     selectObras.addEventListener('change', function() {
         const selectedObraId = selectObras.value; // Obtén el ID de la obra seleccionada
         const canciones = cancionesContainer.querySelectorAll('.galeria-item-canciones');
-
+        const browser = document.querySelector('.buscador');
+        const galeria_grid_canciones= document.querySelector('.galeria-grid-canciones');
         canciones.forEach(cancion => {
             const obraId = cancion.getAttribute('data-obra'); // Obtén el ID de la obra de la canción
             if (selectedObraId === "" || obraId === selectedObraId) {
@@ -257,7 +258,10 @@
             } else {
                 cancion.style.display = "none"; // Ocultar canción
                 no_song_msg.style.display = "block"; // Mostrar mensaje
-                no_song_msg.style.height = "30vh";
+                browser.style.display = "none";
+                galeria_grid_canciones.style.gap = "unset";
+                galeria_grid_canciones.style.margin = "unset"
+                //no_song_msg.style.height = "30vh";
             }
         });
 

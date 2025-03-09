@@ -460,6 +460,9 @@
     align-items: center;
     color: #3b6021;
 }
+.no_song_msg{
+    margin-left: 1rem;
+}
 .no_photo_msg h3, .no_video_msg h3, .no_song_msg h3{
     color: #e0d6b8;
     font-size: 1.5rem;
@@ -555,6 +558,7 @@
         background-color: var(--color-principal);
         padding-top: 20px; /* Reemplazado vh por px */
         padding-bottom: 20px; /* Reemplazado vh por px */
+        border-radius: 5px;
     }
 
     .cancion-texto .titulo-cancion {
