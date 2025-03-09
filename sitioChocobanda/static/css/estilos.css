@@ -235,6 +235,7 @@ nav {
 .home-funciones-wrapper p{
     color: var(--color-principal);
     font-size: 24px;
+    padding-top: 15px;
 }
 
 /* Estilos del título de la sección */

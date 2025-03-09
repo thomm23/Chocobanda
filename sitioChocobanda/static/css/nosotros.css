@@ -218,6 +218,11 @@
     text-align: justify;
     margin-right: 1rem;
     padding-right: 1rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .agenda-section {
