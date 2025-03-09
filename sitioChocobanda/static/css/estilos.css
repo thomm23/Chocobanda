@@ -232,6 +232,11 @@ nav {
     justify-content: center;
 }
 
+.home-funciones-wrapper p{
+    color: var(--color-principal);
+    font-size: 24px;
+}
+
 /* Estilos del título de la sección */
 .home-title {
     color: var(--color-principal);
@@ -824,6 +829,11 @@ nav {
         flex-direction: column;
         width: 100%; 
         color: var(--color-principal);
+    }
+
+    .home-funciones-wrapper p{
+        text-align: center;
+        font-size: 14px;
     }
 
     .no-eventos {
