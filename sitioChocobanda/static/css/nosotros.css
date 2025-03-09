@@ -45,6 +45,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
+    line-clamp: 5;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -191,10 +192,25 @@
 }
 
 .obras-img {
-    width: 500px; /* Ancho fijo */
-    height: auto; /* Alto automático */
-    object-fit: cover; /* Recorta la imagen si es necesario */
+    width: 500px; 
+    min-width: 500px; 
+    height: 282px;
+    min-height: 282px;
+    object-fit: cover; 
     border-radius: 16px;
+}
+
+.obras-no-image {
+    width: 500px; /* Ancho fijo */
+    min-width: 500px; /* Ancho mínimo para acomodar la imagen */
+    height: 282px;
+    min-height: 282px;
+    text-align: center; /* Centra el texto horizontalmente */
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    border-radius: 16px; /* Bordes redondeados */
+    border: 3px solid var(--color-principal); /* Borde negro de 3px */
 }
 
 .obras-info {
@@ -221,6 +237,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
+    line-clamp: 5;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -394,6 +411,7 @@
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
+        line-clamp: 3;
         overflow: hidden;
         text-overflow: ellipsis;
     }
@@ -407,6 +425,159 @@
     }
 
     .nosotros-integrantes-redireccion{
+        margin-right: 15px;
+    }
+
+}@media screen and (max-width: 768px) {
+
+    .nosotros-section{
+        margin-top: 75px;
+    }
+
+    .nosotros-titulo{
+        font-size: 24px;
+    }
+
+    .nosotros-section h1{ 
+        font-size: 40px;
+    }
+
+    .nosotros-chocobanda{
+        font-size:  56px;
+    }
+    .nosotros-descripcion {
+        margin: 7px 15px;
+        font-size: 16px;
+        text-align: left;
+    }
+    .nosotros-redireccion{
+        display: flex;
+        justify-content: end;
+        font-weight: 800;
+        color: var(--color-principal);
+        font-size: 17px;
+        margin-top: 7px;
+        font-weight: 500;
+    }
+
+    .nosotros-redireccion a{
+        font-size: 14px;
+    }
+
+    .integrantes-section h1, .agenda-section h1{
+        font-size: 24px;
+    }
+
+    .agenda-section a {
+        display: block; /* Convierte el <a> en un bloque */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        text-decoration: none; /* Elimina el subrayado del enlace */
+        color: inherit; /* Hereda el color del texto */
+    }
+
+    .agenda-section {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin: 0; /* Centra el contenedor si es necesario */
+        padding: 0 15px; /* Agrega un poco de espacio a los lados */
+        padding-right: 0;
+    }
+
+    .card-item2 {
+        background-color: #3b6021;
+        border: none;
+    }
+
+    .card-title, .card-description {
+        color: var(--color-fondo);
+    }
+
+    .card-title{
+        font-size: 24px;
+        font-weight: normal;
+    }
+
+    .card-description{
+        font-size: 14px;
+    }
+
+    .obras {
+        display: flex; /* Usa Flexbox para alinear los elementos */
+        align-items: stretch; /* Asegura que los elementos ocupen toda la altura */
+        width: auto; /* El ancho se ajustará automáticamente al contenido */
+        margin-top: 15px;
+        border-radius: 20px 0 0 20px; /* Borde redondeado solo en la esquina izquierda */
+        border-top: 3px solid var(--color-interactivo); /* Borde superior */
+        border-left: 3px solid var(--color-interactivo); /* Borde izquierdo */
+        border-bottom: 3px solid var(--color-interactivo); /* Borde inferior */
+        border-right: none; /* Sin borde derecho */
+        overflow: hidden; /* Evita que el contenido sobresalga del contenedor */
+        height: auto; /* La altura se ajusta automáticamente al contenido */
+        box-sizing: border-box; /* Incluye padding y bordes en el cálculo del tamaño */
+    }
+    
+    .obras-img {
+        width: 120px; 
+        min-width: 120px; 
+        height: 120px;
+        min-height: 120px;
+        object-fit: cover; 
+        border-radius: none;
+    } 
+
+    
+    .obras-no-image {
+        width: 120px; /* Ancho fijo de la imagen */
+        height: 120px; /* Alto fijo de la imagen */
+        min-width: 120px; /* Ancho mínimo */
+        min-height: 120px; /* Alto mínimo */
+        max-width: 120px; /* Máximo ancho permitido */
+        max-height: 120px; /* Máximo alto permitido */
+        text-align: center; /* Centra el texto horizontalmente */
+        display: flex; /* Habilita Flexbox */
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        border-radius: 0; /* Elimina los bordes redondeados */
+        border: none; /* Elimina todos los bordes */
+        border-right: 1px solid var(--color-interactivo); /* Borde solo en el lado derecho */
+    }
+    
+    .obras-info {
+        margin: 0; /* Elimina márgenes internos */
+        padding: 10px; /* Agrega un poco de espacio entre la imagen y el texto */
+        display: flex; /* Usa Flexbox para organizar el contenido */
+        flex-direction: column; /* Coloca los elementos en columna */
+        justify-content: center; /* Centra verticalmente el contenido */
+        background-color: transparent; /* Asegúrate de que el fondo no interfiera */
+        height: 100%; /* Asegura que el texto ocupe toda la altura disponible */
+    }
+    
+    .obras-info-desc p {
+        width: 90vw; /* El ancho del contenedor será el 90% del ancho de la pantalla */
+        max-width: 100%; /* Asegura que no exceda el ancho disponible */
+        font-size: 25px;
+    }
+    
+    .obras-info-desc {
+        font-size: 14px;
+        width: 100vw; /* El ancho del contenedor será el 90% del ancho de la pantalla */
+        max-width: 100%; /* Asegura que no exceda el ancho disponible */
+        display: -webkit-box; /* Crea un contenedor flexible */
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .obras-info-title {
+        font-size: 16px;
+        color: var(--color-principal);
+        text-align: left;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .nosotros-integrantes-redireccion {
         margin-right: 15px;
     }
 

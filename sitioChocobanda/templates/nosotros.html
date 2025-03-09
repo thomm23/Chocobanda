@@ -75,7 +75,7 @@
                     {% if obra.foto %}
                         <img class="obras-img" src="{{ obra.foto.url }}" alt="{{ obra.titulo }}">
                     {% else %}
-                        <p>Imagen no disponible</p>
+                        <p class="obras-no-image">Imagen no disponible</p>
                     {% endif %}
                     <div class="obras-info">
                         <h3 class="obras-info-title">{{ obra.titulo }}</h3>
