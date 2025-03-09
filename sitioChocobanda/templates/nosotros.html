@@ -79,7 +79,7 @@
                     {% endif %}
                     <div class="obras-info">
                         <h3 class="obras-info-title">{{ obra.titulo }}</h3>
-                        <p class="obras-info-desc">{{ obra.descripcion }}...</p>
+                        <p class="obras-info-desc">{{ obra.descripcion|slice:":100" }}...</p>
                     </div>
                 </div>
             </a>

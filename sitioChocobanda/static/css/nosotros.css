@@ -2,7 +2,7 @@
     --color-principal: #3b6021; /* Verde */
     --color-secundario: #8c4a2f; /* Marrón */
     --color-fondo: #f1e7c8; /* Beige */
-    --color-interactivo: #BC570A; /* Naranja */
+    --color-interactivo: #E87722; /* naranja */
 }
 
 .nosotros-titulo{
@@ -194,7 +194,7 @@
     width: 500px; /* Ancho fijo */
     height: auto; /* Alto automático */
     object-fit: cover; /* Recorta la imagen si es necesario */
-    border-radius: 16px;
+    border-radius: 5%;
 }
 
 .obras-info {
@@ -218,11 +218,6 @@
     text-align: justify;
     margin-right: 1rem;
     padding-right: 1rem;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .agenda-section {
@@ -351,20 +346,20 @@
         align-items: stretch; /* Asegura que los elementos ocupen toda la altura */
         width: auto; /* El ancho se ajustará automáticamente al contenido */
         margin-top: 15px;
-        border-radius: 20px 0 0 20px; /* Borde redondeado solo en la esquina izquierda */
-        border-top: 3px solid var(--color-interactivo); /* Borde superior */
-        border-left: 3px solid var(--color-interactivo); /* Borde izquierdo */
-        border-bottom: 3px solid var(--color-interactivo); /* Borde inferior */
+        border-radius: 30px 0 0 30px; /* Borde redondeado solo en la esquina izquierda */
+        border-top: 2px solid var(--color-interactivo); /* Borde superior */
+        border-left: 2px solid var(--color-interactivo); /* Borde izquierdo */
+        border-bottom: 2px solid var(--color-interactivo); /* Borde inferior */
         border-right: none; /* Sin borde derecho */
         overflow: hidden; /* Evita que el contenido sobresalga del contenedor */
         height: auto; /* La altura se ajusta automáticamente al contenido */
     }
 
     .obras-img {
-        width: 120px; /* Ancho fijo de la imagen */
+        width: 180px; /* Ancho fijo de la imagen */
         height: 120px; /* Alto fijo de la imagen */
         object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
-        border-radius: 0;
+        border-radius: 30px 0 0 0; /* Redondea solo la esquina superior izquierda */
         margin: 0; /* Elimina cualquier margen interno */
         display: block; /* Asegura que la imagen sea tratada como un bloque */
         flex-shrink: 0; /* Evita que la imagen se reduzca */
@@ -380,22 +375,9 @@
         height: 100%; /* Asegura que el texto ocupe toda la altura disponible */
     }
 
-    .obras-info-desc p {
-        width: 90vw; /* El ancho del contenedor será el 90% del ancho de la pantalla */
-        max-width: 100%; /* Asegura que no exceda el ancho disponible */
-        font-size: 25px;
-    }
-
     .obras-info-desc{
         font-size: 14px;
-        width: 100vw; /* El ancho del contenedor será el 90% del ancho de la pantalla */
-        max-width: 100%; /* Asegura que no exceda el ancho disponible */
-        display: -webkit-box; /* Crea un contenedor flexible */
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        padding-right: 10px;
     }
 
     .obras-info-title{
