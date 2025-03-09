@@ -44,29 +44,29 @@
 
 /* Estilos generales de las pestañas */
 .tabs {
-    display: flex; /* Usamos Flexbox */
+    display: flex;
     margin-left: 22px;
     margin-right: 22px;
-    padding: 0; /* Elimina paddings internos */
+    padding: 0;
 }
 
 .tabs p {
-    flex-grow: 1; /* Hace que cada pestaña crezca para ocupar el mismo espacio */
-    text-align: center; /* Centra el texto dentro de cada pestaña */
-    background-color: #f1e7c8; /* Color de fondo */
-    color: var(--color-principal); /* Color del texto */
-    font-size: 1rem; /* Tamaño de fuente */
-    border: none; /* Sin bordes adicionales */
-    padding: 10px 0; /* Padding vertical (sin horizontal) */
-    cursor: pointer; /* Cursor de puntero */
-    transition: background-color 0.3s ease; /* Transición suave */
+    flex-grow: 1;
+    text-align: center; 
+    background-color: #f1e7c8;
+    color: var(--color-principal);
+    font-size: 1rem; 
+    border: none; 
+    padding: 10px 0; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
 }
 
 .tabs p.active {
-    text-decoration: underline; /* Subrayado para el tab activo */
-    color: var(--color-fondo); /* Cambia el color del texto */
-    background-color: var(--color-principal); /* Cambia el color de fondo */
-    border-radius: 12px 12px 0 0; /* Ajusta los bordes redondeados */
+    text-decoration: underline;
+    color: var(--color-fondo);
+    background-color: var(--color-principal);
+    border-radius: 12px 12px 0 0; 
 }
 
 /* Estilo para el contenido de las pestañas */
@@ -94,20 +94,21 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--color-principal);
-    aspect-ratio: 1 / 1; /* Bloquea la relación de aspecto a 1:1 */
+    aspect-ratio: 1 / 1;
 }
 
 .card-actor {
     position: absolute;
-    bottom: 35%; /* Posición desde el fondo (15% del alto del contenedor) */
-    right: 5%; /* Posición desde la derecha (5% del ancho del contenedor) */
-    width: 35%; /* Ancho relativo al contenedor */
-    height: 35%; /* Altura automática para mantener la relación de aspecto */
-    padding-top: 30%; /* Crea un cuadrado usando un porcentaje del ancho */
-    border-radius: 50%; /* Forma circular */
+    bottom: 35%;
+    right: 5%; 
+    width: 35%;
+    height: 35%; 
+    padding-top: 30%;
+    border-radius: 50%; 
     border: 2px solid var(--color-fondo);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    z-index: 2; 
 }
 
 .card-actor img {
@@ -116,39 +117,46 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que la imagen llene el círculo sin deformarse */
-    border-radius: 50%; /* Forma circular */
+    object-fit: cover; 
+    border-radius: 50%;
+    
 }
 
 .card-img {
     width: 100%;
+    height: 65%;
     border-radius: 8px 8px 0 0;
     margin-top: 0;
     object-fit: cover;
-    image-rendering: pixelated; /* Intenta mejorar la apariencia al escalar */
+    image-rendering: pixelated; 
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
 }
 
 .card-text {
-    position: absolute; /* Posiciona el texto absolutamente */
-    bottom: 5%; /* Ancla el texto en la parte inferior del contenedor */
-    left: 0; /* Alinea el texto con el borde izquierdo */
-    width: 100%; /* Ocupa todo el ancho del contenedor */
-    padding: 10px; /* Espaciado interno */
-    box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
-    color: var(--color-fondo); /* Color del texto */
-    text-align: left;
-    z-index: 1; /* Asegura que el texto esté sobre otros elementos */
-}
+    position: absolute;
+    bottom: 5px; 
+    left: 5px; 
+    width: calc(100% - 10px);
+    padding: 10px; 
+    box-sizing: border-box; 
+    color: var(--color-fondo); 
+    text-align: left; 
+    }
 
-.card-title, .card-decription {
-    margin: 8px 0;
-    font-size: clamp(12px, 5vw, 16px);
+.card-title, .card-description {
+    margin: 0; 
+    font-size: clamp(12px, 5vw, 16px); 
 }
 
 .card-text h3 {
     font-size: clamp(12px, 5vw, 16px);
     margin: 0;
-    margin-bottom: 5px; 
 }
 
 /* Estilos para pantallas medianas (Tablet) */
@@ -156,7 +164,7 @@
     .container-integrantes {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+        gap: 8px;
         padding: 20px;
         background-color: var(--color-principal);
         border-radius: 16px;
@@ -194,6 +202,6 @@
     }
 
     .card-text {
-        bottom: 10%; /* Ancla el texto en la parte inferior del contenedor */
+        bottom: 10%;
     }
 }

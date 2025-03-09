@@ -12,7 +12,7 @@
 .detalle-desk-text{
  color: var(--color-principal);
  margin-top: 20px;
- width: 100%;
+ width: 50%;
  margin-top: 50px;
 }
 
@@ -21,14 +21,13 @@
   display: flex; 
   justify-content: center;
   align-items: center; /* Centra las imágenes horizontalmente */ 
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 50%;
 }
 
 .big-image {
-    width: 50vh;
-    height: 20vh;
-    border-radius: 10px;
-    object-fit: cover;   
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .small-image { 
@@ -40,7 +39,12 @@
   right: 25px;
   border-radius: 50%; 
  
- }
+}
+
+.descripcion-desk-detail{
+  border-radius: 10px;
+  object-fit: cover;   
+}
 
  @media screen and (min-width: 769px) {
 
@@ -66,8 +70,8 @@
       }
 
       .big-image{
-        width: 100vh;
-        height: 50vh;
+        width: 100%;
+        height: 50%;
       }
     
       .small-image{

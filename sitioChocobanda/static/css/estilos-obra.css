@@ -5,18 +5,104 @@
     --color-terciario: #E87722; /* Naranja */
 }
 
+/* Reglas generales (aplicadas a partir de 769px) */
+.seccion-obra {
+    margin-left: 30px;
+    margin-right: 30px;
+    color: var(--color-principal);
+    box-sizing: border-box;
+}
 
-/* Estilos para pantallas pequeñas (Mobile) */
+.nombre-obra {
+    font-size: 42px;
+}
+
+.nombre-obra, .titulo-programa {
+    text-align: left;
+    margin-top: 10px;
+    color: var(--color-principal);
+    width: 100%;
+}
+
+.seccion-obra, .obra-container {
+    align-items: flex-start;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    gap: 5px;
+}
+
+.obra-container {
+    padding: 10px; /* 2vh ≈ 10px */
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.descripcion {
+    width: calc(50% - 10px);
+    font-size: 24px;
+    text-align: left;
+    box-sizing: border-box;
+    white-space: pre-wrap; 
+    word-wrap: break-word;
+
+}
+
+.imagen-principal {
+    width: calc(50% - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.imagen-principal img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.titulo-programa {
+    color: var(--color-principal);
+    text-align: left;
+    font-size: 32px;
+    width: 100%; /* Asegurar que ocupe el ancho completo */
+}
+
+.contenedor-programa {
+    width: 100%; /* Ocupar el ancho completo */
+    text-align: left; /* Alineación forzada */
+    margin: 0;
+    padding: 0;
+    display: block; /* Evitar que flex interfiera */
+}
+
+.programa, .cont-programa {
+    width: 100%;
+    text-align: left;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Media query para pantallas pequeñas (hasta 768px) */
 @media (max-width: 768px) {
-    /* Contenedor de la imagen y el detalle */
+    /* Resetear márgenes y paddings generales */
+    .seccion-obra {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+    }
+
     .obra-container {
         display: flex;
         flex-direction: column; /* Elementos en columna */
-        gap: 10px; 
+        gap: 10px;
         align-items: center;
+        padding: 0; /* Eliminar padding */
     }
 
-    /* Imagen principal */
     .imagen-principal {
         order: 1; /* Imagen en primer lugar */
         width: 100%; /* Ancho completo de la pantalla */
@@ -34,39 +120,36 @@
         box-shadow: 0 2.5px 15px rgba(0, 0, 0, 0.5); /* 0.5vh ≈ 2.5px, 3vh ≈ 15px */
     }
 
-    /* Título de la obra */
     .nombre-obra {
         order: 2; /* Título en segundo lugar */
-        font-size: 18px; 
+        font-size: 24px;
         text-align: left;
         color: var(--color-principal);
         width: 100%;
-        padding: 10px 15px; 
+        padding: 10px 15px;
         margin: 0; /* Eliminar márgenes por defecto */
     }
 
-    /* Descripción de la obra */
     .descripcion {
         order: 3; /* Descripción en tercer lugar */
         width: 100%;
         text-align: left;
-        padding: 0 15px 15px 15px; 
+        font-size: 16px;
+        padding: 0 15px 15px 15px;
         color: var(--color-principal);
         margin: 0; /* Eliminar márgenes por defecto */
     }
 
-    /* Título del programa */
     .titulo-programa {
         order: 4; /* Título del programa en cuarto lugar */
         width: 100%;
         color: var(--color-principal);
-        font-size: 18px;
+        font-size: 24px;
         text-align: left;
         padding: 15px 15px 10px 15px; /* Ajuste de padding */
         margin: 0; /* Eliminar márgenes por defecto */
     }
 
-    /* Contenido del programa */
     .contenedor-programa {
         order: 5; /* Contenido del programa en quinto lugar */
         width: 100%;
@@ -78,91 +161,8 @@
 
     .programa, .cont-programa {
         width: 100%;
+        font-size: 16px;
         text-align: left;
         margin: 0; /* Eliminar márgenes por defecto */
-    }
-}
-
-
-
-/* Estilos para pantallas grandes (Desktop) */
-@media (min-width: 769px) {
-    /* Sección principal */
-    .seccion-obra {
-        margin-left: 30px;
-        margin-right: 30px;
-        font-family: 'Arial', sans-serif;
-        color: var(--color-principal);
-        box-sizing: border-box;
-    }
-
-    /* Nombre de la obra */
-    .nombre-obra, .titulo-programa {
-        text-align: left;
-        margin-top: 10px; 
-        color: var(--color-principal);
-        width: 100%;
-    }
-
-    /* Contenedor principal con flex */
-    .seccion-obra, .obra-container {
-        align-items: flex-start;
-        justify-content: center;
-        display: flex;
-        flex-direction: row;
-        flex-flow: row wrap;
-        gap: 5px; 
-    }
-
-    /* Contenedor de la obra */
-    .obra-container {
-        padding: 10px; /* 2vh ≈ 10px */
-        box-sizing: border-box;
-    }
-
-    /* Descripción de la obra */
-    .descripcion {
-        width: calc(50% - 5px); 
-        text-align: left;
-        box-sizing: border-box;
-    }
-
-    /* Imagen principal */
-    .imagen-principal {
-        width: calc(50% - 5px); 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-sizing: border-box;
-    }
-
-    .imagen-principal img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 15px; 
-    }
-
-    /* Título del programa */
-    .titulo-programa {
-        color: var(--color-principal);
-        text-align: left;
-        width: 100%; /* Asegurar que ocupe el ancho completo */
-    }
-
-    /* Contenedor del programa */
-    .contenedor-programa {
-        width: 100%; /* Ocupar el ancho completo */
-        text-align: left; /* Alineación forzada */
-        margin: 0;
-        padding: 0;
-        display: block; /* Evitar que flex interfiera */
-    }
-
-    /* Contenido del programa */
-    .programa, .cont-programa {
-        width: 100%;
-        text-align: left; 
-        margin: 0;
-        padding: 0;
     }
 }

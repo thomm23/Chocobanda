@@ -36,7 +36,7 @@ class PaginaPrincipal(View):
             'eventos': eventos,
             'noticias': noticias,
         }
-        return render(request, 'home.html', context)
+        return render(request, 'index.html', context)
 
 class Nosotros(View):
     def get(self, request):

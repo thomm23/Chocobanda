@@ -34,33 +34,44 @@
             {% if actuales %}
             <div class="container-integrantes">
                 {% for actual in actuales %}
-                <div class="card-item">
-                    <a href="{% url 'detalleIntegrante' actual.id %}" class="card-inte">
-                        <div class="card-actor">
-                            {% comment %} Imagen redonda del integrante {% endcomment %}
-                            {% if actual.foto %}
-                                <img src="{{ actual.foto.url }}" alt="Foto de {{ actual.nombre }}">
+                    <div class="card-item">
+                        <a href="{% url 'detalleIntegrante' actual.id %}" class="card-inte">
+                            {% if not actual.personajes.exists %}
+                            <div class="card-img">
+                                {% if actual.foto %}
+                                    <img src="{{ actual.foto.url }}" alt="Foto de {{ actual.nombre }}">
+                                {% else %}
+                                    <img src="{% static 'img/default-profile.png' %}" alt="Foto de {{ actual.nombre }}">
+                                {% endif %}
+                            </div>
+                            <div class="card-text">
+                                <h3 class="card-title">{{ actual.nombre }}</h3>
+                            </div>
                             {% else %}
-                                <img src="{% static 'img/default-profile.png' %}" alt="Foto de {{ actual.nombre }}">
-                            {% endif %}
-                        </div>
-        
-                        {% if actual.personajes.last and actual.personajes.last.foto %}
+                            <div class="card-actor">
+                                {% comment %} Imagen redonda del integrante {% endcomment %}
+                                {% if actual.foto %}
+                                    <img src="{{ actual.foto.url }}" alt="Foto de {{ actual.nombre }}">
+                                {% else %}
+                                    <img src="{% static 'img/default-profile.png' %}" alt="Foto de {{ actual.nombre }}">
+                                {% endif %}
+                            </div>
+                            {% if actual.personajes.last and actual.personajes.last.foto %}
                             <img src="{{ actual.personajes.last.foto.url }}" alt="Foto de {{ actual.personajes.last.nombre }}" class="card-img">
-                        {% else %}
+                            {% else %}
                             <img src="{% static 'img/default-character.png' %}" alt="Personaje sin foto" class="card-img">
-                        {% endif %}
-        
-                        <div class="card-text">
-                            <h3 class="card-title">{{ actual.personajes.last.nombre|default:"Personaje sin nombre" }}</h3>
-                            <p class="card-description">{{ actual.nombre }}</p>
-                        </div>
-                    </a>
-                </div>
+                            {% endif %}
+                            <div class="card-text">
+                                <h3 class="card-title">{{ actual.personajes.last.nombre|default:"Personaje sin nombre" }}</h3>
+                                <p class="card-description">{{ actual.nombre }}</p>
+                            </div>
+                            {% endif %}
+                        </a>
+                    </div>
                 {% endfor %}
             </div>
             {% else %}
-            <p>No hay integrantes actuales disponibles.</p>
+            <p class="container-integrantes">No hay integrantes actuales disponibles.</p>
             {% endif %}
         </div>
         
@@ -72,6 +83,18 @@
                 {% for invitado in invitados %}
                 <div class="card-item">
                     <a href="{% url 'detalleIntegrante' invitado.id %}" class="card-inte">
+                        {% if not invitado.personajes.exists %}
+                        <div class="card-img">
+                            {% if invitado.foto %}
+                                <img src="{{ invitado.foto.url }}" alt="Foto de {{ invitado.nombre }}">
+                            {% else %}
+                                <img src="{% static 'img/default-profile.png' %}" alt="Foto de {{ invitado.nombre }}">
+                            {% endif %}
+                        </div>
+                        <div class="card-text">
+                            <h3 class="card-title">{{ invitado.nombre }}</h3>
+                        </div>
+                        {% else %}
                         <div class="card-actor">
                             {% comment %} Imagen redonda del integrante {% endcomment %}
                             {% if invitado.foto %}
@@ -80,23 +103,22 @@
                                 <img src="{% static 'img/default-profile.png' %}" alt="Foto de {{ invitado.nombre }}">
                             {% endif %}
                         </div>
-        
                         {% if invitado.personajes.last and invitado.personajes.last.foto %}
-                            <img src="{{ invitado.personajes.last.foto.url }}" alt="Foto de {{ invitado.personajes.last.nombre }}" class="card-img">
+                        <img src="{{ invitado.personajes.last.foto.url }}" alt="Foto de {{ invitado.personajes.last.nombre }}" class="card-img">
                         {% else %}
-                            <img src="{% static 'img/default-character.png' %}" alt="Personaje sin foto" class="card-img">
+                        <img src="{% static 'img/default-character.png' %}" alt="Personaje sin foto" class="card-img">
                         {% endif %}
-        
                         <div class="card-text">
                             <h3 class="card-title">{{ invitado.personajes.last.nombre|default:"Personaje sin nombre" }}</h3>
                             <p class="card-description">{{ invitado.nombre }}</p>
                         </div>
+                        {% endif %}
                     </a>
                 </div>
                 {% endfor %}
             </div>
             {% else %}
-            <p>No hay invitados disponibles actualmente.</p>
+            <p class="container-integrantes">No hay invitados disponibles actualmente.</p>
             {% endif %}
         </div>
 
@@ -107,6 +129,18 @@
                 {% for memorable in memorables %}
                 <div class="card-item">
                     <a href="{% url 'detalleIntegrante' memorable.id %}" class="card-inte">
+                        {% if not memorable.personajes.exists %}
+                        <div class="card-img">
+                            {% if memorable.foto %}
+                                <img src="{{ memorable.foto.url }}" alt="Foto de {{ memorable.nombre }}">
+                            {% else %}
+                                <img src="{% static 'img/default-profile.png' %}" alt="Foto de {{ memorable.nombre }}">
+                            {% endif %}
+                        </div>
+                        <div class="card-text">
+                            <h3 class="card-title">{{ memorable.nombre }}</h3>
+                        </div>
+                        {% else %}
                         <div class="card-actor">
                             {% comment %} Imagen redonda del integrante {% endcomment %}
                             {% if memorable.foto %}
@@ -115,23 +149,22 @@
                                 <img src="{% static 'img/default-profile.png' %}" alt="Foto de {{ memorable.nombre }}">
                             {% endif %}
                         </div>
-        
                         {% if memorable.personajes.last and memorable.personajes.last.foto %}
-                            <img src="{{ memorable.personajes.last.foto.url }}" alt="Foto de {{ memorable.personajes.last.nombre }}" class="card-img">
+                        <img src="{{ memorable.personajes.last.foto.url }}" alt="Foto de {{ memorable.personajes.last.nombre }}" class="card-img">
                         {% else %}
-                            <img src="{% static 'img/default-character.png' %}" alt="Personaje sin foto" class="card-img">
+                        <img src="{% static 'img/default-character.png' %}" alt="Personaje sin foto" class="card-img">
                         {% endif %}
-        
                         <div class="card-text">
                             <h3 class="card-title">{{ memorable.personajes.last.nombre|default:"Personaje sin nombre" }}</h3>
                             <p class="card-description">{{ memorable.nombre }}</p>
                         </div>
+                        {% endif %}
                     </a>
                 </div>
                 {% endfor %}
             </div>
             {% else %}
-            <p>No hay integrantes memorables disponibles actualmente.</p>
+            <p class="container-integrantes">No hay integrantes memorables disponibles actualmente.</p>
             {% endif %}
         </div>
         

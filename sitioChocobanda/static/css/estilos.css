@@ -232,6 +232,12 @@ nav {
     justify-content: center;
 }
 
+.home-funciones-wrapper p{
+    color: var(--color-principal);
+    font-size: 24px;
+    padding-top: 15px;
+}
+
 /* Estilos del título de la sección */
 .home-title {
     color: var(--color-principal);
@@ -489,7 +495,6 @@ nav {
     padding-top: 10px;
     color: var(--color-fondo);
     box-sizing: border-box; /* Incluye padding y border en el cálculo */
-    height: 50%; /* La mitad del contenedor */
     max-height: 50%; /* La mitad del contenedor */
     box-sizing: border-box;
     overflow: hidden; /* Evita que el texto lo deforme */
@@ -826,6 +831,11 @@ nav {
         color: var(--color-principal);
     }
 
+    .home-funciones-wrapper p{
+        text-align: center;
+        font-size: 14px;
+    }
+
     .no-eventos {
         margin-left: 15px;
         margin-right: 15px;
@@ -975,7 +985,6 @@ nav {
 
     .card-text {
         padding-top: 12px;
-        height: 50%; /* La mitad del contenedor */
         max-height: 50%; /* La mitad del contenedor */
         overflow: hidden; /* Evita que el texto lo deforme */
         text-overflow: ellipsis; /* Agrega puntos suspensivos si es necesario */
