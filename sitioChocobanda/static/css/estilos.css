@@ -27,11 +27,6 @@ html, body {
     flex-direction: column;
 }
 
-/* .max-width-1200 {
-    max-width: 1200px;
-    margin: 0 auto;
-} */
-
 /* Estilos de la barra de desplazamiento */
 ::-webkit-scrollbar {
     width: 8px;
@@ -489,7 +484,6 @@ nav {
     padding-top: 10px;
     color: var(--color-fondo);
     box-sizing: border-box; /* Incluye padding y border en el cálculo */
-    height: 50%; /* La mitad del contenedor */
     max-height: 50%; /* La mitad del contenedor */
     box-sizing: border-box;
     overflow: hidden; /* Evita que el texto lo deforme */
@@ -975,7 +969,6 @@ nav {
 
     .card-text {
         padding-top: 12px;
-        height: 50%; /* La mitad del contenedor */
         max-height: 50%; /* La mitad del contenedor */
         overflow: hidden; /* Evita que el texto lo deforme */
         text-overflow: ellipsis; /* Agrega puntos suspensivos si es necesario */

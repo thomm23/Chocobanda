@@ -99,7 +99,7 @@
 
 .card-actor {
     position: absolute;
-    bottom: 35%; /* Posición desde el fondo (15% del alto del contenedor) */
+    bottom: 35%; /* Posición desde el fondo (35% del alto del contenedor) */
     right: 5%; /* Posición desde la derecha (5% del ancho del contenedor) */
     width: 35%; /* Ancho relativo al contenedor */
     height: 35%; /* Altura automática para mantener la relación de aspecto */
@@ -108,6 +108,7 @@
     border: 2px solid var(--color-fondo);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    z-index: 2; /* Aumenta el z-index para asegurar que esté al frente */
 }
 
 .card-actor img {
@@ -118,6 +119,7 @@
     height: 100%;
     object-fit: cover; /* Asegura que la imagen llene el círculo sin deformarse */
     border-radius: 50%; /* Forma circular */
+    
 }
 
 .card-img {
@@ -130,25 +132,24 @@
 
 .card-text {
     position: absolute; /* Posiciona el texto absolutamente */
-    bottom: 5%; /* Ancla el texto en la parte inferior del contenedor */
-    left: 0; /* Alinea el texto con el borde izquierdo */
-    width: 100%; /* Ocupa todo el ancho del contenedor */
+    bottom: 10px; /* Ancla el texto más cerca del borde inferior del contenedor */
+    left: 5px; /* Alinea el texto con el borde izquierdo */
+    width: calc(100% - 10px); /* Ocupa todo el ancho del contenedor menos el padding */
     padding: 10px; /* Espaciado interno */
     box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
     color: var(--color-fondo); /* Color del texto */
-    text-align: left;
-    z-index: 1; /* Asegura que el texto esté sobre otros elementos */
-}
+    text-align: left; /* Alinea el texto a la izquierda */
+    }
 
-.card-title, .card-decription {
-    margin: 8px 0;
-    font-size: clamp(12px, 5vw, 16px);
+.card-title, .card-description {
+    margin: 0; /* Elimina el margen */
+    font-size: clamp(12px, 5vw, 16px); /* Ajusta el tamaño de la fuente */
 }
 
 .card-text h3 {
-    font-size: clamp(12px, 5vw, 16px);
-    margin: 0;
-    margin-bottom: 5px; 
+    font-size: clamp(12px, 5vw, 16px); /* Ajusta el tamaño de la fuente */
+    margin: 0; /* Elimina el margen */
+    margin-bottom: 5px; /* Margen inferior */ 
 }
 
 /* Estilos para pantallas medianas (Tablet) */
@@ -156,7 +157,7 @@
     .container-integrantes {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+        gap: 8px;
         padding: 20px;
         background-color: var(--color-principal);
         border-radius: 16px;
