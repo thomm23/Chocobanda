@@ -44,29 +44,29 @@
 
 /* Estilos generales de las pestañas */
 .tabs {
-    display: flex; /* Usamos Flexbox */
+    display: flex;
     margin-left: 22px;
     margin-right: 22px;
-    padding: 0; /* Elimina paddings internos */
+    padding: 0;
 }
 
 .tabs p {
-    flex-grow: 1; /* Hace que cada pestaña crezca para ocupar el mismo espacio */
-    text-align: center; /* Centra el texto dentro de cada pestaña */
-    background-color: #f1e7c8; /* Color de fondo */
-    color: var(--color-principal); /* Color del texto */
-    font-size: 1rem; /* Tamaño de fuente */
-    border: none; /* Sin bordes adicionales */
-    padding: 10px 0; /* Padding vertical (sin horizontal) */
-    cursor: pointer; /* Cursor de puntero */
-    transition: background-color 0.3s ease; /* Transición suave */
+    flex-grow: 1;
+    text-align: center; 
+    background-color: #f1e7c8;
+    color: var(--color-principal);
+    font-size: 1rem; 
+    border: none; 
+    padding: 10px 0; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
 }
 
 .tabs p.active {
-    text-decoration: underline; /* Subrayado para el tab activo */
-    color: var(--color-fondo); /* Cambia el color del texto */
-    background-color: var(--color-principal); /* Cambia el color de fondo */
-    border-radius: 12px 12px 0 0; /* Ajusta los bordes redondeados */
+    text-decoration: underline;
+    color: var(--color-fondo);
+    background-color: var(--color-principal);
+    border-radius: 12px 12px 0 0; 
 }
 
 /* Estilo para el contenido de las pestañas */
@@ -94,7 +94,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--color-principal);
-    aspect-ratio: 1 / 1; /* Bloquea la relación de aspecto a 1:1 */
+    aspect-ratio: 1 / 1;
 }
 
 .card-actor {
@@ -155,8 +155,8 @@
 }
 
 .card-text h3 {
-    font-size: clamp(12px, 5vw, 16px); /* Ajusta el tamaño de la fuente */
-    margin: 0; /* Elimina el margen */
+    font-size: clamp(12px, 5vw, 16px);
+    margin: 0;
 }
 
 /* Estilos para pantallas medianas (Tablet) */
@@ -202,6 +202,6 @@
     }
 
     .card-text {
-        bottom: 10%; /* Ancla el texto en la parte inferior del contenedor */
+        bottom: 10%;
     }
 }
