@@ -30,27 +30,27 @@
         <div class="tab-content active" id="fotos">
             <div class="galeria-grid">
                 {% for obra in obras %}
-                    {% for galeria in obra.galeria_obra.all %}
-                        {% if  galeria.foto.url  is not None %}
+                    {% if obra.galeria_obra.exists %}
+                        {% for galeria in obra.galeria_obra.all %}
+                            {% if galeria.foto.url is not None%}
                             <div class="galeria-item" data-type="foto" data-obra="{{ obra.id }}" data-src="{{ galeria.foto.url }}">
                                 <img src="{{ galeria.foto.url }}" alt="Foto de {{ obra.titulo }}">
                             </div>
-                        {% endif %}
-                        {% empty %}
-                        <div class ="no_photo_msg">
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <div class="no_photo_msg">
                             <h3>No hay fotos de la obra por el momento.</h3>
                         </div>
-                    {% endfor %}
-                {% else %}
-                    <p>No hay obras por el momento.</p>
-                {% endif %}
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
         <!-- Videos -->
         <div class="tab-content" id="videos">
             <div class="galeria-grid">
                 {% for obra in obras %}
-                    {% if obra.videos_obra.all %}
+                    {% if obra.videos_obra.exists %}
                         {% for video in obra.videos_obra.all %}
                             <div class="galeria-item" data-type="video" data-obra="{{ obra.id }}" data-src="{{ video.get_embed_url }}">
                                 <img src="{{ video.get_thumbnail_url }}" alt="{{ video.titulo }}" class="video-thumbnail">
@@ -61,7 +61,7 @@
                             <h3>No hay videos de la obra por el momento.</h3>
                         </div>
                     {% endif %}
-            {% endfor %}
+                {% endfor %}
             </div>
         </div>
 
@@ -102,35 +102,39 @@
         
             <!-- Canciones -->
             <div class="galeria-grid-canciones">
-                {% for obra in obras %}  <!-- Recorre todas las obras -->
-                    {% for cancion in obra.canciones_obra.all %}  <!-- Recorre las canciones de cada obra -->
-                        <div class="galeria-item-canciones" 
-                             data-obra="{{ obra.id }}"
-                             data-audio-src="{% if cancion.archivo %}{{ cancion.archivo.url }}{% elif cancion.enlace %}{{ cancion.enlace }}{% endif %}"
-                             data-img-src="{% if obra.foto %}{{ obra.foto.url }}{% else %}{% static 'img/Imagen-NoImage.png' %}{% endif %}" 
-                             data-title="{{ cancion.titulo }}"
-                             data-subtitle="{{ cancion.obra.titulo }}">
-                            <div class="cancion-info">
-                                <div class="cancion-play">▶</div>
-                                <div class="cancion-texto">
-                                    <div class="titulo-cancion">{{ cancion.titulo }}</div>
-                                    <div class="subtitulo">{{ cancion.obra.titulo }}</div>
+                {% for obra in obras %}
+                  {% if obra.canciones_obra.exists%}
+                        <!-- Recorre todas las obras -->
+                        {% for cancion in obra.canciones_obra.all %}  <!-- Recorre las canciones de cada obra -->
+                            <div class="galeria-item-canciones" 
+                                data-obra="{{ obra.id }}"
+                                data-audio-src="{% if cancion.archivo %}{{ cancion.archivo.url }}{% elif cancion.enlace %}{{ cancion.enlace }}{% endif %}"
+                                data-img-src="{% if obra.foto %}{{ obra.foto.url }}{% else %}{% static 'img/Imagen-NoImage.png' %}{% endif %}" 
+                                data-title="{{ cancion.titulo }}"
+                                data-subtitle="{{ cancion.obra.titulo }}">
+                                <div class="cancion-info">
+                                    <div class="cancion-play">▶</div>
+                                    <div class="cancion-texto">
+                                        <div class="titulo-cancion">{{ cancion.titulo }}</div>
+                                        <div class="subtitulo">{{ cancion.obra.titulo }}</div>
+                                    </div>
+                                </div>
+                                <div class="duracion">
+                                    {% if cancion.duracion %}
+                                        {{ cancion.duracion|time:"i:s" }}  <!-- Formatea la duración en minutos:segundos -->
+                                    {% else %}
+                                        00:00
+                                    {% endif %}
                                 </div>
                             </div>
-                            <div class="duracion">
-                                {% if cancion.duracion %}
-                                    {{ cancion.duracion|time:"i:s" }}  <!-- Formatea la duración en minutos:segundos -->
-                                {% else %}
-                                    00:00
-                                {% endif %}
-                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="no_song_msg">
+                            <h3>No hay canciones de la obra por el momento.</h3>
                         </div>
-                        {% empty %}
-                            <div class="no_song_msg">
-                                <h3>No hay canciones disponibles.</h3>
-                            </div>
-                    {% endfor %}
+                    {% endif %}
                 {% endfor %}
+
             </div>            
         </div>
     </div>
@@ -168,6 +172,9 @@
     // Lógica para las pestañas
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
+    let no_photo_msg = document.querySelector('.no_photo_msg');
+    let no_video_msg = document.querySelector('.no_video_msg');
+    let no_song_msg = document.querySelector('.no_song_msg');
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
@@ -185,85 +192,131 @@
             if (currentAudio) {
                 stopButton.click(); // Simular clic en el botón de stop
             }
-            
         });
     });
+
     // Lógica para filtrar fotos por obra seleccionada
     const selectObras = document.querySelector('.galeria-obras');
     const fotosContainer = document.querySelector('.galeria-grid');
 
-    const no_photo_msg = document.querySelector('.no_photo_msg');
-    const no_video_msg = document.querySelector('.no_video_msg');
-    const no_song_msg = document.querySelector('.no_song_msg');
-
     if(selectObras.value === ""){
-        no_photo_msg.style.display = "none";
-        no_video_msg.style.display = "none";
-        no_song_msg.style.display = "none";
+        no_photo_msg.style.display = "none"; // Mostrar mensaje de no fotos
     }
-
-    selectObras.addEventListener('change', function() {
+    //Funcion para filtrar fotos
+    function filtrarFotos() {
         const selectedObraId = selectObras.value;
         const fotos = fotosContainer.querySelectorAll('.galeria-item');
-        
+        let fotosMostradas = false;
 
         fotos.forEach(foto => {
             const obraId = foto.getAttribute('data-obra');
             if (selectedObraId === "" || obraId === selectedObraId) {
                 foto.style.display = "block"; // Mostrar foto
-                no_photo_msg.style.display = "none"; // Ocultar mensaje
+                fotosMostradas = true;
             } else {
                 foto.style.display = "none"; // Ocultar foto
-                no_photo_msg.style.display = "block";  // Mostrar mensaje
-                //no_photo_msg.style.height = "30vh";
             }
-            
         });
-    });
+
+        if (fotosMostradas) {
+            no_photo_msg.style.display = "none"; // Ocultar mensaje de no fotos
+        } else {
+            no_photo_msg.style.display = "block"; // Mostrar mensaje de no fotos
+        }
+    }
+    //Funcion para filtrar videos
+    const videosContainer = document.querySelector('#videos .galeria-grid');
+
+    function filtrarVideos() {
+        const selectedObraId = selectObras.value;
+        const videos = videosContainer.querySelectorAll('.galeria-item[data-type="video"]');
+        let videosMostrados = false;
+
+        videos.forEach(video => {
+            const obraId = video.getAttribute('data-obra');
+            if (selectedObraId === "" || obraId === selectedObraId) {
+                video.style.display = "block"; // Mostrar video
+                videosMostrados = true;
+            } else {
+                video.style.display = "none"; // Ocultar video
+            }
+        });
+
+        if (videosMostrados) {
+            no_video_msg.style.display = "none"; // Ocultar mensaje de no videos
+        } else {
+            no_video_msg.style.display = "block"; // Mostrar mensaje de no videos
+        }
+        //configurarEventListenersModal();
+    }
+    //Funcion para filtara canciones
+    const cancionesContainer = document.querySelector('.galeria-grid-canciones');
+
+    function filtrarCanciones() {
+        const selectedObraId = selectObras.value;
+        const canciones = cancionesContainer.querySelectorAll('.galeria-item-canciones');
+        let cancionesMostradas = false;
+
+        canciones.forEach(cancion => {
+            const obraId = cancion.getAttribute('data-obra');
+            if (selectedObraId === "" || obraId === selectedObraId) {
+                cancion.style.display = "block"; // Mostrar canción
+                cancionesMostradas = true;
+            } else {
+                cancion.style.display = "none"; // Ocultar canción
+            }
+        });
+
+        if (cancionesMostradas) {
+            no_song_msg.style.display = "none"; // Ocultar mensaje de no canciones
+        } else {
+            no_song_msg.style.display = "block"; // Mostrar mensaje de no canciones
+        }
+    } 
+    
+    filtrarFotos();
+    filtrarVideos();
+    filtrarCanciones();
+    selectObras.addEventListener('change', filtrarFotos);
+    selectObras.addEventListener('change', filtrarVideos);
+    selectObras.addEventListener('change', filtrarCanciones);
+
+
+    //Funcion para filtrar videos
 
     // Lógica para filtrar videos por obra seleccionada
-    selectObras.addEventListener('change', function() {
+    /*selectObras.addEventListener('change', function() {
         const selectedObraId = selectObras.value; // Obtén el ID de la obra seleccionada
         const videosContainer = document.querySelector('#videos .galeria-grid');
         const videos = videosContainer.querySelectorAll('.galeria-item[data-type="video"]');
-        
+
         videos.forEach(video => {
             const obraId = video.getAttribute('data-obra'); // Obtén el ID de la obra del video
             if (selectedObraId === "" || obraId === selectedObraId) {
                 video.style.display = "block"; // Mostrar video si coincide
-                no_video_msg.style.display = "none"; // Ocultar mensaje
             } else {
                 video.style.display = "none"; // Ocultar video si no coincide
-                no_video_msg.style.display = "block"; // Mostrar mensaje
-                //no_video_msg.style.height = "30vh";
             }
         });
         // Detener la reproducción si se cambia de obra
         if (currentAudio) {
             stopButton.click(); // Simular clic en el botón de stop
         }
-    });
+    });*/
 
     // Lógica para filtrar canciones por obra seleccionada
-    const cancionesContainer = document.querySelector('.galeria-grid-canciones');
+    /*const cancionesContainer = document.querySelector('.galeria-grid-canciones');
 
     selectObras.addEventListener('change', function() {
         const selectedObraId = selectObras.value; // Obtén el ID de la obra seleccionada
         const canciones = cancionesContainer.querySelectorAll('.galeria-item-canciones');
-        const browser = document.querySelector('.buscador');
-        const galeria_grid_canciones= document.querySelector('.galeria-grid-canciones');
+
         canciones.forEach(cancion => {
             const obraId = cancion.getAttribute('data-obra'); // Obtén el ID de la obra de la canción
             if (selectedObraId === "" || obraId === selectedObraId) {
                 cancion.style.display = "block"; // Mostrar canción
-                no_song_msg.style.display = "none"; // Ocultar mensaje
             } else {
                 cancion.style.display = "none"; // Ocultar canción
-                no_song_msg.style.display = "block"; // Mostrar mensaje
-                browser.style.display = "none";
-                galeria_grid_canciones.style.gap = "unset";
-                galeria_grid_canciones.style.margin = "unset"
-                //no_song_msg.style.height = "30vh";
             }
         });
 
@@ -271,7 +324,7 @@
         if (currentAudio) {
             stopButton.click(); // Simular clic en el botón de stop
         }
-    });
+    });*/
 
     // Lógica para el buscador de canciones
     const buscadorInput = document.querySelector('.buscador input');
@@ -297,6 +350,55 @@ const mobileCloseModalIcon = document.getElementById("mobile-close-modal");
 const downloadModalIcon = document.getElementById("download-modal");
 const mobileDownloadModalIcon = document.getElementById("mobile-download-modal");
 const mobileNavBar = document.querySelector(".mobile-nav-bar");
+
+function configurarEventListenersModal() {
+    const items = document.querySelectorAll(".galeria-item");
+    items.forEach(item => {
+        item.addEventListener("click", function () {
+            const type = item.getAttribute("data-type");
+            const src = item.getAttribute("data-src");
+
+            // Limpiar el contenido del modal
+            modalContent.innerHTML = "";
+
+            if (type === "foto") {
+                const img = document.createElement("img");
+                img.src = src;
+                img.alt = "Foto";
+                modalContent.appendChild(img);
+
+                // Mostrar el botón de descarga para fotos
+                downloadModalIcon.style.display = "block";
+                mobileDownloadModalIcon.style.display = "block";
+            } else if (type === "video") {
+                // Crear un iframe para reproducir el video de YouTube
+                const iframe = document.createElement("iframe");
+                iframe.src = src; // Usar la URL embebida del video
+                console.log(iframe.src);
+                iframe.width = "640";
+                iframe.height = "360";
+                iframe.frameBorder = "0";
+                iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                iframe.allowFullscreen = true;
+                modalContent.appendChild(iframe);
+
+                // Ocultar el botón de descarga para videos
+                downloadModalIcon.style.display = "none";
+                mobileDownloadModalIcon.style.display = "none";
+
+                // Guardar la referencia al iframe actual
+                currentIframe = iframe;
+            }
+
+            modal.style.display = "block"; // Mostrar el modal
+
+            // Mostrar el nav-bar móvil al tocar la imagen dentro del modal
+            modalContent.addEventListener("click", function () {
+                mobileNavBar.classList.add("visible"); // Mostrar el nav-bar móvil
+            });
+        });
+    });
+}
 
 // Variable para almacenar el iframe actual
 let currentIframe = null;
