@@ -383,9 +383,7 @@
 
     .obras-info-desc{
         font-size: 14px;
-        padding-right: 10px;
-        padding-left: 10px;
-        width: 90vw; /* El ancho del contenedor será el 90% del ancho de la pantalla */
+        width: 100vw; /* El ancho del contenedor será el 90% del ancho de la pantalla */
         max-width: 100%; /* Asegura que no exceda el ancho disponible */
         display: -webkit-box; /* Crea un contenedor flexible */
         display: -webkit-box;
