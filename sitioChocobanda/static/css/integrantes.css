@@ -99,16 +99,16 @@
 
 .card-actor {
     position: absolute;
-    bottom: 35%; /* Posición desde el fondo (35% del alto del contenedor) */
-    right: 5%; /* Posición desde la derecha (5% del ancho del contenedor) */
-    width: 35%; /* Ancho relativo al contenedor */
-    height: 35%; /* Altura automática para mantener la relación de aspecto */
-    padding-top: 30%; /* Crea un cuadrado usando un porcentaje del ancho */
-    border-radius: 50%; /* Forma circular */
+    bottom: 35%;
+    right: 5%; 
+    width: 35%;
+    height: 35%; 
+    padding-top: 30%;
+    border-radius: 50%; 
     border: 2px solid var(--color-fondo);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    z-index: 2; /* Aumenta el z-index para asegurar que esté al frente */
+    z-index: 2; 
 }
 
 .card-actor img {
@@ -117,8 +117,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que la imagen llene el círculo sin deformarse */
-    border-radius: 50%; /* Forma circular */
+    object-fit: cover; 
+    border-radius: 50%;
     
 }
 
@@ -128,7 +128,7 @@
     border-radius: 8px 8px 0 0;
     margin-top: 0;
     object-fit: cover;
-    image-rendering: pixelated; /* Intenta mejorar la apariencia al escalar */
+    image-rendering: pixelated; 
 }
 
 .card-img img {
@@ -139,19 +139,19 @@
 }
 
 .card-text {
-    position: absolute; /* Posiciona el texto absolutamente */
-    bottom: 5px; /* Ancla el texto más cerca del borde inferior del contenedor */
-    left: 5px; /* Alinea el texto con el borde izquierdo */
-    width: calc(100% - 10px); /* Ocupa todo el ancho del contenedor menos el padding */
-    padding: 10px; /* Espaciado interno */
-    box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
-    color: var(--color-fondo); /* Color del texto */
-    text-align: left; /* Alinea el texto a la izquierda */
+    position: absolute;
+    bottom: 5px; 
+    left: 5px; 
+    width: calc(100% - 10px);
+    padding: 10px; 
+    box-sizing: border-box; 
+    color: var(--color-fondo); 
+    text-align: left; 
     }
 
 .card-title, .card-description {
-    margin: 0; /* Elimina el margen */
-    font-size: clamp(12px, 5vw, 16px); /* Ajusta el tamaño de la fuente */
+    margin: 0; 
+    font-size: clamp(12px, 5vw, 16px); 
 }
 
 .card-text h3 {
