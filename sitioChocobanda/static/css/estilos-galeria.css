@@ -5,8 +5,16 @@
     --color-interactivo: #BC570A; /* Naranja */
 }
 
+/* Estilos max-width-1200 */
+.max-width-1200{
+    width: inherit;
+    text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
 /* Estilos principales (Mobile First) */
-
 .contenedor-selector {
     margin-top: 70px;
     display: flex;
@@ -444,7 +452,28 @@
     font-size: 1rem; /* Reemplazado vh por rem */
     color: #f1e7c8;
 }
-
+/* Mensaje no_content_msg */
+.no_photo_msg ,.no_video_msg, .no_song_msg{
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3b6021;
+}
+.no_song_msg{
+    margin-left: 1rem;
+}
+.no_photo_msg h3, .no_video_msg h3, .no_song_msg h3{
+    color: #e0d6b8;
+    font-size: 1.5rem;
+}
+.no_obra_msg{
+    display: flex;
+    margin-top: 5rem;
+    justify-content: center;
+    align-items: center;
+    color: #3b6021;
+}
 /* Estilos para pantallas medianas (Tablet) */
 @media (min-width: 350px) and (max-width: 768px) {
     .galeria-grid {
@@ -536,6 +565,7 @@
         background-color: var(--color-principal);
         padding-top: 20px; /* Reemplazado vh por px */
         padding-bottom: 20px; /* Reemplazado vh por px */
+        border-radius: 5px;
     }
 
     .cancion-texto .titulo-cancion {

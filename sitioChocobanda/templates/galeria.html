@@ -29,26 +29,13 @@
     <div class="galeria-content">
         <div class="tab-content active" id="fotos">
             <div class="galeria-grid">
-                {% if obras %}
-                    {% for obra in obras %}
-                        {% if obra.galeria_obra.all %}
-                            {% for galeria in obra.galeria_obra.all %}
-                                {% if galeria.foto%}
-                                    <div class="galeria-item" data-type="foto" data-obra="{{ obra.id }}" data-src="{{ galeria.foto.url }}">
-                                        <img src="{{ galeria.foto.url }}" alt="Foto de {{ obra.titulo }}">
-                                    </div>
-                                    {% else %}
-                                    <p>No hay fotos de la obra por el momento.</p>
-                                {% endif %}
-                                </div>
-                            {% endfor %}
-                        {% else %}
-                            <p>No hay fotos de la obra por el momento.</p>
-                        {% endif %}
+                {% for obra in obras %}
+                    {% for galeria in obra.galeria_obra.all %}
+                        <div class="galeria-item" data-type="foto" data-obra="{{ obra.id }}" data-src="{{ galeria.foto.url }}">
+                            <img src="{{ galeria.foto.url }}" alt="Foto de {{ obra.titulo }}">
+                        </div>
                     {% endfor %}
-                {% else %}
-                    <p>No hay obras por el momento.</p>
-                {% endif %}
+                {% endfor %}
             </div>
         </div>
         <!-- Videos -->
