@@ -31,8 +31,14 @@
             <div class="galeria-grid">
                 {% for obra in obras %}
                     {% for galeria in obra.galeria_obra.all %}
-                        <div class="galeria-item" data-type="foto" data-obra="{{ obra.id }}" data-src="{{ galeria.foto.url }}">
-                            <img src="{{ galeria.foto.url }}" alt="Foto de {{ obra.titulo }}">
+                        {% if  galeria.foto.url  is not None %}
+                            <div class="galeria-item" data-type="foto" data-obra="{{ obra.id }}" data-src="{{ galeria.foto.url }}">
+                                <img src="{{ galeria.foto.url }}" alt="Foto de {{ obra.titulo }}">
+                            </div>
+                        {% endif %}
+                        {% empty %}
+                        <div class ="no_photo_msg">
+                            <h3>No hay fotos de la obra por el momento.</h3>
                         </div>
                     {% endfor %}
                 {% endfor %}
@@ -42,12 +48,18 @@
         <div class="tab-content" id="videos">
             <div class="galeria-grid">
                 {% for obra in obras %}
-                    {% for video in obra.videos_obra.all %}
-                        <div class="galeria-item" data-type="video" data-obra="{{ obra.id }}" data-src="{{ video.get_embed_url }}">
-                            <img src="{{ video.get_thumbnail_url }}" alt="{{ video.titulo }}" class="video-thumbnail">
+                    {% if obra.videos_obra.all %}
+                        {% for video in obra.videos_obra.all %}
+                            <div class="galeria-item" data-type="video" data-obra="{{ obra.id }}" data-src="{{ video.get_embed_url }}">
+                                <img src="{{ video.get_thumbnail_url }}" alt="{{ video.titulo }}" class="video-thumbnail">
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="no_video_msg">
+                            <h3>No hay videos de la obra por el momento.</h3>
                         </div>
-                    {% endfor %}
-                {% endfor %}
+                    {% endif %}
+            {% endfor %}
             </div>
         </div>
 
@@ -111,6 +123,10 @@
                                 {% endif %}
                             </div>
                         </div>
+                        {% empty %}
+                            <div class="no_song_msg">
+                                <h3>No hay canciones disponibles.</h3>
+                            </div>
                     {% endfor %}
                 {% endfor %}
             </div>            
@@ -150,7 +166,7 @@
     // Lógica para las pestañas
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
-    
+
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const target = tab.getAttribute('data-target');
@@ -167,42 +183,59 @@
             if (currentAudio) {
                 stopButton.click(); // Simular clic en el botón de stop
             }
+            
         });
     });
-
     // Lógica para filtrar fotos por obra seleccionada
     const selectObras = document.querySelector('.galeria-obras');
     const fotosContainer = document.querySelector('.galeria-grid');
-    
+
+    const no_photo_msg = document.querySelector('.no_photo_msg');
+    const no_video_msg = document.querySelector('.no_video_msg');
+    const no_song_msg = document.querySelector('.no_song_msg');
+
+    if(selectObras.value === ""){
+        no_photo_msg.style.display = "none";
+        no_video_msg.style.display = "none";
+        no_song_msg.style.display = "none";
+    }
+
     selectObras.addEventListener('change', function() {
         const selectedObraId = selectObras.value;
         const fotos = fotosContainer.querySelectorAll('.galeria-item');
         
+
         fotos.forEach(foto => {
             const obraId = foto.getAttribute('data-obra');
             if (selectedObraId === "" || obraId === selectedObraId) {
                 foto.style.display = "block"; // Mostrar foto
+                no_photo_msg.style.display = "none"; // Ocultar mensaje
             } else {
                 foto.style.display = "none"; // Ocultar foto
+                no_photo_msg.style.display = "block";  // Mostrar mensaje
+                no_photo_msg.style.height = "30vh";
             }
+            
         });
+    });
 
     // Lógica para filtrar videos por obra seleccionada
     selectObras.addEventListener('change', function() {
         const selectedObraId = selectObras.value; // Obtén el ID de la obra seleccionada
         const videosContainer = document.querySelector('#videos .galeria-grid');
         const videos = videosContainer.querySelectorAll('.galeria-item[data-type="video"]');
-
+        
         videos.forEach(video => {
             const obraId = video.getAttribute('data-obra'); // Obtén el ID de la obra del video
             if (selectedObraId === "" || obraId === selectedObraId) {
                 video.style.display = "block"; // Mostrar video si coincide
+                no_video_msg.style.display = "none"; // Ocultar mensaje
             } else {
                 video.style.display = "none"; // Ocultar video si no coincide
+                no_video_msg.style.display = "block"; // Mostrar mensaje
+                no_video_msg.style.height = "30vh";
             }
         });
-    });
-
         // Detener la reproducción si se cambia de obra
         if (currentAudio) {
             stopButton.click(); // Simular clic en el botón de stop
@@ -220,8 +253,11 @@
             const obraId = cancion.getAttribute('data-obra'); // Obtén el ID de la obra de la canción
             if (selectedObraId === "" || obraId === selectedObraId) {
                 cancion.style.display = "block"; // Mostrar canción
+                no_song_msg.style.display = "none"; // Ocultar mensaje
             } else {
                 cancion.style.display = "none"; // Ocultar canción
+                no_song_msg.style.display = "block"; // Mostrar mensaje
+                no_song_msg.style.height = "30vh";
             }
         });
 

@@ -27,10 +27,10 @@ html, body {
     flex-direction: column;
 }
 
-/* .max-width-1200 {
+.max-width-1200 {
     max-width: 1200px;
     margin: 0 auto;
-} */
+}
 
 /* Estilos de la barra de desplazamiento */
 ::-webkit-scrollbar {
