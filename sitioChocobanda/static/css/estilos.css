@@ -545,6 +545,7 @@ nav {
     overflow: hidden; /* Oculta el contenido que se desborda */
     display: -webkit-box; /* Crea un contenedor flexible */
     -webkit-line-clamp: 3; /* Limita el texto a 2 líneas */
+    line-clamp: 3;
     -webkit-box-orient: vertical; /* Orientación vertical del texto */
     text-overflow: ellipsis; /* Agrega puntos suspensivos (...) */
     max-width: 90%; /* Restringe el ancho al 90% del contenedor */
@@ -1025,6 +1026,7 @@ nav {
         overflow: hidden; /* Oculta el contenido que se desborda */
         display: -webkit-box; /* Crea un contenedor flexible */
         -webkit-line-clamp: 2; /* Limita el texto a 2 líneas */
+        line-clamp: 2;
         -webkit-box-orient: vertical; /* Orientación vertical del texto */
         text-overflow: ellipsis; /* Agrega puntos suspensivos (...) */
         max-width: 90%; /* Restringe el ancho al 90% del contenedor */
