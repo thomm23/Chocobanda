@@ -33,10 +33,12 @@
 .nombre-institucion {
     text-align: left;
     margin-bottom: 10px;
+    font-size: 42px;
 }
 
 .descripcion-institucion {
     text-align: left;
+    font-size: 24px;
 }
 
 .imagen-institucion-container {
@@ -62,6 +64,11 @@
 .titulo-impacto {
     font-weight: bold;
     margin: 20px 0 20px 0;
+    font-size: 32px;
+}
+
+.impacto-social {
+    font-size: 24px;
 }
 
 .link-institucion-container {
@@ -74,6 +81,7 @@
     font-weight: bold; /* Aplica negrita al texto */
     color: var(--color-terciario); /* Usa el color principal */
     text-decoration: none; /* Elimina la subrayado del enlace */
+    font-size: 24px;
 }
 
 /* Estilos para la versión móvil */
@@ -105,6 +113,7 @@
         width: 100%; /* El texto ocupa todo el ancho */
         text-align: center; /* Alinea el texto al centro */
         padding: 20px;
+        padding-bottom: 4px;
     }
 
     .imagen-institucion {
@@ -116,15 +125,14 @@
     }
 
     .nombre-institucion {
-        font-size: 24px;
+        font-size: 14px;
         font-weight: bold;
         width: 100%;
         text-align: center;
     }
 
     .descripcion-institucion {
-        font-size: 16px;
-        margin-top: 10px;
+        font-size: 14px;
         line-height: 1.5;
         text-align: center;
     }
@@ -137,12 +145,13 @@
     }
 
     .titulo-impacto {
-        font-size: 20px;
+        font-size: 24px;
         font-weight: bold;
+        margin-bottom: 16px;
     }
 
     .impacto-social {
-        font-size: 16px;
+        font-size: 14px;
         margin-top: 10px;
         line-height: 1.5;
     }
@@ -150,6 +159,10 @@
     .link-institucion-container {
         margin-top: 20px;
         text-align: center;
+    }
+
+    .link-institucion {
+        font-size: 14px;
     }
 
 }
