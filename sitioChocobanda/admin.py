@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.core.exceptions import ValidationError
-from .forms import GaleriaObraForm
 from .models import Integrante, Personaje, Obra, GaleriaObra, Evento, Noticia, Institucion, Multimedia, AjustesPagina, ProgramaObra, CancionObra, VideoObra
 
 # Estetica basica del ADMIN
@@ -19,7 +18,6 @@ admin.site.register(Multimedia)
 # Clase para el Inline de GaleriaObra
 class GaleriaObraInline(admin.TabularInline):
     model = GaleriaObra
-    form = GaleriaObraForm  # Usar el formulario personalizado
     extra = 1
     fields = ['foto', 'descripcion']
     verbose_name = "Imagen de la galería"

@@ -63,9 +63,12 @@ class ProgramaObra(models.Model):
         return f"Programa de {self.obra.titulo}"
 
 class GaleriaObra(models.Model):
-    obra = models.ForeignKey(Obra, related_name='galeria_obra', on_delete=models.CASCADE)
-    foto = CropperImageField(upload_to='galeria_obra/', null=True, blank=True, aspectratio=1,dimensions=(1024, 768))
-    descripcion = models.CharField(max_length=255, blank=True, null=True)
+    obra = models.ForeignKey('Obra', related_name='galeria_obra', on_delete=models.CASCADE)
+    foto = CropperImageField(upload_to='galeria_obra/', aspectratio=1, dimensions=(1024, 768))  # Campo obligatorio
+    descripcion = models.CharField(max_length=255, blank=True, null=True)  # Campo opcional
+
+    def __str__(self):
+        return f"Galería de {self.obra.titulo}"
 
 class CancionObra(models.Model):
     titulo = models.CharField(max_length=255)
