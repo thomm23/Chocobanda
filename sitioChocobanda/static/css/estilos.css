@@ -572,6 +572,11 @@ nav {
 
 @media screen and (max-width: 768px) {
 
+    .max-width-1200 {
+        max-width: none;
+        margin: 0;
+    }
+
     /* Oculta la barra de desplazamiento en dispositivos móviles */
     ::-webkit-scrollbar {
         display: none;
