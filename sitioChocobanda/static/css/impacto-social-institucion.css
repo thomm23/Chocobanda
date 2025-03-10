@@ -72,11 +72,8 @@
 
 .link-institucion {
     font-weight: bold; /* Aplica negrita al texto */
-    color: var(--color-principal); /* Usa el color principal */
+    color: var(--color-terciario); /* Usa el color principal */
     text-decoration: none; /* Elimina la subrayado del enlace */
-}
-.link-institucion:hover {
-    color: var(--color-terciario); /* Cambia al color terciario al pasar el ratón */
 }
 
 /* Estilos para la versión móvil */
@@ -155,7 +152,4 @@
         text-align: center;
     }
 
-    .link-institucion:hover {
-        text-decoration: underline;
-    }
 }
