@@ -27,6 +27,7 @@
     </div>
     <!-- Fotos -->
     <div class="galeria-content">
+        
         <div class="tab-content active" id="fotos">
             <div class="galeria-grid">
                 {% for obra in obras %}
@@ -37,7 +38,12 @@
                     {% endfor %}
                 {% endfor %}
             </div>
+            <!-- Mensaje cuando no hay fotos -->
+            <div id="no-fotos-message" style="display: none; text-align: center; padding: 20px; font-size: 18px; color: #666;">
+                No hay fotos para esta obra.
+            </div>
         </div>
+    
         <!-- Videos -->
         <div class="tab-content" id="videos">
             <div class="galeria-grid">
@@ -49,8 +55,13 @@
                     {% endfor %}
                 {% endfor %}
             </div>
+            <!-- Mensaje cuando no hay videos -->
+            <div id="no-videos-message" style="display: none; text-align: center; padding: 20px; font-size: 18px; color: #666;">
+                No hay videos para esta obra.
+            </div>
         </div>
 
+        <!-- Canciones -->
         <div class="tab-content" id="canciones">
             <!-- Buscador -->
             <div class="buscador">
@@ -113,7 +124,12 @@
                         </div>
                     {% endfor %}
                 {% endfor %}
-            </div>            
+            </div>
+
+            <!-- Mensaje cuando no hay canciones -->
+            <div id="no-canciones-message" style="display: none; text-align: center; padding: 20px; font-size: 18px; color: #666;">
+                No hay canciones para esta obra.
+            </div>
         </div>
     </div>
 </div>
@@ -147,393 +163,418 @@
 {% block script %}
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-    // Lógica para las pestañas
-    const tabs = document.querySelectorAll('.tab');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const target = tab.getAttribute('data-target');
-    
-            // Eliminar la clase 'active' de todas las pestañas y contenidos
-            tabs.forEach(t => t.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-    
-            // Agregar la clase 'active' a la pestaña y el contenido correspondientes
-            tab.classList.add('active');
-            document.querySelector(target).classList.add('active');
+        // Lógica para las pestañas
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-target');
+        
+                // Eliminar la clase 'active' de todas las pestañas y contenidos
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+        
+                // Agregar la clase 'active' a la pestaña y el contenido correspondientes
+                tab.classList.add('active');
+                document.querySelector(target).classList.add('active');
 
-            // Detener la reproducción si se cambia de pestaña
+                // Detener la reproducción si se cambia de pestaña
+                if (currentAudio) {
+                    stopButton.click(); // Simular clic en el botón de stop
+                }
+            });
+        });
+
+        // Lógica para filtrar fotos por obra seleccionada
+        const selectObras = document.querySelector('.galeria-obras');
+        const fotosContainer = document.querySelector('.galeria-grid');
+        const noFotosMessage = document.getElementById('no-fotos-message'); // Asegúrate de agregar este elemento en tu HTML
+
+        selectObras.addEventListener('change', function() {
+            const selectedObraId = selectObras.value;
+            const fotos = fotosContainer.querySelectorAll('.galeria-item');
+            let fotosVisibles = 0; // Contador de fotos visibles
+
+            fotos.forEach(foto => {
+                const obraId = foto.getAttribute('data-obra');
+                if (selectedObraId === "" || obraId === selectedObraId) {
+                    foto.style.display = "block"; // Mostrar foto
+                    fotosVisibles++; // Incrementar el contador
+                } else {
+                    foto.style.display = "none"; // Ocultar foto
+                }
+            });
+
+            // Mostrar u ocultar el mensaje según si hay fotos visibles
+            if (fotosVisibles === 0 && selectedObraId !== "") {
+                noFotosMessage.style.display = "block"; // Mostrar mensaje
+            } else {
+                noFotosMessage.style.display = "none"; // Ocultar mensaje
+            }
+        });
+
+        // Lógica para filtrar videos por obra seleccionada
+        selectObras.addEventListener('change', function() {
+            const selectedObraId = selectObras.value; // Obtén el ID de la obra seleccionada
+            const videosContainer = document.querySelector('#videos .galeria-grid');
+            const videos = videosContainer.querySelectorAll('.galeria-item[data-type="video"]');
+            const noVideosMessage = document.getElementById('no-videos-message'); // Mensaje de no videos
+            let videosVisibles = 0; // Contador de videos visibles
+
+            videos.forEach(video => {
+                const obraId = video.getAttribute('data-obra'); // Obtén el ID de la obra del video
+                if (selectedObraId === "" || obraId === selectedObraId) {
+                    video.style.display = "block"; // Mostrar video si coincide
+                    videosVisibles++; // Incrementar el contador
+                } else {
+                    video.style.display = "none"; // Ocultar video si no coincide
+                }
+            });
+
+            // Mostrar u ocultar el mensaje según si hay videos visibles
+            if (videosVisibles === 0 && selectedObraId !== "") {
+                noVideosMessage.style.display = "block"; // Mostrar mensaje si no hay videos
+            } else {
+                noVideosMessage.style.display = "none"; // Ocultar mensaje si hay videos
+            }
+        });
+
+        // Lógica para filtrar canciones por obra seleccionada
+        const cancionesContainer = document.querySelector('.galeria-grid-canciones');
+        const noCancionesMessage = document.getElementById('no-canciones-message'); // Mensaje de no canciones
+
+        selectObras.addEventListener('change', function() {
+            const selectedObraId = selectObras.value; // Obtén el ID de la obra seleccionada
+            const canciones = cancionesContainer.querySelectorAll('.galeria-item-canciones');
+            let cancionesVisibles = 0; // Contador de canciones visibles
+
+            canciones.forEach(cancion => {
+                const obraId = cancion.getAttribute('data-obra'); // Obtén el ID de la obra de la canción
+                if (selectedObraId === "" || obraId === selectedObraId) {
+                    cancion.style.display = "block"; // Mostrar canción
+                    cancionesVisibles++; // Incrementar el contador
+                } else {
+                    cancion.style.display = "none"; // Ocultar canción
+                }
+            });
+
+            // Mostrar u ocultar el mensaje según si hay canciones visibles
+            if (cancionesVisibles === 0 && selectedObraId !== "") {
+                noCancionesMessage.style.display = "block"; // Mostrar mensaje si no hay canciones
+            } else {
+                noCancionesMessage.style.display = "none"; // Ocultar mensaje si hay canciones
+            }
+
+            // Detener la reproducción si se cambia de obra
             if (currentAudio) {
                 stopButton.click(); // Simular clic en el botón de stop
             }
         });
-    });
 
-    // Lógica para filtrar fotos por obra seleccionada
-    const selectObras = document.querySelector('.galeria-obras');
-    const fotosContainer = document.querySelector('.galeria-grid');
-    
-    selectObras.addEventListener('change', function() {
-        const selectedObraId = selectObras.value;
-        const fotos = fotosContainer.querySelectorAll('.galeria-item');
-        
-        fotos.forEach(foto => {
-            const obraId = foto.getAttribute('data-obra');
-            if (selectedObraId === "" || obraId === selectedObraId) {
-                foto.style.display = "block"; // Mostrar foto
-            } else {
-                foto.style.display = "none"; // Ocultar foto
-            }
+        // Lógica para el buscador de canciones
+        const buscadorInput = document.querySelector('.buscador input');
+        buscadorInput.addEventListener('input', function() {
+            const searchText = buscadorInput.value.toLowerCase();
+            const canciones = document.querySelectorAll('.galeria-item-canciones');
+
+            canciones.forEach(cancion => {
+                const titulo = cancion.querySelector('.titulo-cancion').textContent.toLowerCase();
+                if (titulo.includes(searchText)) {
+                    cancion.style.display = "block"; // Mostrar si coincide
+                } else {
+                    cancion.style.display = "none"; // Ocultar si no coincide
+                }
+            });
         });
 
-    // Lógica para filtrar videos por obra seleccionada
-    selectObras.addEventListener('change', function() {
-        const selectedObraId = selectObras.value; // Obtén el ID de la obra seleccionada
-        const videosContainer = document.querySelector('#videos .galeria-grid');
-        const videos = videosContainer.querySelectorAll('.galeria-item[data-type="video"]');
+        // Lógica del modal
+        const modal = document.getElementById("modal");
+        const modalContent = document.getElementById("modal-content");
+        const closeModalIcon = document.getElementById("close-modal");
+        const mobileCloseModalIcon = document.getElementById("mobile-close-modal");
+        const downloadModalIcon = document.getElementById("download-modal");
+        const mobileDownloadModalIcon = document.getElementById("mobile-download-modal");
+        const mobileNavBar = document.querySelector(".mobile-nav-bar");
 
-        videos.forEach(video => {
-            const obraId = video.getAttribute('data-obra'); // Obtén el ID de la obra del video
-            if (selectedObraId === "" || obraId === selectedObraId) {
-                video.style.display = "block"; // Mostrar video si coincide
-            } else {
-                video.style.display = "none"; // Ocultar video si no coincide
+        // Variable para almacenar el iframe actual
+        let currentIframe = null;
+
+        // Función para cerrar el modal, ocultar el nav-bar y detener la reproducción del iframe
+        function closeModal() {
+            modal.style.display = "none";
+            mobileNavBar.classList.remove("visible"); // Ocultar el nav-bar al cerrar el modal
+
+            // Detener la reproducción del iframe
+            if (currentIframe) {
+                currentIframe.src = ""; // Eliminar la fuente del iframe para detener la reproducción
+                currentIframe = null; // Limpiar la referencia al iframe
             }
-        });
-    });
 
-        // Detener la reproducción si se cambia de obra
-        if (currentAudio) {
-            stopButton.click(); // Simular clic en el botón de stop
-        }
-    });
-
-    // Lógica para filtrar canciones por obra seleccionada
-    const cancionesContainer = document.querySelector('.galeria-grid-canciones');
-
-    selectObras.addEventListener('change', function() {
-        const selectedObraId = selectObras.value; // Obtén el ID de la obra seleccionada
-        const canciones = cancionesContainer.querySelectorAll('.galeria-item-canciones');
-
-        canciones.forEach(cancion => {
-            const obraId = cancion.getAttribute('data-obra'); // Obtén el ID de la obra de la canción
-            if (selectedObraId === "" || obraId === selectedObraId) {
-                cancion.style.display = "block"; // Mostrar canción
-            } else {
-                cancion.style.display = "none"; // Ocultar canción
-            }
-        });
-
-        // Detener la reproducción si se cambia de obra
-        if (currentAudio) {
-            stopButton.click(); // Simular clic en el botón de stop
-        }
-    });
-
-    // Lógica para el buscador de canciones
-    const buscadorInput = document.querySelector('.buscador input');
-    buscadorInput.addEventListener('input', function() {
-        const searchText = buscadorInput.value.toLowerCase();
-        const canciones = document.querySelectorAll('.galeria-item-canciones');
-
-        canciones.forEach(cancion => {
-            const titulo = cancion.querySelector('.titulo-cancion').textContent.toLowerCase();
-            if (titulo.includes(searchText)) {
-                cancion.style.display = "block"; // Mostrar si coincide
-            } else {
-                cancion.style.display = "none"; // Ocultar si no coincide
-            }
-        });
-    });
-
-    // Lógica del modal
-const modal = document.getElementById("modal");
-const modalContent = document.getElementById("modal-content");
-const closeModalIcon = document.getElementById("close-modal");
-const mobileCloseModalIcon = document.getElementById("mobile-close-modal");
-const downloadModalIcon = document.getElementById("download-modal");
-const mobileDownloadModalIcon = document.getElementById("mobile-download-modal");
-const mobileNavBar = document.querySelector(".mobile-nav-bar");
-
-// Variable para almacenar el iframe actual
-let currentIframe = null;
-
-// Función para cerrar el modal, ocultar el nav-bar y detener la reproducción del iframe
-function closeModal() {
-    modal.style.display = "none";
-    mobileNavBar.classList.remove("visible"); // Ocultar el nav-bar al cerrar el modal
-
-    // Detener la reproducción del iframe
-    if (currentIframe) {
-        currentIframe.src = ""; // Eliminar la fuente del iframe para detener la reproducción
-        currentIframe = null; // Limpiar la referencia al iframe
-    }
-
-    // Mostrar el botón de descarga al cerrar el modal
-    downloadModalIcon.style.display = "block";
-    mobileDownloadModalIcon.style.display = "block";
-}
-
-// Cerrar el modal al hacer clic en el ícono de cierre
-closeModalIcon.addEventListener("click", closeModal);
-mobileCloseModalIcon.addEventListener("click", closeModal);
-
-// Abrir el modal al hacer clic en una foto o video
-const items = document.querySelectorAll(".galeria-item");
-items.forEach(item => {
-    item.addEventListener("click", function () {
-        const type = item.getAttribute("data-type");
-        const src = item.getAttribute("data-src");
-
-        // Limpiar el contenido del modal
-        modalContent.innerHTML = "";
-
-        if (type === "foto") {
-            const img = document.createElement("img");
-            img.src = src;
-            img.alt = "Foto";
-            modalContent.appendChild(img);
-
-            // Mostrar el botón de descarga para fotos
+            // Mostrar el botón de descarga al cerrar el modal
             downloadModalIcon.style.display = "block";
             mobileDownloadModalIcon.style.display = "block";
-        } else if (type === "video") {
-            // Crear un iframe para reproducir el video de YouTube
-            const iframe = document.createElement("iframe");
-            iframe.src = src; // Usar la URL embebida del video
-            console.log(iframe.src);
-            iframe.width = "640";
-            iframe.height = "360";
-            iframe.frameBorder = "0";
-            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-            iframe.allowFullscreen = true;
-            modalContent.appendChild(iframe);
-
-            // Ocultar el botón de descarga para videos
-            downloadModalIcon.style.display = "none";
-            mobileDownloadModalIcon.style.display = "none";
-
-            // Guardar la referencia al iframe actual
-            currentIframe = iframe;
         }
 
-        modal.style.display = "block"; // Mostrar el modal
+        // Cerrar el modal al hacer clic en el ícono de cierre
+        closeModalIcon.addEventListener("click", closeModal);
+        mobileCloseModalIcon.addEventListener("click", closeModal);
 
-        // Mostrar el nav-bar móvil al tocar la imagen dentro del modal
-        modalContent.addEventListener("click", function () {
-            mobileNavBar.classList.add("visible"); // Mostrar el nav-bar móvil
+        // Abrir el modal al hacer clic en una foto o video
+        const items = document.querySelectorAll(".galeria-item");
+        items.forEach(item => {
+            item.addEventListener("click", function () {
+                const type = item.getAttribute("data-type");
+                const src = item.getAttribute("data-src");
+
+                // Limpiar el contenido del modal
+                modalContent.innerHTML = "";
+
+                if (type === "foto") {
+                    const img = document.createElement("img");
+                    img.src = src;
+                    img.alt = "Foto";
+                    modalContent.appendChild(img);
+
+                    // Mostrar el botón de descarga para fotos
+                    downloadModalIcon.style.display = "block";
+                    mobileDownloadModalIcon.style.display = "block";
+                } else if (type === "video") {
+                    // Crear un iframe para reproducir el video de YouTube
+                    const iframe = document.createElement("iframe");
+                    iframe.src = src; // Usar la URL embebida del video
+                    console.log(iframe.src);
+                    iframe.width = "640";
+                    iframe.height = "360";
+                    iframe.frameBorder = "0";
+                    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    iframe.allowFullscreen = true;
+                    modalContent.appendChild(iframe);
+
+                    // Ocultar el botón de descarga para videos
+                    downloadModalIcon.style.display = "none";
+                    mobileDownloadModalIcon.style.display = "none";
+
+                    // Guardar la referencia al iframe actual
+                    currentIframe = iframe;
+                }
+
+                modal.style.display = "block"; // Mostrar el modal
+
+                // Mostrar el nav-bar móvil al tocar la imagen dentro del modal
+                modalContent.addEventListener("click", function () {
+                    mobileNavBar.classList.add("visible"); // Mostrar el nav-bar móvil
+                });
+            });
         });
-    });
-});
 
-// Descargar la imagen al tocar el ícono de descarga
-downloadModalIcon.addEventListener("click", function () {
-    const currentImageUrl = document.querySelector(".modal-content img")?.src;
-    if (currentImageUrl) {
-        const link = document.createElement("a");
-        link.href = currentImageUrl;
-        link.download = "imagen.jpg";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-});
-
-// Descargar la imagen desde el nav-bar móvil
-mobileDownloadModalIcon.addEventListener("click", function () {
-    const currentImageUrl = document.querySelector(".modal-content img")?.src;
-    if (currentImageUrl) {
-        const link = document.createElement("a");
-        link.href = currentImageUrl;
-        link.download = "imagen.jpg";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-});
-
-    // Lógica para la reproducción de audio (resto del código sin cambios)
-    const playerBar = document.getElementById("player-bar");
-    const audioPlayer = document.getElementById("audio-player");
-    const playerImg = document.getElementById("player-img");
-    const playerTitle = document.getElementById("player-title");
-    const playerSubtitle = document.getElementById("player-subtitle");
-    const playPauseButton = document.getElementById("play-pause-button");
-    const stopButton = document.getElementById("stop-button");
-    const progressBar = document.querySelector(".progress-bar");
-    const progress = document.getElementById("progress");
-    const currentTimeEl = document.getElementById("current-time");
-    const totalTimeEl = document.getElementById("total-time");
-    const prevButton = document.getElementById("prev-button");
-    const nextButton = document.getElementById("next-button");
-
-    let currentAudio = null;
-
-    // Función para cargar una canción
-    function loadSong(audioSrc, imgSrc, title, subtitle) {
-        // Verificar si la canción ya está cargada y es la misma que se está reproduciendo
-        if (currentAudio && currentAudio.src.endsWith(audioSrc)) {
-            // Si la canción ya está cargada y reproduciéndose, pausarla o reanudarla
-            if (!currentAudio.paused) {
-                currentAudio.pause();
-                playPauseButton.innerHTML = '<span class="material-symbols-outlined">play_circle</span>';
-                document.querySelector('.cancion-play.reproduciendo').innerHTML = '▶';
-                document.querySelector('.cancion-play.reproduciendo').classList.remove('reproduciendo');
-            } else {
-                currentAudio.play();
-                playPauseButton.innerHTML = '<span class="material-symbols-outlined">pause_circle</span>';
-                document.querySelector('.cancion-play.reproduciendo').innerHTML = '❚❚';
-                document.querySelector('.cancion-play.reproduciendo').classList.add('reproduciendo');
+        // Descargar la imagen al tocar el ícono de descarga
+        downloadModalIcon.addEventListener("click", function () {
+            const currentImageUrl = document.querySelector(".modal-content img")?.src;
+            if (currentImageUrl) {
+                const link = document.createElement("a");
+                link.href = currentImageUrl;
+                link.download = "imagen.jpg";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             }
-            return;
+        });
+
+        // Descargar la imagen desde el nav-bar móvil
+        mobileDownloadModalIcon.addEventListener("click", function () {
+            const currentImageUrl = document.querySelector(".modal-content img")?.src;
+            if (currentImageUrl) {
+                const link = document.createElement("a");
+                link.href = currentImageUrl;
+                link.download = "imagen.jpg";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        });
+
+        // Lógica para la reproducción de audio (resto del código sin cambios)
+        const playerBar = document.getElementById("player-bar");
+        const audioPlayer = document.getElementById("audio-player");
+        const playerImg = document.getElementById("player-img");
+        const playerTitle = document.getElementById("player-title");
+        const playerSubtitle = document.getElementById("player-subtitle");
+        const playPauseButton = document.getElementById("play-pause-button");
+        const stopButton = document.getElementById("stop-button");
+        const progressBar = document.querySelector(".progress-bar");
+        const progress = document.getElementById("progress");
+        const currentTimeEl = document.getElementById("current-time");
+        const totalTimeEl = document.getElementById("total-time");
+        const prevButton = document.getElementById("prev-button");
+        const nextButton = document.getElementById("next-button");
+
+        let currentAudio = null;
+
+        // Función para cargar una canción
+        function loadSong(audioSrc, imgSrc, title, subtitle) {
+            // Verificar si la canción ya está cargada y es la misma que se está reproduciendo
+            if (currentAudio && currentAudio.src.endsWith(audioSrc)) {
+                // Si la canción ya está cargada y reproduciéndose, pausarla o reanudarla
+                if (!currentAudio.paused) {
+                    currentAudio.pause();
+                    playPauseButton.innerHTML = '<span class="material-symbols-outlined">play_circle</span>';
+                    document.querySelector('.cancion-play.reproduciendo').innerHTML = '▶';
+                    document.querySelector('.cancion-play.reproduciendo').classList.remove('reproduciendo');
+                } else {
+                    currentAudio.play();
+                    playPauseButton.innerHTML = '<span class="material-symbols-outlined">pause_circle</span>';
+                    document.querySelector('.cancion-play.reproduciendo').innerHTML = '❚❚';
+                    document.querySelector('.cancion-play.reproduciendo').classList.add('reproduciendo');
+                }
+                return;
+            }
+
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+
+            audioPlayer.src = audioSrc;
+            playerImg.src = imgSrc;
+            playerTitle.textContent = title;
+            playerSubtitle.textContent = subtitle;
+
+            audioPlayer.load();
+            audioPlayer.play();
+            playPauseButton.innerHTML = '<span class="material-symbols-outlined">pause_circle</span>';
+            currentAudio = audioPlayer;
+
+            playerBar.classList.remove("hidden"); // Asegurar que la barra de reproducción se muestre
+
+            audioPlayer.onended = () => {
+                resetPlayIcons();
+                hidePlayerBar();
+                currentAudio = null; // Reinicializar currentAudio
+            }
         }
 
-        if (currentAudio) {
+        // Función para resetear todos los botones a play
+        function resetPlayIcons() {
+            const allButtons = document.querySelectorAll(".cancion-play");
+            allButtons.forEach(btn => {
+                btn.textContent = "▶";
+                btn.classList.remove('reproduciendo');
+            });
+        }
+
+        // Función para ocultar la barra de reproducción
+        function hidePlayerBar() {
+            playerBar.classList.add("hidden");
+        }
+
+        // Actualizar la barra de progreso
+        audioPlayer.addEventListener("timeupdate", () => {
+            if (audioPlayer.duration) {
+                const progressRatio = audioPlayer.currentTime / audioPlayer.duration;
+                progress.style.width = `${progressRatio * 100}%`;
+
+                // Actualizar tiempo actual y total
+                currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+                totalTimeEl.textContent = formatTime(audioPlayer.duration);
+            }
+        });
+
+        // Formato de tiempo
+        function formatTime(time) {
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60);
+            return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+        }
+
+        // Play/Pause
+        playPauseButton.addEventListener("click", () => {
+            if (currentAudio.paused) {
+                currentAudio.play();
+                playPauseButton.innerHTML = '<span class="material-symbols-outlined">pause_circle</span>'; // Cambiar el ícono en el playPauseButton
+                document.querySelector('.cancion-play.reproduciendo').innerHTML = '❚❚'; // Cambiar el ícono en el div .cancion-play
+            } else {
+                currentAudio.pause();
+                playPauseButton.innerHTML = '<span class="material-symbols-outlined">play_circle</span>'; // Cambiar el ícono en el playPauseButton
+                document.querySelector('.cancion-play.reproduciendo').innerHTML = '▶'; // Cambiar el ícono en el div .cancion-play
+            }
+        });
+
+        // Stop
+        stopButton.addEventListener("click", () => {
             currentAudio.pause();
             currentAudio.currentTime = 0;
-        }
-
-        audioPlayer.src = audioSrc;
-        playerImg.src = imgSrc;
-        playerTitle.textContent = title;
-        playerSubtitle.textContent = subtitle;
-
-        audioPlayer.load();
-        audioPlayer.play();
-        playPauseButton.innerHTML = '<span class="material-symbols-outlined">pause_circle</span>';
-        currentAudio = audioPlayer;
-
-        playerBar.classList.remove("hidden"); // Asegurar que la barra de reproducción se muestre
-
-        audioPlayer.onended = () => {
-            resetPlayIcons();
-            hidePlayerBar();
-            currentAudio = null; // Reinicializar currentAudio
-        }
-    }
-
-    // Función para resetear todos los botones a play
-    function resetPlayIcons() {
-        const allButtons = document.querySelectorAll(".cancion-play");
-        allButtons.forEach(btn => {
-            btn.textContent = "▶";
-            btn.classList.remove('reproduciendo');
-        });
-    }
-
-    // Función para ocultar la barra de reproducción
-    function hidePlayerBar() {
-        playerBar.classList.add("hidden");
-    }
-
-    // Actualizar la barra de progreso
-    audioPlayer.addEventListener("timeupdate", () => {
-        if (audioPlayer.duration) {
-            const progressRatio = audioPlayer.currentTime / audioPlayer.duration;
-            progress.style.width = `${progressRatio * 100}%`;
-
-            // Actualizar tiempo actual y total
-            currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
-            totalTimeEl.textContent = formatTime(audioPlayer.duration);
-        }
-    });
-
-    // Formato de tiempo
-    function formatTime(time) {
-        const minutes = Math.floor(time / 60);
-        const seconds = Math.floor(time % 60);
-        return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-    }
-
-    // Play/Pause
-    playPauseButton.addEventListener("click", () => {
-        if (currentAudio.paused) {
-            currentAudio.play();
-            playPauseButton.innerHTML = '<span class="material-symbols-outlined">pause_circle</span>'; // Cambiar el ícono en el playPauseButton
-            document.querySelector('.cancion-play.reproduciendo').innerHTML = '❚❚'; // Cambiar el ícono en el div .cancion-play
-        } else {
-            currentAudio.pause();
             playPauseButton.innerHTML = '<span class="material-symbols-outlined">play_circle</span>'; // Cambiar el ícono en el playPauseButton
-            document.querySelector('.cancion-play.reproduciendo').innerHTML = '▶'; // Cambiar el ícono en el div .cancion-play
+            resetPlayIcons(); // Resetear íconos de reproducción
+            hidePlayerBar();  // Ocultar la barra de reproducción
+
+            // Reinicializar todas las variables
+            currentAudio = null;
+        });
+
+        // Interacción con las canciones
+        const canciones = document.querySelectorAll(".galeria-item-canciones");
+        canciones.forEach(cancion => {
+            cancion.addEventListener("click", (event) => {
+                // Verificar si el clic fue en el botón con la clase "cancion-play"
+                if (event.target.classList.contains("cancion-play")) {
+                    const audioSrc = cancion.getAttribute("data-audio-src");
+                    const imgSrc = cancion.getAttribute("data-img-src");
+                    const title = cancion.getAttribute("data-title");
+                    const subtitle = cancion.getAttribute("data-subtitle");
+
+                    loadSong(audioSrc, imgSrc, title, subtitle);
+                    togglePlayPauseIcon(event.target);
+
+                    event.target.classList.add('reproduciendo');
+                    playerBar.classList.remove("hidden"); // Asegurar que la barra de reproducción se muestre
+                }
+            });
+        });
+
+        // Función para alternar el icono de play/pause
+        function togglePlayPauseIcon(button) {
+            // Resetear todos los botones a play
+            const allButtons = document.querySelectorAll(".cancion-play");
+            allButtons.forEach(btn => {
+                btn.textContent = "▶";
+                btn.classList.remove('reproduciendo');
+            });
+
+            // Cambiar el botón actual a pausa solo si la canción está reproduciéndose
+            if (!currentAudio.paused) {
+                button.textContent = '❚❚';
+                button.classList.add('reproduciendo');
+            } else {
+                button.textContent = '▶';
+                button.classList.remove('reproduciendo');
+            }
         }
-    });
 
-    // Stop
-    stopButton.addEventListener("click", () => {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-        playPauseButton.innerHTML = '<span class="material-symbols-outlined">play_circle</span>'; // Cambiar el ícono en el playPauseButton
-        resetPlayIcons(); // Resetear íconos de reproducción
-        hidePlayerBar();  // Ocultar la barra de reproducción
+        // Interacción con la barra de progreso
+        progressBar.addEventListener("click", (e) => {
+            const barWidth = progressBar.clientWidth;
+            const clickPosition = e.offsetX;
+            const clickRatio = clickPosition / barWidth;
 
-        // Reinicializar todas las variables
-        currentAudio = null;
-    });
+            if (currentAudio) {
+                currentAudio.currentTime = currentAudio.duration * clickRatio;
+            }
+        });
 
-    // Interacción con las canciones
-    const canciones = document.querySelectorAll(".galeria-item-canciones");
-    canciones.forEach(cancion => {
-        cancion.addEventListener("click", (event) => {
-            // Verificar si el clic fue en el botón con la clase "cancion-play"
-            if (event.target.classList.contains("cancion-play")) {
-                const audioSrc = cancion.getAttribute("data-audio-src");
-                const imgSrc = cancion.getAttribute("data-img-src");
-                const title = cancion.getAttribute("data-title");
-                const subtitle = cancion.getAttribute("data-subtitle");
+        // Adelantar 10 segundos
+        nextButton.addEventListener("click", () => {
+            if (currentAudio) {
+                currentAudio.currentTime = Math.min(currentAudio.currentTime + 10, currentAudio.duration);
+            }
+        });
 
-                loadSong(audioSrc, imgSrc, title, subtitle);
-                togglePlayPauseIcon(event.target);
-
-                event.target.classList.add('reproduciendo');
-                playerBar.classList.remove("hidden"); // Asegurar que la barra de reproducción se muestre
+        // Retroceder 10 segundos
+        prevButton.addEventListener("click", () => {
+            if (currentAudio) {
+                currentAudio.currentTime = Math.max(currentAudio.currentTime - 10, 0);
             }
         });
     });
-
-    // Función para alternar el icono de play/pause
-    function togglePlayPauseIcon(button) {
-        // Resetear todos los botones a play
-        const allButtons = document.querySelectorAll(".cancion-play");
-        allButtons.forEach(btn => {
-            btn.textContent = "▶";
-            btn.classList.remove('reproduciendo');
-        });
-
-        // Cambiar el botón actual a pausa solo si la canción está reproduciéndose
-        if (!currentAudio.paused) {
-            button.textContent = '❚❚';
-            button.classList.add('reproduciendo');
-        } else {
-            button.textContent = '▶';
-            button.classList.remove('reproduciendo');
-        }
-    }
-
-    // Interacción con la barra de progreso
-    progressBar.addEventListener("click", (e) => {
-        const barWidth = progressBar.clientWidth;
-        const clickPosition = e.offsetX;
-        const clickRatio = clickPosition / barWidth;
-
-        if (currentAudio) {
-            currentAudio.currentTime = currentAudio.duration * clickRatio;
-        }
-    });
-
-    // Adelantar 10 segundos
-    nextButton.addEventListener("click", () => {
-        if (currentAudio) {
-            currentAudio.currentTime = Math.min(currentAudio.currentTime + 10, currentAudio.duration);
-        }
-    });
-
-    // Retroceder 10 segundos
-    prevButton.addEventListener("click", () => {
-        if (currentAudio) {
-            currentAudio.currentTime = Math.max(currentAudio.currentTime - 10, 0);
-        }
-    });
-});
 </script>
 {% endblock %}
