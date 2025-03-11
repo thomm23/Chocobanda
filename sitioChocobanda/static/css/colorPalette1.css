@@ -1,25 +1,28 @@
 :root{
-    --colorPalette1-1: #3b6021;
-    --colorPalette1-2: #8c4a2f;/*#8b4513e6  #8c4a2f*/
-    --colorPalette1-3: #f1e7c8;/*#d2b48c*/
-    --colorPalette1-4: #bc570a;
+    --colorPalette1-1: #3b6021; /* Verde */
+    --colorPalette1-2: #8c4a2f; /* Marrón */
+    --colorPalette1-3: #f1e7c8; /* Beige */
+    --colorPalette1-4: #bc570a; /* Naranja */
 
-    --colorPalette1-1A:  #3b6021cc;
-    --colorPalette1-2A:  #8c4a2f80;
+    --colorPalette1-1-claro: #5a8231; /* Verde medio */
+    --colorPalette1-1A: #3b6021cc; /* Verde translúcido */
+    --colorPalette1-2A: #8c4a2f80; /* Marrón translúcido */
 
-    --colorPalette1-1-claro: #5a8231;
-
-
-    --color-principal:   var(--colorPalette1-1); /* Verde */
-    --color-secundario:  var(--colorPalette1-2); /* Marrón */
-    --color-fondo:       var(--colorPalette1-3); /* Beige */
+    /* Colores asignados a la interfaz */
+    --color-principal: var(--colorPalette1-1); /* Verde */
+    --color-secundario: var(--colorPalette1-2); /* Marrón */
+    --color-fondo: var(--colorPalette1-3); /* Beige */
     --color-interactivo: var(--colorPalette1-4); /* Naranja */
 
-    --color-principalA:  var(--colorPalette1-1A);
-    --color-secundarioA: var(--colorPalette1-2A);
+    /* Colores con transparencia */
+    --color-principalA: var(--colorPalette1-1A); /* Verde translúcido */
+    --color-secundarioA: var(--colorPalette1-2A); /* Marrón translúcido */
+    
+    /* Variante clara del color principal */
+    --color-principal-claro: var(--colorPalette1-1-claro); /* Verde medio */
 
-    --color-principal-claro:  var(--colorPalette1-1-claro);
-
-    --color-boxShadow:  #0000001a;
-    --color-boxShadow2: #39110040;
+    /* Sombras */
+    --color-boxShadow: #0000001a; /* Sombra negra muy suave */
+    --color-boxShadow2: #39110040; /* Sombra marrón oscura translúcida */
 }
+
