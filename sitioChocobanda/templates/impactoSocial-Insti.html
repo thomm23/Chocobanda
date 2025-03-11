@@ -13,7 +13,7 @@
         <!-- Información de la Institución -->
         <div class="informacion-institucion">
             <h1 class="nombre-institucion">{{ institucion.nombre }}</h1>
-            <p class="descripcion-institucion">{{ institucion.descripcion }}</p>
+            <p class="descripcion-institucion">{{ institucion.descripcion | safe}}</p>
         </div>
         <!-- Foto de la Institución -->
         <div class="imagen-institucion-container">

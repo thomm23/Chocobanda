@@ -68,8 +68,11 @@ img {
 .institucion-description {
     font-size: 24px;
     margin-bottom: 20px;
+    white-space: pre-wrap; 
+    word-wrap: break-word;
     display: -webkit-box;
     -webkit-line-clamp: 5;
+    line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -130,6 +133,9 @@ img {
         font-size: 14px;
         font-weight: 400;
         line-height: 1.6;
+        white-space: pre-wrap; 
+        word-wrap: break-word;
         -webkit-line-clamp: 3;
+        line-clamp: 5;
     }
 }

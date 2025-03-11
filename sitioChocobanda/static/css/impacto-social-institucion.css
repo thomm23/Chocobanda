@@ -32,6 +32,8 @@
 .descripcion-institucion {
     text-align: left;
     font-size: 24px;
+    white-space: pre-wrap; 
+    word-wrap: break-word;
 }
 
 .imagen-institucion-container {
@@ -126,6 +128,8 @@
 
     .descripcion-institucion {
         font-size: 14px;
+        white-space: pre-wrap; 
+        word-wrap: break-word;
         line-height: 1.5;
         text-align: center;
     }

@@ -23,7 +23,7 @@
 
                     <div class="institucion-info">
                         <h3 class="institucion-name"> {{ institucion.nombre }} </h3>
-                        <p class="institucion-description"> {{ institucion.descripcion|truncatewords:50 }} </p>
+                        <p class="institucion-description"> {{ institucion.descripcion | safe }} </p>
                     </div>
                 </div>
             </a>
