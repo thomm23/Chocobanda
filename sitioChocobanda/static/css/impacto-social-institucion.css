@@ -1,11 +1,4 @@
 /* VARIABLES */
-:root {
-    --color-principal: #3b6021; /* Verde */
-    --color-secundario: #8c4a2f; /* Marrón */
-    --color-fondo: #f1e7c8; /* Beige */
-    --color-terciario: #BC570A; /* Naranja */
-}
-
 .seccion-institucion {
     max-width: 1200px;
     margin: 0 auto;
@@ -79,7 +72,7 @@
 
 .link-institucion {
     font-weight: bold; /* Aplica negrita al texto */
-    color: var(--color-terciario); /* Usa el color principal */
+    color: var(--color-interactivo); /* Usa el color principal */
     text-decoration: none; /* Elimina la subrayado del enlace */
     font-size: 24px;
 }
