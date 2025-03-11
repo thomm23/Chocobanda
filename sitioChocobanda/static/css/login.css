@@ -7,13 +7,13 @@ form{
     max-width: 400px;
     margin: auto;
     padding: 20px;
-    border-color: #f1e7c8;
-    background-color: #f1e7c8;
+    border-color: var(--color-fondo);
+    background-color: var(--color-fondo);
     
 }
 label{
-    color: #8c4a2f;
-    font-size: 150%;
+    color: var(--color-principal);
+    font-size: 24px;
     padding-bottom: 10%;
 }
 form p{
@@ -21,20 +21,20 @@ form p{
     font-size: x-large;
     text-align: center;
     font-weight: bold;
-    color: #8c4a2f;
+    color: var(--color-principal);
 }
 form input{
     width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: none;
-    background-color: #f1e7c8;
-    border: 2px solid #4c6a2a;
+    background-color: #F0F1D5;
+    border: 2px solid var(--color-principal);
     border-radius: 10px;
 }
 form input::placeholder {
     color: #4c6a2a;
-    font-size: 150%;
+    font-size: 24px;
     text-align: left;
 }
 .boton-form{
@@ -42,27 +42,28 @@ form input::placeholder {
     padding: 10px;
     margin: 10px 0;
     border: none;
-    background-color: #4c6a2a;
-    color: #f1e7c8;
-    font-size: 150%;
+    background-color: var(--color-principal);
+    color: var(--color-fondo);
+    font-size: 24px;
     border-radius: 10px;
 }
 .boton-form:hover{
-    background-color: #8c4a2f;
+    background-color: var(--color-interactivo);
 
 }
-h2{
-    color: #8c4a2f;
-    font-size: 150%;
+h2 {
+    color: var(--color-principal);
+    font-size: 36px;
     text-align: center;
     padding-bottom: 10px;
 }
 
-.subtitulo {
-    color: #8c4a2f;
-    font-weight: normal;
-    padding-bottom: 10px;
+.recuperar-pass {
+    padding-top: 10%;
     text-align: center;
+    color: var(--color-principal);
+    font-size: 24px;
+    text-decoration: underline;
 }
 
 @media screen and (max-width: 768px) {
@@ -72,7 +73,7 @@ h2{
         font-size: x-large;
         text-align: center;
         font-weight: bold;
-        color: #8c4a2f;
+        color: var(--color-principal)
     }
 
     .recuperarContraseña{

@@ -10,7 +10,7 @@
         
                
     <form method="post" action="{% url 'login' %}">
-        <p>Ingresa a la parte administrativa de la página</p>
+        <p>Ingresa a Chocobanda como miembro editable</p>
         {% csrf_token %}
         <div>
             <label for="email">Correo electrónico:</label>
@@ -21,8 +21,8 @@
             <input type="password" id="password" name="password" placeholder="************" required>
         </div>
         <div>
-                
-            <a href="#">Recuperar contraseña</a>
+
+            <a class="recuperar-pass" href="#">¿Olvidaste tu contraseña?</a>
         </div>
         <button class="boton-form" type="submit">Iniciar Sesión</button>
     </form>
