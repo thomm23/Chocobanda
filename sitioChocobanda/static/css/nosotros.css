@@ -23,7 +23,7 @@
 .nosotros-descripcion{
     display: flex;
     align-items: center;
-    justify-content: justify;
+    justify-content: center;
     margin: 150px;
     margin-top: 7px;
     margin-bottom: 7px;
@@ -282,6 +282,10 @@
 .swiper-pagination-bullet-active {
     background: var(--color-principal);
     opacity: 1;
+}
+
+.sin-obras {
+    padding: 20px;
 }
 
 @media screen and (max-width: 768px) {

@@ -11,10 +11,11 @@
 }
 
 .sin-novedades {
-    font-size: 1.2rem;
+    font-size: 32px;
     color: var(--color-principal);
     text-align: center;
     margin: 20px 0;
+    font-weight: 600;
 }
 
 /* desktop */
@@ -225,5 +226,10 @@
     p, h3 {
         margin: 0;
         padding: 0;
+    }
+
+    .sin-novedades {
+        padding-top: 30px;
+        font-size: 24px;
     }
 }

@@ -6,11 +6,18 @@
 }
 
 .section-title {
+    width: 100%;
+    max-width: 600px;
     font-size: 32px;
     font-weight: 600;
-    margin: 3% 0 1.5% 10px;
+    margin: auto;
     text-align: left;
     color: var(--color-principal);
+    white-space: nowrap;/*CHECKEAR*/
+}
+
+.sin-instituciones {
+    padding: 20px;
 }
 
 .instituciones-list {

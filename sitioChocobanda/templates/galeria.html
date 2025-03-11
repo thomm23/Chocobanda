@@ -10,7 +10,7 @@
 
 <div class="contenedor-selector">
     <div class="selector">
-        <select class="galeria-obras">
+        <select class="selector-obras">
             <option value="">Todas las obras</option>
             {% for obra in obras %}
                 <option value="{{ obra.id }}">{{ obra.titulo }}</option>
@@ -191,7 +191,7 @@
         });
 
         // Lógica para filtrar fotos por obra seleccionada
-        const selectObras = document.querySelector('.galeria-obras');
+        const selectObras = document.querySelector('.selector-obras');
         const fotosContainer = document.querySelector('.galeria-grid');
         const noFotosMessage = document.getElementById('no-fotos-message'); // Asegúrate de agregar este elemento en tu HTML
 

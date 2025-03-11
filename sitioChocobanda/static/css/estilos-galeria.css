@@ -2,18 +2,14 @@
 .max-width-1200{
     width: inherit;
     text-align: center;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
 }
 /* Estilos principales (Mobile First) */
 .contenedor-selector {
+    width: 100%;
     margin-top: 70px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 /* Estilos para el nav-bar móvil */
 .mobile-nav-bar {
@@ -64,38 +60,32 @@
 
 .selector {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     margin: 0 auto;
     margin-top: 20px; /* Reemplazado vh por px */
 }
 
-.galeria-obras, .galeria-fechas {
+.selector-obras {
     width: 90%;
     max-width: 100%;
-    font-size: 1rem; /* Reemplazado vh por rem */
+    font-size: 16px; /* Reemplazado vh por rem */
     padding: 10px; /* Reemplazado vh por px */
     box-sizing: border-box;
     color: var(--color-principal);
     background-color: var(--color-fondo);
-    border: 1px solid var(--color-principal); /* Reemplazado vh por px */
+    border: 2px solid var(--color-interactivo); /* Reemplazado vh por px */
     border-radius: 5px; /* Reemplazado vh por px */
     cursor: pointer;
     margin: 10px; /* Reemplazado vh por px */
     transition: border-color 0.3s ease;
-}
-
-.galeria-obras:hover, .galeria-fechas:hover {
-    border-color: #5a8231;
-}
-
-.galeria-obras:focus, .galeria-fechas:focus {
-    border-color: #2f501a;
+    font-family: 'montserrat', serif;
 }
 
 .galeria {
     margin-top: 20px; /* Reemplazado vh por px */
-    background-color: #f1e7c8;
+    background-color: var(--color-fondo);
 }
 
 .galeria-header {
@@ -111,16 +101,18 @@
     text-align: center; /* Centra el texto dentro de cada pestaña */
     background-color: #f1e7c8; /* Color de fondo */
     color: var(--color-principal); /* Color del texto */
-    font-size: 1rem; /* Tamaño de fuente */
+    font-size: 16px; /* Tamaño de fuente */
     border: none; /* Sin bordes adicionales */
     padding: 10px 0; /* Padding vertical (sin horizontal) */
     cursor: pointer; /* Cursor de puntero */
     transition: background-color 0.3s ease; /* Transición suave */
     border-radius: 16px 16px 0 0; /* Bordes redondeados solo arriba */
+    font-family: 'Montserrat', serif; /* Fuente */
 }
 
 .tab:hover {
     background-color: #2f501a;
+    color: var(--color-fondo);
     border-radius: 16px 16px 0 0; /* Ajusta los bordes redondeados */
 }
 
@@ -180,26 +172,26 @@
 .buscador {
     display: flex;
     align-items: center;
-    background-color: #f1e7c8;
+    background-color: var(--color-fondo);
     border-radius: 20px; /* Reemplazado vh por px */
     padding: 0px 20px; /* Reemplazado vh por px */
     width: 100%;
     margin-bottom: 20px; /* Reemplazado vh por px */
-    border: 2px solid #BC570A; /* Borde color #BC570A */
+    border: 2px solid var(--color-interactivo); /* Borde color #BC570A */
 }
 
 .buscador input {
     border: none;
     background-color: transparent;
     outline: none;
-    font-size: 1rem; /* Reemplazado vh por rem */
+    font-size: 14px; /* Reemplazado vh por rem */
     flex-grow: 1;
-    color: #BC570A; /* Fuente color #BC570A */
+    color: var(--color-interactivo); /* Fuente color #BC570A */
     padding: 10px; /* Reemplazado vh por px */
 }
 
 .buscador input::placeholder {
-    color: #BC570A; /* Color del texto del placeholder */
+    color: var(--color-interactivo); /* Color del texto del placeholder */
 }
 
 .buscador button {
@@ -215,7 +207,7 @@
 .icon-lupa {
     width: 20px; /* Reemplazado vh por px */
     height: 20px; /* Reemplazado vh por px */
-    color: #BC570A;
+    color: var(--color-interactivo);
 }
 
 .buscador button:hover .icon-lupa {
@@ -248,6 +240,7 @@
     background-color: var(--color-principal);
     padding-top: 20px; /* Reemplazado vh por px */
     padding-bottom: 20px; /* Reemplazado vh por px */
+    border-radius: 5px;
 }
 
 .cancion-info {
@@ -526,6 +519,15 @@
         margin-top: 20px; /* Reemplazado vh por px */
     }
 
+    .selector-obras {
+        font-size: 24px;
+        border: 3px solid var(--color-interactivo);
+    }
+
+    .tab {
+        font-size: 24px;
+    }
+
     .galeria-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr); /* 4 columnas */
@@ -556,6 +558,10 @@
     .buscador {
         max-width: 400px; /* Reemplazado vh por px */
         margin-left: 20px; /* Reemplazado vh por px */
+    }
+
+    .buscador input {
+        font-size: 24px;
     }
 
     .galeria-grid-canciones {

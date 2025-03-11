@@ -78,6 +78,7 @@
     background-color: var(--color-principal);
     border-radius: 12px;
     padding: 15px;
+    color: var(--color-fondo);
 }
 
 .card-item {
