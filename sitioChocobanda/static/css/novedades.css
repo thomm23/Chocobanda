@@ -102,6 +102,11 @@
     .novedades-section {
         padding: 20px;
         margin: 1rem;
+        margin-top: 45px;
+    }
+
+    .novedades-section p{
+        text-align: center;
     }
 
     ::-webkit-scrollbar {
