@@ -123,11 +123,12 @@
     padding: 10px 0; /* Padding vertical (sin horizontal) */
     cursor: pointer; /* Cursor de puntero */
     transition: background-color 0.3s ease; /* Transición suave */
-    border-radius: 5px 5px 0 0; /* Bordes redondeados solo arriba */
+    border-radius: 16px 16px 0 0; /* Bordes redondeados solo arriba */
 }
 
 .tab:hover {
     background-color: #2f501a;
+    border-radius: 16px 16px 0 0; /* Ajusta los bordes redondeados */
 }
 
 .tab.active {
@@ -453,27 +454,42 @@
     color: #f1e7c8;
 }
 /* Mensaje no_content_msg */
-.no_photo_msg ,.no_video_msg, .no_song_msg{
-    width: max-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #3b6021;
+#no-fotos-message , #no-canciones-message, #no-videos-message{
+    display: none; 
+    text-align: center; 
+    padding: 20px; 
+    font-size: 20px; 
+    font-weight: bold;
+    color: var(--color-principal);
 }
-.no_song_msg{
-    margin-left: 1rem;
+
+
+.galeria-item {
+    position: relative; /* Necesario para posicionar el ícono */
+    display: inline-block; /* Ajusta según tu layout */
 }
-.no_photo_msg h3, .no_video_msg h3, .no_song_msg h3{
-    color: #e0d6b8;
-    font-size: 1.5rem;
+
+.video-thumbnail {
+    width: 100%; /* Ajusta el tamaño de la miniatura */
+    height: auto;
+    display: block;
 }
-.no_obra_msg{
-    display: flex;
-    margin-top: 5rem;
-    justify-content: center;
-    align-items: center;
-    color: #3b6021;
+
+.fa-youtube{
+    position: absolute; /* Posiciona el ícono sobre la miniatura */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el centrado */
+    font-size: 40px; /* Tamaño del ícono */
+    color: var(--color-fondo); /* Color del ícono */
+    opacity: 0.8; /* Transparencia */
+    transition: opacity 0.3s ease; /* Efecto de transición */
 }
+
+.play-icon:hover {
+    opacity: 1; /* Hace el ícono más visible al pasar el mouse */
+}
+
 /* Estilos para pantallas medianas (Tablet) */
 @media (min-width: 350px) and (max-width: 768px) {
     .galeria-grid {
@@ -561,12 +577,12 @@
         align-items: center;
     }
 
-    #canciones {
+    /* #canciones {
         background-color: var(--color-principal);
-        padding-top: 20px; /* Reemplazado vh por px */
-        padding-bottom: 20px; /* Reemplazado vh por px */
+        padding-top: 20px; /* Reemplazado vh por px 
+        padding-bottom: 20px; /* Reemplazado vh por px 
         border-radius: 5px;
-    }
+    } */
 
     .cancion-texto .titulo-cancion {
         font-size: 1.2rem; /* Reemplazado vh por rem */

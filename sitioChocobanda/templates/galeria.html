@@ -2,6 +2,7 @@
 {% load static %}
 {% block estilos %} 
 <link rel="stylesheet" type="text/css" href="{% static 'css/estilos-galeria.css'%}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 {% endblock %}
 {% block title %} Chocobanda - GALERIA {% endblock %}
 {% block nombre_seccion %} Galería {% endblock %}
@@ -39,7 +40,7 @@
                 {% endfor %}
             </div>
             <!-- Mensaje cuando no hay fotos -->
-            <div id="no-fotos-message" style="display: none; text-align: center; padding: 20px; font-size: 18px; color: #666;">
+            <div id="no-fotos-message">
                 No hay fotos para esta obra.
             </div>
         </div>
@@ -51,12 +52,14 @@
                     {% for video in obra.videos_obra.all %}
                         <div class="galeria-item" data-type="video" data-obra="{{ obra.id }}" data-src="{{ video.get_embed_url }}">
                             <img src="{{ video.get_thumbnail_url }}" alt="{{ video.titulo }}" class="video-thumbnail">
+                            <!-- Ícono de reproducción -->
+                            <i class="fa-brands fa-youtube" style ="font-size:3.5rem;"></i>
                         </div>
                     {% endfor %}
                 {% endfor %}
             </div>
             <!-- Mensaje cuando no hay videos -->
-            <div id="no-videos-message" style="display: none; text-align: center; padding: 20px; font-size: 18px; color: #666;">
+            <div id="no-videos-message">
                 No hay videos para esta obra.
             </div>
         </div>
@@ -127,7 +130,7 @@
             </div>
 
             <!-- Mensaje cuando no hay canciones -->
-            <div id="no-canciones-message" style="display: none; text-align: center; padding: 20px; font-size: 18px; color: #666;">
+            <div id="no-canciones-message">
                 No hay canciones para esta obra.
             </div>
         </div>
@@ -161,6 +164,7 @@
 {% endblock %}
 
 {% block script %}
+<script src="https://kit.fontawesome.com/4e39b285d7.js" crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Lógica para las pestañas
@@ -243,7 +247,8 @@
         // Lógica para filtrar canciones por obra seleccionada
         const cancionesContainer = document.querySelector('.galeria-grid-canciones');
         const noCancionesMessage = document.getElementById('no-canciones-message'); // Mensaje de no canciones
-
+        const buscador = document.querySelector('.buscador');
+        
         selectObras.addEventListener('change', function() {
             const selectedObraId = selectObras.value; // Obtén el ID de la obra seleccionada
             const canciones = cancionesContainer.querySelectorAll('.galeria-item-canciones');
@@ -261,9 +266,13 @@
 
             // Mostrar u ocultar el mensaje según si hay canciones visibles
             if (cancionesVisibles === 0 && selectedObraId !== "") {
+                document.querySelector('#canciones').style.height = "20px";
                 noCancionesMessage.style.display = "block"; // Mostrar mensaje si no hay canciones
+                buscador.style.display = "none"; // Ocultar el buscador si no hay canciones
             } else {
                 noCancionesMessage.style.display = "none"; // Ocultar mensaje si hay canciones
+                buscador.style.display = "flex";
+                document.querySelector('#canciones').style.height = "";
             }
 
             // Detener la reproducción si se cambia de obra
