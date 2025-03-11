@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.core.exceptions import ValidationError
-from .models import Integrante, Personaje, Obra, GaleriaObra, Evento, Noticia, Institucion, Multimedia, AjustesPagina, ProgramaObra, CancionObra, VideoObra
+from .models import Integrante, Personaje, Obra, GaleriaObra, Evento, Noticia, Institucion, AjustesPagina, ProgramaObra, CancionObra, VideoObra
 
 # Estetica basica del ADMIN
 admin.site.site_header = "Administración de la Chocobanda"
@@ -13,7 +13,6 @@ admin.site.register(Personaje)
 admin.site.register(Evento)
 admin.site.register(Noticia)
 admin.site.register(Institucion)
-admin.site.register(Multimedia)
 
 # Clase para el Inline de GaleriaObra
 class GaleriaObraInline(admin.TabularInline):

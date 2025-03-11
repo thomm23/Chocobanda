@@ -4,13 +4,6 @@ from cropperjs.models import CropperImageField
 from django.core.exceptions import ValidationError
 import re
 
-
-class Multimedia(models.Model):
-    nombre = models.CharField(max_length=255)
-    fecha = models.DateField()
-    evento = models.CharField(max_length=255, null=True, blank=True)
-    etiquetas = models.TextField(null=True, blank=True)  # JSON or comma-separated
-    archivo = models.FileField(upload_to='multimedia/')
     
 class Integrante(models.Model):
     ESTADO_CHOICES = [
