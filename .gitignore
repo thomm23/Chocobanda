@@ -162,3 +162,5 @@ cython_debug/
 #.idea/
 
 /media/
+/sitioChocobanda/migrations/*
+!/sitioChocobanda/migrations/__init__.py
