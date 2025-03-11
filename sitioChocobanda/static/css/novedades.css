@@ -70,20 +70,29 @@
 
     .novedad-desk-text h2 {
         margin-top: 1rem;
+        font-size: 32px;
         color: var(--color-principal);
         font-weight: bold;
     }
 
     .novedad-desk-text span {
+        font-size: 18px;
         font-weight: normal;
         color: var(--color-principal);
     }
 
     .novedad-desk-item .noticia-desk-description {
+        font-size: 24px;
         font-weight: normal;
         margin-top: 1rem;
         text-align: left;
         margin-left: 0%;
+        overflow: hidden; /* Oculta el contenido que excede el contenedor */
+        display: -webkit-box; /* Necesario para -webkit-line-clamp */
+        -webkit-box-orient: vertical; /* Orientación vertical del texto */
+        -webkit-line-clamp: 5; /* Número de líneas visibles */
+        line-clamp:5;
+        word-wrap: break-word; /* Permite que las palabras largas se rompan */
     }
 
     .card-img {

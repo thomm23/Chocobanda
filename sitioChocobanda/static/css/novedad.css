@@ -21,12 +21,14 @@
 .content-novedad .container-fecha-novedad {
     width: 100%;
     font-weight: normal;
+    font-size: 18px;
     margin-top: 2rem;
     text-align: right;
 }
 
 .content-novedad .title-novedad {
     margin: 1rem;
+    font-size: 32px;
     font-weight: bold;
     color: var(--color-principal);
     text-align: center;
@@ -56,19 +58,32 @@
 .novedad-descp {
     text-align: left;
     color: var(--color-principal);
+    font-size: 18px;
     font-weight: 500;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    white-space: pre-wrap; 
+    word-wrap: break-word;
 }
 
 @media screen and (max-width: 768px) {
+    
     .section-novedad{
         padding-top: 3rem;
     }
+
+    .content-novedad .container-fecha-novedad{
+        font-size: 14px;
+    }
     
     .content-novedad .title-novedad {
+        font-size: 24px;
         width: 100%;
         text-align: left !important;
+    }
+
+    .novedad-descp{
+        font-size: 18px;
     }
 
 }

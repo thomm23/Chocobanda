@@ -16,7 +16,7 @@
                 <div class="novedad-desk-text">
                     <span>{{noticia.fecha|date:"d M Y"}}</span>
                     <h2>{{noticia.titulo}}</h2>
-                    <p class = "noticia-desk-description">{{noticia.cuerpo|truncatewords:30}}</p>
+                    <p class = "noticia-desk-description">{{noticia.cuerpo| safe}}</p>
                 </div>
                 <div class="noticia-desk-image card-img">
                     {% if noticia.foto %}
@@ -40,7 +40,7 @@
                     <div class="novedades-card-text">
                         <p class="novedades-card-date">{{noticia.fecha|date:"d M Y"}}</p>
                         <h3 class="novedades-card-title">{{noticia.titulo}}</h3>
-                        <p class="novedades-card-description">{{noticia.cuerpo|truncatewords:30}}</p>
+                        <p class="novedades-card-description">{{noticia.cuerpo| safe }}</p>
                     </div>
                 </a>
             </li>
