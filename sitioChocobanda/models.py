@@ -15,7 +15,7 @@ class Integrante(models.Model):
     nombre = models.CharField(max_length=255)
     ocupacion = models.CharField(max_length=255, null=True, blank=True)
     foto = CropperImageField(upload_to='integrantes/', null=True, blank=True, aspectratio=1,dimensions=(200, 200))
-    descripcion = models.TextField(null=True, blank=True)
+    descripcion = models.CharField(max_length=1000)
     estado = models.CharField(max_length=255, choices=ESTADO_CHOICES, default='Actual')
 
     def __str__(self):

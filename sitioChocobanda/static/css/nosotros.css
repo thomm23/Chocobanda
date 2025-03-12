@@ -60,9 +60,12 @@
 }
 
 .big-image {
+    display: block;
+    margin: 0 auto;
     width: 100%;
-    border-radius: 8px 8px 0 0;;
-    position: relative;
+    height: auto;
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+    aspect-ratio: 16 / 9;
 }
 
 .small-image {
