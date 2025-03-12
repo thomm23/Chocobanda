@@ -1,19 +1,18 @@
 .impacto-container {
     color: var(--color-principal);
     padding: 0 2%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .section-title {
     width: 100%;
-    max-width: 600px;
+    min-width: 1200px;
     font-size: 32px;
     font-weight: 600;
-    margin: auto;
-    text-align: left;
+    margin-top: 2rem;
     color: var(--color-principal);
-    white-space: nowrap;/*CHECKEAR*/
 }
 
 .sin-instituciones {
@@ -34,10 +33,11 @@
 
 .institucion-item {
     display: flex;
-    justify-content: left;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin: 10px;
     overflow: hidden;
+    width: 100%;
 }
 
 .institucion-image {
@@ -55,7 +55,9 @@ img {
 }
 
 .institucion-info {
-    padding-right: 2%;
+    padding-right: 20px;
+    width: 100%;
+
 }
 
 .institucion-name {
@@ -82,13 +84,14 @@ img {
 
 @media screen and (max-width: 768px) {
     .section-title {
+        max-width: 600px;
         font-size: 1.5rem;
         margin-top: 5rem;
-        text-align: center;        
+        margin-left: 20px;
+        text-align: left; 
     }
 
     .impacto-container {
-        /* margin-top: 3%; */
         margin: 0;
         padding: 0;
     }
@@ -103,7 +106,7 @@ img {
         justify-content: center;
         margin: 10px 0 0 15px;
         border-radius: 30px 0 0 30px;
-        border: 2px solid var(--color-secundario);
+        border: 2px solid var(--color-interactivo);
         border-right: none;
         height: 100px;
         max-width: 100%;
@@ -136,6 +139,6 @@ img {
         white-space: pre-wrap; 
         word-wrap: break-word;
         -webkit-line-clamp: 3;
-        line-clamp: 5;
+        line-clamp: 3;
     }
 }
