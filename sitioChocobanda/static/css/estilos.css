@@ -105,6 +105,7 @@ header {
 footer {
     color: var(--color-fondo);
     padding: 15px;
+    padding-top: 32px;
     background-color: var(--color-principal);
     position: relative;
     width: 100%;
@@ -112,6 +113,44 @@ footer {
 
 footer a {
     color: var(--color-fondo);
+}
+
+footer ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+footer .footer-item-menu,
+footer .footer-item-contacto {
+    width: 48%;
+    line-height: 1.5;
+}
+
+footer .footer-item-derechos {
+    width: 100%;  /* Ocupa todo el ancho disponible */
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer .footer-item-menu {
+    order: 1;  /* Esto hace que "Menu" esté después de "Contacto" */
+}
+
+footer .footer-item-contacto {
+    order: 2;  /* Esto hace que "Contacto" esté antes de "Menu" */
+}
+
+footer .footer-item-derechos {
+    order: 3;  /* Asegura que "Derechos" esté al final */
+}
+
+footer .footer-item-menu h2,
+footer .footer-item-contacto h2 {
+    margin-bottom: 10px;
 }
 
 /* Estilos generales de listas y enlaces */
@@ -704,16 +743,35 @@ nav {
     /* Estilos del footer en móviles */
     footer {
         color: #f1e7c8;
-        padding: 15px;
+        padding: 16px 16px 10px 16px;
         background-color: var(--color-principal);
         border-radius: 24px 24px 0 0;
         box-shadow: 0px -4px 16px 0px #39110040;
         width: 100%;
-        font-size: 13px;
+        font-size: 12px;
+        font-weight: 500;
     }
 
     footer a {
         color: #f1e7c8;
+    }
+
+    footer ul {
+        display: block;
+    }
+
+    footer .footer-item {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    footer .footer-item h2 {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    footer .footer-item-derechos {
+        text-align: left;
     }
 
     /* Reset de estilos para listas y enlaces */

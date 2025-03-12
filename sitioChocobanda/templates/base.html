@@ -46,15 +46,15 @@
       <a href="{{ ajustes.instagram_link }}"><i class="bi bi-instagram"></i></a>
       <a href="{{ ajustes.youtube_link }}"><i class="bi bi-youtube"></i></a>
       <a href="{{ ajustes.facebook_link }}"><i class="bi bi-facebook"></i></a>
-  </div>
+    </div>
     <footer>
       <ul>
-        <li class="footer-item">
+        <li class="footer-item footer-item-contacto">
           <h2>Contacto</h2>
           <p>Teléfono: {{ ajustes.telefono }}</p>
           <p>Email: {{ ajustes.correo_electronico }}</p>
         </li>
-        <li class="footer-item">
+        <li class="footer-item footer-item-menu">
           <h2>Menu secundario</h2>
           <p>
             <a href="{% url 'home' %}">Inicio</a> | 
@@ -65,7 +65,7 @@
             <a href="{% url 'contacto' %}">Contacto</a>
           </p>
         </li>
-        <li class="footer-item">
+        <li class="footer-item footer-item-derechos">
           <p>© 2024 Chocobanda. Todos los derechos reservados.</p>
         </li>
       </ul>
