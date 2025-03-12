@@ -66,6 +66,7 @@
     height: auto;
     object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
     aspect-ratio: 16 / 9;
+    border-radius: 10px 10px 0 0; /* Borde redondeado solo en la esquina izquierda */
 }
 
 .small-image {
@@ -107,7 +108,7 @@
 
 .card-item2 {
     display: flex;
-    border: 3px solid var(--color-interactivo); /* Borde gris claro */
+    border: 3px solid var(--color-interactivo); 
     border-radius: 10px;    /* Bordes redondeados */
     padding: 15px;          /* Espaciado interno */
     height: 235px;
