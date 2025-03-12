@@ -15,7 +15,11 @@
     {% endif %}
 </div>
 <div class="descripcion">
-    <p>Acercándonos a los niños y sus familias a través del arte, creando lazos afectivos y apoyando a quienes más lo necesitan</p>
+    {% if ajustes.frase_foto_principal %}
+        <p>{{ ajustes.frase_foto_principal }}</p>
+    {% else %}
+        <p>Acercándonos a los niños y sus familias a través del arte, creando lazos afectivos y apoyando a quienes más lo necesitan</p>
+    {% endif %}
 </div>
 <h2 class="home-title">Próxima función</h2>
 <section class="agenda-section">
