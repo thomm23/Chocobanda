@@ -40,9 +40,18 @@
                                             class="small-image">
                                     {% endif %}
                                     {% else %}
-                                        <img src="{% static 'img/default-character.png' %}" 
+                                        <img src="{% static 'img/foto2.JPG' %}" 
                                             alt="Foto de {{ integrante.nombre |default:'Personaje sin foto' }}" 
                                             class="big-image">
+                                        {% if integrante.foto %}
+                                            <img src="{{ integrante.foto.url }}" 
+                                                alt="Foto de {{ integrante.nombre }}" 
+                                                class="small-image">
+                                        {% else %}
+                                            <img src="{% static 'img/default-profile.png' %}" 
+                                                alt="Foto de {{ integrante.nombre }}" 
+                                                class="small-image">
+                                        {% endif %}
                                     {% endif %}
                                     <div class="card-text2">
                                         <h3 class="card-title card-titulo">{{ integrante.personajes.last.nombre|default:'Sin Personaje' }}</h3>

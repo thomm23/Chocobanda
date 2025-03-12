@@ -59,7 +59,7 @@
                             {% if actual.personajes.last and actual.personajes.last.foto %}
                             <img src="{{ actual.personajes.last.foto.url }}" alt="Foto de {{ actual.personajes.last.nombre }}" class="card-img">
                             {% else %}
-                            <img src="{% static 'img/default-character.png' %}" alt="Personaje sin foto" class="card-img">
+                            <img src="{% static 'img/foto2.JPG' %}" alt="Personaje sin foto" class="card-img">
                             {% endif %}
                             <div class="card-text">
                                 <h3 class="card-title">{{ actual.personajes.last.nombre|default:"Personaje sin nombre" }}</h3>
@@ -106,7 +106,7 @@
                         {% if invitado.personajes.last and invitado.personajes.last.foto %}
                         <img src="{{ invitado.personajes.last.foto.url }}" alt="Foto de {{ invitado.personajes.last.nombre }}" class="card-img">
                         {% else %}
-                        <img src="{% static 'img/default-character.png' %}" alt="Personaje sin foto" class="card-img">
+                        <img src="{% static 'img/foto2.JPG' %}" alt="Personaje sin foto" class="card-img">
                         {% endif %}
                         <div class="card-text">
                             <h3 class="card-title">{{ invitado.personajes.last.nombre|default:"Personaje sin nombre" }}</h3>
@@ -152,7 +152,7 @@
                         {% if memorable.personajes.last and memorable.personajes.last.foto %}
                         <img src="{{ memorable.personajes.last.foto.url }}" alt="Foto de {{ memorable.personajes.last.nombre }}" class="card-img">
                         {% else %}
-                        <img src="{% static 'img/default-character.png' %}" alt="Personaje sin foto" class="card-img">
+                        <img src="{% static 'img/foto2.JPG' %}" alt="Personaje sin foto" class="card-img">
                         {% endif %}
                         <div class="card-text">
                             <h3 class="card-title">{{ memorable.personajes.last.nombre|default:"Personaje sin nombre" }}</h3>
