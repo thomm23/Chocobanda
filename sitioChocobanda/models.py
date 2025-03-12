@@ -161,7 +161,7 @@ class AjustesPagina(models.Model):
     telefono = models.CharField(max_length=20, null=True, blank=True)  # Teléfono de contacto
     correo_electronico = models.EmailField(null=True, blank=True)  # Correo electrónico de contacto
     foto_principal = CropperImageField(upload_to='ajustes/', null=True, blank=True, aspectratio=16/9,dimensions=(1280, 720))
-    # frase_foto_principal = models.CharField(max_length=400)  # Frase obligatoria para la foto principal
+    frase_foto_principal = models.CharField(max_length=400)  # Frase obligatoria para la foto principal
 
     def save(self, *args, **kwargs):
         if not self.pk and AjustesPagina.objects.exists():

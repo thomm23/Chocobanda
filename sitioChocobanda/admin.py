@@ -71,3 +71,10 @@ class AjustesPaginaAdmin(admin.ModelAdmin):
         if AjustesPagina.objects.exists():
             return AjustesPagina.objects.first()
         return None
+    
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = super().get_fieldsets(request, obj)
+        # Asegura que el campo 'frase_foto_principal' sea obligatorio en el admin
+        if obj:  # Solo si el objeto ya existe
+            fieldsets[0][1]['fields'].append('frase_foto_principal')
+        return fieldsets
