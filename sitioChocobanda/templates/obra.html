@@ -16,7 +16,7 @@
             {% if obra.foto %}
                 <img src="{{ obra.foto.url }}" alt="Foto de {{ obra.titulo }}">
             {% else %}
-                <p>Imagen no disponible</p>
+                <img src="{% static 'img/foto2.jpg' %}" alt="Foto de {{ obra.titulo }} no disponible">
             {% endif %}
         </div>
         <h2 class="titulo-programa">Programa</h2>

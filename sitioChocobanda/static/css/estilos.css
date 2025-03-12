@@ -659,7 +659,7 @@ nav {
         bottom: 0;
         background-color: var(--color-principal);
         padding: 2rem 0 0 2rem;
-        box-shadow: 0 0 0 100vmax rgba(140, 74, 47, .3);
+        box-shadow: 0 0 0 100vmax var(--color-principalA);
         transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 

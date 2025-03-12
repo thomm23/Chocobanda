@@ -193,18 +193,6 @@
     border-radius: 16px;
 }
 
-.obras-no-image {
-    width: 500px; /* Ancho fijo */
-    min-width: 500px; /* Ancho mínimo para acomodar la imagen */
-    height: 282px;
-    min-height: 282px;
-    text-align: center; /* Centra el texto horizontalmente */
-    display: flex; /* Habilita Flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    border-radius: 16px; /* Bordes redondeados */
-    border: 3px solid var(--color-principal); /* Borde negro de 3px */
-}
 
 .obras-info {
     flex-grow: 1; /* Ocupa el espacio restante */
@@ -520,23 +508,6 @@
         object-fit: cover; 
         border-radius: none;
     } 
-
-    
-    .obras-no-image {
-        width: 120px; /* Ancho fijo de la imagen */
-        height: 120px; /* Alto fijo de la imagen */
-        min-width: 120px; /* Ancho mínimo */
-        min-height: 120px; /* Alto mínimo */
-        max-width: 120px; /* Máximo ancho permitido */
-        max-height: 120px; /* Máximo alto permitido */
-        text-align: center; /* Centra el texto horizontalmente */
-        display: flex; /* Habilita Flexbox */
-        justify-content: center; /* Centra horizontalmente */
-        align-items: center; /* Centra verticalmente */
-        border-radius: 0; /* Elimina los bordes redondeados */
-        border: none; /* Elimina todos los bordes */
-        border-right: 1px solid var(--color-interactivo); /* Borde solo en el lado derecho */
-    }
     
     .obras-info {
         margin: 0; /* Elimina márgenes internos */
