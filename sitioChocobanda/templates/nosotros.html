@@ -40,7 +40,7 @@
                                             class="small-image">
                                     {% endif %}
                                     {% else %}
-                                        <img src="{{integrante.foto.url}}" 
+                                        <img src="{% static 'img/default-character.png' %}" 
                                             alt="Foto de {{ integrante.nombre |default:'Personaje sin foto' }}" 
                                             class="big-image">
                                     {% endif %}
