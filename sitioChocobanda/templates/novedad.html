@@ -20,7 +20,7 @@
             {% endif %}                
         </div> 
         <div class = "detalles-novedad">           
-            <p class ="novedad-descp">{{noticia.cuerpo}}</p>
+            <p class ="novedad-descp">{{noticia.cuerpo | safe}}</p>
         </div> 
     </div> 
 </section> 

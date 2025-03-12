@@ -42,7 +42,9 @@
 
 .descripcion-desk-detail{
   border-radius: 10px;
-  object-fit: cover;   
+  object-fit: cover;
+  white-space: pre-wrap; 
+  word-wrap: break-word;   
 }
 
  @media screen and (min-width: 769px) {
