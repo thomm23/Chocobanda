@@ -13,7 +13,7 @@
         <select class="selector-obras">
             <option value="">Todas las obras</option>
             {% for obra in obras %}
-                <option value="{{ obra.id }}">{{ obra.titulo }}</option>
+                <option value="{{ obra.id }}" id ="option_selector">{{ obra.titulo }}</option>
             {% endfor %}
         </select>
     </div>
@@ -116,13 +116,6 @@
                                     <div class="titulo-cancion">{{ cancion.titulo }}</div>
                                     <div class="subtitulo">{{ cancion.obra.titulo }}</div>
                                 </div>
-                            </div>
-                            <div class="duracion">
-                                {% if cancion.duracion %}
-                                    {{ cancion.duracion|time:"i:s" }}  <!-- Formatea la duración en minutos:segundos -->
-                                {% else %}
-                                    00:00
-                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
@@ -369,6 +362,18 @@
                 }
 
                 modal.style.display = "block"; // Mostrar el modal
+
+
+                modal.addEventListener("click", function (event) {
+                    if (event.target === modal) {
+                        mobileNavBar.classList.add("visible"); // Mostrar el nav-bar móvil
+                    }
+                });
+                
+                // Mostrar el nav-bar móvil al tocar la imagen dentro del modal
+                modalContent.addEventListener("click", function () {
+                    mobileNavBar.classList.add("visible"); // Mostrar el nav-bar móvil
+                });
 
                 // Mostrar el nav-bar móvil al tocar la imagen dentro del modal
                 modalContent.addEventListener("click", function () {

@@ -66,6 +66,9 @@
     margin: 0 auto;
     margin-top: 20px; /* Reemplazado vh por px */
 }
+#option_selector{
+    font-family: 'montserrat', serif;
+}
 
 .selector-obras {
     width: 90%;
@@ -335,10 +338,13 @@
 /* Estilos para el contenido del modal (imagen o video) */
 .modal-content {
     width: 100%;
-    height: auto;
+    min-height: max-content;
     display: block;
 }
-
+.modal-content iframe {
+    width: 100%;
+    display: block;
+}
 .modal img {
     width: 100%;
     height: auto;
