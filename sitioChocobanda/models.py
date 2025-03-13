@@ -14,7 +14,7 @@ class Integrante(models.Model):
     
     nombre = models.CharField(max_length=255)
     ocupacion = models.CharField(max_length=255, null=True, blank=True)
-    foto = CropperImageField(upload_to='integrantes/', null=True, blank=True, aspectratio=1,dimensions=(200, 200))
+    foto = CropperImageField(upload_to='integrantes/', null=True, blank=True, aspectratio=1,dimensions=(800, 800))
     descripcion = models.CharField(max_length=1000)
     estado = models.CharField(max_length=255, choices=ESTADO_CHOICES, default='Actual')
 
@@ -57,7 +57,7 @@ class ProgramaObra(models.Model):
 
 class GaleriaObra(models.Model):
     obra = models.ForeignKey('Obra', related_name='galeria_obra', on_delete=models.CASCADE)
-    foto = CropperImageField(upload_to='galeria_obra/', aspectratio=1, dimensions=(1024, 768))  # Campo obligatorio
+    foto = CropperImageField(upload_to='galeria_obra/', aspectratio=4/3, dimensions=(1024, 768))  # Campo obligatorio
     descripcion = models.CharField(max_length=255, blank=True, null=True)  # Campo opcional
 
     def __str__(self):
@@ -143,7 +143,7 @@ class Institucion(models.Model):
     descripcion = models.TextField()
     impacto_social = models.TextField(null=True, blank=True)
     link_institucion = models.URLField(null=True, blank=True)
-    foto = CropperImageField(upload_to='instituciones/', null=True, blank=True, aspectratio=1,dimensions=(600, 400))
+    foto = CropperImageField(upload_to='instituciones/', null=True, blank=True, aspectratio=16/9,dimensions=(1280, 720))
 
     def __str__(self):
         return self.nombre
