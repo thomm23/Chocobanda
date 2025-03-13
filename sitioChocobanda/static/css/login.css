@@ -36,6 +36,7 @@ form input::placeholder {
     color: #4c6a2a;
     font-size: 24px;
     text-align: left;
+    padding: auto;
 }
 .boton-form{
     width: 100%;

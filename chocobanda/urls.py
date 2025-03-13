@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 from sitioChocobanda.views import *
 from sitioChocobanda import views
 
@@ -11,7 +12,8 @@ urlpatterns = [
     path('nosotros/', Nosotros.as_view(), name="nosotros"),
     path('nuestraHistoria/', NuestraHistoria.as_view(), name="nuestraHistoria"),
     path('galeria/', Galeria.as_view(), name="galeria"),
-    path('login/', Login.as_view(), name="login"),
+    # path('login/', Login.as_view(), name="login"),
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('contraseñaOlvidada/', ContraseñaOlvidada.as_view(), name="contraseñaOlvidada"),
     path('contacto/', Contacto.as_view(), name="contacto"),
     path('impactoSocial/', ImpactoSocial.as_view(), name='impactoSocial'),

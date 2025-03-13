@@ -138,3 +138,5 @@ TINYMCE_DEFAULT_CONFIG = {
     'plugins': 'advlist autolink lists link image charmap preview anchor',  # Asegura que los plugins estén habilitados
     'toolbar': 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',  # Añadidos subrayado, enlace e imagen
 }
+
+LOGIN_REDIRECT_URL = '/admin'
