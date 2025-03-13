@@ -130,6 +130,11 @@ JAZZMIN_SETTINGS = {
     #"site_logo": "static/img/logo.png",
     "site_icon": None,
     "welcome_sign": "Bienvenido al panel administrativo de La Chocobanda!",
+    "topmenu_links": [
+
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Volver al Sitio",  "url": "/", "permissions": ["auth.view_user"]},
+    ],
 }
 
 TINYMCE_DEFAULT_CONFIG = {
