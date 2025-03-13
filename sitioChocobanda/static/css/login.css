@@ -4,7 +4,7 @@
     font-family: 'Jokerman';
   }
 form{
-    max-width: 400px;
+    max-width: 450px;
     margin: auto;
     padding: 20px;
     border-color: var(--color-fondo);
