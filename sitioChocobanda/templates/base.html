@@ -19,9 +19,31 @@
     <header>
       <h1> 
         <a class="titulo desktop" href="{% url 'home' %}">Chocobanda</a>
-        <a class="icono-volver" href="{% url 'home' %}">
-          <span class="material-symbols-outlined">arrow_back_ios</span>
-        </a>
+        {% if "/obra/" in request.path %}
+          <a class="icono-volver" href="{% url 'nosotros' %}">
+            <span class="material-symbols-outlined">arrow_back_ios</span>
+          </a>
+        {% elif "/integrantes/" in request.path and request.path != '/integrantes/' %}
+          <a class="icono-volver" href="{% url 'integrantes' %}">
+            <span class="material-symbols-outlined">arrow_back_ios</span>
+          </a>
+        {% elif request.path == '/integrantes/' %}
+          <a class="icono-volver" href="{% url 'nosotros' %}">
+            <span class="material-symbols-outlined">arrow_back_ios</span>
+          </a>
+        {% elif "/novedades/" in request.path and request.path != '/novedades/' %}
+          <a class="icono-volver" href="{% url 'novedades' %}">
+            <span class="material-symbols-outlined">arrow_back_ios</span>
+          </a>
+        {% elif "/impactoSocialInsti/" in request.path %}
+          <a class="icono-volver" href="{% url 'impactoSocial' %}">
+            <span class="material-symbols-outlined">arrow_back_ios</span>
+          </a>
+        {% else %}
+          <a class="icono-volver" href="{% url 'home' %}">
+            <span class="material-symbols-outlined">arrow_back_ios</span>
+          </a>
+        {% endif %}
         <a class="titulo mobile">{% block nombre_seccion %} Chocobanda {% endblock %}</a>
       </h1>
       <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
