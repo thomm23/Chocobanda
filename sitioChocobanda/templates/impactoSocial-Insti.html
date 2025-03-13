@@ -32,9 +32,11 @@
     </div>
 
     <!-- Link al Sitio Web -->
+    {% if institucion.link_institucion %}
     <div class="link-institucion-container">
         <a href="{{ institucion.link_institucion }}" class="link-institucion">Visitar sitio web</a>
     </div>
+    {% endif %}
 </div>
 
 
