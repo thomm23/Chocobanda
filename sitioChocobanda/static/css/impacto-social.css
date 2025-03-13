@@ -97,6 +97,7 @@ img {
     }
 
     .instituciones-list {
+        display: block;
         flex-direction: column;
         gap: 15px;
     }
